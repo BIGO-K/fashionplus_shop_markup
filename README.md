@@ -172,17 +172,14 @@
 	- 변수명과 함수명은 **카멜타입** 으로 사용 (aaBbCc)
 	- 문자열은 "더블퀏"이 아닌 **'싱글퀏'** 으로 사용
 + 라이브러리 (플러그인)
-	- ~~[webfontloader](https://github.com/typekit/webfontloader)~~
-		* 폰트를 동기식으로 로드합니다.
-		* 구글폰트와 커스텀폰트 모두 설정할 수 있습니다.
 	- [jQuery](https://github.com/jquery/jquery)
 		* slim버전을 사용합니다.
 		* slim버전에서는 animate와 ajax 등 일부 기능이 제거됐습니다.
 	- [axios](https://github.com/axios/axios)
 		* jQuery ajax 대신 사용하는 ajax 플러그인 입니다.
-		* promise 기반으로 IE10 이하 지원을 위해 폴리필 ***es6-promise.auto-4.2.8.min.js*** 을 추가합니다.
+		* promise 기반으로 IE10 이하 지원을 위해 폴리필 ***es6-promise.auto-4.2.4.min.js*** 을 추가합니다.
 		* 요청 취소 등 디테일한 설정이 가능합니다.
-	- [underscore](https://github.com/jashkenas/underscore)
+	- [lodash](https://github.com/lodash/lodash)
 		* object, array 등을 손쉽게 변환/사용할 수 있도록 지원하는 라이브러리입니다.
 	- [load-image](https://github.com/blueimp/JavaScript-Load-Image)
 		* 이미지의 EXIF 속성을 확인할 수 있습니다.
@@ -190,11 +187,11 @@
 		* EXIF 속성으로 카메라로 찍은 사진의 회전 값을 확인할 수 있습니다.
 	- [swiper](https://github.com/nolimits4web/Swiper)
 		* 컨텐츠 슬라이드 플러그인입니다.
-	- [tweenmax](https://github.com/greensock/GreenSock-JS)
+	- [gsap](https://github.com/greensock/GSAP)
 		* DOM 모션 플러그인입니다.
 		* CSS transition보다 퍼포먼스가 좋습니다. (opacity, transform 제외)
 	- [moment](https://github.com/moment/moment)
-		* 다양한 date format을 지원합니다.
+		* 다양한 date 포멧을 지원합니다.
 	- [pikaday](https://github.com/dbushell/Pikaday)
 		* jQuery UI의 datepicker보다 퍼포먼스가 좋습니다.
 	- [sortable](https://github.com/RubaXa/Sortable)
@@ -204,17 +201,9 @@
 	- [chart](https://github.com/chartjs/Chart.js)
 		* 다양한 차트를 svg가 아닌 canvas로 구현합니다.
 		* svg보다 생성하는 DOM개수가 월등히 적습니다.
-	- [overlay scrollbars](https://github.com/KingSora/OverlayScrollbars)
+	- ~~[overlay scrollbars](https://github.com/KingSora/OverlayScrollbars)~~
 		* 커스텀 스크롤바 플러그인입니다.
-	- [auto numeric](https://github.com/autoNumeric/autoNumeric)
-		* input 요소의 number type value 컨트롤
-		* 자동으로 숫자와 통화단위 타입 적용
-		* **필요한 경우 pc에서만 사용**
-	- [cleave](https://github.com/nosir/cleave.js)
-		* input 요소의 number type value 컨트롤
-		* 자동으로 숫자와 통화단위, 카드번호, 커스텀 타입 적용
-		* **auto numeric** 보다 기능은 적지만 가벼움
-	- [ckeditor4](https://github.com/ckeditor/ckeditor-dev)
+	- ~~[ckeditor4](https://github.com/ckeditor/ckeditor-dev)~~
 		* WYSIWYG 텍스트 에디터입니다.
 		* IE 브라우저 지원을 위해 **4 full 버전** 으로 기능을 최소화하여 사용합니다.
 		* 최소화와 최적화를 위해 *config.js* 와 *contents.css* 를 수정했습니다.
