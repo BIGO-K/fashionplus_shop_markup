@@ -1,0 +1,1503 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="format-detection" content="telephone=no, address=no, email=no">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="mobile-web-app-capable" content="yes">
+
+	<!-- 소셜태그 -->
+	<meta property="og:title" content="">
+	<meta property="og:description" content="">
+	<meta property="og:image" content="">
+	<meta property="og:url" content="">
+	<meta property="og:site_name" content="">
+	<!--// 소셜태그 -->
+
+	<title>상품목록 &#60; 템플릿 - 패션플러스</title>
+
+	<!-- 공통 css -->
+	<link rel="stylesheet" href="../css/font.css">
+	<link rel="stylesheet" href="../css/app.css">
+
+	<style>
+		.mm_scroller {padding:0 !important;}
+		.mm_page-content {padding-bottom:30px;}
+		.mm_page-content > h3 {position:relative;margin:25px 15px;color:#08b3b3;font-size:20px;}
+		.mm_page-content > h3 small {margin-left:5px;vertical-align:bottom;color:#a3a3a3;font-size:12px;}
+		.mm_page-content > h5 {margin:40px 15px 10px;color:#067676;font-size:13px;}
+	</style>
+
+	<!-- (D) 폴리필/라이브러리는 요청을 줄이기 위해 combind + minify를 적용해주세요. -->
+	<!-- 폴리필/라이브러리 스크립트 -->
+	<script src="../../assets/js/polyfill/babel-polyfill-7.8.7.min.js"></script>
+	<script src="../../assets/js/polyfill/dom4-2.1.5.min.js"></script>
+	<script src="../../assets/js/polyfill/fetch.umd-3.0.0.min.js"></script>
+	<script src="../../assets/js/polyfill/intersection-observer-0.8.0.min.js"></script>
+	<script src="../../assets/js/polyfill/resize-observer-1.5.1.min.js"></script>
+	<script src="../../assets/js/lib/lodash-4.17.15.min.js"></script>
+	<script src="../../assets/js/lib/gsap-3.2.6/gsap.min.js"></script>
+	<script src="../../assets/js/lib/axios-0.19.2.min.js"></script>
+	<script src="../../assets/js/lib/load-image.all-3.0.0.min.js"></script>
+	<script src="../../assets/js/lib/sortable-1.10.2.min.js"></script>
+
+	<!-- 공통 스크립트 -->
+	<script src="../js/app_common.js"></script>
+	<script src="../js/app_page-common.js"></script>
+
+	<!-- (D) 페이지 전용 스크립트는 .mm_page-content 하단에 넣어주세요. -->
+</head>
+<body>
+	<div id="mm_app" class="mm_app">
+		<!-- 스킵 -->
+		<nav class="mm_skip">
+			<ul>
+				<li><a href="#mm_body" data-href="{ '_type': 'anchor' }">본문바로가기</a></li>
+			</ul>
+		</nav>
+		<!-- 스킵 -->
+
+		<!-- 화면 -->
+		<div class="mm_view">
+			<!-- 내용 -->
+			<div id="mm_body" class="mm_page">
+				<div class="mm_scroller">
+					<div class="mm_page-content">
+
+						<!-- (D) 상품상세로 넘어가는 상품리스트 data속성에 '_isProduct': true 를 추가합니다. (mm_stock-item 제외) -->
+						<!-- 기본형 -->
+						<h3><b>기본형</b><small>mm_product-listbox / mm_product-list / __list_card__</small></h3>
+						<h5><b>#모달 필터</b></h5>
+						<div class="mm_product-listbox">
+							<div class="mm_product-listbox-head">
+								<div class="mm__head-inner">
+									<p class="text_total"><strong>14,580</strong>개</p>
+									<div class="mm_form-select">
+										<label>
+											<b class="text_selected">추천순</b>
+											<select data-select>
+												<option>추천순</option>
+												<option>인기순</option>
+												<option>최근등록순</option>
+												<option>낮은가격순</option>
+												<option>높은가격순</option>
+												<option>할인율 높은순</option>
+											</select>
+											<i class="mco_form-select-sm"></i>
+										</label>
+									</div>
+									<!-- (D) 필터에 선택된 사항이 있을 경우 'btn_filter'에 '__filter-on' 클래스와 '선택됨'타이틀을 추가하고 'mm__head-filter' 영역을 노출합니다. -->
+									<a href="_modal_filter.html" class="btn_filter __filter-on" onclick="mm.filter.open(this.href);return false;" title="선택됨"><i class="mco_filter"></i><b>필터</b></a>
+									<button type="button" class="btn_array" data-switch="{ 'onChange': 'toggleStyleProduct' }"><i class="mco_array-wide"></i><b class="mm_ir-blind">상품 정렬 변경</b></button>
+									<!-- 선택한 필터 옵션 -->
+									<div class="mm__head-filter">
+										<button type="button" class="mm_btn btn_remove-all __btn_sm_line_light__"><b>전체삭제</b><i class="mco_remove"></i></button>
+										<div class="mm_scroller __scroller_x__">
+											<ul>
+												<li>플라워 원피스<button type="button"><b class="mm_ir-blind">삭제</b><i class="mco_remove"></i></button></li>
+												<li>무료배송<button type="button"><b class="mm_ir-blind">삭제</b><i class="mco_remove"></i></button></li>
+												<li>SJYP에스제이와이피<button type="button"><b class="mm_ir-blind">삭제</b><i class="mco_remove"></i></button></li>
+											</ul>
+										</div>
+									</div>
+									<!--// 선택한 필터 옵션 -->
+								</div>
+							</div>
+							<ul class="mm_product-list __list_card__">
+								<li class="mm_product-item">
+									<a href="prodDetail_deal.html" data-href="{ '_type': 'link', '_isProduct': true }">
+										<figure>
+											<i class="mm_bg-cover image_product" data-preload="{ '_src': '../image/_sample/prod_x2_1.png' }"></i>
+											<figcaption>
+												<p class="text_brand">SJYP에스제이와이피</p>
+												<p class="text_product">폴리 A라인 시어서커 스커트</p>
+												<p class="text_price">
+													<strong>19,000</strong>
+													<del>99,000</del>
+												</p>
+												<p class="text_sale">70%</p>
+												<p class="text_purchase">634개 구매</p>
+												<b class="mm_tag">무료배송</b>
+											</figcaption>
+										</figure>
+									</a>
+									<button type="button" class="mm_switch mm_like __switch-on" data-switch="{ 'onChange': 'changeLikeProduct', 'onChangeParams': ['callback', ['상품 id 등 callback 전달 할 값으로 첫번째는 true/false']] }" title="선택됨"><i class="mco_like"></i><b class="mm_ir-blind">좋아요한 상품에 추가하기</b></button>
+								</li>
+								<li class="mm_product-item">
+									<a href="prodDetail_deal.html" data-href="{ '_type': 'link', '_isProduct': true }">
+										<figure>
+											<i class="mm_bg-cover image_product" data-preload="{ '_src': '../image/_sample/prod_x2_3.png' }"></i>
+											<figcaption>
+												<p class="text_brand">커버낫</p>
+												<p class="text_product">아이커버낫 사퍼맨 티셔츠 아이블랙</p>
+												<p class="text_price">
+													<strong>33,180</strong>
+													<del>99,000</del>
+												</p>
+												<p class="text_sale">10%</p>
+												<b class="mm_tag">10% 쿠폰</b>
+											</figcaption>
+										</figure>
+									</a>
+									<button type="button" class="mm_switch mm_like" data-switch="{ 'onChange': 'changeLikeProduct', 'onChangeParams': ['callback', ['상품 id 등 callback 전달 할 값으로 첫번째는 true/false']] }"><i class="mco_like"></i><b class="mm_ir-blind">좋아요한 상품에 추가하기</b></button>
+								</li>
+								<li class="mm_product-item">
+									<a href="prodDetail_deal.html" data-href="{ '_type': 'link', '_isProduct': true }">
+										<figure>
+											<i class="mm_bg-cover image_product" data-preload="{ '_src': '../error' }"></i>
+											<figcaption>
+												<p class="text_brand">티더블유엔</p>
+												<p class="text_product">아이스버그 반팔 STST3 279 + 스플래쉬 반팔티셔츠</p>
+												<p class="text_price">
+													<strong>25,000</strong>
+												</p>
+												<p class="text_purchase">34개 구매</p>
+												<b class="mm_tag">7% 쿠폰</b>
+											</figcaption>
+										</figure>
+									</a>
+									<button type="button" class="mm_switch mm_like" data-switch="{ 'onChange': 'changeLikeProduct', 'onChangeParams': ['callback', ['상품 id 등 callback 전달 할 값으로 첫번째는 true/false']] }"><i class="mco_like"></i><b class="mm_ir-blind">좋아요한 상품에 추가하기</b></button>
+								</li>
+								<li class="mm_product-item">
+									<a>
+										<figure>
+											<i class="mm_bg-cover image_product" data-preload="{ '_src': '../image/_sample/prod_x2_2.png' }"></i>
+											<p class="text_soldout"><b><strong>SOLD OUT</strong><br><span>품절되었습니다</span></b></p>
+											<figcaption>
+												<p class="text_brand">배럴</p>
+												<p class="text_product">맨 베이직 어반 워터 쇼츠 블랙</p>
+												<p class="text_price">
+													<strong>6,980</strong>
+													<del>99,000</del>
+												</p>
+												<p class="text_sale">15%</p>
+												<p class="text_purchase">2개 구매</p>
+											</figcaption>
+										</figure>
+									</a>
+									<button type="button" class="mm_switch mm_like" data-switch="{ 'onChange': 'changeLikeProduct', 'onChangeParams': ['callback', ['상품 id 등 callback 전달 할 값으로 첫번째는 true/false']] }"><i class="mco_like"></i><b class="mm_ir-blind">좋아요한 상품에 추가하기</b></button>
+								</li>
+							</ul>
+						</div>
+
+						<!-- 상품없음 -->
+						<div class="mm_product-listbox">
+							<div class="mm_product-listbox-head">
+								<div class="mm__head-inner">
+									<p class="text_total"><strong>0</strong>개</p>
+									<div class="mm_form-select">
+										<label>
+											<b class="text_selected">추천순</b>
+											<select data-select>
+												<option>추천순</option>
+												<option>인기순</option>
+												<option>최근등록순</option>
+												<option>낮은가격순</option>
+												<option>높은가격순</option>
+												<option>할인율 높은순</option>
+											</select>
+											<i class="mco_form-select-sm"></i>
+										</label>
+									</div>
+									<button type="button" class="mm_switch btn_filter __filter-on" data-switch="{ '_isParent': true, 'onChange': 'filterHeight' }" title="선택됨"><i class="mco_filter"></i><b>필터</b></button>
+									<button type="button" class="btn_array" data-switch="{ 'onChange': 'toggleStyleProduct' }"><i class="mco_array-wide"></i><b class="mm_ir-blind">상품 정렬 변경</b></button>
+
+									<!-- 검색 필터 -->
+									<div class="mm_filter">
+										<div class="mm_filter-detail mm_scroller">
+											<form>
+												<section>
+													<h5 class="mm_strapline"><b>구매혜택</b></h5>
+													<div class="mm_check-list __list_chain__">
+														<ul>
+															<li>
+																<label class="mm_form-check">
+																	<input type="checkbox" data-check="{ '_group': 'check_benefit' }">
+																	<b class="mm_block">
+																		<i class="mco_form-check"></i>
+																		<span class="text_label">무료배송</span>
+																	</b>
+																</label>
+															</li>
+															<li>
+																<label class="mm_form-check">
+																	<input type="checkbox" data-check="{ '_group': 'check_benefit' }">
+																	<b class="mm_block">
+																		<i class="mco_form-check"></i>
+																		<span class="text_label">쿠폰할인</span>
+																	</b>
+																</label>
+															</li>
+															<li>
+																<label class="mm_form-check">
+																	<input type="checkbox" data-check="{ '_group': 'check_benefit' }">
+																	<b class="mm_block">
+																		<i class="mco_form-check"></i>
+																		<span class="text_label">페이백</span>
+																	</b>
+																</label>
+															</li>
+															<li>
+																<label class="mm_form-check">
+																	<input type="checkbox" data-check="{ '_group': 'check_benefit' }">
+																	<b class="mm_block">
+																		<i class="mco_form-check"></i>
+																		<span class="text_label">즉시할인</span>
+																	</b>
+																</label>
+															</li>
+														</ul>
+													</div>
+												</section>
+												<section class="mm_filter-price">
+													<h5 class="mm_strapline"><b>가격대 검색</b></h5>
+													<div class="mm_radio-list __list_chain__">
+														<ul>
+															<li>
+																<label class="mm_form-radio">
+																	<input type="radio" name="dev_radio-range" data-range="{ '_max': '30000' }" data-radio>
+																	<b class="mm_block">
+																		<span class="text_label">~3만원 이하</span>
+																		<i class="mco_check"></i>
+																	</b>
+																</label>
+															</li>
+															<li>
+																<label class="mm_form-radio">
+																	<input type="radio" name="dev_radio-range" data-range="{ '_min': '30000', '_max': '100000' }" data-radio>
+																	<b class="mm_block">
+																		<span class="text_label">3~20만원</span>
+																		<i class="mco_check"></i>
+																	</b>
+																</label>
+															</li>
+															<li>
+																<label class="mm_form-radio">
+																	<input type="radio" name="dev_radio-range" data-range="{ '_min': '100000', '_max': '200000' }" data-radio>
+																	<b class="mm_block">
+																		<span class="text_label">10~20만원</span>
+																		<i class="mco_check"></i>
+																	</b>
+																</label>
+															</li>
+															<li>
+																<label class="mm_form-radio">
+																	<input type="radio" name="dev_radio-range" data-range="{ '_min': '200000' }" data-radio>
+																	<b class="mm_block">
+																		<span class="text_label">20만원 이상</span>
+																		<i class="mco_check"></i>
+																	</b>
+																</label>
+															</li>
+														</ul>
+													</div>
+													<div class="mm_formmix-linked">
+														<div class="mm_form-text">
+															<button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><b class="mm_ir-blind">지우기</b></button>
+															<label>
+																<input type="number" class="textfield" data-text><i class="bg_text"></i>
+																<span class="text_placeholder">최저금액</span>
+															</label>
+														</div>
+														<span class="text_tilde">~</span>
+														<div class="mm_form-text">
+															<button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><b class="mm_ir-blind">지우기</b></button>
+															<label>
+																<input type="number" class="textfield" data-text><i class="bg_text"></i>
+																<span class="text_placeholder">최대금액</span>
+															</label>
+														</div>
+													</div>
+												</section>
+												<div class="mm_btnbox">
+													<div class="mm_inline">
+														<button type="button" class="mm_btn btn_filter-reset __btn_line_light__"><i class="mco_reset"></i><b class="mm_ir-blind">초기화</b></button>
+														<button type="button" class="mm_btn btn_filter-search __btn_primary__"><b>상세검색</b></button>
+													</div>
+												</div>
+												<input hidden>
+											</form>
+											<button type="button" class="mm_switch btn_filter-close" data-switch="{ '_isParent': true, '_classParent': 'mm__head-inner' }"><b class="mm_ir-blind">닫기</b><i class="mco_close"></i></button>
+										</div>
+									</div>
+									<!--// 검색 필터 -->
+								</div>
+							</div>
+							<p class="mm_text-none"><i class="ico_text-none"></i><strong class="mm_text-primary">'하늘색 반팔 원피스'</strong>검색 내역이 없습니다</p>
+						</div>
+						<!--// 상품없음 -->
+						<!--// 기본형 -->
+
+						<hr class="mm_line">
+
+						<!-- 슬라이드형 -->
+						<h3><b>슬라이드형</b><small>mm_scroller mm_product-list.__list_card__</small></h3>
+						<h5>#기본 슬라이드</h5>
+						<!-- 슬라이드 기본형 -->
+						<div class="mm_scroller __scroller_x__">
+							<ul class="mm_product-list __list_card__">
+								<li class="mm_product-item">
+									<a href="prodDetail_deal.html" data-href="{ '_type': 'link', '_isProduct': true }">
+										<figure>
+											<i class="mm_bg-cover image_product" data-preload="{ '_src': '../image/_sample/prod_x2_1.png' }"></i>
+											<figcaption>
+												<p class="text_brand">곤니치와봉쥬르</p>
+												<p class="text_product">COLLEGE 스웻셔츠 Univ MTM 4Color</p>
+												<p class="text_sale">45%</p>
+												<p class="text_price"><strong>48,750</strong></p>
+											</figcaption>
+										</figure>
+									</a>
+									<button type="button" class="mm_switch mm_like __switch-on" data-switch="{ 'onChange': 'changeLikeProduct', 'onChangeParams': ['callback', ['상품 id 등 callback 전달 할 값으로 첫번째는 true/false']] }" title="선택됨"><i class="mco_like"></i><b class="mm_ir-blind">좋아요한 상품에 추가하기</b></button>
+								</li>
+								<li class="mm_product-item">
+									<a href="prodDetail_deal.html" data-href="{ '_type': 'link', '_isProduct': true }">
+										<figure>
+											<i class="mm_bg-cover image_product" data-preload="{ '_src': '../image/_sample/prod_x2_2.png' }"></i>
+											<figcaption>
+												<p class="text_brand">슬로우애시드</p>
+												<p class="text_product">EFFXSLOWACID Logo Short-_T</p>
+												<p class="text_sale">25%</p>
+												<p class="text_price"><strong>58,000</strong></p>
+											</figcaption>
+										</figure>
+									</a>
+									<button type="button" class="mm_switch mm_like" data-switch="{ 'onChange': 'changeLikeProduct', 'onChangeParams': ['callback', ['상품 id 등 callback 전달 할 값으로 첫번째는 true/false']] }"><i class="mco_like"></i><b class="mm_ir-blind">좋아요한 상품에 추가하기</b></button>
+								</li>
+								<li class="mm_product-item">
+									<a href="prodDetail_deal.html" data-href="{ '_type': 'link', '_isProduct': true }">
+										<figure>
+											<i class="mm_bg-cover image_product" data-preload="{ '_src': '../image/_sample/prod_x2_3.png' }"></i>
+											<figcaption>
+												<p class="text_brand">슬로우애시드</p>
+												<p class="text_product">EFFXSLOWACID Logo Short-_T</p>
+												<p class="text_sale">25%</p>
+												<p class="text_price"><strong>58,000</strong></p>
+											</figcaption>
+										</figure>
+									</a>
+									<button type="button" class="mm_switch mm_like" data-switch="{ 'onChange': 'changeLikeProduct', 'onChangeParams': ['callback', ['상품 id 등 callback 전달 할 값으로 첫번째는 true/false']] }"><i class="mco_like"></i><b class="mm_ir-blind">좋아요한 상품에 추가하기</b></button>
+								</li>
+								<li class="mm_product-item">
+									<a href="prodDetail_deal.html" data-href="{ '_type': 'link', '_isProduct': true }">
+										<figure>
+											<i class="mm_bg-cover image_product" data-preload="{ '_src': '../error' }"></i>
+											<figcaption>
+												<p class="text_brand">곤니치와봉쥬르</p>
+												<p class="text_product">COLLEGE 스웻셔츠 Univ MTM 4Color</p>
+												<p class="text_sale">45%</p>
+												<p class="text_price"><strong>48,750</strong></p>
+											</figcaption>
+										</figure>
+									</a>
+									<button type="button" class="mm_switch mm_like" data-switch="{ 'onChange': 'changeLikeProduct', 'onChangeParams': ['callback', ['상품 id 등 callback 전달 할 값으로 첫번째는 true/false']] }"><i class="mco_like"></i><b class="mm_ir-blind">좋아요한 상품에 추가하기</b></button>
+								</li>
+								<li class="mm_product-item">
+									<a>
+										<figure>
+											<i class="mm_bg-cover image_product" data-preload="{ '_src': '../image/_sample/prod_x2_2.png' }"></i>
+											<p class="text_soldout"><b><strong>SOLD OUT</strong><span>품절되었습니다</span></b></p>
+											<figcaption>
+												<p class="text_brand">트릴리온(TRILLION)</p>
+												<p class="text_product">컬러그라데이션 오버핏 맨투맨 BLUE</p>
+												<p class="text_sale">34%</p>
+												<p class="text_price"><strong>58,000</strong></p>
+											</figcaption>
+										</figure>
+									</a>
+									<button type="button" class="mm_switch mm_like" data-switch="{ 'onChange': 'changeLikeProduct', 'onChangeParams': ['callback', ['상품 id 등 callback 전달 할 값으로 첫번째는 true/false']] }"><i class="mco_like"></i><b class="mm_ir-blind">좋아요한 상품에 추가하기</b></button>
+								</li>
+							</ul>
+						</div>
+						<!--// 슬라이드 기본형  -->
+						<!-- 슬라이드 템플릿형 -->
+						<h5>#템플릿형 슬라이드</h5>
+						<div class="mm_scroller __scroller_x__">
+							<ul class="mm_product-list __list_card__">
+								<li class="mm_product-item">
+									<a href="prodDetail_deal.html" data-href="{ '_type': 'link', '_isProduct': true }">
+										<figure>
+											<i class="mm_bg-cover image_product" data-preload="{ '_src': '../image/_sample/prod_x2_1.png' }"></i>
+											<figcaption>
+												<p class="text_brand">SJYP에스제이와이피</p>
+												<p class="text_product">폴리 A라인 시어서커 스커트</p>
+												<p class="text_price">
+													<strong>19,000</strong>
+													<del>99,000</del>
+												</p>
+												<p class="text_sale">70%</p>
+												<p class="text_purchase">634개 구매</p>
+												<b class="mm_tag">무료배송</b>
+											</figcaption>
+										</figure>
+									</a>
+									<button type="button" class="mm_switch mm_like __switch-on" data-switch="{ 'onChange': 'changeLikeProduct', 'onChangeParams': ['callback', ['상품 id 등 callback 전달 할 값으로 첫번째는 true/false']] }" title="선택됨"><i class="mco_like"></i><b class="mm_ir-blind">좋아요한 상품에 추가하기</b></button>
+								</li>
+								<li class="mm_product-item">
+									<a href="prodDetail_deal.html" data-href="{ '_type': 'link', '_isProduct': true }">
+										<figure>
+											<i class="mm_bg-cover image_product" data-preload="{ '_src': '../image/_sample/prod_x2_3.png' }"></i>
+											<figcaption>
+												<p class="text_brand">커버낫</p>
+												<p class="text_product">아이커버낫 사퍼맨 티셔츠 아이블랙</p>
+												<p class="text_price">
+													<strong>33,180</strong>
+													<del>99,000</del>
+												</p>
+												<p class="text_sale">10%</p>
+												<b class="mm_tag">10% 쿠폰</b>
+											</figcaption>
+										</figure>
+									</a>
+									<button type="button" class="mm_switch mm_like" data-switch="{ 'onChange': 'changeLikeProduct', 'onChangeParams': ['callback', ['상품 id 등 callback 전달 할 값으로 첫번째는 true/false']] }"><i class="mco_like"></i><b class="mm_ir-blind">좋아요한 상품에 추가하기</b></button>
+								</li>
+								<li class="mm_product-item">
+									<a href="prodDetail_deal.html" data-href="{ '_type': 'link', '_isProduct': true }">
+										<figure>
+											<i class="mm_bg-cover image_product" data-preload="{ '_src': '../error' }"></i>
+											<figcaption>
+												<p class="text_brand">티더블유엔</p>
+												<p class="text_product">아이스버그 반팔 STST3 279 + 스플래쉬 반팔티셔츠</p>
+												<p class="text_price">
+													<strong>25,000</strong>
+												</p>
+												<p class="text_purchase">34개 구매</p>
+												<b class="mm_tag">7% 쿠폰</b>
+											</figcaption>
+										</figure>
+									</a>
+									<button type="button" class="mm_switch mm_like" data-switch="{ 'onChange': 'changeLikeProduct', 'onChangeParams': ['callback', ['상품 id 등 callback 전달 할 값으로 첫번째는 true/false']] }"><i class="mco_like"></i><b class="mm_ir-blind">좋아요한 상품에 추가하기</b></button>
+								</li>
+								<li class="mm_product-item">
+									<a>
+										<figure>
+											<i class="mm_bg-cover image_product" data-preload="{ '_src': '../image/_sample/prod_x2_2.png' }"></i>
+											<p class="text_soldout"><b><strong>SOLD OUT</strong><br><span>품절되었습니다</span></b></p>
+											<figcaption>
+												<p class="text_brand">배럴</p>
+												<p class="text_product">맨 베이직 어반 워터 쇼츠 블랙</p>
+												<p class="text_price">
+													<strong>6,980</strong>
+													<del>99,000</del>
+												</p>
+												<p class="text_sale">15%</p>
+												<p class="text_purchase">2개 구매</p>
+											</figcaption>
+										</figure>
+									</a>
+									<button type="button" class="mm_switch mm_like" data-switch="{ 'onChange': 'changeLikeProduct', 'onChangeParams': ['callback', ['상품 id 등 callback 전달 할 값으로 첫번째는 true/false']] }"><i class="mco_like"></i><b class="mm_ir-blind">좋아요한 상품에 추가하기</b></button>
+								</li>
+							</ul>
+						</div>
+						<!--// 슬라이드 템플릿형 -->
+						<!-- 슬라이드 와이드형 -->
+						<h5>#와이드형 슬라이드</h5>
+						<div class="mm_scroller __scroller_x__">
+							<ul class="mm_product-list">
+								<li class="mm_product-item">
+									<a href="prodDetail_deal.html" data-href="{ '_type': 'link', '_isProduct': true }">
+										<figure>
+											<i class="mm_bg-cover image_product" data-preload="{ '_src': '../image/_sample/prod_x2_1.png' }"></i>
+											<figcaption>
+												<p class="text_brand">SJYP에스제이와이피</p>
+												<p class="text_product">폴리 A라인 시어서커 스커트</p>
+												<p class="text_price">
+													<strong>19,000</strong>
+													<del>99,000</del>
+												</p>
+												<p class="text_sale">70%</p>
+												<p class="text_purchase">634개 구매</p>
+												<b class="mm_tag">무료배송</b>
+											</figcaption>
+										</figure>
+									</a>
+									<button type="button" class="mm_switch mm_like __switch-on" data-switch="{ 'onChange': 'changeLikeProduct', 'onChangeParams': ['callback', ['상품 id 등 callback 전달 할 값으로 첫번째는 true/false']] }" title="선택됨"><i class="mco_like"></i><b class="mm_ir-blind">좋아요한 상품에 추가하기</b></button>
+								</li>
+								<li class="mm_product-item">
+									<a href="prodDetail_deal.html" data-href="{ '_type': 'link', '_isProduct': true }">
+										<figure>
+											<i class="mm_bg-cover image_product" data-preload="{ '_src': '../image/_sample/prod_x2_3.png' }"></i>
+											<figcaption>
+												<p class="text_brand">커버낫</p>
+												<p class="text_product">아이커버낫 사퍼맨 티셔츠 아이블랙</p>
+												<p class="text_price">
+													<strong>33,180</strong>
+													<del>99,000</del>
+												</p>
+												<p class="text_sale">10%</p>
+												<b class="mm_tag">10% 쿠폰</b>
+											</figcaption>
+										</figure>
+									</a>
+									<button type="button" class="mm_switch mm_like" data-switch="{ 'onChange': 'changeLikeProduct', 'onChangeParams': ['callback', ['상품 id 등 callback 전달 할 값으로 첫번째는 true/false']] }"><i class="mco_like"></i><b class="mm_ir-blind">좋아요한 상품에 추가하기</b></button>
+								</li>
+								<li class="mm_product-item">
+									<a href="prodDetail_deal.html" data-href="{ '_type': 'link', '_isProduct': true }">
+										<figure>
+											<i class="mm_bg-cover image_product" data-preload="{ '_src': '../error' }"></i>
+											<figcaption>
+												<p class="text_brand">티더블유엔</p>
+												<p class="text_product">아이스버그 반팔 STST3 279 + 스플래쉬 반팔티셔츠</p>
+												<p class="text_price">
+													<strong>25,000</strong>
+												</p>
+												<p class="text_purchase">34개 구매</p>
+												<b class="mm_tag">7% 쿠폰</b>
+											</figcaption>
+										</figure>
+									</a>
+									<button type="button" class="mm_switch mm_like" data-switch="{ 'onChange': 'changeLikeProduct', 'onChangeParams': ['callback', ['상품 id 등 callback 전달 할 값으로 첫번째는 true/false']] }"><i class="mco_like"></i><b class="mm_ir-blind">좋아요한 상품에 추가하기</b></button>
+								</li>
+								<li class="mm_product-item">
+									<a>
+										<figure>
+											<i class="mm_bg-cover image_product" data-preload="{ '_src': '../image/_sample/prod_x2_2.png' }"></i>
+											<p class="text_soldout"><b><strong>SOLD OUT</strong><br><span>품절되었습니다</span></b></p>
+											<figcaption>
+												<p class="text_brand">배럴</p>
+												<p class="text_product">맨 베이직 어반 워터 쇼츠 블랙</p>
+												<p class="text_price">
+													<strong>6,980</strong>
+													<del>99,000</del>
+												</p>
+												<p class="text_sale">15%</p>
+												<p class="text_purchase">2개 구매</p>
+											</figcaption>
+										</figure>
+									</a>
+									<button type="button" class="mm_switch mm_like" data-switch="{ 'onChange': 'changeLikeProduct', 'onChangeParams': ['callback', ['상품 id 등 callback 전달 할 값으로 첫번째는 true/false']] }"><i class="mco_like"></i><b class="mm_ir-blind">좋아요한 상품에 추가하기</b></button>
+								</li>
+							</ul>
+						</div>
+						<!--// 슬라이드 와이드형 -->
+						<br><br><hr class="mm_line">
+
+						<!-- 단축형 -->
+						<h3><b>단축형</b><small>mm_product-list __list_sm__ __list_xs__</small></h3>
+						<ul class="mm_product-list __list_sm__">
+							<li class="mm_product-item">
+								<a href="prodDetail_deal.html" data-href="{ '_type': 'link', '_isProduct': true }">
+									<p class="text_order">신고일: 2020-10-19 <small>(주문번호: 123456789)</small></p>
+									<figure>
+										<i class="mm_bg-cover image_product" data-preload="{ '_src': '../image/_sample/prod_x1_1.png' }"></i>
+										<figcaption>
+											<p class="text_product">데일리&데이트 13,900원 균일</p>
+											<p class="text_price"><strong>54,800</strong></p>
+										</figcaption>
+									</figure>
+								</a>
+							</li>
+							<li class="mm_product-item">
+								<div class="mm_product-item-head">
+									<b class="mm_text-primary text_status">취소 완료</b>
+									<div class="mm_rside">
+										<p>결제대금예치제(KICC)</p>
+									</div>
+								</div>
+								<a href="prodDetail_deal.html" data-href="{ '_type': 'link', '_isProduct': true }">
+									<p class="text_order">2020-10-19 <small>(주문번호: 123456789)</small></p>
+									<figure>
+										<i class="mm_bg-cover image_product" data-preload="{ '_src': '../image/_sample/prod_x1_2.png' }"></i>
+										<figcaption>
+											<p class="text_product">[공효진 착용 아이템] 2020 S/S 반다나&플라워 믹스패턴 스트링 티어드 스커트</p>
+											<p class="text_price"><strong>209,800</strong></p>
+											<p class="text_type">유형: 배송 준비중</p>
+										</figcaption>
+									</figure>
+								</a>
+								<div class="mm_product-item-foot">
+									<div class="mm_btnbox">
+										<button type="button" class="mm_btn __btn_sm_line__"><b>신고하기</b></button>
+									</div>
+								</div>
+							</li>
+							<li class="mm_product-item">
+								<div class="mm_product-item-head">
+									<b class="mm_text-secondary text_status">신청 기간 종료</b>
+									<div class="mm_rside">
+										<p>예상 적립금액<strong class="text_price"><span>2,000</span></strong></p>
+									</div>
+								</div>
+								<a>
+									<p class="text_order">2020-10-19 <small>(주문번호: 123456789)</small></p>
+									<figure>
+										<i class="mm_bg-cover image_product" data-preload="{ '_src': '../image/_sample/prod_x1_3.png' }"></i>
+										<p class="text_soldout"><span>품절</span></p>
+										<figcaption>
+											<p class="text_product">[매긴나잇브릿지]플리츠 디테일 드레스_아쿠아슈즈드라이특가 모음</p>
+											<p class="text_price"><strong>54,800</strong></p>
+										</figcaption>
+									</figure>
+								</a>
+								<div class="mm_product-item-foot">
+									<p class="mm__foot-bg">2020-10-25 지급 예정 / 2020-10-20 신청 가능</p>
+								</div>
+							</li>
+							<li class="mm_product-item __item_off__">
+								<div class="mm_product-item-head">
+									<b class="mm_text-secondary text_status">지급 완료</b>
+									<div class="mm_rside">
+										<p>예상 적립금액<strong class="text_price"><span>650</span></strong></p>
+									</div>
+								</div>
+								<a href="prodDetail_deal.html" data-href="{ '_type': 'link', '_isProduct': true }">
+									<p class="text_order">2020-10-19 <small>(주문번호: 123456789)</small></p>
+									<figure>
+										<i class="mm_bg-cover image_product" data-preload="{ '_src': '../image/_sample/prod_x1_3.png' }"></i>
+										<figcaption>
+											<p class="text_product">아쿠아슈즈 드라이특가</p>
+											<p class="text_price"><strong>209,800</strong></p>
+										</figcaption>
+									</figure>
+								</a>
+								<div class="mm_product-item-foot">
+									<div class="mm_btnbox">
+										<button type="button" class="mm_btn __btn_sm_line__"><b>신고하기</b></button>
+									</div>
+									<p class="mm__foot-bg">2020-10-25 지급 예정 / 2020-10-20 신청 가능</p>
+								</div>
+							</li>
+						</ul>
+
+						<br><br><br>
+
+						<ul class="mm_product-list __list_sm__">
+							<li class="mm_product-item">
+								<label class="mm_form-check">
+									<input type="checkbox" data-check="{ '_group': 'dev_check-product' }">
+									<b class="mm_block">
+										<i class="mco_form-check"></i>
+										<span class="text_label mm_ir-blind">상품선택</span>
+									</b>
+								</label>
+								<a href="prodDetail_deal.html" data-href="{ '_type': 'link', '_isProduct': true }">
+									<figure>
+										<i class="mm_bg-cover image_product" data-preload="{ '_src': '../image/_sample/prod_x1_3.png' }"></i>
+										<figcaption>
+											<p class="text_product">[레노마레이디]아울렛 F/W 단독특가! 코트/자켓/니트/가디건</p>
+											<p class="text_price"><strong>54,800</strong><del>299,000</del></p>
+										</figcaption>
+									</figure>
+								</a>
+							</li>
+							<li class="mm_product-item">
+								<label class="mm_form-check">
+									<input type="checkbox" data-check="{ '_group': 'dev_check-product' }">
+									<b class="mm_block">
+										<i class="mco_form-check"></i>
+										<span class="text_label mm_ir-blind">상품선택</span>
+									</b>
+								</label>
+								<a href="prodDetail_deal.html" data-href="{ '_type': 'link', '_isProduct': true }">
+									<figure>
+										<i class="mm_bg-cover image_product" data-preload="{ '_src': '../image/_sample/prod_x1_2.png' }"></i>
+										<figcaption>
+											<p class="text_product">썸머 아이템 단독특가</p>
+											<p class="text_option">선택223) 컷오프 원피스 55 사이즈</p>
+											<p class="text_price"><strong>54,800</strong><del>299,000</del></p>
+										</figcaption>
+									</figure>
+								</a>
+							</li>
+							<li class="mm_product-item">
+								<label class="mm_form-check">
+									<input type="checkbox" data-check="{ '_group': 'dev_check-product' }">
+									<b class="mm_block">
+										<i class="mco_form-check"></i>
+										<span class="text_label mm_ir-blind">상품선택</span>
+									</b>
+								</label>
+								<a>
+									<figure>
+										<i class="mm_bg-cover image_product" data-preload="{ '_src': '../image/_sample/prod_x1_1.png' }"></i>
+										<p class="text_soldout"><span>품절</span></p>
+										<figcaption>
+											<p class="text_product">데일리&데이트 13,900원 균일</p>
+											<p class="text_option">[매긴나잇브릿지]플리츠 디테일 드레스_MJM1OP3140 / 55</p>
+											<p class="text_price"><strong>54,800</strong><del>299,000</del></p>
+										</figcaption>
+									</figure>
+								</a>
+							</li>
+						</ul>
+
+						<br><br><br>
+
+						<ul class="mm_product-list __list_xs__">
+							<li class="mm_product-item">
+								<a href="prodDetail_deal.html" data-href="{ '_type': 'link', '_isProduct': true }">
+									<figure>
+										<i class="mm_bg-cover image_product" data-preload="{ '_src': '../image/_sample/prod_x1_3.png' }"></i>
+										<figcaption>
+											<p class="text_product">폴리 A라인 시어서커 스커트</p>
+										</figcaption>
+									</figure>
+								</a>
+							</li>
+							<li class="mm_product-item">
+								<a href="prodDetail_deal.html" data-href="{ '_type': 'link', '_isProduct': true }">
+									<figure>
+										<i class="mm_bg-cover image_product" data-preload="{ '_src': '../image/_sample/prod_x1_2.png' }"></i>
+										<figcaption>
+											<p class="text_product">[77까지] 핀턱 드레이프 엘레강스 원피스</p>
+											<p class="text_option">오렌지 55</p>
+										</figcaption>
+									</figure>
+								</a>
+							</li>
+						</ul>
+						<!--// 단축형 -->
+
+						<br><br><br><hr class="mm_line">
+
+						<!-- 상품타이틀형 -->
+						<!-- 상품타이틀형에는 isProduct 옵션을 추가하지 않습니다. -->
+						<h3><b>상품타이틀형</b><small>mm_stock-list mm_stock-item</small></h3>
+						<ul class="mm_stock-list">
+							<li class="mm_stock-item">
+								<a href="prodDetail_deal.html" data-href="{ '_type': 'link' }">
+									<b class="text_product">[본사직영] F/W 역시즌♥ 지금이 기회 1만원 할인</b>
+								</a>
+								<figure>
+									<i class="mm_bg-cover image_product" data-preload="{ '_src': '../image/_sample/prod_x1_1.png' }"></i>
+									<figcaption>
+										<dl>
+											<dt><b>옵션</b></dt>
+											<dd><p class="text_option">플라워 믹스패턴 스타일 원피스 / 55</p></dd>
+										</dl>
+										<dl>
+											<dt><b>수량</b></dt>
+											<dd><p class="text_amount">1</p></dd>
+										</dl>
+										<dl>
+											<dt><b>가격</b></dt>
+											<dd><p class="text_price"><strong>54,800</strong></p></dd>
+										</dl>
+									</figcaption>
+								</figure>
+							</li>
+							<li class="mm_stock-item">
+								<div class="mm_stock-item-head">
+									<label class="mm_form-check">
+										<input type="checkbox" data-check="{ '_group': 'dev_check-stock' }">
+										<b class="mm_block">
+											<i class="mco_form-check"></i>
+											<span class="text_label mm_ir-blind">상품선택</span>
+										</b>
+									</label>
+									<b class="mm_text-primary text_status">배송 준비중</b>
+									<div class="mm_rside">
+										<p>주문일: 2020-10-12</p>
+									</div>
+								</div>
+								<a href="prodDetail_deal.html" data-href="{ '_type': 'link' }">
+									<b class="text_product">[공효진 착용 아이템] 2020 S/S 반다나&플라워 믹스패턴 스트링 티어드 스타일 롱원피스</b>
+								</a>
+								<figure>
+									<i class="mm_bg-cover image_product" data-preload="{ '_src': '../image/_sample/prod_x1_3.png' }"></i>
+									<figcaption>
+										<dl>
+											<dt><b>옵션</b></dt>
+											<dd><p class="text_option">선택 68)트로피칼 플라워프린트 오프숄더 다크네이비(dn-55)</p></dd>
+										</dl>
+										<dl>
+											<dt><b>수량</b></dt>
+											<dd><p class="text_amount">1</p></dd>
+										</dl>
+										<dl>
+											<dt><b>가격</b></dt>
+											<dd><p class="text_price"><strong>54,800</strong></p><del>99,000원</del></dd>
+										</dl>
+									</figcaption>
+								</figure>
+							</li>
+							<li class="mm_stock-item">
+								<div class="mm_stock-item-head">
+									<b class="mm_text-primary text_status">배송 완료</b>
+									<div class="mm_rside">
+										<a class="mm_btn btn_ship __btn_xs_line_secondary__" href="#" target="_blank" title="새 창 열림"><i class="mco_ship"></i><b>배송조회</b></a>
+									</div>
+								</div>
+								<a href="prodDetail_deal.html" data-href="{ '_type': 'link' }">
+									<b class="text_product">[공효진 착용 아이템] 2020 S/S 반다나&플라워 믹스패턴 스트링 티어드 스타일 롱원피스</b>
+								</a>
+								<figure>
+									<i class="mm_bg-cover image_product" data-preload="{ '_src': '../image/_sample/prod_x1_1.png' }"></i>
+									<figcaption>
+										<dl>
+											<dt><b>옵션</b></dt>
+											<dd><p class="text_option">플라워 믹스패턴 스타일 원피스 / 55</p></dd>
+										</dl>
+										<dl>
+											<dt><b>수량</b></dt>
+											<dd><p class="text_amount">1</p></dd>
+										</dl>
+										<dl>
+											<dt><b>가격</b></dt>
+											<dd><p class="text_price"><strong>54,800</strong></p><del>99,000원</del></dd>
+										</dl>
+									</figcaption>
+								</figure>
+								<div class="mm_stock-item-foot">
+									<div class="mm_btnbox mm_flex __flex_equal__">
+										<a class="mm_btn __btn_sm_line__" href="_popup_myOrderCancelProd.html" data-href="{ '_type': 'popup' }"><b>주문 취소</b></a>
+									</div>
+									<div class="mm_btnbox mm_flex __flex_equal__">
+										<a class="mm_btn __btn_sm_line__" href="_popup_myOrderReturnProd.html" data-href="{ '_type': 'popup' }"><b>반품 신청</b></a>
+										<a class="mm_btn __btn_sm_line__" href="_popup_myOrderExchangeProd.html" data-href="{ '_type': 'popup' }"><b>교환 신청</b></a>
+										<a class="mm_btn __btn_sm_line__" href="_popup_reviewRegister.html" data-href="{ '_type': 'popup' }"><b>상품평 작성</b></a>
+									</div>
+									<div class="mm__foot-bg">
+										<p class="text_percent"><span class="text_date">10/13(화)</span>도착 확률<strong>84<sub>%</sub></strong></p>
+									</div>
+								</div>
+							</li>
+							<li class="mm_stock-item">
+								<div class="mm_stock-item-head">
+									<b class="mm_text-primary text_status">입금 대기중</b>
+								</div>
+								<a href="prodDetail_deal.html" data-href="{ '_type': 'link' }">
+									<b class="text_product">[공효진 착용 아이템] 2020 S/S 반다나&플라워 믹스패턴 스트링 티어드 스타일 롱원피스</b>
+								</a>
+								<figure>
+									<i class="mm_bg-cover image_product" data-preload="{ '_src': '../image/_sample/prod_x1_1.png' }"></i>
+									<figcaption>
+										<dl>
+											<dt><b>옵션</b></dt>
+											<dd><p class="text_option">플라워 믹스패턴 스타일 원피스 / 55</p></dd>
+										</dl>
+										<dl>
+											<dt><b>수량</b></dt>
+											<dd><p class="text_amount">1</p></dd>
+										</dl>
+										<dl>
+											<dt><b>가격</b></dt>
+											<dd><p class="text_price"><strong>54,800</strong></p><del>99,000원</del></dd>
+										</dl>
+									</figcaption>
+								</figure>
+								<div class="mm_stock-item-foot">
+									<div class="mm_form-select __select_sm__">
+										<label>
+											<select data-select>
+												<option>상품 할인 쿠폰 15%_써스데이아이랜드 (12608930)</option>
+											</select>
+											<i class="mco_form-select"></i>
+										</label>
+									</div>
+									<div class="mm_form-select __select_sm__">
+										<label>
+											<select data-select>
+												<option>중복 쿠폰_써스데이아이랜드 5% 할인 </option>
+											</select>
+											<i class="mco_form-select"></i>
+										</label>
+									</div>
+									<div class="mm__foot-bg">
+										<div class="mm_radio-list">
+											<p>즉시 할인</p>
+											<ul>
+												<li>
+													<label class="mm_form-radio">
+														<input type="radio" name="dev_radio-discount" data-radio checked>
+														<b class="mm_block">
+															<i class="mco_form-radio"></i>
+															<span class="text_label">1,450원 즉시 할인</span>
+														</b>
+													</label>
+												</li>
+												<li>
+													<label class="mm_form-radio">
+														<input type="radio" name="dev_radio-discount" data-radio>
+														<b class="mm_block">
+															<i class="mco_form-radio"></i>
+															<span class="text_label">1,000원 적립 <small>(배송완료 1일후 적립)</small></span>
+														</b>
+													</label>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="mm_stock-item">
+								<div class="mm_stock-item-head">
+									<b class="mm_text-primary text_status">입금 대기중</b>
+								</div>
+								<a href="prodDetail_deal.html" data-href="{ '_type': 'link' }">
+									<b class="text_product">[공효진 착용 아이템] 2020 S/S 반다나&플라워 믹스패턴 스트링 티어드 스타일 롱원피스</b>
+								</a>
+								<figure>
+									<i class="mm_bg-cover image_product" data-preload="{ '_src': '../image/_sample/prod_x1_1.png' }"></i>
+									<figcaption>
+										<dl>
+											<dt><b>옵션</b></dt>
+											<dd><p class="text_option">플라워 믹스패턴 스타일 원피스 / 55</p></dd>
+										</dl>
+										<dl>
+											<dt><b>수량</b></dt>
+											<dd><p class="text_amount">1</p></dd>
+										</dl>
+										<dl>
+											<dt><b>가격</b></dt>
+											<dd><p class="text_price"><strong>54,800</strong></p><del>99,000원</del></dd>
+										</dl>
+									</figcaption>
+								</figure>
+								<div class="mm_stock-item-foot">
+									<div class="mm__foot-bg __foot_round__">
+										<dl>
+											<dt><b>반품 택배사</b></dt>
+											<dd>CJ대한통운</dd>
+										</dl>
+										<dl>
+											<dt><b>송장번호</b></dt>
+											<dd>1234567891<a class="btn_trace" href="#" target="_blank" title="새 창 열림"><b>배송 추적<i class="mco_link"></i></b></a></dd>
+										</dl>
+										<a class="mm_btn btn_ship-modify __btn_xs_dark__" href="_modal_invoiceModify.html"  data-href="{ '_type': 'modal' }"><b>수정</b></a>
+									</div>
+								</div>
+							</li>
+							<li class="mm_stock-item __item_off__">
+								<a>
+									<b class="text_product">아쿠아슈즈, 드라이백 특가</b>
+								</a>
+								<figure>
+									<i class="mm_bg-cover image_product" data-preload="{ '_src': '../image/_sample/prod_x1_1.png' }"></i>
+									<p class="text_soldout"><span>품절</span></p>
+									<figcaption>
+										<dl>
+											<dt><b>옵션</b></dt>
+											<dd><p class="text_option">플라워 믹스패턴 스타일 원피스 / 55</p></dd>
+										</dl>
+										<dl>
+											<dt><b>수량</b></dt>
+											<dd>
+												<div class="mm_form-select __select_sm_shortest__">
+													<label>
+														<select data-select>
+															<option>1</option>
+														</select>
+														<i class="mco_form-select"></i>
+													</label>
+												</div>
+											</dd>
+										</dl>
+										<dl>
+											<dt><b>가격</b></dt>
+											<dd><p class="text_price"><strong>54,800</strong></p><del>99,000원</del></dd>
+										</dl>
+									</figcaption>
+								</figure>
+							</li>
+						</ul>
+						<!--// 상품타이틀형 -->
+
+						<br><br><br><hr class="mm_line">
+
+						<!-- 셀러형 -->
+						<h3><b>셀러형</b><small>mm_seller-list mm_seller-item</small></h3>
+						<ul class="mm_seller-list">
+							<li class="mm_seller-item">
+								<div class="mm_seller-item-head">
+									<h5><b>(주)와이컬렉션</b></h5>
+									<div class="mm_rside">
+										<a href="_modal_sellerInfo.html" data-href="{ '_type': 'modal' }"><i class="mco_shop"></i>판매자 정보</a>
+									</div>
+								</div>
+								<div class="mm_stock-item">
+									<div class="mm_stock-item-head">
+										<b class="mm_text-primary text_status">입금 대기중</b>
+									</div>
+									<a href="prodDetail_deal.html" data-href="{ '_type': 'link' }">
+										<b class="text_product">[공효진 착용 아이템] 2020 S/S 반다나&플라워 믹스패턴 스트링 티어드 스타일 롱원피스</b>
+									</a>
+									<figure>
+										<i class="mm_bg-cover image_product" data-preload="{ '_src': '../image/_sample/prod_x1_1.png' }"></i>
+										<figcaption>
+											<dl>
+												<dt><b>옵션</b></dt>
+												<dd><p class="text_option">플라워 믹스패턴 스타일 원피스 / 55</p></dd>
+											</dl>
+											<dl>
+												<dt><b>수량</b></dt>
+												<dd><p class="text_amount">1</p></dd>
+											</dl>
+											<dl>
+												<dt><b>가격</b></dt>
+												<dd><p class="text_price"><strong>54,800</strong></p><del>99,000원</del></dd>
+											</dl>
+										</figcaption>
+									</figure>
+									<div class="mm_stock-item-foot">
+										<div class="mm__foot-bg __foot_round__">
+											<dl>
+												<dt><b>반품 택배사</b></dt>
+												<dd>CJ대한통운</dd>
+											</dl>
+											<dl>
+												<dt><b>송장번호</b></dt>
+												<dd>1234567891<a class="btn_trace" href="#" target="_blank" title="새 창 열림"><b>배송 추적<i class="mco_link"></i></b></a></dd>
+											</dl>
+											<a class="mm_btn btn_ship-modify __btn_xs_dark__" href="_modal_invoiceModify.html"  data-href="{ '_type': 'modal' }"><b>수정</b></a>
+										</div>
+									</div>
+								</div>
+								<div class="mm_seller-item-foot">
+									<dl>
+										<dt><b>배송비</b></dt>
+										<dd>2,500원</dd>
+									</dl>
+									<dl>
+										<dt><b>도서산간 배송비</b></dt>
+										<dd>5,000원</dd>
+									</dl>
+								</div>
+							</li>
+							<li class="mm_seller-item">
+								<div class="mm_seller-item-head">
+									<h5><b>(주)와이컬렉션</b></h5>
+									<div class="mm_rside">
+										<p>배송비 3,000원</p>
+									</div>
+								</div>
+								<ul class="mm_stock-list">
+									<li class="mm_stock-item">
+										<a href="prodDetail_deal.html" data-href="{ '_type': 'link' }">
+											<b class="text_product">[공효진 착용 아이템] 2020 S/S 반다나&플라워 믹스패턴 스트링 티어드 스타일 롱원피스</b>
+										</a>
+										<figure>
+											<i class="mm_bg-cover image_product" data-preload="{ '_src': '../image/_sample/prod_x1_3.png' }"></i>
+											<figcaption>
+												<dl>
+													<dt><b>옵션</b></dt>
+													<dd><p class="text_option">선택 68)트로피칼 플라워프린트 오프숄더 다크네이비(dn-55)</p></dd>
+												</dl>
+												<dl>
+													<dt><b>수량</b></dt>
+													<dd><p class="text_amount">1</p></dd>
+												</dl>
+												<dl>
+													<dt><b>가격</b></dt>
+													<dd><p class="text_price"><strong>54,800</strong></p><del>99,000원</del></dd>
+												</dl>
+											</figcaption>
+										</figure>
+									</li>
+									<li class="mm_stock-item">
+										<a href="prodDetail_deal.html" data-href="{ '_type': 'link' }">
+											<b class="text_product">[공효진 착용 아이템] 2020 S/S 반다나&플라워 믹스패턴 스트링 티어드 스타일 롱원피스</b>
+										</a>
+										<figure>
+											<i class="mm_bg-cover image_product" data-preload="{ '_src': '../image/_sample/prod_x1_3.png' }"></i>
+											<figcaption>
+												<dl>
+													<dt><b>옵션</b></dt>
+													<dd><p class="text_option">선택 68)트로피칼 플라워프린트 오프숄더 다크네이비(dn-55)</p></dd>
+												</dl>
+												<dl>
+													<dt><b>수량</b></dt>
+													<dd><p class="text_amount">1</p></dd>
+												</dl>
+												<dl>
+													<dt><b>가격</b></dt>
+													<dd><p class="text_price"><strong>54,800</strong></p><del>99,000원</del></dd>
+												</dl>
+											</figcaption>
+										</figure>
+										<div class="mm_stock-item-foot">
+											<div class="mm_form-select __select_sm__">
+												<label>
+													<select data-select>
+														<option>중복 쿠폰_써스데이아이랜드 5% 할인 </option>
+													</select>
+													<i class="mco_form-select"></i>
+												</label>
+											</div>
+											<div class="mm__foot-bg">
+												<div class="mm_radio-list">
+													<p>즉시 할인</p>
+													<ul>
+														<li>
+															<label class="mm_form-radio">
+																<input type="radio" name="dev_radio-discount2" data-radio checked>
+																<b class="mm_block">
+																	<i class="mco_form-radio"></i>
+																	<span class="text_label">1,450원 즉시 할인</span>
+																</b>
+															</label>
+														</li>
+														<li>
+															<label class="mm_form-radio">
+																<input type="radio" name="dev_radio-discount2" data-radio>
+																<b class="mm_block">
+																	<i class="mco_form-radio"></i>
+																	<span class="text_label">1,000원 적립 <small>(배송완료 1일후 적립)</small></span>
+																</b>
+															</label>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</li>
+								</ul>
+								<div class="mm_seller-item-foot">
+									<dl>
+										<dt><b>배송비</b></dt>
+										<dd>2,500원</dd>
+									</dl>
+									<dl>
+										<dt><b>도서산간 배송비</b></dt>
+										<dd>5,000원</dd>
+									</dl>
+								</div>
+							</li>
+						</ul>
+						<!-- 셀러형 -->
+
+						<br><br><br><hr class="mm_line">
+
+						<!-- 주문형 -->
+						<h3><b>주문형</b><small>mm_order-list mm_order-item</small></h3>
+						<ul class="mm_order-list">
+							<li class="mm_order-item">
+								<div class="mm_order-item-head">
+									<h5><b>72437022-2<span>(2020-10-15)</span></b></h5>
+									<a class="btn_detail" href="myOrderDetail.html" data-href="{ '_type': 'link' }"><b>주문 상세</b><i class="mco_link"></i></a>
+								</div>
+								<ul class="mm_seller-list">
+									<li class="mm_seller-item">
+										<div class="mm_seller-item-head">
+											<h5><b>(주)와이컬렉션</b></h5>
+											<div class="mm_rside">
+												<a href="_modal_sellerInfo.html" data-href="{ '_type': 'modal' }"><i class="mco_shop"></i>판매자 정보</a>
+											</div>
+										</div>
+										<ul class="mm_stock-list">
+											<li class="mm_stock-item">
+												<div class="mm_stock-item-head">
+													<b class="mm_text-primary text_status">배송 중</b>
+													<div class="mm_rside">
+														<a class="mm_btn btn_ship __btn_xs_line_secondary__" href="#" target="_blank" title="새 창 열림"><i class="mco_ship"></i><b>배송조회</b></a>
+													</div>
+												</div>
+												<a href="prodDetail_deal.html" data-href="{ '_type': 'link' }">
+													<b class="text_product">[공효진 착용 아이템] 2020 S/S 반다나&플라워 믹스패턴 스트링 티어드 스타일 롱원피스</b>
+												</a>
+												<figure>
+													<i class="mm_bg-cover image_product" data-preload="{ '_src': '../image/_sample/prod_x1_1.png' }"></i>
+													<figcaption>
+														<dl>
+															<dt><b>옵션</b></dt>
+															<dd><p class="text_option">플라워 믹스패턴 스타일 원피스 / 55</p></dd>
+														</dl>
+														<dl>
+															<dt><b>수량</b></dt>
+															<dd><p class="text_amount">1</p></dd>
+														</dl>
+														<dl>
+															<dt><b>가격</b></dt>
+															<dd><p class="text_price"><strong>54,800</strong></p><del>99,000원</del></dd>
+														</dl>
+													</figcaption>
+												</figure>
+												<div class="mm_stock-item-foot">
+													<div class="mm_btnbox mm_flex __flex_equal__">
+														<a class="mm_btn __btn_sm_line__" href="#" data-href="{ '_type': 'link' }"><b>수취 확인</b></a>
+														<a class="mm_btn __btn_sm_line__" href="_popup_reviewRegister.html" data-href="{ '_type': 'popup' }"><b>상품평 작성</b></a>
+													</div>
+													<div class="mm__foot-bg">
+														<p class="text_percent"><span class="text_date">10/13(화)</span>도착 확률<strong>84<sub>%</sub></strong></p>
+													</div>
+												</div>
+											</li>
+											<li class="mm_stock-item">
+												<a href="prodDetail_deal.html" data-href="{ '_type': 'link' }">
+													<b class="text_product">[공효진 착용 아이템] 2020 S/S 반다나&플라워 믹스패턴 스트링 티어드 스타일 롱원피스</b>
+												</a>
+												<figure>
+													<i class="mm_bg-cover image_product" data-preload="{ '_src': '../image/_sample/prod_x1_2.png' }"></i>
+													<figcaption>
+														<dl>
+															<dt><b>옵션</b></dt>
+															<dd><p class="text_option">플라워 믹스패턴 스타일 원피스 / 55</p></dd>
+														</dl>
+														<dl>
+															<dt><b>수량</b></dt>
+															<dd><p class="text_amount">1</p></dd>
+														</dl>
+														<dl>
+															<dt><b>가격</b></dt>
+															<dd><p class="text_price"><strong>54,800</strong></p><del>99,000원</del></dd>
+														</dl>
+													</figcaption>
+												</figure>
+												<div class="mm_stock-item-foot">
+													<div class="mm_btnbox mm_flex __flex_equal__">
+														<a class="mm_btn __btn_sm_line__" href="_popup_myOrderReturnProd.html" data-href="{ '_type': 'popup' }"><b>반품 신청</b></a>
+														<a class="mm_btn __btn_sm_line__" href="_popup_myOrderExchangeProd.html" data-href="{ '_type': 'popup' }"><b>교환 신청</b></a>
+														<a class="mm_btn __btn_sm_line__" href="_popup_reviewRegister.html" data-href="{ '_type': 'popup' }"><b>상품평 작성</b></a>
+													</div>
+												</div>
+											</li>
+										</ul>
+									</li>
+									<li class="mm_seller-item">
+										<div class="mm_seller-item-head">
+											<h5><b>컨트롤케이앤제이</b></h5>
+											<div class="mm_rside">
+												<p>배송비 3,000원</p>
+											</div>
+										</div>
+										<ul class="mm_stock-list">
+											<li class="mm_stock-item">
+												<a href="prodDetail_deal.html" data-href="{ '_type': 'link' }">
+													<b class="text_product">[공효진 착용 아이템] 2020 S/S 반다나&플라워 믹스패턴 스트링 티어드 스타일 롱원피스</b>
+												</a>
+												<figure>
+													<i class="mm_bg-cover image_product" data-preload="{ '_src': '../image/_sample/prod_x1_3.png' }"></i>
+													<figcaption>
+														<dl>
+															<dt><b>옵션</b></dt>
+															<dd><p class="text_option">선택 68)트로피칼 플라워프린트 오프숄더 다크네이비(dn-55)</p></dd>
+														</dl>
+														<dl>
+															<dt><b>수량</b></dt>
+															<dd><p class="text_amount">1</p></dd>
+														</dl>
+														<dl>
+															<dt><b>가격</b></dt>
+															<dd><p class="text_price"><strong>54,800</strong></p><del>99,000원</del></dd>
+														</dl>
+													</figcaption>
+												</figure>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li class="mm_order-item">
+								<div class="mm_order-item-head">
+									<h5><b>72437022-2<span>(2020-10-15)</span></b></h5>
+									<a class="btn_detail" href="myOrderDetail.html" data-href="{ '_type': 'link' }"><b>주문 상세</b><i class="mco_link"></i></a>
+								</div>
+								<div class="mm_seller-item">
+									<div class="mm_seller-item-head">
+										<h5><b>(주)와이컬렉션</b></h5>
+										<div class="mm_rside">
+											<a href="_modal_sellerInfo.html" data-href="{ '_type': 'modal' }"><i class="mco_shop"></i>판매자 정보</a>
+										</div>
+									</div>
+									<div class="mm_stock-item">
+										<div class="mm_stock-item-head">
+											<b class="mm_text-primary text_status">입금 대기중</b>
+										</div>
+										<a href="prodDetail_deal.html" data-href="{ '_type': 'link' }">
+											<b class="text_product">[공효진 착용 아이템] 2020 S/S 반다나&플라워 믹스패턴 스트링 티어드 스타일 롱원피스</b>
+										</a>
+										<figure>
+											<i class="mm_bg-cover image_product" data-preload="{ '_src': '../image/_sample/prod_x1_1.png' }"></i>
+											<figcaption>
+												<dl>
+													<dt><b>옵션</b></dt>
+													<dd><p class="text_option">플라워 믹스패턴 스타일 원피스 / 55</p></dd>
+												</dl>
+												<dl>
+													<dt><b>수량</b></dt>
+													<dd><p class="text_amount">1</p></dd>
+												</dl>
+												<dl>
+													<dt><b>가격</b></dt>
+													<dd><p class="text_price"><strong>54,800</strong></p><del>99,000원</del></dd>
+												</dl>
+											</figcaption>
+										</figure>
+										<div class="mm_stock-item-foot">
+											<div class="mm__foot-bg __foot_round__">
+												<dl>
+													<dt><b>반품 택배사</b></dt>
+													<dd>CJ대한통운</dd>
+												</dl>
+												<dl>
+													<dt><b>송장번호</b></dt>
+													<dd>1234567891<a class="btn_trace" href="#" target="_blank" title="새 창 열림"><b>배송 추적<i class="mco_link"></i></b></a></dd>
+												</dl>
+												<a class="mm_btn btn_ship-modify __btn_xs_dark__" href="_modal_invoiceModify.html"  data-href="{ '_type': 'modal' }"><b>수정</b></a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</li>
+						</ul>
+						<!--// 주문형 -->
+
+						<br><br><br><hr class="mm_line">
+
+						<!-- 딜상품형 -->
+						<h3><b>딜상품형</b><small>mm_deal-list mm_deal-item</small></h3>
+						<ul class="mm_deal-list">
+							<li class="mm_deal-item">
+								<a href="prodDetail_deal.html" data-href="{ '_type': 'link', '_isProduct': true }">
+									<figure>
+										<i class="mm_bg-cover image_product" data-preload="{ '_src': '../image/_sample/prod_deal_1.jpg' }"></i>
+										<figcaption>
+											<p class="text_brand">랭앤루</p>
+											<p class="text_product">게스 SS 남여 오리지날 반팔티 1만대 가격인하!</p>
+											<p class="text_sale">70%</p>
+											<p class="text_price">
+												<strong>34,400</strong>
+												<del>109,000원</del>
+											</p>
+											<p class="text_purchase">240개 구매</p>
+										</figcaption>
+									</figure>
+								</a>
+							</li>
+							<li class="mm_deal-item">
+								<a href="prodDetail_deal.html" data-href="{ '_type': 'link', '_isProduct': true }">
+									<i class="image_badge-specialdeal" title="초비상특가"></i>
+									<figure>
+										<i class="mm_bg-cover image_product" data-preload="{ '_src': '../image/_sample/prod_deal_2.jpg' }"></i>
+										<figcaption>
+											<p class="text_brand">파르티멘토</p>
+											<p class="text_product">간절기아이템 Line Stripe Shirts Sky</p>
+											<p class="text_sale">60%</p>
+											<p class="text_price">
+												<strong>74,800</strong>
+												<del>109,000원</del>
+											</p>
+											<p class="text_purchase">634개 구매</p>
+										</figcaption>
+									</figure>
+								</a>
+							</li>
+							<li class="mm_deal-item">
+								<a href="prodDetail_deal.html" data-href="{ '_type': 'link', '_isProduct': true }">
+									<figure>
+										<i class="mm_bg-cover image_product" data-preload="{ '_src': '../image/_sample/prod_deal_3.jpg' }"></i>
+										<figcaption>
+											<p class="text_brand">르젠</p>
+											<p class="text_product">르젠 다이아 누빔 양털퍼 집업자켓(LNZP044JF)</p>
+											<p class="text_sale">56%</p>
+											<p class="text_price">
+												<strong>399,000</strong>
+												<del>712,500원</del>
+											</p>
+											<p class="text_purchase">634개 구매</p>
+										</figcaption>
+									</figure>
+								</a>
+							</li>
+							<li class="mm_deal-item">
+								<a href="prodDetail_deal.html" data-href="{ '_type': 'link', '_isProduct': true }">
+									<figure>
+										<i class="mm_bg-cover image_product" data-preload="{ '_src': '../image/_sample/prod_deal_4.jpg' }"></i>
+										<figcaption>
+											<p class="text_brand">라클라우드</p>
+											<p class="text_product">천연라텍스 매트리스 단품(킹K, 두께 20cm)</p>
+											<p class="text_sale">56%</p>
+											<p class="text_price">
+												<strong>399,000</strong>
+												<del>712,500원</del>
+											</p>
+											<p class="text_purchase">634개 구매</p>
+										</figcaption>
+									</figure>
+								</a>
+							</li>
+						</ul>
+						<!--// 딜상품형 -->
+
+						<br><br><br><hr class="mm_line">
+
+						<!-- 상품아이템 개별사용 -->
+						<h3><b>상품아이템 개별사용</b><br><small>mm_product-item / __item_sm__ __item_xs__</small><br><small>mm_stock-item</small></h3>
+						<!-- 기본와이드형 -->
+						<div class="mm_product-item">
+							<a href="prodDetail_deal.html" data-href="{ '_type': 'link', '_isProduct': true }">
+								<figure>
+									<i class="mm_bg-cover image_product" data-preload="{ '_src': '../image/_sample/prod_x2_1.png' }"></i>
+									<figcaption>
+										<p class="text_brand">SJYP에스제이와이피</p>
+										<p class="text_product">폴리 A라인 시어서커 스커트</p>
+										<p class="text_price">
+											<strong>19,000</strong>
+											<del>99,000</del>
+										</p>
+										<p class="text_sale">70%</p>
+										<p class="text_purchase">634개 구매</p>
+										<b class="mm_tag">무료배송</b>
+									</figcaption>
+								</figure>
+							</a>
+							<button type="button" class="mm_switch mm_like __switch-on" data-switch="{ 'onChange': 'changeLikeProduct', 'onChangeParams': ['callback', ['상품 id 등 callback 전달 할 값으로 첫번째는 true/false']] }" title="선택됨"><i class="mco_like"></i><b class="mm_ir-blind">좋아요한 상품에 추가하기</b></button>
+						</div>
+						<!--// 기본와이드형 -->
+						<!-- 단축형sm -->
+						<div class="mm_product-item __item_sm__">
+							<a href="prodDetail_deal.html" data-href="{ '_type': 'link', '_isProduct': true }">
+								<figure>
+									<i class="mm_bg-cover image_product" data-preload="{ '_src': '../image/_sample/prod_x1_2.png' }"></i>
+									<figcaption>
+										<p class="text_product">[공효진 착용 아이템] 2020 S/S 반다나&플라워 믹스패턴 스트링 티어드 스커트</p>
+										<p class="text_price"><strong>209,800</strong></p>
+										<p class="text_type">유형: 배송 준비중</p>
+									</figcaption>
+								</figure>
+							</a>
+						</div>
+						<!--// 단축형sm -->
+						<!-- 단축형xs -->
+						<div class="mm_product-item __item_xs__">
+							<a href="prodDetail_deal.html" data-href="{ '_type': 'link', '_isProduct': true }">
+								<figure>
+									<i class="mm_bg-cover image_product" data-preload="{ '_src': '../image/_sample/prod_x1_2.png' }"></i>
+									<figcaption>
+										<p class="text_product">[77까지] 핀턱 드레이프 엘레강스 원피스</p>
+										<p class="text_option">오렌지 55</p>
+									</figcaption>
+								</figure>
+							</a>
+						</div>
+						<!--// 단축형xs -->
+						<!-- 타이틀형 -->
+						<div class="mm_stock-item">
+							<a href="prodDetail_deal.html" data-href="{ '_type': 'link' }">
+								<b class="text_product">[본사직영] F/W 역시즌♥ 지금이 기회 1만원 할인</b>
+							</a>
+							<figure>
+								<i class="mm_bg-cover image_product" data-preload="{ '_src': '../image/_sample/prod_x1_1.png' }"></i>
+								<figcaption>
+									<dl>
+										<dt><b>옵션</b></dt>
+										<dd><p class="text_option">플라워 믹스패턴 스타일 원피스 / 55</p></dd>
+									</dl>
+									<dl>
+										<dt><b>수량</b></dt>
+										<dd><p class="text_amount">1</p></dd>
+									</dl>
+									<dl>
+										<dt><b>가격</b></dt>
+										<dd><p class="text_price"><strong>54,800</strong></p></dd>
+									</dl>
+								</figcaption>
+							</figure>
+						</div>
+						<!--// 타이틀형 -->
+						<!--// 상품아이템 개별사용 -->
+					</div>
+				</div>
+
+				<!-- 현재 페이지 스크립트 -->
+				<!-- <script src="../js/.js"></script> -->
+			</div>
+			<!--// 내용 -->
+		</div>
+		<!--// 화면 -->
+	</div>
+</body>
+</html>

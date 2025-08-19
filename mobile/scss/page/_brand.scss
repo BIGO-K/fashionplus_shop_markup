@@ -1,0 +1,130 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../helper/var';
+@use '../helper/mixin';
+
+/**
+** 페이지
+** 브랜드샵
+**/
+
+
+//< 브랜드샵
+.m_brand {
+	&-head {
+		position: relative;
+
+		&::after {
+			display: block;
+			border-top: 1px solid #e6e6e6;
+			border-bottom: 7px solid #eee;
+			content: '';
+		}
+
+		// 배너 이미지 없음
+		&.mm_image-none {
+			.image_banner {
+				background-color: #b5b0b4;
+
+				&::before,
+				&::after {
+					display: none;
+				}
+			}
+		}
+
+		&-info {
+			position: absolute;
+			z-index: 1;
+			top: 50%;
+			right: 0;
+			left: 0;
+			margin-top: -48px;
+			padding: 0 20px;
+			text-align: center;
+
+			h2 {
+				position: relative;
+				padding-bottom: 7px;
+				@include mixin.font(700 #fff '24px/34px');
+
+				&::before {
+					position: absolute;
+					bottom: 0;
+					left: 50%;
+					margin-left: -25px;
+					width: 50px;
+					border-bottom: 2px solid #fff;
+					content: '';
+				}
+			}
+
+			// 좋아요/공유
+			.m__info-personal {
+				margin-top: 40px;
+
+				button {
+					padding: 0;
+					width: 28px;
+					height: 28px;
+					border-radius: 100%;
+					@include mixin.font('16px/28px');
+
+					&:nth-child(n+2) {
+						margin-left: 9px;
+					}
+
+					// 찜 선택
+					&.mm_like {
+						border: 1px solid #fff;
+						color: #fff;
+
+						&.__switch-on {
+							border: 0;
+							background-color: #fff;
+
+							.mco_like {
+								@include mixin.font(var.$color_primary_base '/30px');
+							}
+						}
+					}
+
+					// sns 공유하기
+					&.btn_sns-share {
+						background-color: #fff;
+
+						.mco_share {
+							margin-left: -1px;
+							color: #a49ea2;
+						}
+					}
+				}
+			}
+		}
+
+		.image_banner {
+			width: 100%;
+			padding-top: 58.66666%;
+		}
+	}
+
+	&-best {
+		padding-bottom: 10px;
+
+		.mm_heading {
+			padding: 14px 0 15px;
+		}
+	}
+
+	&-seller {
+		padding: 21px 10px 27px;
+		background-color: #fafafa;
+
+		h4 {
+			padding: 0 2px 6px;
+			@include mixin.font('14px/25px' left);
+		}
+	}
+}
+//> 브랜드샵

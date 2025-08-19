@@ -1,0 +1,37 @@
+@charset 'utf-8';
+
+@forward 'core/reset';
+@forward 'core/grid';
+@forward 'core/bom';
+
+@forward 'component/block';
+@forward 'component/image';
+@forward 'component/monticon';
+@forward 'component/text';
+@forward 'component/button';
+@forward 'component/list';
+@forward 'component/form';
+@forward 'component/part';
+
+@forward 'layout/header';
+@forward 'layout/footer';
+@forward 'layout/toolbar';
+@forward 'layout/nav';
+@forward 'layout/cover';
+@forward 'layout/side';
+@forward 'layout/modal';
+@forward 'layout/popup';
+// @forward 'layout/print';
+
+@forward 'page/main';
+@forward 'page/product';
+@forward 'page/groupmall';
+@forward 'page/brand';
+@forward 'page/event';
+@forward 'page/sign';
+@forward 'page/order';
+@forward 'page/mypage';
+@forward 'page/cs';
+@forward 'page/term';
+@forward 'page/etc';
+@forward 'page/error';

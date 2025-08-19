@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="format-detection" content="telephone=no, address=no, email=no">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="mobile-web-app-capable" content="yes">
+
+	<!-- 소셜태그 -->
+	<meta property="og:title" content="">
+	<meta property="og:description" content="">
+	<meta property="og:image" content="">
+	<meta property="og:url" content="">
+	<meta property="og:site_name" content="">
+	<!--// 소셜태그 -->
+
+	<title>적립금 관리 &#60; 마이쇼핑 - 패션플러스</title>
+
+	<!-- 공통 css -->
+	<link rel="stylesheet" href="../css/font.css">
+	<link rel="stylesheet" href="../css/app.css">
+
+	<!-- (D) 폴리필/라이브러리는 요청을 줄이기 위해 combind + minify를 적용해주세요. -->
+	<!-- 폴리필/라이브러리 스크립트 -->
+	<script src="../../assets/js/polyfill/babel-polyfill-7.8.7.min.js"></script>
+	<script src="../../assets/js/polyfill/dom4-2.1.5.min.js"></script>
+	<script src="../../assets/js/polyfill/fetch.umd-3.0.0.min.js"></script>
+	<script src="../../assets/js/polyfill/intersection-observer-0.8.0.min.js"></script>
+	<script src="../../assets/js/polyfill/resize-observer-1.5.1.min.js"></script>
+	<script src="../../assets/js/lib/lodash-4.17.15.min.js"></script>
+	<script src="../../assets/js/lib/gsap-3.2.6/gsap.min.js"></script>
+	<script src="../../assets/js/lib/axios-0.19.2.min.js"></script>
+	<script src="../../assets/js/lib/load-image.all-3.0.0.min.js"></script>
+	<script src="../../assets/js/lib/sortable-1.10.2.min.js"></script>
+
+	<!-- 공통 스크립트 -->
+	<script src="../js/app_common.js"></script>
+	<script src="../js/app_page-common.js"></script>
+
+	<!-- (D) 페이지 전용 스크립트는 .mm_page-content 하단에 넣어주세요. -->
+</head>
+<body>
+	<div id="mm_app" class="mm_app">
+		<!-- 스킵 -->
+		<nav class="mm_skip">
+			<ul>
+				<li><a href="#mm_body" data-href="{ '_type': 'anchor' }">본문바로가기</a></li>
+			</ul>
+		</nav>
+		<!-- 스킵 -->
+
+		<!-- 화면 -->
+		<div class="mm_view">
+			<!-- 헤더 -->
+			<header class="mm_header">
+				<h1><b>적립금 관리</b></h1>
+				<div class="mm_lside">
+					<a class="btn_back" href="#" data-href="{ '_type': 'back' }"><i class="mco_history-back"></i><b class="mm_ir-blind">이전으로</b></a>
+				</div>
+				<div class="mm_rside">
+					<a href="cart.html" data-href="{ '_type': 'link' }"><i class="mco_cart"></i><strong class="text_badge">2</strong><b class="mm_ir-blind">장바구니</b></a>
+				</div>
+			</header>
+			<!--// 헤더 -->
+
+			<!-- 내용 -->
+			<div id="mm_body" class="mm_page">
+				<!-- (D) 실제 내용을 추가하는 부분입니다. -->
+
+				<div class="mm_scroller">
+					<div class="mm_page-inner">
+						<!-- 본문 -->
+						<div class="mm_page-content">
+							<div class="m_mybenefit">
+								<h3 class="mm_heading"><b>사용가능한 적립금</b><span class="text_price"><strong>50,000</strong></span></h3>
+								<hr class="mm_line">
+								<!-- 적립금 내역 -->
+								<ul class="m_mybenefit-point">
+									<li>
+										<h6 class="mm_strapline"><b>상품 구매 후 적립금</b></h6>
+										<p class="text_order">주문번호: 72091669</p>
+										<p>적립금 지급일: 2020-10-12 11:00:03</p>
+										<p>유효일자: 2021-12-31</p>
+										<span class="mm_text-primary text_price">+ <strong>500</strong></span>
+									</li>
+									<li>
+										<h6 class="mm_strapline"><b>즉시 페이백 적립금</b></h6>
+										<p class="text_order">주문번호: 72091669</p>
+										<p>적립금 지급일: 2020-10-12 11:00:03</p>
+										<p>유효일자: 2021-12-31</p>
+										<span class="mm_text-primary text_price">+ <strong>2,000</strong></span>
+									</li>
+									<li>
+										<h6 class="mm_strapline"><b>구매 대금 지불</b></h6>
+										<p class="text_order">주문번호: 72091669</p>
+										<p>적립금 지급일: 2020-10-12 11:00:03</p>
+										<span class="text_price">- <strong>1,000</strong></span>
+									</li>
+								</ul>
+								<!--// 적립금 내역 -->
+
+								<!-- 페이지네이션 -->
+								<!-- (D) 현재 페이지의 메뉴에 '__page-on' 클래스와 '선택됨' 타이틀을 추가합니다. -->
+								<div class="mm_pagination">
+									<div class="mm_inline">
+										<ol>
+											<li><a class="__page-on" href="#" title="선택됨"><b>1</b></a></li>
+											<li><a href="#"><b>2</b></a></li>
+											<li><a href="#"><b>3</b></a></li>
+										</ol>
+										<button type="button" class="btn_control-first" onclick="mm.link('')" disabled><i class="mco_page-first"></i><b class="mm_ir-blind">처음</b></button>
+										<button type="button" class="btn_control-prev" onclick="mm.link('')" disabled><i class="mco_page-prev"></i><b class="mm_ir-blind">이전</b></button>
+										<button type="button" class="btn_control-next" onclick="mm.link('')"><i class="mco_page-next"></i><b class="mm_ir-blind">다음</b></button>
+										<button type="button" class="btn_control-last" onclick="mm.link('')"><i class="mco_page-last"></i><b class="mm_ir-blind">마지막</b></button>
+									</div>
+								</div>
+								<!--// 페이지네이션 -->
+
+								<!-- 유의사항 -->
+								<div class="mm_note">
+									<h5 class="text_title"><i class="mco_note"></i><b>적립금 사용 전 유의사항</b></h5>
+									<ul>
+										<li>적립금은 주문 시 현금처럼 이용 가능하며 다른 결제 수단과 함께 사용 가능합니다</li>
+										<li>적립금 1원=현금 1원으로 100원 이상의 적립금 보유 시 패션플러스 내에서 사용 가능합니다</li>
+										<li>적립금은 상품 구매/이벤트/품절 및 배송 지연 보상 등을 통해 부여되는 사이버머니로 취소/반품/환불 시 재 적립이 가능합니다(일부 특가 상품은 적립금 대상에서 제외)</li>
+										<li>상품 구매 적립금은 상품 출고일로부터 10일 후에 바로 적립되며, 상품 취소/반품 시 적립금은 함께 취소됩니다</li>
+										<li>상품 구매 시 적립된 적립금은 지급일을 기준으로 6개월 후 익일 0시에 소멸 됩니다</li>
+									</ul>
+								</div>
+								<!--// 유의사항 -->
+							</div>
+						</div>
+						<!--// 본문 -->
+
+						<!-- 푸터 -->
+						<footer id="mm_footer" class="mm_footer">
+							<!-- 푸터-메뉴 -->
+							<div class="mm_footer-menu">
+								<ul class="mm_flex __flex_equal__">
+									<li><a href="_popup_login.html" data-href="{ '_type': 'popup' }"><b>로그인</b></a></li>
+									<li><a href="csMain.html" data-href="{ '_type': 'link' }"><b>고객센터</b></a></li>
+									<li><a href="_popup_csNotice.html" data-href="{ '_type': 'link' }"><b>공지사항</b></a></li>
+									<li><a href="#" target="_blank" title="새 창 열림"><b>PC버전</b></a></li>
+								</ul>
+							</div>
+							<!--// 푸터-메뉴 -->
+
+							<!-- 푸터-정보 -->
+							<div class="mm_footer-info">
+								<div class="mm_dropdown" data-dropdown>
+									<button type="button" class="btn_dropdown" title="펼쳐보기"><b>㈜패션플러스 사업자 정보</b><i class="mco_dropdown-sm"></i></button>
+									<div class="mm_dropdown-item">
+										<div class="mm_dropdown-item-inner">
+											<address>
+												<p>대표이사: 채영희</p>
+												<p>경기 성남시 판교로 242(삼평동 624번지)PDC빌딩 A동 1002호</p>
+												<p>사업자등록번호: 214-86-34194</p>
+												<p>통신판매업신고: 2013-경기성남-1608</p>
+												<p>개인정보 보호책임자: 이상훈</p>
+												<p>호스팅제공자: ㈜패션플러스</p>
+												<p class="text_cs">고객센터: <a href="tel:1588-2610" title="전화하기">1588-2610</a> / 월~금 09:30~17:00 주말, 공휴일 휴무</p>
+												<p>점심시간 12:00~13:00</p>
+												<p class="text_pay">한국정보통신(주) 결제대금예치업_에스크로스</p>
+												<p>등록번호: A6-181212-02호</p>
+											</address>
+										</div>
+									</div>
+								</div>
+								<ul>
+									<li><a href="#" target="_blank" title="새 창 열림"><b>사업자정보확인</b></a></li>
+									<li><a href="#" target="_blank" title="새 창 열림"><b>구매안전(에스크로)서비스</b></a></li>
+								</ul>
+								<ul>
+									<li><a href="_popup_termUse.html" data-href="{ '_type': 'popup' }"><b>이용약관</b></a></li>
+									<li><a href="_popup_termPrivacy.html" data-href="{ '_type': 'popup' }"><strong>개인정보처리방침</strong></a></li>
+									<li><a href="_popup_termAdolescent.html" data-href="{ '_type': 'popup' }"><b>청소년보호정책</b></a></li>
+								</ul>
+								<p class="text_copyright">&#169;FASHIONPLUS.ALL RIGHTS RESERVED.</p>
+							</div>
+							<!--// 푸터-정보 -->
+						</footer>
+						<!--// 푸터 -->
+					</div>
+				</div>
+
+				<a class="btn_topmost" href="#mm_app" data-href="{ '_type': 'anchor' }" title="페이지 처음으로"><i class="mco_topmost"></i><b>TOP</b></a>
+				<!-- 타임어택 윙배너 -->
+				<div class="m_timedeal-wing">
+					<button type="button" class="mm_switch" data-switch="{ '_isParent': true, '_defaultTitle': '펼쳐보기', '_title': '접어놓기' }" title="펼쳐보기"><b>타임어택</b></button>
+					<a class="btn_timedeal" href="timeDeal.html" data-href="{ '_type': 'link' }"><b>딱!12시간만</b><i class="mco_link"></i></a>
+				</div>
+				<!--// 타임어택 윙배너 -->
+
+				<!-- 현재 페이지 스크립트 -->
+				<!-- <script src="../js/.js"></script> -->
+			</div>
+			<!--// 내용 -->
+
+			<!-- 툴바 -->
+			<div class="mm_toolbar">
+				<ul class="mm_flex __flex_equal__">
+					<li>
+						<a href="sidebar.html" onclick="mm.side.open(this.href);return false;">
+							<i class="mco_menu"></i>
+							<b class="mm_ir-blind">카테고리</b>
+						</a>
+					</li>
+					<li>
+						<a href="_popup_search.html" data-href="{ '_type': 'popup' }">
+							<i class="mco_search"></i>
+							<b class="mm_ir-blind">검색</b>
+						</a>
+					</li>
+					<li>
+						<a href="/" data-href="{ '_type': 'home' }">
+							<i class="mco_home mm_text-primary"></i>
+							<b class="mm_ir-blind">홈</b>
+						</a>
+					</li>
+					<li>
+						<a href="myMain_vvip.html" data-href="{ '_type': 'link' }">
+							<i class="mco_mypage"></i>
+							<b class="mm_ir-blind">마이페이지</b>
+						</a>
+					</li>
+					<li>
+						<a href="_popup_recent.html" data-href="{ '_type': 'popup' }">
+							<i class="mm_bg-cover image_recent" data-preload="{ '_src': '../image/_sample/prod_x1_1.png', '_isErrorImage': false }"></i>
+							<b class="mm_ir-blind">최근본상품</b>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<!--// 툴바 -->
+		</div>
+		<!--// 화면 -->
+	</div>
+</body>
+</html>

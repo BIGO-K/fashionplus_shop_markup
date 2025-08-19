@@ -1,0 +1,3434 @@
+<!DOCTYPE html>
+<html lang="ko" class="__layout_frame__"><!-- 스테이지로 이동되어 __layout_frame__ 클래스 추가 -->
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="format-detection" content="telephone=no, address=no, email=no">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="mobile-web-app-capable" content="yes">
+
+	<!-- 소셜태그 -->
+	<meta property="og:title" content="">
+	<meta property="og:description" content="">
+	<meta property="og:image" content="">
+	<meta property="og:url" content="">
+	<meta property="og:site_name" content="">
+	<!--// 소셜태그 -->
+
+	<title>템플릿 - 패션플러스</title>
+
+	<!-- 템플릿에서만 사용 -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/github.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+
+	<!-- 공통 css -->
+	<link rel="stylesheet" href="../css/font.css">
+	<link rel="stylesheet" href="../css/app.css">
+
+	<style>
+		/* body {overflow-y:scroll;} */
+		.mm_app {padding-top:60px;}
+		.mm_app .mm_view {padding-top:0;}
+
+		.m_template-header {position:fixed;z-index:1200;top:0;right:0;left:0;padding:12px 0;background:#00989c;}
+		.m_template-header * {display:inline-block;color:#fff;line-height:35px;}
+		.m_template-header h1 {padding:0 20px;font-size:25px;}
+		.m_template-header nav li {padding:0 20px;font-size:14px;}
+
+		.m_template-component > article {padding-bottom:100px;}
+		.m_template-component > article > h2 {padding: 17px 20px;background:rgba(18, 167, 170, 0.1);color:#00989c;font-weight:500;font-size:16px;}
+		.m_template-component .m__component-item {position:relative;box-shadow:0px 0px 13px 0px rgba(0, 0, 0, 0.05);padding:0 20px 20px;background:#fff;}
+		.m_template-component .m__component-item:nth-of-type(n+2) {margin-top:40px;}
+		.m_template-component .m__component-item > h3 {margin:0 -20px;padding:10px 20px;border-bottom:1px solid #e4e4e4;font-size:16px;line-height:30px;}
+		.m_template-component .m__component-item > h3 small {margin-left:10px;color:#999;font-weight:300;font-size:14px;}
+		.m_template-component .m__component-item > .mm_tab {margin-top:20px;}
+		.m_template-component .m__component-item > .mm_tab > .mm_tabmenu[class*="_line_"] .btn_tab.__tab-on {color:#00989c;}
+		.m_template-component .m__component-item > .mm_tab > .mm_tabmenu[class*="_line_"] .btn_tab.__tab-on:after {border-color:#00989c}
+		.m_template-component .m__component-item .m__item-preview {margin-top:20px;max-width:375px;}
+		.m_template-component .m__component-item .m__preview-inner {background:#fff;}
+		.m_template-component .m__component-item pre {overflow:auto;max-height:400px;font-size:13px;line-height:17px;letter-spacing:0.5px;white-space:pre;}
+		.m_template-component .m__component-item pre code {padding:20px;}
+		.m_template-component .m__preview-inner > *:nth-child(n+2) {margin-top:5px;}
+		.m_template-component .m__item-note {margin-top:20px;}
+		.m_template-component .m__item-note > p {padding:15px 20px;border:1px solid #e4e4e4;border-left:3px solid #703cf1;border-radius:3px;font-size:14px;line-height:20px;}
+		.m_template-component .m__item-note table {margin-top:10px;border:1px solid #e4e4e4;font-size:14px;}
+		.m_template-component .m__item-note table tr > * {padding:10px;border-top:1px solid #e4e4e4;line-height:22px;}
+		.m_template-component .m__item-note table thead th {font-weight:600;}
+		.m_template-component .m__item-note table thead th:last-child {width:50%;}
+		.m_template-component .m__item-note table tbody tr p {text-align:left;}
+		.m_template-component .m__item-note table tbody tr:nth-child(odd) {background:#f9f9f9;}
+	</style>
+
+	<!-- (D) 폴리필/라이브러리는 요청을 줄이기 위해 combind + minify를 적용해주세요. -->
+	<!-- 폴리필/라이브러리 스크립트 -->
+	<script src="../../assets/js/polyfill/babel-polyfill-7.8.7.min.js"></script>
+	<script src="../../assets/js/polyfill/dom4-2.1.5.min.js"></script>
+	<script src="../../assets/js/polyfill/fetch.umd-3.0.0.min.js"></script>
+	<script src="../../assets/js/polyfill/intersection-observer-0.8.0.min.js"></script>
+	<script src="../../assets/js/polyfill/resize-observer-1.5.1.min.js"></script>
+	<script src="../../assets/js/lib/lodash-4.17.15.min.js"></script>
+	<script src="../../assets/js/lib/gsap-3.2.6/gsap.min.js"></script>
+	<script src="../../assets/js/lib/axios-0.19.2.min.js"></script>
+	<script src="../../assets/js/lib/load-image.all-3.0.0.min.js"></script>
+	<script src="../../assets/js/lib/sortable-1.10.2.min.js"></script>
+
+	<!-- 공통 스크립트 -->
+	<script src="../js/app_common.js"></script>
+	<script src="../js/app_page-common.js"></script>
+
+	<!-- (D) 페이지 전용 스크립트는 .mm_page-content 하단에 넣어주세요. -->
+</head>
+<body>
+	<div id="mm_app" class="mm_app">
+		<!-- 템플릿 헤더 -->
+		<div class="m_template-header">
+			<h1><b>M.Template</b></h1>
+			<nav>
+				<ul>
+					<li><a href="#text"><b>텍스트</b></a></li>
+					<li><a href="#button"><b>버튼</b></a></li>
+					<li><a href="#image"><b>이미지</b></a></li>
+					<li><a href="#form"><b>폼 유형</b></a></li>
+					<li><a href="#formmix"><b>폼 믹스</b></a></li>
+					<li><a href="#formFunction"><b>폼 오류/유효성/복제/업데이트</b></a></li>
+					<li><a href="#tab"><b>탭메뉴</b></a></li>
+					<li><a href="#dropdown"><b>드롭다운/아코디언</b></a></li>
+					<li><a href="#list"><b>리스트</b></a></li>
+					<li><a href="#table"><b>테이블</b></a></li>
+					<li><a href="#pagination"><b>페이지네이션</b></a></li>
+					<li><a href="#contents"><b>컨텐츠</b></a></li>
+					<li><a href="#part"><b>파츠</b></a></li>
+					<!-- <li><a href="#popover"><b>팝오버/툴팁</b></a></li> -->
+					<li><a href="#bom"><b>BOM</b></a></li>
+					<li><a href="#loading"><b>로딩</b></a></li>
+				</ul>
+			</nav>
+		</div>
+		<!--// 템플릿 헤더 -->
+
+		<div class="mm_view">
+			<!-- 템플릿 요소 -->
+			<div class="m_template-component">
+				<!-- 텍스트 -->
+				<article id="text">
+					<h2><b>텍스트</b></h2>
+
+					<!-- 페이지 제목 -->
+					<section class="m__component-item">
+						<h3><b>페이지 제목</b><small>mm_title</small></h3>
+						<script type="text/codehtml">
+							<h3 class="mm_title"><small>상품 주문을 위해</small><b>본인 인증이 필요합니다</b></h3>
+						</script>
+						<div class="m__item-note">
+							<table>
+								<thead>
+									<tr>
+										<th scope="col">Tag</th>
+										<th scope="col">Fontsize/Lineheight</th>
+										<th scope="col">Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>h1~h6</td>
+										<td>20px/28px</td>
+										<td>strong 태그의 color: $color_primary_base 입니다</td>
+									</tr>
+									<tr>
+										<td>small</td>
+										<td>15px/21px</td>
+										<td>color: #4a4a4a</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</section>
+					<!--// 페이지 제목 -->
+
+					<!-- 테이블 제목 -->
+					<section class="m__component-item">
+						<h3><b>영역/컨텐츠 제목</b><small>mm_heading</small></h3>
+						<script type="text/codehtml">
+							<h3 class="mm_heading"><b>브랜드 Best</b></h3>
+							<h3 class="mm_heading"><i class="image_specialdeal"></i><b class="mm_ir-blind">초비상 특가</b></h3>
+							<h3 class="mm_heading"><i class="image_timedeal"></i><b class="mm_ir-blind">타임어택</b></h3>
+							<h3 class="mm_heading"><i class="image_hotdeal"></i><b class="mm_ir-blind">초특가딜</b></h3>
+						</script>
+						<div class="m__item-note">
+							<p>가운데 정렬인 제목에만 사용합니다.</p>
+							<table>
+								<thead>
+									<tr>
+										<th scope="col">Tag</th>
+										<th scope="col">Fontsize/Lineheight</th>
+										<th scope="col">Color</th>
+										<th scope="col">Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>h1~h6</td>
+										<td>17px/24px</td>
+										<td>$color_text_base</td>
+										<td>-</td>
+									</tr>
+									<!-- <tr>
+										<td>small</td>
+										<td>12px</td>
+										<td>#a3a3a3</td>
+										<td>-</td>
+									</tr> -->
+								</tbody>
+							</table>
+						</div>
+					</section>
+					<!--// 테이블 제목 -->
+
+					<!-- 소제목 -->
+					<section class="m__component-item">
+						<h3><b>소제목</b><small>mm_strapline</small></h3>
+						<script type="text/codehtml">
+							<h3 class="mm_strapline"><b>주문/배송 조회</b><small>최근 1개월</small></h3>
+							<h3 class="mm_strapline __strapline_line__"><b>교환 사유</b></h3>
+						</script>
+						<div class="m__item-note">
+							<p>왼쪽정렬 제목에 사용합니다. form 요소 제목으로도 사용합니다.</p>
+							<table>
+								<thead>
+									<tr>
+										<th scope="col">Tag</th>
+										<th scope="col">Fontsize/Lineheight</th>
+										<th scope="col">Color</th>
+										<th scope="col">Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>h1~h6</td>
+										<td>15px/21px</td>
+										<td>$color_text_base</td>
+										<td>-</td>
+									</tr>
+									<tr>
+										<td>small</td>
+										<td>12px</td>
+										<td>#7b7b7b</td>
+										<td>-</td>
+									</tr>
+									<tr>
+										<td>__strapline_line__</td>
+										<td>-</td>
+										<td>-</td>
+										<td>border-color: #e6e6e6</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</section>
+					<!--// 소제목 -->
+
+					<!-- 내용없음 -->
+					<section class="m__component-item">
+						<h3><b>내용없음</b><small>mm_text-none</small></h3>
+						<script type="text/codehtml">
+							<p class="mm_text-none"><i class="ico_text-none"></i>앱을 설치하시면 SNS로<br>간편하게 로그인할 수 있습니다</p>
+						</script>
+					</section>
+					<!--// 내용없음 -->
+
+					<!-- 유의사항 -->
+					<section class="m__component-item">
+						<h3><b>유의사항</b><small>mm_note</small></h3>
+						<script type="text/codehtml">
+							<div class="mm_note">
+								<ul>
+									<li>탈퇴 신청 후 완료까지 일부 기간이 소요되며 기간 중 메일이 발송될 수 있으니 양해 부탁드립니다</li>
+									<li>다른 검색어를 입력해 주세요</li>
+								</ul>
+							</div>
+							<div class="mm_note">
+								<p class="mm_text-primary"><i class="mco_note"></i>정보를 정확하게 입력하지 않으시면 주문, 결제, 이벤트, 아이디/비밀번호 찾기 등의 정확한 정보를 받지못할 수 있습니다</p>
+							</div>
+							<div class="mm_note">
+								<p><i class="mco_note"></i>정보를 정확하게 입력하지 않으시면 주문, 결제, 이벤트, 아이디/비밀번호 찾기 등의 정확한 정보를 받지못할 수 있습니다</p>
+							</div>
+							<div class="mm_note">
+								<h5 class="text_title"><i class="mco_note"></i><b>반품 유의사항</b></h5>
+								<ul>
+									<li>해외배송 상품은 반품이 불가하므로 ‘반품신청 내역’에 등록되지 않습니다</li>
+									<li>인테리어 &#62; 가구 제품의 경우 자동 반품 처리가 어려워 반품 신청이 어려우니, 반품 시 1:1고객상담에 반품문의 주시거나 유선상 업체 연락처로 반품 신청해주세요<br><a href="_popup_myInquiry.html" data-href="{ '_type': 'popup' }"><b>1:1 고객상담 반품문의</b><i class="mco_link"></i></a></li>
+									<li>반품은 상품 배송완료 후 7일 이내 신청 가능합니다</li>
+									<li>
+										<span>반품 사유별 반품 배송비 부담</span>
+										<ul>
+											<li>고객 단순 변심: 고객 부담(반품으로 인한 배송료는 환불금액에서 선차감)</li>
+											<li>오배송/제품하자: 패션플러스 부담(지정택배사를 통한 반품)</li>
+										</ul>
+									</li>
+									<li>여러 업체의 상품을 한 택배사를 통해 반품하실 경우, 상품은 배송처별로 별도포장해 주셔야 합니다<br><a href="_popup_csFaq.html" data-href="{ '_type': 'popup' }"><b>취소/교환/반품 정책 자세히 보기</b><i class="mco_link"></i></a></li>
+									<li>반품 대상 상품 직접 발송을 원하시는 경우, 발송 후 송장번호 입력을 하여 신청해 주셔야 합니다. (송장번호가 정확하지 않을 경우, 반품 진행이 원활하지 않을 수 있습니다)</li>
+								</ul>
+							</div>
+							<div class="mm_note">
+								<p>정보를 정확하게 입력하지 않으시면 주문, 결제, 이벤트, 아이디/비밀번호 찾기 등의 정확한 정보를 받지못할 수 있습니다</p>
+							</div>
+						</script>
+						<div class="m__item-note">
+							<table>
+								<thead>
+									<tr>
+										<th scope="col">Class</th>
+										<th scope="col">Fontweight</th>
+										<th scope="col">Fontsize/Lineheight</th>
+										<th scope="col">Color</th>
+										<th scope="col">Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>&#160;</td>
+										<td>400</td>
+										<td>13px/19px</td>
+										<td>#5c5c5c</td>
+										<td>기본형이며 한 줄일 때도 ul, li로 감싸줍니다. strong 태그의 color: $color_primary_base 입니다</td>
+									</tr>
+									<!-- <tr>
+										<td>__note_line__</td>
+										<td>400</td>
+										<td>13px/19px</td>
+										<td>#6a6a6a, 타이틀: $color_text_base</td>
+										<td>타이틀이 있는 박스 형태에 사용합니다.</td>
+									</tr>
+									<tr>
+										<td>__note_bg__</td>
+										<td>400</td>
+										<td>13px/19px</td>
+										<td>#6a6a6a, background: #fafafa</td>
+										<td>배경이 있는 박스형태에 사용합니다.</td>
+									</tr> -->
+									<!-- bg 형태 확인 필요함 -->
+									<tr>
+										<td>&#160;</td>
+										<td>400</td>
+										<td>13px/19px</td>
+										<td>#101010</td>
+										<td>한줄로 쓰일 때 사용하며 p태그로 감싸줍니다. (폼유형 바로 밑에 사용 시 fontWeight: 300, fontSize : 12px/17px, color: #5c5c5c)</td>
+									</tr>
+									<!-- <tr>
+										<td>mm_dropdown</td>
+										<td>400</td>
+										<td>13px/18px</td>
+										<td>#6a6a6a</td>
+										<td>드롭다운 형식의 유의사항에 사용합니다.</td>
+									</tr> -->
+								</tbody>
+							</table>
+						</div>
+					</section>
+					<!--// 유의사항 -->
+				</article>
+				<!--// 텍스트 -->
+
+				<!-- 버튼 -->
+				<article id="button">
+					<h2><b>버튼</b></h2>
+
+					<!-- 버튼 크기 -->
+					<section class="m__component-item">
+						<h3><b>버튼 크기</b><small>mm_btn</small></h3>
+						<script type="text/codehtml">
+							<button type="button" class="mm_btn __btn_2xs__"><b>2xs</b></button><br>
+							<button type="button" class="mm_btn __btn_xs__"><b>xs</b></button><br>
+							<button type="button" class="mm_btn __btn_sm__"><b>sm</b></button><br>
+							<button type="button" class="mm_btn"><b>기본</b></button><br>
+							<button type="button" class="mm_btn __btn_lg__"><b>lg</b></button><br>
+						</script>
+						<div class="m__item-note">
+							<p>mm_btn의 width값은 auto입니다.<br> 기본 스타일은 round형입니다<br>버튼의 크기/라운딩/테두리/색상을 _로 조합할 수 있습니다. ex) __btn_lg_square_line_primary__</p>
+							<table>
+								<thead>
+									<tr>
+										<th scope="col">Class</th>
+										<th scope="col">Height</th>
+										<th scope="col">BorderRadius</th>
+										<th scope="col">Fontsize</th>
+										<th scope="col">Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>_2xs_</td>
+										<td>18px</td>
+										<td>3px</td>
+										<td>10px</td>
+										<td>-</td>
+									</tr>
+									<tr>
+										<td>_xs_</td>
+										<td>25px</td>
+										<td>3px</td>
+										<td>12px</td>
+										<td>-</td>
+									</tr>
+									<tr>
+										<td>_sm_</td>
+										<td>32px</td>
+										<td>3px</td>
+										<td>13px</td>
+										<td>-</td>
+									</tr>
+									<tr>
+										<td>&#160;</td>
+										<td>42px</td>
+										<td>3px</td>
+										<td>15px</td>
+										<td>배경색 : #eee</td>
+									</tr>
+									<tr>
+										<td>_lg_</td>
+										<td>50px</td>
+										<td>3px</td>
+										<td>17px</td>
+										<td>-</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</section>
+					<!-- 버튼 크기 -->
+
+					<!-- 버튼 색상 -->
+					<section class="m__component-item">
+						<h3><b>버튼 색상 (배경컬러 #fff 외)</b></h3>
+						<script type="text/codehtml">
+							<b class="mm_btn __btn_disabled__">비활성 b태그 버튼</b><br>
+							<button type="button" class="mm_btn" disabled><b>비활성</b></button><br>
+							<button type="button" class="mm_btn"><b>기본</b></button><br>
+							<button type="button" class="mm_btn __btn_dark__"><b>dark</b></button><br>
+							<button type="button" class="mm_btn __btn_darker__"><b>darker</b></button><br>
+							<button type="button" class="mm_btn __btn_primary__"><b>primary</b></button>
+						</script>
+						<div class="m__item-note">
+							<p>버튼의 크기/라운딩/테두리/색상을 _로 조합할 수 있습니다. ex) __btn_lg_square_line_primary__</p>
+							<table>
+								<thead>
+									<tr>
+										<th scope="col">Class</th>
+										<th scope="col">BorderColor</th>
+										<th scope="col">BackgroundColor</th>
+										<th scope="col">FontColor</th>
+										<th scope="col">Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>_disabled_</td>
+										<td>-</td>
+										<td>#e6e6e6</td>
+										<td>#a3a3a3 </td>
+										<td>버튼 비활성</td>
+									</tr>
+									<tr>
+										<td>&#160;</td>
+										<td>-</td>
+										<td>#eee</td>
+										<td>#4a4a4a</td>
+										<td>-</td>
+									</tr>
+									<tr>
+										<td>_dark_</td>
+										<td>-</td>
+										<td>#5c5c5c</td>
+										<td>#fff</td>
+										<td>&#160;</td>
+									</tr>
+									<tr>
+										<td>_darker_</td>
+										<td>-</td>
+										<td>#3d3d3d</td>
+										<td>#fff</td>
+										<td>&#160;</td>
+									</tr>
+									<tr>
+										<td>_primary_</td>
+										<td>#f93e4e</td>
+										<td>#f93e4e</td>
+										<td>#fff</td>
+										<td>-</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</section>
+					<!--// 버튼 색상 -->
+
+					<!-- 버튼 테두리 -->
+					<section class="m__component-item">
+						<h3><b>버튼 테두리 (배경컬러 #fff)</b></h3>
+						<script type="text/codehtml">
+							<button type="button" class="mm_btn __btn_line_lightest__"><b>테두리 + lightest</b></button><br>
+							<button type="button" class="mm_btn __btn_line_lighter__"><b>테두리 + lighter</b></button><br>
+							<button type="button" class="mm_btn __btn_line_light__"><b>테두리 + light</b></button><br>
+							<button type="button" class="mm_btn __btn_line__"><b>테두리</b></button><br>
+							<button type="button" class="mm_btn __btn_line_dark__"><b>테두리 + dark</b></button><br>
+							<button type="button" class="mm_btn __btn_line_primary__"><b>테두리 + primary</b></button>
+							<button type="button" class="mm_btn __btn_line_secondary__"><b>테두리 + secondary</b></button>
+						</script>
+						<div class="m__item-note">
+							<p>버튼의 크기/라운딩/테두리/색상을 _로 조합할 수 있습니다. ex) __btn_lg_square_line_primary__</p>
+							<table>
+								<thead>
+									<tr>
+										<th scope="col">Class</th>
+										<th scope="col">BorderColor</th>
+										<th scope="col">FontColor</th>
+										<th scope="col">Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>_line_lightest_</td>
+										<td>#a3a3a3</td>
+										<td>#8c8c8c</td>
+										<td>-</td>
+									</tr>
+									<tr>
+										<td>_line_lighter_</td>
+										<td>#999</td>
+										<td>#3d3d3d</td>
+										<td>-</td>
+									</tr>
+									<tr>
+										<td>_line_light_</td>
+										<td>#7b7b7b</td>
+										<td>#6a6a6a</td>
+										<td>-</td>
+									</tr>
+									<tr>
+										<td>_line_</td>
+										<td>#6a6a6a</td>
+										<td>#5c5c5c</td>
+										<td>-</td>
+									</tr>
+									<tr>
+										<td>_line_dark_</td>
+										<td>#2b2b2b</td>
+										<td>#2b2b2b</td>
+										<td>-</td>
+									</tr>
+									<tr>
+										<td>_line_primary_</td>
+										<td>#f93e4e</td>
+										<td>#f93e4e</td>
+										<td>-</td>
+									</tr>
+									<tr>
+										<td>_line_secondary_</td>
+										<td>#f86363</td>
+										<td>#f86363</td>
+										<td>-</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</section>
+					<!--// 버튼 테두리 -->
+
+					<!-- 버튼 박스 -->
+					<section class="m__component-item">
+						<h3><b>버튼 박스</b><small>mm_btnbox</small></h3>
+						<script type="text/codehtml">
+							<div class="mm_btnbox">
+								<button type="button" class="mm_btn"><b>기본 width:100%</b></button>
+								<button type="button" class="mm_btn"><b>기본 width:100%</b></button>
+							</div>
+							<div class="mm_btnbox mm_flex __flex_equal__">
+								<button type="button" class="mm_btn"><b>__flex_equal__</b></button>
+								<button type="button" class="mm_btn"><b>__flex_equal__</b></button>
+							</div>
+							<div class="mm_foot">
+								<div class="mm_btnbox mm_flex __flex_equal__">
+									<a class="mm_btn __btn_line_lightest__" href="#" data-href="{ '_type': 'link' }"><b>주문관리로 이동</b></a>
+									<a class="mm_btn __btn_primary__" href="/" data-href="{ '_type': 'home' }"><b>메인으로 이동</b></a>
+								</div>
+							</div>
+						</script>
+					</section>
+					<!--// 버튼 박스 -->
+
+					<!-- 버튼 종류 -->
+					<section class="m__component-item">
+						<h3><b>버튼 종류</b></h3>
+						<script type="text/codehtml">
+							<a class="mm_btn btn_link __btn_2xs_dark__" href="#" data-href="{ '_type': 'link' }"><b>등급혜택</b><i class="mco_link-sm"></i></a>
+							<br>
+							<a class="mm_btn btn_ship __btn_xs_line_secondary_base__" href="#" target="_blank" title="새 창 열림"><i class="mco_ship"></i><b>배송조회</b></a>
+							<br>
+							<button type="button" class="mm_btn btn_refresh __btn_xs_line_light__"><i class="mco_reload"></i><b>새로고침</b></button>
+							<br>
+							<button type="button" class="mm_btn btn_link __btn_xs_line_dark__"><b>브랜드샵</b><i class="mco_link"></i></button>
+							<br>
+							<div class="mm_btnbox">
+								<button type="button" class="mm_btn btn_more __btn_line_lighter__"><b>더보기</b><i class="mco_more"></i></button>
+							</div>
+							<div class="mm_btnbox mm_flex __flex_auto__">
+								<button type="button" class="mm_btn btn_process-prev __btn_line__"><i class="mco_process-prev"></i><b>이전</b></button>
+								<button type="button" class="mm_btn btn_process-next __btn_line_primary__"><b>다음</b><i class="mco_process-next"></i></button>
+							</div>
+						</script>
+					</section>
+					<!--// 버튼 종류 -->
+				</article>
+				<!--// 버튼 -->
+
+				<!-- 이미지 -->
+				<article id="image">
+					<h2><b>이미지</b></h2>
+					<!-- 기본 이미지 -->
+					<section class="m__component-item">
+						<h3><b>기본 이미지</b><small>data-preload</small></h3>
+						<script type="text/codehtml">
+							<!-- img 태그 사용 -->
+							<div style="position:relative; width:100px; height:100px; border:1px solid #ddd;">
+								<img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-preload="{ '_src': '../image/_sample/prod_x1_3.png' }" alt="">
+							</div>
+							<!-- background 이미지 사용 -->
+							<div style="position:relative; width:100px; height:100px; border:1px solid #ddd;">
+								<i data-preload="{ '_src': '../image/_sample/prod_x1_3.png' }"></i>
+							</div>
+						</script>
+						<div class="m__item-note">
+							<p>
+								i태그를 이용한 background 이미지 사용시에 클래스명을 이용하여<br>
+								background-size의 값을 cover 또는 contain으로 사용할 수 있습니다
+							</p>
+							<table>
+								<thead>
+									<tr>
+										<th scope="col">Option</th>
+										<th scope="col">Attribute</th>
+										<th scope="col">Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>mm_bg-contain</td>
+										<td>class</td>
+										<td>-</td>
+									</tr>
+									<tr>
+										<td>mm_bg-cover</td>
+										<td>class</td>
+										<td>-</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</section>
+					<!--// 기본 이미지 -->
+
+					<!-- 이미지오류 -->
+					<section class="m__component-item">
+						<h3><b>이미지오류</b></h3>
+						<script type="text/codehtml">
+							<!-- 노이미지/직접적용 -->
+							<div style="position:relative; width:100px; height:100px; border:1px solid #ddd;">
+								<img src="asdf.jpg" alt="" onerror="mm.image.none(this);">
+							</div>
+
+							<!-- 노이미지/프리로드 이미지 -->
+							<div style="position:relative; width:100px; height:100px; border:1px solid #ddd;">
+								<img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" alt="" data-preload="{ '_src': 'asdf.jpg' }">
+							</div>
+
+							<!-- 노이미지/프리로드 백그라운드 -->
+							<div style="position:relative; width:100px; height:100px; border:1px solid #ddd;">
+								<i data-preload="{ '_src': 'asdf.jpg' }"></i>
+							</div>
+
+							<!-- 노이미지 아이콘 변경/프리로드 -->
+							<div style="position:relative; width:100px; height:100px; border:1px solid #ddd;">
+								<i data-preload="{ '_src': 'asdf.jpg' }" data-image="{ '_classNone': 'mco_camera' }"></i>
+							</div>
+
+							<!-- 노이미지 없음/프리로드 -->
+							<div style="position:relative; width:100px; height:100px; border:1px solid #ddd;">
+								<i data-preload="{ '_src': 'asdf.jpg', '_isErrorImage': false }"></i>
+							</div>
+						</script>
+						<div class="m__item-note">
+							<p>
+								이미지(백그라운드 이미지)에 preload를 적용하면 이미지 경로가 잘못되었을 때 기본 아이콘을 보여줍니다.<br>
+								preload가 없는 일반 이미지는 onerror="mm.image.none(this);" 속성을 직접 추가하여 적용합니다.
+							</p>
+							<table>
+								<thead>
+									<tr>
+										<th scope="col">Option</th>
+										<th scope="col">Attribute</th>
+										<th scope="col">Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>{ '_src': '이미지경로' }</td>
+										<td>data-preload</td>
+										<td>-</td>
+									</tr>
+									<tr>
+										<td>{ '_isErrorImage': '에러 아이콘 노출여부' }</td>
+										<td>data-preload</td>
+										<td>true(기본값) / false</td>
+									</tr>
+									<tr>
+										<td>{ '_classNone': '없음 이미지 클래스이름' }</td>
+										<td>data-image</td>
+										<td>ico_image(기본값)</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</section>
+					<!--// 이미지오류 -->
+
+					<!-- 카테고리 이미지 -->
+					<!-- <section class="m__component-item">
+						<h3><b>카테고리 이미지</b><small>mm_category-item</small></h3>
+						<script type="text/codehtml">
+						</script>
+					</section> -->
+					<!--// 카테고리 이미지 -->
+
+					<!-- 브랜드 로고 -->
+					<section class="m__component-item">
+						<h3><b>브랜드 로고</b><small>mm_image-brand</small></h3>
+						<script type="text/codehtml">
+							<i class="mm_bg-contain mm_image-brand" data-preload="{ '_src': 'https://img.fashionplus.co.kr/ui/mobile/common/logo.png', '_isRatio': true, '_isErrorImage': false }" title="패션플러스"></i>
+							<i class="mm_bg-contain mm_image-brand" data-preload="{ '_src': '../image/_sample/brand_11.png', '_isRatio': true, '_isErrorImage': false }" title="패션플러스"></i>
+						</script>
+						<div class="m__item-note">
+							<p>이미지 에러시 타이틀 값을 이미지영역에 노출합니다.</p>
+						</div>
+					</section>
+					<!--// 브랜드 이미지 -->
+
+					<!-- 배너 이미지 -->
+					<section class="m__component-item">
+						<h3><b>배너 이미지</b><small>mm_image-banner</small></h3>
+						<script type="text/codehtml">
+							<i class="mm_image-banner">
+								<img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-preload="{ '_src': '../image/_sample/banner_band_01.jpg' }" alt="2020 Summer 신상품 여름 필수템 휠라!">
+							</i>
+							<i class="mm_image-banner">
+								<img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-preload="{ '_src': '.' }" alt="2020 Summer 신상품 여름 필수템 휠라!">
+							</i>
+						</script>
+						<div class="m__item-note">
+							<p>프리로드 에러 시 스크립트로 img태그 alt값을 '.mm_image-banner' 태그에 data-ir 속성 값으로 들어갑니다. (min-height: 100px)</p>
+						</div>
+					</section>
+					<!--// 배너 이미지 -->
+				</article>
+				<!--// 이미지 -->
+
+				<!-- 폼 유형 -->
+				<article id="form">
+					<h2><b>폼 유형</b></h2>
+
+					<!-- 텍스트 인풋 -->
+					<section class="m__component-item">
+						<h3><b>텍스트 인풋</b><small>mm_form-text</small></h3>
+						<script type="text/codehtml">
+							<div class="mm_form-text">
+								<button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><b class="mm_ir-blind">지우기</b></button>
+								<label>
+									<input type="text" class="textfield" data-text><i class="bg_text"></i>
+									<span class="text_placeholder">플레이스홀더</span>
+								</label>
+							</div>
+							<div class="mm_form-text __text_lg__">
+								<button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><b class="mm_ir-blind">지우기</b></button>
+								<label>
+									<input type="text" class="textfield" data-text><i class="bg_text"></i>
+									<span class="text_placeholder">lg</span>
+								</label>
+							</div>
+							<div class="mm_form-text">
+								<label>
+									<span class="textfield text_readonly">읽기전용</span>
+									<i class="bg_text"></i>
+								</label>
+							</div>
+							<div class="mm_form-text">
+								<label>
+									<span class="textfield text_disabled">비활성</span>
+									<i class="bg_text"></i>
+								</label>
+							</div>
+							<div class="mm_form-text __text_lg__">
+								<button type="button" class="btn_text-pw"><i class="mco_pw-hide"></i><b class="mm_ir-blind">비밀번호 보기</b></button>
+								<button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><b class="mm_ir-blind">지우기</b></button>
+								<label>
+									<input type="password" class="textfield" data-text minlength="8" maxlength="16"><i class="bg_text"></i>
+									<span class="text_placeholder">영문/특수문자/숫자 8~16자</span>
+								</label>
+							</div>
+							<div class="mm_form-text">
+								<button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><b class="mm_ir-blind">지우기</b></button>
+								<label>
+									<input type="text" class="textfield" data-text="{ '_default': '텍스트 삭제 시 기본 값' }"><i class="bg_text"></i>
+									<span class="text_placeholder">텍스트 삭제 시 기본 값</span>
+								</label>
+							</div>
+							<div class="mm_form-text">
+								<button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><b class="mm_ir-blind">지우기</b></button>
+								<label>
+									<input type="tel" class="textfield" data-text maxlength="12"><i class="bg_text"></i>
+									<span class="text_placeholder">휴대폰 번호를 입력하세요</span>
+								</label>
+							</div>
+							<div class="mm_form-text">
+								<button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><b class="mm_ir-blind">지우기</b></button>
+								<label>
+									<input type="number" class="textfield" data-text><i class="bg_text"></i>
+									<span class="text_placeholder">tel 아님, 스크립트로 속성 추가됩니다.</span>
+								</label>
+							</div>
+							<!--
+								(D) 모바일 기본 date, month 속성을 사용합니다. (모바일에서만 확인 가능)
+								input:date는 i.textfield.text_date 다음에 있어야 합니다.
+								날짜 형식은 data-text 값으로 { '_format': 'YYYY-MM-DD' }을 설정하면 됩니다.
+							-->
+							<div class="mm_form-text">
+								<button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><b class="mm_ir-blind">지우기</b></button>
+								<label>
+									<span class="textfield text_date"></span>
+									<input type="date" class="textfield" data-text="{ '_format': 'YYYY년 MM월 DD일' }" value="2020-06-23"><i class="bg_text"></i>
+									<span class="text_placeholder">날짜</span>
+								</label>
+							</div>
+							<div class="mm_form-text">
+								<button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><b class="mm_ir-blind">지우기</b></button>
+								<label>
+									<span class="textfield text_date"></span>
+									<input type="month" class="textfield" data-text="{ '_format': 'YYYY년 MM월' }" value="2020년 06월"><i class="bg_text"></i>
+									<span class="text_placeholder">월</span>
+								</label>
+							</div>
+							<!--
+								(D) 모바일 기본 time 속성을 사용합니다. (모바일에서만 확인 가능)
+								input:time은 i.textfield.text_date 다음에 있어야 합니다.
+								시간 형식은 data-text 값으로 { '_format': 'HH:mm' }을 설정하면 됩니다.
+								HH:mm (21:59), a h:mm (am 9:59), A hh:mm (PM 09:59)
+							-->
+							<div class="mm_form-text">
+								<button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><b class="mm_ir-blind">지우기</b></button>
+								<label>
+									<span class="textfield text_date"></span>
+									<input type="time" class="textfield" data-text="{ '_format': 'a hh:mm' }" value="23:30"><i class="bg_text"></i>
+									<span class="text_placeholder">시간</span>
+								</label>
+							</div>
+							<div class="mm_form-text">
+								<button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><b class="mm_ir-blind">지우기</b></button>
+								<label>
+									<input type="search" class="textfield" data-text><i class="bg_text"></i>
+									<span class="text_placeholder">검색하세요</span>
+								</label>
+							</div>
+							<div class="mm_form-text __text_short__">
+								<button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><b class="mm_ir-blind">지우기</b></button>
+								<label>
+									<input type="text" class="textfield" data-text><i class="bg_text"></i>
+									<span class="text_placeholder">short</span>
+								</label>
+							</div>
+							<div class="mm_form-text">
+								<button type="button" class="btn_text-clear"><i class="ico_form-clear"></i><b class="mm_ir-blind">지우기</b></button>
+								<label>
+									<input type="text" class="textfield" data-text="{ '_isAutoComplete': true }"><i class="bg_text"></i>
+									<span class="text_placeholder">자동완성샘플</span>
+								</label>
+							</div>
+						</script>
+						<div class="m__item-note">
+							<p>
+								사용되는 위치에 맞는 input type을 사용합니다.<br>
+								읽기전용과 비활성일 때는 input 태그와 text_placeholder를 삭제하고 'text_readonly, text_disabled' 클래스를 가진 textfield 영역을 추가합니다.
+							</p>
+							<table>
+								<thead>
+									<tr>
+										<th scope="col">Class</th>
+										<th scope="col">width</th>
+										<th scope="col">height</th>
+										<th scope="col">Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>&#160;</td>
+										<td>100%</td>
+										<td>42px</td>
+										<td>-</td>
+									</tr>
+									<tr>
+										<td>_lg_</td>
+										<td>100%</td>
+										<td>50px</td>
+										<td>-</td>
+									</tr>
+									<tr>
+										<td>_short_</td>
+										<td>122px</td>
+										<td>42px</td>
+										<td>-</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</section>
+					<!--// 텍스트 인풋 -->
+
+					<!-- 텍스트 멀티라인 -->
+					<section class="m__component-item">
+						<h3><b>텍스트 멀티라인</b><small>mm_form-textarea</small></h3>
+						<script type="text/codehtml">
+							<div class="mm_form-textarea">
+								<button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><b class="mm_ir-blind">지우기</b></button>
+								<label>
+									<textarea class="textfield" data-text></textarea><i class="bg_text"></i>
+									<span class="text_placeholder">플레이스홀더 2줄<br>플레이스홀더 2번째 줄</span>
+								</label>
+							</div>
+							<div class="mm_form-textarea">
+								<button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><b class="mm_ir-blind">지우기</b></button>
+								<label>
+									<textarea class="textfield" data-text="{ '_isResize': true }"></textarea><i class="bg_text"></i>
+									<span class="text_placeholder">자동높이조절 기본형 2줄</span>
+								</label>
+							</div>
+							<div class="mm_form-textarea">
+								<button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><b class="mm_ir-blind">지우기</b></button>
+								<label>
+									<textarea class="textfield" data-text="{ '_isResize': true, '_resizeMin': 1, '_resizeMax': 5 }"></textarea><i class="bg_text"></i>
+									<span class="text_placeholder">자동높이조절 제한설정 최소 1줄, 최대 5줄 샘플</span>
+								</label>
+							</div>
+							<div class="mm_form-textarea">
+								<label>
+									<span class="textfield text_readonly">읽기전용</span>
+									<i class="bg_text"></i>
+								</label>
+							</div>
+							<div class="mm_form-textarea">
+								<label>
+									<span class="textfield text_disabled">비활성</span>
+									<i class="bg_text"></i>
+								</label>
+							</div>
+						</script>
+					</section>
+					<!--// 텍스트 멀티라인 -->
+
+					<!-- 셀렉트 -->
+					<section class="m__component-item">
+						<h3><b>셀렉트</b><small>mm_form-select</small></h3>
+						<script type="text/codehtml">
+							<div class="mm_form-select">
+								<label>
+									<select data-select>
+										<option data-option value="0">셀렉트 기본</option>
+										<option value="1">셀렉트 세컨</option>
+										<option data-option value="2">셀렉트 서드</option>
+									</select>
+									<i class="mco_form-select"></i>
+								</label>
+							</div>
+							<div class="mm_form-select __select_sm__">
+								<label>
+									<select data-select>
+										<option>셀렉트 sm</option>
+									</select>
+									<i class="mco_form-select"></i>
+								</label>
+							</div>
+							<div class="mm_form-select">
+								<label>
+									<span class="text_readonly">읽기전용</span>
+									<i class="mco_form-select"></i>
+								</label>
+							</div>
+							<div class="mm_form-select">
+								<label>
+									<span class="text_disabled">비활성</span>
+									<i class="mco_form-select"></i>
+								</label>
+							</div>
+							<!-- <div class="mm_form-select __select_short__">
+								<label>
+									<select data-select>
+										<option>short</option>
+									</select>
+									<i class="mco_form-select"></i>
+								</label>
+							</div> -->
+							<div class="mm_form-select __select_sm_shortest__">
+								<label>
+									<select data-select>
+										<option>1</option>
+									</select>
+									<i class="mco_form-select"></i>
+								</label>
+							</div>
+						</script>
+						<div class="m__item-note">
+							<p>
+								# 기본구조<br>
+								select 요소에는 data-select 속성을 추가합니다<br>
+								option 요소에는 필요한 경우에만 data-option 속성을 추가합니다<br>
+								data-select에는 onChange만 설정할 수 있고,<br>
+								data-option에는 (de)syncer와 추가된 onSelect(선택했을 때 실행)를 설정할 수 있습니다<br>
+								읽기전용과 비활성일 때는 select 태그를 삭제하고 'text_readonly, text_disabled' 클래스를 가진 span 태그를 추가합니다<br><br>
+
+
+								# 스타일<br>
+								width와 height에 따라 클래스를 추가합니다.
+							</p>
+							<table>
+								<thead>
+									<tr>
+										<th scope="col">Class</th>
+										<th scope="col">width</th>
+										<th scope="col">height</th>
+										<th scope="col">Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>&#160;</td>
+										<td>100%</td>
+										<td>42px</td>
+										<td>-</td>
+									</tr>
+									<tr>
+										<td>_sm_</td>
+										<td>100%</td>
+										<td>32px</td>
+										<td>-</td>
+									</tr>
+									<tr>
+										<td>_short_</td>
+										<td>122px</td>
+										<td>-</td>
+										<td>-</td>
+									</tr>
+									<tr>
+										<td>_shortest_</td>
+										<td>66px</td>
+										<td>-</td>
+										<td>-</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</section>
+					<!--// 셀렉트 -->
+
+					<!-- 폼 라벨형 -->
+					<section class="m__component-item">
+						<h3><b>폼 라벨형</b><small>mm_form-text</small></h3>
+						<script type="text/codehtml">
+							<h6 class="mm_strapline"><b>이름</b></h6>
+							<div class="mm_form-text">
+								<button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><b class="mm_ir-blind">지우기</b></button>
+								<label>
+									<input type="text" class="textfield" data-text><i class="bg_text"></i>
+									<span class="text_placeholder">이름을 입력하세요</span>
+								</label>
+							</div>
+							<h6 class="mm_strapline"><b>상세사유</b></h6>
+							<div class="mm_form-textarea">
+								<button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><b class="mm_ir-blind">지우기</b></button>
+								<label>
+									<textarea class="textfield" data-text></textarea><i class="bg_text"></i>
+									<span class="text_placeholder">플레이스홀더 2줄<br>플레이스홀더 2번째 줄</span>
+								</label>
+							</div>
+							<h6 class="mm_strapline"><b>휴대폰 번호</b></h6>
+							<div class="mm_form-text">
+								<button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><b class="mm_ir-blind">지우기</b></button>
+								<label>
+									<input type="tel" class="textfield" data-text maxlength="12"><i class="bg_text"></i>
+									<span class="text_placeholder">휴대폰 번호를 입력하세요</span>
+								</label>
+							</div>
+							<button type="button" class="mm_btn __btn_line_primary__"><b>인증번호 발송</b></button>
+							<h6 class="mm_strapline"><b>인증번호</b></h6>
+							<div class="mm_form-text">
+								<button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><b class="mm_ir-blind">지우기</b></button>
+								<label>
+									<input type="number" class="textfield" data-text><i class="bg_text"></i>
+									<span class="text_placeholder">10분 이내로 입력하세요</span>
+								</label>
+							</div>
+							<button type="button" class="mm_btn __btn_line_primary__"><b>인증번호 확인</b></button>
+							<h6 class="mm_strapline"><b>은행명</b></h6>
+							<div class="mm_form-select">
+								<label>
+									<select data-select>
+										<option>은행을 선택하세요</option>
+									</select>
+									<i class="mco_form-select"></i>
+								</label>
+							</div>
+							<h6 class="mm_strapline"><b>계좌번호</b></h6>
+							<div class="mm_form-text">
+								<button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><b class="mm_ir-blind">지우기</b></button>
+								<label>
+									<input type="number" class="textfield" data-text><i class="bg_text"></i>
+									<span class="text_placeholder">계좌번호를 입력하세요(숫자만 입력)</span>
+								</label>
+							</div>
+							<div class="mm_note">
+								<p>정보를 정확하게 입력하지 않으시면 주문,<br> 결제, 이벤트, 아이디/비밀번호 찾기 등의<br> 정확한 정보를 받지못할 수 있습니다</p>
+							</div>
+						</script>
+					</section>
+					<!--// 폼 라벨형 -->
+
+					<!-- 검색 -->
+					<section class="m__component-item">
+						<h3><b>검색</b><small>mm_search, mm_searchbox</small></h3>
+						<script type="text/codehtml">
+							<form action=".">
+								<div class="mm_searchbox">
+									<div class="mm_search">
+										<div class="mm_form-text">
+											<button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><b class="mm_ir-blind">지우기</b></button>
+											<label>
+												<input type="search" class="textfield" data-text><i class="bg_text"></i>
+												<span class="text_placeholder">브랜드명을 입력해주세요</span>
+											</label>
+										</div>
+										<button type="button" class="btn_search"><i class="mco_search"></i><b class="mm_ir-blind">검색하기</b></button>
+									</div>
+								</div>
+							</form>
+						</script>
+					</section>
+					<!--// 검색 -->
+
+					<!-- 체크박스 -->
+					<section class="m__component-item">
+						<h3><b>체크박스</b><small>mm_form-check</small></h3>
+						<script type="text/codehtml">
+							<label class="mm_form-check">
+								<input type="checkbox" data-check>
+								<b class="mm_block">
+									<i class="mco_form-check"></i>
+									<span class="text_label">기본 체크박스</span>
+								</b>
+							</label>
+							<br>
+							<label class="mm_form-check">
+								<b class="mm_block">
+									<i class="mco_form-check"></i>
+									<span class="text_label">비활성 체크박스</span>
+								</b>
+							</label>
+							<br>
+							<label class="mm_form-check __disabled-on">
+								<b class="mm_block">
+									<i class="mco_form-check"></i>
+									<span class="text_label">비활성 체크박스(체크됨)</span>
+								</b>
+							</label>
+							<br>
+							<label class="mm_form-check __check_switch__">
+								<input type="checkbox" data-check>
+								<b class="mm_block">
+									<i class="mco_form-check"></i>
+									<span class="text_label">스위치 체크박스</span>
+								</b>
+							</label>
+							<br>
+							<label class="mm_form-check __check_circle__">
+								<input type="checkbox" data-check>
+								<b class="mm_block">
+									<i class="mco_form-choice"></i>
+									<span class="text_label">서클형 체크박스</span>
+								</b>
+							</label>
+						</script>
+					</section>
+					<!--// 체크박스 -->
+
+					<!-- 체크박스 리스트 -->
+					<section class="m__component-item">
+						<h3><b>체크박스 리스트</b><small>mm_check-list</small></h3>
+						<script type="text/codehtml">
+							<div class="mm_check-list">
+								<ul>
+									<li>
+										<label class="mm_form-check">
+											<input type="checkbox" data-check="{ '_group': 'dev_check-vertical' }">
+											<b class="mm_block">
+												<i class="mco_form-check"></i>
+												<span class="text_label">(선택) 이메일</span>
+											</b>
+										</label>
+									</li>
+									<li>
+										<label class="mm_form-check">
+											<input type="checkbox" data-check="{ '_group': 'dev_check-vertical' }">
+											<b class="mm_block">
+												<i class="mco_form-check"></i>
+												<span class="text_label">(선택) SNS</span>
+											</b>
+										</label>
+									</li>
+								</ul>
+							</div>
+							<br><br>
+							<div class="mm_check-list __list_chain__">
+								<label class="mm_form-check">
+									<input type="checkbox" data-check="{ '_type': 'check_all', '_group': 'check_group' }">
+									<b class="mm_block">
+										<i class="mco_form-check"></i>
+										<span class="text_label">체크박스 전체</span>
+									</b>
+								</label>
+								<ul>
+									<li>
+										<label class="mm_form-check">
+											<input type="checkbox" data-check="{ '_group': 'check_group' }">
+											<b class="mm_block">
+												<i class="mco_form-check"></i>
+												<span class="text_label">체크박스1</span>
+											</b>
+										</label>
+									</li>
+									<li>
+										<label class="mm_form-check">
+											<input type="checkbox" data-check="{ '_group': 'check_group' }">
+											<b class="mm_block">
+												<i class="mco_form-check"></i>
+												<span class="text_label">체크박스2</span>
+											</b>
+										</label>
+									</li>
+									<li>
+										<label class="mm_form-check">
+											<input type="checkbox" data-check="{ '_group': 'check_group' }">
+											<b class="mm_block">
+												<i class="mco_form-check"></i>
+												<span class="text_label">체크박스3</span>
+											</b>
+										</label>
+									</li>
+								</ul>
+								<p>선택된 개수: <span data-check="{ '_type': 'check_count', '_group': 'check_group' }">0</span>개</p>
+							</div>
+							<br><br>
+							<div class="mm_check-listbox">
+								<label class="mm_form-check">
+									<input type="checkbox" data-check="{ '_type': 'check_all', '_group': 'agree_check' }">
+									<b class="mm_block">
+										<i class="mco_form-check"></i>
+										<span class="text_label">전체 동의하기</span>
+									</b>
+								</label>
+								<div class="mm_check-list __list_bg__">
+									<ul>
+										<li>
+											<label class="mm_form-check">
+												<input type="checkbox" data-check="{ '_group': 'agree_check' }">
+												<b class="mm_block">
+													<i class="mco_form-check"></i>
+													<span class="text_label">(필수) 구매조건 확인 및 결제진행 동의</span>
+												</b>
+											</label>
+										</li>
+										<li>
+											<div class="mm_flex">
+												<label class="mm_form-check">
+													<input type="checkbox" data-check="{ '_group': 'agree_check' }">
+													<b class="mm_block">
+														<i class="mco_form-check"></i>
+														<span class="text_label">(필수) 개인정보 제3자 제공동의</span>
+													</b>
+												</label>
+												<button type="button" class="mm_switch btn_detail" data-switch="{ '_isParent': true }" title="선택됨"><b>자세히</b><i class="mco_more"></i></button>
+											</div>
+											<table>
+												<tbody>
+													<tr>
+														<th scope="row"><b>제공받는자</b></th>
+														<td><b>주식회사 드림즈컴</b></td>
+													</tr>
+													<tr>
+														<th scope="row"><b>목적</b></th>
+														<td><b>판매자와 구매자 거래의 원활한 진행, 본인 의사의 확인, 고객상담 및 불만처리, 상품과 경품 배송을 위한 배송지 확인 등</b></td>
+													</tr>
+													<tr>
+														<th scope="row"><b>항목</b></th>
+														<td><b>이름, 휴대폰번호, 상품 수취인정보(이름, 휴대폰 번호, 주소)</b></td>
+													</tr>
+													<tr>
+														<th scope="row"><b>보유 및 이용기간</b></th>
+														<td><b>이용목적 달성 시까지 보관</b></td>
+													</tr>
+												</tbody>
+											</table>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<br><br>
+							<div class="mm_check-list __list_bg__">
+								<h5 class="mm_strapline"><b>약관확인</b></h5>
+								<ul>
+									<li>
+										<label class="mm_form-check">
+											<input type="checkbox" data-check>
+											<b class="mm_block">
+												<i class="mco_form-check"></i>
+												<span class="text_label">(필수) 14세 이상입니다</span>
+											</b>
+										</label>
+										<div class="mm_btnbox">
+											<a class="btn_detail" href="#" data-href="{ '_type': 'popup' }"><b>이용약관 자세히보기</b><i class="mco_link"></i></a>
+											<a class="btn_detail" href="#" data-href="{ '_type': 'popup' }"><b>개인정보 취급방침 자세히보기</b><i class="mco_link"></i></a>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</script>
+						<div class="m__item-note">
+							<p>
+								1. 그룹화<br>
+								- name 속성과 data-check 속성으로 { '_group': '이름' }을 사용할 수 있습니다<br>
+								- name 과 _group 을 함께 사용할 수 있고, 함께 사용할 때 _group 이 우선순위로 적용됩니다<br>
+								- check_all이 두 개 이상있는 다중 구조에서는 _group을 '상위', '상위 하위' 형식처럼 공백으로 구분하여 적용합니다.(하위그룹에서 상위그룹을 물고있어야함)<br><br>
+								2. 전체 체크박스<br>
+								- data-check 속성으로 { '_type': 'check_all' }을 설정합니다<br>
+								- data-check 속성으로 { '_min': 1 }처럼 최소 값을 적용하면 최소 값이 충족되었을 때 전체가 체크표시됩니다<br><br>
+								3. 개수 요소<br>
+								- data-check 속성으로 { '_type': 'check_count', '_group': 'name 값' }을 설정합니다<br>
+								- check_count는 name이 아닌 _group으로만 연결 가능합니다<br><br>
+								4. (de)syncer<br>
+								- 전체 체크박스의 상태에 따라 그룹 전체 또는 선택한 요소와 전체 체크박스에만 적용됩니다<br>
+								- onchange는 선택한 요소만 실행됩니다<br><br>
+							</p>
+							<table>
+								<thead>
+									<tr>
+										<th scope="col">Class</th>
+										<th scope="col">Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>&#160;</td>
+										<td>-</td>
+									</tr>
+									<tr>
+										<td>_chain_</td>
+										<td>float가 적용됩니다.</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</section>
+					<!--// 체크박스 리스트 -->
+
+					<!-- 라디오 -->
+					<section class="m__component-item">
+						<h3><b>라디오</b><small>mm_form-radio</small></h3>
+						<script type="text/codehtml">
+							<label class="mm_form-radio">
+								<input type="radio" name="dev_radio-basic" data-radio>
+								<b class="mm_block">
+									<i class="mco_form-radio"></i>
+									<span class="text_label">기본 라디오</span>
+								</b>
+							</label>
+							<br>
+							<label class="mm_form-radio">
+								<b class="mm_block">
+									<i class="mco_form-radio"></i>
+									<span class="text_label">비활성 라디오</span>
+								</b>
+							</label>
+							<br>
+							<label class="mm_form-radio __disabled-on">
+								<b class="mm_block">
+									<i class="mco_form-radio"></i>
+									<span class="text_label">비활성 라디오 <small>(체크됨)</small></span>
+								</b>
+							</label>
+							<br>
+							<label class="mm_form-radio __radio_circle__">
+								<input type="radio" name="dev_radio-circle" data-radio>
+								<b class="mm_block">
+									<i class="mco_form-choice"></i>
+									<span class="text_label">서클형</span>
+								</b>
+							</label>
+						</script>
+					</section>
+					<!--// 라디오 -->
+
+					<!-- 라디오 리스트 -->
+					<section class="m__component-item">
+						<h3><b>라디오 리스트</b><small>mm_radio-list</small></h3>
+						<script type="text/codehtml">
+							<div class="mm_radio-list">
+								<ul>
+									<li>
+										<label class="mm_form-radio">
+											<input type="radio" name="dev_radio-vertical" data-radio checked>
+											<b class="mm_block">
+												<i class="mco_form-radio"></i>
+												<span class="text_label">상품품질 불만</span>
+											</b>
+										</label>
+									</li>
+									<li>
+										<label class="mm_form-radio">
+											<input type="radio" name="dev_radio-vertical" data-radio>
+											<b class="mm_block">
+												<i class="mco_form-radio"></i>
+												<span class="text_label">고객서비스 불만</span>
+											</b>
+										</label>
+									</li>
+									<li>
+										<label class="mm_form-radio">
+											<input type="radio" name="dev_radio-vertical" data-radio>
+											<b class="mm_block">
+												<i class="mco_form-radio"></i>
+												<span class="text_label">원하는 상품이 없음</span>
+											</b>
+										</label>
+									</li>
+									<li>
+										<label class="mm_form-radio">
+											<input type="radio" name="dev_radio-vertical" data-radio>
+											<b class="mm_block">
+												<i class="mco_form-radio"></i>
+												<span class="text_label">속도가 느림</span>
+											</b>
+										</label>
+									</li>
+								</ul>
+							</div>
+							<br><br>
+							<div class="mm_radio-list __list_chain__">
+								<ul>
+									<li>
+										<label class="mm_form-radio">
+											<input type="radio" name="dev_radio-list" data-radio checked>
+											<b class="mm_block">
+												<i class="mco_form-radio"></i>
+												<span class="text_label">일반</span>
+											</b>
+										</label>
+									</li>
+									<li>
+										<label class="mm_form-radio">
+											<input type="radio" name="dev_radio-list" data-radio>
+											<b class="mm_block">
+												<i class="mco_form-radio"></i>
+												<span class="text_label">정산</span>
+											</b>
+										</label>
+									</li>
+									<li>
+										<label class="mm_form-radio">
+											<input type="radio" name="dev_radio-list" data-radio>
+											<b class="mm_block">
+												<i class="mco_form-radio"></i>
+												<span class="text_label">시스템</span>
+											</b>
+										</label>
+									</li>
+								</ul>
+							</div>
+						</script>
+						<div class="m__item-note">
+							<table>
+								<thead>
+									<tr>
+										<th scope="col">Class</th>
+										<th scope="col">Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>&#160;</td>
+										<td>-</td>
+									</tr>
+									<tr>
+										<td>_chain_</td>
+										<td>float가 적용됩니다.</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</section>
+					<!--// 라디오 리스트 -->
+
+					<!-- 파일 업로드 -->
+					<section class="m__component-item">
+						<h3><b>파일 업로드</b><small>mm_form-file</small></h3>
+						<script type="text/codehtml">
+							<div class="mm_form-file">
+								<button type="button" class="btn_remove-file"><i class="mco_form-clear"></i><b class="mm_ir-blind">파일삭제</b></button>
+								<label>
+									<input type="file" data-file="{ '_default': 'testfile.txt' }">
+									<span class="text_path"></span>
+									<span class="mm_btn __btn_line_light__ text_label">파일 첨부</span>
+								</label>
+							</div>
+							<div class="mm_form-file">
+								<button type="button" class="btn_remove-file"><i class="mco_form-clear"></i><b class="mm_ir-blind">파일삭제</b></button>
+								<label>
+									<input type="file" accept=".xls, .txt" data-file>
+									<span class="text_path">.xls, .txt 확장자만 등록 가능 샘플</span>
+									<span class="mm_btn __btn_line_light__ text_label">파일 첨부</span>
+								</label>
+							</div>
+							<div class="mm_form-file">
+								<button type="button" class="btn_remove-file"><i class="mco_form-clear"></i><b class="mm_ir-blind">파일삭제</b></button>
+								<label>
+									<input type="file" accept=".zip" data-file="{ '_fileName': 'product_image_uploads', '_fileSize': 1000 }">
+									<span class="text_path"></span>
+									<span class="mm_btn __btn_line_light__ text_label">파일 첨부</span>
+								</label>
+							</div>
+							<div class="mm_formbox-note">
+								<ul>
+									<li>용량 / 이름제한</li>
+									<li>최대 1MB / 파일명: product_uploads.xls</li>
+								</ul>
+							</div>
+						</script>
+					</section>
+					<!--// 파일 업로드 -->
+
+					<!-- 이미지 업로드 -->
+					<section class="m__component-item">
+						<h3><b>이미지 업로드</b><small>mm_form-image</small></h3>
+						<script type="text/codehtml">
+							<div class="mm_form-image">
+								<button type="button" class="btn_remove-file"><i class="mco_image-remove"></i><span class="mm_ir-blind">파일삭제</span></button>
+								<div class="mm_form-image-preview"></div>
+								<label>
+									<input type="file" accept="image/*" data-file="{ '_default': '../image/_sample/prod_x3_2.png' }">
+									<b class="mm_form-image-label">사진 첨부하기</b>
+								</label>
+							</div>
+							기본 값 fit
+							<div class="mm_form-image">
+								<button type="button" class="btn_remove-file"><i class="mco_image-remove"></i><b class="mm_ir-blind">파일삭제</b></button>
+								<div class="mm_form-image-preview"></div>
+								<label>
+									<input type="file" accept="image/*" data-file="{ '_imageSize': 'full' }">
+									<b class="mm_form-image-label">사진 첨부하기</b>
+								</label>
+							</div>
+							미리보기 사이즈 full
+							<div class="mm_form-image">
+								<button type="button" class="btn_remove-file"><i class="mco_image-remove"></i><b class="mm_ir-blind">파일삭제</b></button>
+								<div class="mm_form-image-preview"></div>
+								<label>
+									<input type="file" accept="image/*" data-file="{ '_imageSize': 'contain' }">
+									<b class="mm_form-image-label">사진 첨부하기</b>
+								</label>
+							</div>
+							미리보기 사이즈 contain
+							<div class="mm_form-image">
+								<button type="button" class="btn_remove-file"><i class="mco_image-remove"></i><b class="mm_ir-blind">파일삭제</b></button>
+								<div class="mm_form-image-preview"></div>
+								<label>
+									<input type="file" accept="image/*" data-file="{ '_imageSize': 'cover', '_imagePosition': 'center top' }">
+									<b class="mm_form-image-label">사진 첨부하기</b>
+								</label>
+							</div>
+							미리보기 사이즈 cover, center top
+						</script>
+						<div class="m__item-note">
+							<p>
+								# 초기화 트리거<br>
+								mm.event.dispatch([file], 'update');<br>
+								페이지에 처음 접속했을 때 실행됩니다.<br>
+								그 외 초기화가 필요하거나 별도로 [data-file] 요소를 생성할 경우 실행합니다.<br>
+								mm.form.update(대상 또는 부모)으로 사용할 수 있습니다.<br><br>
+
+								# 값 전달<br>
+								mm.data.get([file], 'data-file').file: [file]의 전달 값(type object / File)입니다.<br>
+								[file].file는 선택 취소했을 때 값이 사라지는 이슈가 있어 mm.data.get([file], 'data-file').file을 form data로 변환하여 사용합니다.<br>
+								mm.data.get([file], 'data-file').file을 가지고 있는 요소에는 __image-on 클래스가 추가됩니다.<br>
+								mm.data.get([file], 'data-file').file에는 [file].file와 FileReader로 로드한 result: data...base64, width, height, orientation 값을 추가로 포함하고 있습니다.<br>
+								mm.data.get([file], 'data-file').file.result는 원본, mm.data.get([file], 'data-file').file.view.result는 미리보기 이미지와 같은 비율로 변환된 이미지 데이터가 저장됩니다.
+								파일 선택 전 미리보기(data-file: { _default })가 있을 때에는 name 값으로 파일명이 아닌 경로가 들어가 있고, type 값이 없습니다.<br>
+								미리보기를 삭제할 경우 값은 {}입니다.<br><br>
+
+								(D) 파일(이미지) 속성 값<br>
+								data-file: {}
+							</p>
+							<table>
+								<colgroup>
+									<col style="width:150px;">
+									<col style="width:150px;">
+									<col style="width:150px;">
+									<col>
+								</colgroup>
+								<thead>
+									<tr>
+										<th scope="col">Options</th>
+										<th scope="col">Type</th>
+										<th scope="col">Default</th>
+										<th scope="col">Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>_fileName</td>
+										<td>string</td>
+										<td>&#160;</td>
+										<td><p>이름을 제한합니다</p></td>
+									</tr>
+									<tr>
+										<td>_fileSize</td>
+										<td>number</td>
+										<td>&#160;</td>
+										<td><p>용량을 제한합니다 (단위는 kb)</p></td>
+									</tr>
+									<tr>
+										<td>_orientation</td>
+										<td>string</td>
+										<td>&#160;</td>
+										<td><p>이미지를 선택할 때 가로/세로 비율을 제한합니다<br>_width, _height 값이 있으면 해당 비율로 자동으로 적용됩니다.<br>portrait (세로가 긴 이미지만 노출), landscape (가로가 긴 이미지만 노출), square (정방형 이미지만 노출)</p></td>
+									</tr>
+									<tr>
+										<td>_imageSize</td>
+										<td>string</td>
+										<td>contain</td>
+										<td><p>contain(영역 안에 전체가 보여지는 비율로 노출), cover(영역 안에 꽉차게 노출), full(실제 사이즈로 노출), fit(영역 사이즈를 max로 하여 실제 비율로 노출)</p></td>
+									</tr>
+									<tr>
+										<td>_imagePosition</td>
+										<td>string</td>
+										<td>center center</td>
+										<td><p>background-position과 동일한 방식으로 _imageSize가 cover, contain 일 때 이미지 노출위치를 설정합니다.</p></td>
+									</tr>
+									<tr>
+										<td>_imageBgColor</td>
+										<td>string</td>
+										<td>#fff</td>
+										<td><p>#fff(기본 값), _imageSize가 cover, contain 일 때 이미지 여백 색상을 설정합니다.</p></td>
+									</tr>
+									<tr>
+										<td>_item</td>
+										<td>string</td>
+										<td>&#160;</td>
+										<td><p>초기 값으로 미리보기에 노출할 파일 경로를 설정합니다</p></td>
+									</tr>
+									<tr>
+										<td>_classOn</td>
+										<td>string</td>
+										<td>__image-on</td>
+										<td><p>'__image-on'</p></td>
+									</tr>
+									<tr>
+										<td>onChange</td>
+										<td>string/function</td>
+										<td>&#160;</td>
+										<td>
+											<p>
+												change 이벤트 이후 호출되는 함수입니다<br>
+												파라미터로 [file]을 전달합니다<br>
+												change 이벤트 + [file].file 조합과 다른 점으로 파일 선택을 취소했을 때 내용이 삭제되지 않고 기존 내용 유지합니다<br>
+											</p>
+										</td>
+									</tr>
+									<tr>
+										<td>onChangeParams</td>
+										<td>array</td>
+										<td>&#160;</td>
+										<td><p>[]</p></td>
+									</tr>
+									<tr>
+										<td>onCancel</td>
+										<td>string/function</td>
+										<td>&#160;</td>
+										<td>
+											<p>
+												파일 찾기 취소를 하면 호출되는 함수입니다<br>
+												파라미터로 [file]을 전달합니다<br>
+											</p>
+										</td>
+									</tr>
+									<tr>
+										<td>onCancelParams</td>
+										<td>array</td>
+										<td>&#160;</td>
+										<td><p>[]</p></td>
+									</tr>
+									<tr>
+										<td>onError</td>
+										<td>string/function</td>
+										<td>&#160;</td>
+										<td>
+											<p>
+												파일 선택 후 오류가 발생했을 때 호출되는 함수입니다<br>
+												파라미터로 [file]을 전달합니다<br>
+											</p>
+										</td>
+									</tr>
+									<tr>
+										<td>onErrorParams</td>
+										<td>array</td>
+										<td>&#160;</td>
+										<td><p>[]</p></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</section>
+					<!--// 이미지 업로드 -->
+
+					<!-- 멀티 업로드 -->
+					<section class="m__component-item">
+						<h3><b>멀티 업로드</b><small>mm_form-multiple</small></h3>
+						<script type="text/codehtml">
+							<div class="mm_form-multiple">
+								<ul>
+									<li>
+										<div class="mm_form-image">
+											<button type="button" class="btn_remove-file"><i class="mco_image-remove"></i><b class="mm_ir-blind">파일삭제</b></button>
+											<div class="mm_form-image-preview"></div>
+											<label>
+												<input type="file" accept="image/*" data-file>
+												<b class="mm_form-image-label"><i class="ico_upload"></i><span class="mm_ir-blind">사진 첨부하기</span></b>
+											</label>
+										</div>
+									</li>
+								</ul>
+								<label class="mm_btn btn_select-multiple __btn_line_primary__">
+									<input id="file_multiple" type="file" accept="image/*" data-multiple="{ '_max': 5, 'defaults': ['../image/_sample/prod_x1_1.png','../image/_sample/prod_x3_2.png', '../image/_sample/prod_x3_3.png'] }" multiple>
+									<b>한번에 여러장 선택하기</b>
+								</label>
+								<!-- <div class="mm_btnbox">
+									<div class="mm_inline">
+										<div class="mm_image-list-sortable">
+											<button type="button" class="mm_btn __btn_xl__ btn_sort"><b><i class="ico_image-sortable __ico_sm__"></i>순서 편집</b></button>
+											<button type="button" class="mm_btn __btn_xl_line__ btn_sort-cancel"><b><i class="ico_image-sortable-cancel"></i>순서 편집 취소</b></button>
+											<button type="button" class="mm_btn __btn_xl_line_secondary__ btn_sort-apply"><b><i class="ico_image-sortable-apply"></i>순서 적용</b></button>
+										</div>
+									</div>
+								</div> -->
+							</div>
+							<br><br><br>
+							<div class="mm_form-multiple">
+								<ul class="mm_flex __flex_equal__">
+									<li>
+										<div class="mm_form-image">
+											<button type="button" class="btn_remove-file"><i class="mco_image-remove"></i><b class="mm_ir-blind">파일삭제</b></button>
+											<div class="mm_form-image-preview"></div>
+											<label>
+												<input type="file" accept="image/*" data-file>
+												<b class="mm_form-image-box"><i class="ico_upload"></i><span class="mm_ir-blind">사진 첨부하기</span></b>
+											</label>
+										</div>
+									</li>
+								</ul>
+								<label class="mm_btn btn_select-multiple __btn_line_primary__">
+									<input id="file_multiple" type="file" accept="image/*" data-multiple="{ '_max': 3, '_isMax': true, '_isAuto': true, '_isSort': true }" multiple>
+									<b>한번에 여러장 선택하기</b>
+								</label>
+							</div>
+						</script>
+						<div class="m__item-note">
+							<p>
+								# 여러 파일을 관리할 경우<br>
+									.mm_form-multiple 구조로 사용합니다<br>
+									li > .mm_form-image 1세트는 기본 값으로 세팅됩니다(복제용)<br>
+									[file][data-multiple] 요소는 다중 선택용으로 실제 값과 다를 수 있습니다<br>
+									실제 값은 각각의 li > mm.data.get([file], 'data-file').file를 사용합니다<br><br>
+
+								# 초기화 트리거<br>
+									mm.event.dispatch([multiple], 'update');<br>
+									페이지에 처음 접속했을 때 실행됩니다<br>
+									그 외 초기화가 필요하거나 별도로 .mm_form-multiple 요소를 dom에 생성할 경우 실행합니다<br>
+									mm.form.update(대상 또는 부모)으로 사용할 수 있습니다<br><br>
+
+								# data-multiple: { 'option': 값 }
+							</p>
+							<table>
+								<colgroup>
+									<col style="width:150px">
+									<col style="width:150px">
+									<col style="width:150px">
+									<col>
+								</colgroup>
+								<thead>
+									<tr>
+										<th scope="col">Options</th>
+										<th scope="col">type</th>
+										<th scope="col">Default</th>
+										<th scope="col">Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>_isAdd</td>
+										<td>boolean</td>
+										<td>true</td>
+										<td><p>파일을 선택하면 자동으로 리스트 마지막에 빈 항목을 생성합니다</p></td>
+									</tr>
+									<tr>
+										<td>_isRemove</td>
+										<td>boolean</td>
+										<td>true</td>
+										<td><p>미리보기를 삭제하면 해당 리스트 항목를 삭제합니다</p></td>
+									</tr>
+									<tr>
+										<td>_max</td>
+										<td>Number</td>
+										<td>&#160;</td>
+										<td><p>설정된 값까지만 리스트 항목을 생성합니다</p></td>
+									</tr>
+									<tr>
+										<td>items</td>
+										<td>array</td>
+										<td>&#160;</td>
+										<td><p>초기 값으로 미리보기에 노출할 파일 경로를 설정합니다</p></td>
+									</tr>
+									<tr>
+										<td>_isSort</td>
+										<td>boolean</td>
+										<td>true</td>
+										<td><p>리스트 중간에 빈 공간 없이 순차적으로 이미지 리스트를 생성합니다(_isSort 값이 false 일 경우 _isRemove의 값도 false여야 합니다)</p></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</section>
+					<!--// 멀티 업로드 -->
+				</article>
+				<!--// 폼 유형 -->
+
+				<!-- 폼 믹스 -->
+				<article id="formmix">
+					<h2><b>폼 믹스</b></h2>
+
+					<!-- 기본 -->
+					<section class="m__component-item">
+						<h3><b>기본</b><small>mm_formmix-linked</small></h3>
+						<script type="text/codehtml">
+							<div class="mm_formmix-linked">
+								<div class="mm_form-select">
+									<label>
+										<select data-select>
+											<option>10</option>
+										</select>
+										<i class="mco_form-select"></i>
+									</label>
+								</div>
+								<div class="mm_form-select">
+									<label>
+										<select data-select>
+											<option>12</option>
+										</select>
+										<i class="mco_form-select"></i>
+									</label>
+								</div>
+							</div>
+							<div class="mm_formmix-linked">
+								<div class="mm_form-text">
+									<button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><b class="mm_ir-blind">지우기</b></button>
+									<label>
+										<input type="number" class="textfield" data-text><i class="bg_text"></i>
+										<span class="text_placeholder">최저금액</span>
+									</label>
+								</div>
+								<span class="text_tilde">~</span>
+								<div class="mm_form-text">
+									<button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><b class="mm_ir-blind">지우기</b></button>
+									<label>
+										<input type="number" class="textfield" data-text><i class="bg_text"></i>
+										<span class="text_placeholder">최대금액</span>
+									</label>
+								</div>
+							</div>
+							<div class="mm_formmix-linked">
+								<div class="mm_form-text">
+									<button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><b class="mm_ir-blind">지우기</b></button>
+									<label>
+										<input type="text" class="textfield" data-text><i class="bg_text"></i>
+										<span class="text_placeholder">플레이스홀더</span>
+									</label>
+								</div>
+								<span class="text_linked">샘플샘플</span>
+							</div>
+						</script>
+					</section>
+					<!--// 기본 -->
+
+					<!-- 배송주소 -->
+					<section class="m__component-item">
+						<h3><b>배송주소</b><small>mm_formmix-address</small></h3>
+						<script type="text/codehtml">
+							<div class="mm_formmix-address">
+								<h6 class="mm_strapline"><b>주소</b></h6>
+								<div class="mm_formmix-linked">
+									<div class="mm_form-text">
+										<button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><b class="mm_ir-blind">지우기</b></button>
+										<label>
+											<input type="text" class="textfield" data-text readonly><i class="bg_text"></i>
+											<span class="text_placeholder mm_ir-blind">우편번호</span>
+										</label>
+									</div>
+									<a href="_popup_postcode.html" class="mm_btn __btn_dark__" data-href="{ '_type': 'popup' }"><b>우편번호 찾기</b></a>
+								</div>
+								<div class="mm_form-text">
+									<button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><b class="mm_ir-blind">지우기</b></button>
+									<label>
+										<input type="text" class="textfield" data-text readonly><i class="bg_text"></i>
+										<span class="text_placeholder mm_ir-blind">검색주소</span>
+									</label>
+								</div>
+								<div class="mm_form-text">
+									<button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><b class="mm_ir-blind">지우기</b></button>
+									<label>
+										<input type="text" class="textfield" data-text><i class="bg_text"></i>
+										<span class="text_placeholder">상세 주소를 입력하세요(필수입력)</span>
+									</label>
+								</div>
+							</div>
+							<br><br>
+							<div class="mm_formmix-address">
+								<h6 class="mm_strapline"><b>주소 비활성</b></h6>
+								<div class="mm_formmix-linked">
+									<div class="mm_form-text">
+										<label>
+											<span class="textfield text_readonly">06616</span>
+											<i class="bg_text"></i>
+										</label>
+									</div>
+								</div>
+								<div class="mm_form-text">
+									<label>
+										<span class="textfield text_readonly">서울특별시 도봉구 창2동 647-12</span>
+										<i class="bg_text"></i>
+									</label>
+								</div>
+								<div class="mm_form-text">
+									<label>
+										<span class="textfield text_readonly">북한산 현대홈시티3차 302동 101호</span>
+										<i class="bg_text"></i>
+									</label>
+								</div>
+							</div>
+						</script>
+					</section>
+					<!--// 배송주소 -->
+
+					<!-- 이메일주소 -->
+					<section class="m__component-item">
+						<h3><b>이메일주소</b><small>mm_formmix-email</small></h3>
+						<script type="text/codehtml">
+							<div class="mm_formmix-email">
+								<h6 class="mm_strapline"><b>이메일 주소</b></h6>
+								<div class="mm_form-text">
+									<button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><b class="mm_ir-blind">지우기</b></button>
+									<label>
+										<input type="email" class="textfield" data-text><i class="bg_text"></i>
+										<span class="text_placeholder">이메일을 입력하세요</span>
+									</label>
+								</div>
+								<div class="mm_form-select">
+									<label>
+										<select data-select>
+											<option>이메일 선택</option>
+										</select>
+										<i class="mco_form-select"></i>
+									</label>
+								</div>
+							</div>
+						</script>
+					</section>
+					<!--// 이메일주소 -->
+
+					<!-- 기한설정 -->
+					<section class="m__component-item">
+						<h3><b>기한설정</b><small>mm_formmix-period</small></h3>
+						<script type="text/codehtml">
+							<div class="mm_formmix-period">
+								<!-- (D) 현재 조회기간에 해당하는 button에 '__period-on'클래스와 '선택됨' 타이틀을 추가합니다 -->
+								<div class="mm_btnbox mm_flex __flex_equal__">
+									<button type="button" class="mm_btn"><b>1주일</b></button>
+									<button type="button" class="mm_btn __period-on" title="선택됨"><b>1개월</b></button>
+									<button type="button" class="mm_btn"><b>3개월</b></button>
+									<button type="button" class="mm_btn"><b>6개월</b></button>
+								</div>
+								<div class="mm_formmix-linked">
+									<div class="mm_form-text">
+										<button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><b class="mm_ir-blind">지우기</b></button>
+										<label>
+											<span class="textfield text_date"></span>
+											<input type="date" class="textfield" data-text><i class="bg_text"></i>
+											<span class="text_placeholder">시작일</span>
+										</label>
+									</div>
+									<span class="text_tilde">~</span>
+									<div class="mm_form-text">
+										<button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><b class="mm_ir-blind">지우기</b></button>
+										<label>
+											<span class="textfield text_date"></span>
+											<input type="date" class="textfield" data-text><i class="bg_text"></i>
+											<span class="text_placeholder">종료일</span>
+										</label>
+									</div>
+									<button type="button" class="mm_btn __btn_darker__"><b>검색</b></button>
+								</div>
+							</div>
+						</script>
+					</section>
+					<!--// 기한설정 -->
+				</article>
+				<!-- 폼 믹스 -->
+
+				<!-- 폼 오류/복제/업데이트 -->
+				<article id="formFunction">
+					<h2><b>폼 오류/복제/업데이트</b></h2>
+					<section class="m__component-item">
+						<h3><b>오류메시지</b><small>text_alert</small></h3>
+						<script type="text/codehtml">
+							<div class="mm_form-text">
+								<button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><b class="mm_ir-blind">지우기</b></button>
+								<label>
+									<input type="text" id="errortest" class="textfield" data-text><i class="bg_text"></i>
+									<span class="text_placeholder">오류메시지 테스트</span>
+								</label>
+							</div>
+							<div class="mm_flex __flex_equal__">
+								<button type="button" class="mm_btn" onclick="mm.form.alert('#errortest', '오류메시지가 노출됩니다.<br>br로 줄바꿈을 할 수 있지만 위치에 따라 제대로 표시가 되지 않을 수 있습니다.');"><b>오류메시지 노출</b></button>
+								<!-- (D) 오류메시지를 해제할 때 mm.form.lift(); 함수에 파라미터를 전달하지 않으면 페이지 내 전체 메시지를 해제합니다. -->
+								<button type="button" class="mm_btn __btn_line__" onclick="mm.form.lift('#errortest');"><b>오류메시지 숨김</b></button>
+							</div>
+						</script>
+						<div class="m__item-note">
+							<p>(D) 폼요소의 오류메시지는 스크립트 mm.form.alert(대상 input, '알림 메시지')를 호출하여 사용할 수 있습니다.</p>
+						</div>
+					</section>
+					<section class="m__component-item">
+						<h3><b>유효성메시지</b><small>text_valid</small></h3>
+						<script type="text/codehtml">
+							<div class="mm_form-text">
+								<button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><b class="mm_ir-blind">지우기</b></button>
+								<label>
+									<input type="text" id="validtest" class="textfield" data-text><i class="bg_text"></i>
+									<span class="text_placeholder">유효성메시지 테스트</span>
+								</label>
+							</div>
+							<div class="mm_flex __flex_equal__">
+								<button type="button" class="mm_btn" onclick="mm.form.valid('#validtest', '보통<br>사용하기 적절한 비밀번호입니다');"><b>유효성메시지 노출</b></button>
+								<button type="button" class="mm_btn __btn_line__" onclick="mm.form.lift('#validtest');"><b>유효성메시지 숨김</b></button>
+							</div>
+						</script>
+						<div class="m__item-note">
+							<p>
+								# 기본<br>
+									mm.form.valid(formEl, '상태문구\n유효메시지')를 호출하여 사용할 수 있습니다<br>
+									줄바꿈은 br태그 또는 \n으로 구분합니다<br>
+									상태문구에 따라 스타일이 자동으로 변경됩니다<br>
+									text, select, file에만 적용됩니다<br><br>
+
+								# 추가클래스<br>
+									mm.form.valid(formEl, '상태문구\n유효메시지', '추가클래스')를 호출하여 사용할 수 있습니다<br>
+									추가클래스는 .text_valid 태그에 '__valid-추가클래스' 형태로 추가됩니다<br>
+									현재 설정되어 있는 상태문구 외 의 스타일이 필요할 때 사용합니다<br><br>
+
+								# 해제<br>
+									mm.form.lift(formEl)를 호출하여 사용할 수 있습니다<br>
+									mm.form.lift(); 함수에 파라미터를 전달하지 않으면 페이지 내 전체 메시지를 해제합니다.<br>
+							</p>
+							<table>
+								<colgroup>
+									<col style="width:200px">
+									<col>
+									<col style="width:200px">
+									<col>
+								</colgroup>
+								<thead>
+									<tr>
+										<th scope="col">상태문구</th>
+										<th scope="col">유효메시지</th>
+										<th scope="col">색상</th>
+										<th scope="col">Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td></td>
+										<td></td>
+										<td>#01ba59</td>
+										<td>기본 유효메시지의 스타일입니다.</td>
+									</tr>
+									<tr>
+										<td>안전</td>
+										<td>예측이 어려운 강력한 비밀번호입니다</td>
+										<td>#01ba59</td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>보통</td>
+										<td>사용하기 적절한 비밀번호입니다</td>
+										<td>#00aae2</td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>위험</td>
+										<td>조금 더 안전한 비밀번호로 설정하세요</td>
+										<td>#ff7200</td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>사용불가</td>
+										<td>연속된 숫자 또는 키보드 텍스트 4자(역순, 대소문자 구분 포함)는 사용할 수 없어요</td>
+										<td>#f3041a</td>
+										<td></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</section>
+					<section class="m__component-item">
+						<h3><b>복제 (submit에 활용)</b><small>mm_form-hidden</small></h3>
+						<script type="text/codehtml">
+							<form class="mm_form-hidden"></form>
+						</script>
+						<div class="m__item-note">
+							<p>
+								(D) form 연동 시 DOM 레이아웃이 틀어질 경우 form.mm_form-hidden에 요소를 복제하여 연동합니다.<br>
+								mm_form-hidden 클래스가 있는 요소는 화면에 노출되지 않습니다.<br>
+								jQuery를 사용하지 않기 때문에 기본 스크립트 cloneNode를 사용해야 하는데 값까지 복제되지 않을 수 있어 테스트가 필요합니다.
+								버튼은 'submit' 타입 대신 'button' 타입을 사용합니다.<br>
+								file 요소는 기본 [file].files 객체가 아닌 mm.data.get([file], 'data-file').file 객체에 최종 값이 저장되므로 blob을 생성하여 formData로 전송합니다.<br>
+								전송이 완료되면 중복이 안되도록 form 요소의 내용을 비워줍니다.<br>
+							</p>
+						</div>
+					</section>
+					<section class="m__component-item">
+						<h3><b>업데이트</b><small>updatetest</small></h3>
+						<script type="text/codehtml">
+							<div class="mm_form-text">
+								<button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><b class="mm_ir-blind">지우기</b></button>
+								<label>
+									<input type="text" id="updatetest" class="textfield" data-text><i class="bg_text"></i>
+									<span class="text_placeholder">플레이스홀더</span>
+								</label>
+							</div>
+							<div class="mm_flex __flex_equal__">
+								<button type="button" class="mm_btn" onclick="mm.find(#updatetest)[0].value = '일반적인 value 변경으로 placeholder와 겹침';"><b>일반적인 value 변경(오류)</b></button>
+								<button type="button" class="mm_btn __btn_line__" onclick="mm.find(#updatetest)[0].value = '업데이트 value 변경';mm.form.update(mm.find(#updatetest)[0]);"><b>업데이트 변경 적용</b></button>
+							</div>
+						</script>
+						<div class="m__item-note">
+							<p>
+								(D) 폼 요소의 생성, 초기화, 변경 등 변화가 발생하면 업데이트가 필요합니다.<br>
+								mm.form.update();로 업데이트 합니다.<br><br>
+								파라미터가 빈 값이면 html 전체 폼 요소를 검색하여 업데이트 합니다.<br>
+								파라미터가 폼 요소일 경우 선택한 폼 요소만 업데이트 합니다.(이 때 아래 샘플처럼 변경과 업데이트를 동시에 적용할 수 있습니다.)<br>
+								파라미터가 폼 요소의 컨테이너 요소일 경우 컨테이너 내 모든 폼 요소를 업데이트 합니다.<br>
+							</p>
+						</div>
+					</section>
+				</article>
+				<!--// 폼 오류/복제/업데이트 -->
+
+				<!-- 탭메뉴 -->
+				<article id="tab">
+					<h2><b>탭 메뉴</b></h2>
+					<section class="m__component-item">
+						<h3><b>탭메뉴 (flex 가변)</b><small>mm_tabmenu</small></h3>
+						<script type="text/codehtml">
+							<div class="mm_tabmenu">
+								<!-- (D) 선택된 탭메뉴에 '__tab-on' 클래스와 '선택됨' 타이틀을 추가합니다. -->
+								<ul class="mm_flex __flex_equal__">
+									<li><a class="__tab-on" href="#" data-href="{ '_type': 'link' }" title="선택됨"><b>탭메뉴1</b></a></li>
+									<li><a href="#" data-href="{ '_type': 'link' }"><b>탭메뉴2</b></a></li>
+								</ul>
+							</div>
+							<div class="mm_tabmenu __tabmenu_light__">
+								<!-- (D) 선택된 탭메뉴에 '__tab-on' 클래스와 '선택됨' 타이틀을 추가합니다. -->
+								<ul class="mm_flex __flex_equal__">
+									<li><a class="__tab-on" href="#" data-href="{ '_type': 'link' }" title="선택됨"><b>탭메뉴1</b></a></li>
+									<li><a href="#" data-href="{ '_type': 'link' }"><b>탭메뉴2</b></a></li>
+								</ul>
+							</div>
+						</script>
+						<div class="m__item-note">
+							<p>탭메뉴는 height 51px입니다.<br> 탭메뉴 스타일에 따라서 클래스를 추가합니다.</p>
+							<table>
+								<thead>
+									<tr>
+										<th scope="col">Class</th>
+										<th scope="col">fontColor</th>
+										<!-- <th scope="col">borderColor</th> -->
+										<th scope="col">Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>&#160;</td>
+										<td>-</td>
+										<!-- <td>-</td> -->
+										<td>-</td>
+									</tr>
+									<!-- <tr>
+										<td>_primary_</td>
+										<td>#13c2bd</td>
+										<td>-</td>
+									</tr> -->
+									<tr>
+										<td>_light_</td>
+										<td>#7b7b7b</td>
+										<!-- <td>-</td> -->
+										<td>-</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</section>
+					<section class="m__component-item">
+						<h3><b>탭컨텐츠 (탭메뉴 포함, 메뉴 토글 가능)</b><small>mm_tab</small></h3>
+						<script type="text/codehtml">
+							<div class="mm_tab" data-tab="{ '_isToggle': true }">
+								<div class="mm_tabmenu">
+									<!-- (D) 선택된 탭메뉴에 '__tab-on' 클래스와 '선택됨' 타이틀이 추가됩니다. -->
+									<ul class="mm_flex __flex_equal__">
+										<li><a class="btn_tab __tab-on" href="#" title="선택됨"><b>탭메뉴1</b></a></li>
+										<li><a class="btn_tab" href="#"><b>탭메뉴2</b></a></li>
+									</ul>
+								</div>
+								<div class="mm_tab-item __tab-on">
+									탭메뉴1 내용
+								</div>
+								<div class="mm_tab-item">
+									탭메뉴2 내용
+								</div>
+							</div>
+						</script>
+					</section>
+				</article>
+				<!--// 탭메뉴 -->
+
+				<!-- 드롭다운/아코디언 -->
+				<article id="dropdown">
+					<h2><b>드롭다운/아코디언</b></h2>
+					<section class="m__component-item">
+						<h3><b>드롭다운</b><small>mm_dropdown</small></h3>
+						<script type="text/codehtml">
+							<div class="mm_dropdown" data-dropdown>
+								<button type="button" class="btn_dropdown" title="펼쳐보기"><b>드롭다운</b><i class="mco_dropdown"></i></button>
+								<div class="mm_dropdown-item">
+									<div class="mm_dropdown-item-inner">
+										드롭다운 내용<br>
+										드롭다운 내용 2번째 줄
+									</div>
+								</div>
+							</div>
+						</script>
+					</section>
+					<section class="m__component-item">
+						<h3><b>드롭다운_주문형</b><small>mm_dropdown __dropdown_order__</small></h3>
+						<script type="text/codehtml">
+							<section class="mm_dropdown __dropdown_order__ __dropdown-on" data-dropdown>
+								<h3 class="btn_dropdown" title="접어놓기"><b>최종 결제금액</b><b class="text_contraction"><span class="text_price"><strong>89,201,510</strong></span></b><i class="mco_dropdown"></i></h3>
+								<div class="mm_dropdown-item">
+									<div class="mm_dropdown-item-inner">
+										드롭다운 내용<br>
+										드롭다운 내용 2번째 줄
+									</div>
+								</div>
+								<hr class="mm_line">
+							</section>
+						</script>
+						<div class="m__item-note">
+							<p>'text_contraction' 을 항상 노출시키려면 '__text_on__' 클래스를 추가합니다.</p>
+						</div>
+					</section>
+					<section class="m__component-item">
+						<h3><b>아코디언</b><small>mm_accordion</small></h3>
+						<script type="text/codehtml">
+							<div class="mm_accordion">
+								<ul>
+									<li>
+										<dl class="mm_dropdown" data-dropdown="{ '_group': 'dev_accrodion' }">
+											<dt class="btn_dropdown" tabindex="0" title="펼쳐보기"><p><span>반품 신청 방법</span></p><i class="mco_dropdown"></i></dt>
+											<dd class="mm_dropdown-item">
+												<div class="mm_dropdown-item-inner">
+													<p>반품신청 완료 후, 상품이 7일 이내에 반송지에 도착해야 정상적인 처리가 가능합니다 </p>
+												</div>
+											</dd>
+										</dl>
+									</li>
+									<li>
+										<dl class="mm_dropdown" data-dropdown="{ '_group': 'dev_accrodion' }">
+											<dt class="btn_dropdown" tabindex="0" title="펼쳐보기"><p><span>반품 진행 과정</span></p><i class="mco_dropdown"></i></dt>
+											<dd class="mm_dropdown-item">
+												<div class="mm_dropdown-item-inner">
+													<p>반품신청 완료 후, 상품이 7일 이내에 반송지에 도착해야 정상적인 처리가 가능합니다 </p>
+												</div>
+											</dd>
+										</dl>
+									</li>
+									<li>
+										<dl class="mm_dropdown" data-dropdown="{ '_group': 'dev_accrodion' }">
+											<dt class="btn_dropdown" tabindex="0" title="펼쳐보기"><p><span>반품 수거</span></p><i class="mco_dropdown"></i></dt>
+											<dd class="mm_dropdown-item">
+												<div class="mm_dropdown-item-inner">
+													<p>반품신청 완료 후, 상품이 7일 이내에 반송지에 도착해야 정상적인 처리가 가능합니다 </p>
+												</div>
+											</dd>
+										</dl>
+									</li>
+								</ul>
+							</div>
+						</script>
+					</section>
+				</article>
+				<!--// 드롭다운/아코디언 -->
+
+				<!-- 리스트 -->
+				<article id="list">
+					<h2><b>리스트</b></h2>
+					<!-- 기본리스트 -->
+					<section class="m__component-item">
+						<h3><b>기본리스트</b><small>mm_list</small></h3>
+						<script type="text/codehtml">
+							<ul class="mm_list">
+								<li><a href="#" data-href="{ '_type': 'popup' }"><span class="text_state">답변대기</span><b>적립금 관련 문의입니다. 적립금을 받은 거 같은데 어디에서 확인해야 하나요? 그리고 적립금이 너무 적은것 같은데 적립비율좀 새로 책정해주시는게 어떨까요</b><p><span>wil****</span><span>2020-10-29</span></p></a></li>
+								<li><a href="#" data-href="{ '_type': 'popup' }"><span class="text_state">답변대기</span><b>쿠폰은 어디서 받는거에요?</b><p><span>wil****</span><span>2020-10-29</span></p></a></li>
+								<li><a href="#" data-href="{ '_type': 'popup' }"><span class="text_state">답변대기</span><b>제 등급혜택은 어디서 봐요?</b><p><span>wil****</span><span>2020-10-29</span></p></a></li>
+								<li><a href="#" data-href="{ '_type': 'popup' }"><span class="text_state __state_complete__">답변완료</span><b>배송 관련 문의인데요 배송 조회는어디에서 하는거예요? 조회를 좀 할까하는데 어딘지 모르겠어요</b><p><span>wil****</span><span>2020-10-29</span></p></a></li>
+								<li><a href="#" data-href="{ '_type': 'popup' }"><span class="text_state __state_complete__">답변완료</span><b>배송 관련 문의인데요 반품 상품 보냈는데 이제 뭐해야해요</b><p><span>wil****</span><span>2020-10-29</span></p></a></li>
+							</ul>
+							<br><br><br>
+							<ul class="mm_list">
+								<li><a href="#" data-href="{ '_type': 'popup' }"><b>[공지] 9.29(화) 고객센터 단축 운영 안내</b></a></li>
+								<li><a href="#" data-href="{ '_type': 'popup' }"><b>개인정보 처리방침 변경 안내(2020.9.05 시행)</b></a></li>
+								<li><a href="#" data-href="{ '_type': 'popup' }"><b>[공지] 우리은행 작업공지</b></a></li>
+								<li><a href="#" data-href="{ '_type': 'popup' }"><b>[공지] 로젠택배 마포지역 코로나 19 관련 배송 정상운영 재개합니다 공지내용 확인해주세요.</b></a></li>
+								<li><a href="#" data-href="{ '_type': 'popup' }"><b>7월 신용카드 무이자할부</b></a></li>
+							</ul>
+						</script>
+					</section>
+					<!--// 기본리스트 -->
+
+					<!-- 배송지리스트 -->
+					<section class="m__component-item">
+						<h3><b>배송지리스트</b><small>mm_address-list mm_address-item</small></h3>
+						<script type="text/codehtml">
+							<p style="font-size:14px;">리스트형 (mm_address-list)</p>
+							<ul class="mm_address-list">
+								<!-- (D) 최근배송지인 'mm_address-item' 에 '__address-on' 클래스를 추가합니다. -->
+								<li class="mm_address-item __address-on">
+									<a onclick="mm.popup.close();">
+										<i class="mco_form-choice"></i>
+										<div class="mm_tag-list">
+											<b class="mm_tag __tag_secondary__">기본배송지</b>
+											<b class="mm_tag">최근배송지</b>
+										</div>
+										<dl>
+											<dt><b>홍길동우리집배송기본</b></dt>
+											<dd>010-1234-1234</dd>
+											<dd>06616<br>서울특별시 도봉구 창2동 647-12<br>가람마을10단지동양엔파트월드메르디앙 302동 101호</dd>
+										</dl>
+									</a>
+								</li>
+								<li class="mm_address-item">
+									<a onclick="mm.popup.close();">
+										<i class="mco_form-choice"></i>
+										<dl>
+											<dt><b>나의자취방</b></dt>
+											<dd>010-1234-1234</dd>
+											<dd>06616<br>서울특별시 도봉구 창2동 647-12 창동 북한산<br>현대 홈시티3차 302동 101호</dd>
+										</dl>
+									</a>
+								</li>
+								<li class="mm_address-item">
+									<dl>
+										<dt><b>나의자취방</b></dt>
+										<dd>010-1234-1234</dd>
+										<dd>06616<br>서울특별시 도봉구 창2동 647-12<br>가람마을10단지동양엔파트월드메르디앙 302동 101호</dd>
+									</dl>
+									<button type="button" class="btn_remove"><b>삭제</b></button>
+								</li>
+							</ul>
+							<br><br>
+							<p style="font-size:14px;">단독사용 (mm_address-item)</p>
+							<div class="mm_address-item">
+								<dl>
+									<dt><b>나의자취방</b></dt>
+									<dd>010-1234-1234</dd>
+									<dd>06616<br>부산광역시 강서구 녹산산단382로 14번가길 10~29번지(송정동)'<br>302동 101호</dd>
+								</dl>
+								<div class="mm_form-select">
+									<label>
+										<select data-select>
+											<option data-option value="0">셀렉트 기본</option>
+											<option value="1">셀렉트 세컨</option>
+											<option data-option value="2">셀렉트 서드</option>
+										</select>
+										<i class="mco_form-select"></i>
+									</label>
+								</div>
+							</div>
+						</script>
+					</section>
+					<!--// 배송지리스트 -->
+
+					<!-- 카테고리리스트 -->
+					<section class="m__component-item">
+						<h3><b>카테고리리스트</b><small>mm_product-category mm_product-category-list mm_product-category-sub</small></h3>
+						<script type="text/codehtml">
+							<!-- (D) 카테고리 2depth를 선택했을 때 부모인 'mm_product-category'에 '__category-open' 클래스를 추가하면 3depth 카테고리가 노출됩니다 -->
+							<div class="mm_product-category __category-open">
+								<div class="mm_product-category-list">
+									<div class="mm_scroller __scroller_x__">
+										<!-- (D) 선택된 카테고리에 '__category-on' 클래스와 '선택됨' 타이틀을 추가합니다. -->
+										<ul>
+											<li><a class="__category-on" href="#" onclick="return false;" title="선택됨"><b>여성패션</b></a></li>
+											<li><a href="#" onclick="return false;"><b>맨즈샵</b></a></li>
+											<li><a href="#" onclick="return false;"><b>캐주얼/스트릿</b></a></li>
+										</ul>
+									</div>
+								</div>
+								<div class="mm_product-category-list">
+									<div class="mm_scroller __scroller_x__">
+										<!-- (D) 선택된 카테고리에 '__category-on' 클래스와 '선택됨' 타이틀을 추가합니다. -->
+										<ul>
+											<li><a class="__category-on" href="#" onclick="return false;" title="선택됨"><b>전체</b></a></li>
+											<li><a href="#" onclick="return false;"><b>원피스</b></a></li>
+											<li><a href="#" onclick="return false;"><b>블라우스/셔츠</b></a></li>
+											<li><a href="#" onclick="return false;"><b>티셔츠</b></a></li>
+											<li><a href="#" onclick="return false;"><b>자켓</b></a></li>
+											<li><a href="#" onclick="return false;"><b>가디건</b></a></li>
+											<li><a href="#" onclick="return false;"><b>니트</b></a></li>
+											<li><a href="#" onclick="return false;"><b>리빙</b></a></li>
+											<li><a href="#" onclick="return false;"><b>뷰티</b></a></li>
+										</ul>
+									</div>
+								</div>
+								<div class="mm_product-category-sub">
+									<div class="mm_scroller __scroller_x__">
+										<!-- (D) 선택된 카테고리에 '__category-on' 클래스와 '선택됨' 타이틀을 추가합니다. -->
+										<ul>
+											<li>
+												<a class="__category-on" href="#" onclick="return false;" title="선택됨"><b>전체</b></a>
+												<a href="#" onclick="return false;"><b>플라워 원피스</b></a>
+												<a href="#" onclick="return false;"><b>민소매 원피스</b></a>
+											</li>
+											<li>
+												<a href="#" onclick="return false;"><b>모직/울 원피스</b></a>
+												<a href="#" onclick="return false;"><b>후드/트레이닝 원피스</b></a>
+												<a href="#" onclick="return false;"><b>니트 원피스</b></a>
+											</li>
+											<li>
+												<a href="#" onclick="return false;"><b>면/저지/스판 원피스</b></a>
+												<a href="#" onclick="return false;"><b>셔츠/벨티드 원피스</b></a>
+												<a href="#" onclick="return false;"><b>체크/스트라이프 원피스</b></a>
+											</li>
+											<li>
+												<a href="#" onclick="return false;"><b>롱/맥시 원피스</b></a>
+												<a href="#" onclick="return false;"><b>데님 원피스</b></a>
+												<a href="#" onclick="return false;"><b>미니 원피스</b></a>
+											</li>
+											<li>
+												<a href="#" onclick="return false;"><b>쉬폰 원피스</b></a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</script>
+					</section>
+					<!--// 카테고리리스트 -->
+				</article>
+				<!--// 리스트 -->
+
+				<!-- 테이블 -->
+				<article id="table">
+					<h2><b>테이블</b></h2>
+					<!-- 적립금 테이블 -->
+					<section class="m__component-item">
+						<h3><b>적립금 테이블</b><small>mm_table-point</small></h3>
+						<script type="text/codehtml">
+							<div class="mm_table-point">
+								<table>
+									<caption>결제 완료일로부터 배송 출발일 수 기준</caption>
+									<tbody>
+										<tr>
+											<th scope="row"><b>3일 지연</b></th>
+											<td><b>4% (적립금 보상)</b></td>
+										</tr>
+										<tr>
+											<th scope="row"><b>4일 지연</b></th>
+											<td><b>5% (적립금 보상)</b></td>
+										</tr>
+										<tr>
+											<th scope="row"><b>5일 지연</b></th>
+											<td><b>6% (적립금 보상)</b></td>
+										</tr>
+										<tr>
+											<th scope="row"><b>6일 지연</b></th>
+											<td><b>7% (적립금 보상)</b></td>
+										</tr>
+										<tr>
+											<th scope="row"><b>7일 이상 지연</b></th>
+											<td><b>10% (적립금 보상)</b></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<br><br>
+							<div class="mm_table-point">
+								<table>
+									<thead>
+										<tr>
+											<th scope="col"><b>지급 조건</b></th>
+											<th scope="col"><b>실 구매상품<br> 가격 1만원 이상</b></th>
+											<th scope="col"><b>실 구매상품<br> 가격 1만원 미만</b></th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td><b>적립금</b></td>
+											<td><p class="text_price"><strong>100</strong></p></td>
+											<td><p class="text_price"><strong>50</strong></p></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</script>
+					</section>
+					<!--// 적립금 테이블 -->
+				</article>
+				<!--// 테이블 -->
+
+				<!-- 컨텐츠 -->
+				<article id="contents">
+					<h2><b>컨텐츠</b></h2>
+					<!-- 금액/혜택 -->
+					<section class="m__component-item">
+						<h3><b>금액/혜택</b><small>mm_costbox mm_cost</small></h3>
+						<script type="text/codehtml">
+							<div class="mm_costbox">
+								<div class="mm_cost">
+									<table>
+										<tbody>
+											<tr>
+												<th scope="row"><b>총 상품금액</b></th>
+												<td><p class="text_price"><strong>210,000</strong></p></td>
+											</tr>
+											<tr>
+												<th scope="row"><b>총 할인금액</b></th>
+												<td><p class="text_price __price_discount__">- <strong>2,500</strong></p></td>
+											</tr>
+											<tr>
+												<th scope="row"><b>총 배송비</b></th>
+												<td><p class="text_price">+ <strong>6,200</strong></p></td>
+											</tr>
+										</tbody>
+										<tfoot>
+											<tr>
+												<th scope="row"><b>총 결제 예상금액 <span>(<strong>84</strong>건)</span></b></th>
+												<td><p class="text_price"><strong>89,201,510</strong></p></td>
+											</tr>
+										</tfoot>
+									</table>
+								</div>
+								<div class="mm_cost">
+									<table>
+										<tbody>
+											<tr>
+												<th scope="row"><b>쿠폰할인</b></th>
+												<td><p class="text_price">- <strong>1,000</strong></p></td>
+											</tr>
+											<tr>
+												<th scope="row"><b>페이백 즉시 할인</b></th>
+												<td><p class="text_price">- <strong>1,420</strong></p></td>
+											</tr>
+											<tr>
+												<th scope="row"><b>적립금 사용</b></th>
+												<td><p class="text_price">- <strong>15,000</strong></p></td>
+											</tr>
+											<tr>
+												<th scope="row"><b>기타결제</b></th>
+												<td><p class="text_price">- <strong>1,000</strong></p></td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<div class="mm_cost-info">
+									<dl>
+										<dt><b>결제수단</b></dt>
+										<dd>가상계좌<a class="btn_reciept" href="#" data-href="{ '_type': 'link' }"><b>영수증보기</b><i class="mco_link"></i></a></dd>
+									</dl>
+									<dl>
+										<dt><b>이체은행</b></dt>
+										<dd>KEB하나은행</dd>
+									</dl>
+									<dl>
+										<dt><b>예금주</b></dt>
+										<dd>(주)패션플러스</dd>
+									</dl>
+									<dl>
+										<dt><b>계좌번호</b></dt>
+										<dd>123123123123123</dd>
+									</dl>
+									<dl>
+										<dt><b>입금기한</b></dt>
+										<dd>2020-10-20 23:59:00</dd>
+									</dl>
+									<dl>
+										<dt><b>입금액</b></dt>
+										<dd>259,300원</dd>
+									</dl>
+								</div>
+							</div>
+							<br><br>
+							<div class="mm_cost">
+								<table>
+									<tbody>
+										<tr>
+											<th scope="row"><b>주문결제액</b></th>
+											<td><p class="text_price"><strong>210,000</strong></p></td>
+										</tr>
+										<tr>
+											<th scope="row"><b>초기배송료</b></th>
+											<td><p class="text_price">- <strong>2,500</strong></p></td>
+										</tr>
+										<tr>
+											<th scope="row"><b>반품 택배비</b></th>
+											<td><p class="text_price">- <strong>6,200</strong></p></td>
+										</tr>
+									</tbody>
+									<tfoot>
+										<tr>
+											<th scope="row"><b>환불 예상금액</b></th>
+											<td><p class="text_price"><strong>254,800</strong></p></td>
+										</tr>
+									</tfoot>
+								</table>
+							</div>
+							<br><br>
+							<div class="mm_cost-info">
+								<dl>
+									<dt><b>입금기한</b></dt>
+									<dd>2020-10-20 23:59:00</dd>
+								</dl>
+								<dl>
+									<dt><b>입금계좌</b></dt>
+									<dd>KEB하나은행 1234567812345</dd>
+								</dl>
+							</div>
+						</script>
+					</section>
+					<!--// 금액/혜택 -->
+
+					<!-- 주문관련정보 -->
+					<section class="m__component-item">
+						<h3><b>주문관련정보</b><small>mm_order-info</small></h3>
+						<script type="text/codehtml">
+							<div class="mm_order-info">
+								<table>
+									<tbody>
+										<tr>
+											<th scope="row"><b>주문자명</b></th>
+											<td><p>홍길동</p></td>
+										</tr>
+										<tr>
+											<th scope="row"><b>받는 사람</b></th>
+											<td><p>홍길동</p></td>
+										</tr>
+										<tr>
+											<th scope="row"><b>주소</b></th>
+											<td><p>06616<br>서울 서초구 명달로 17길 32, 트라움하우스 2차 아파트 301호</p></td>
+										</tr>
+										<tr>
+											<th scope="row"><b>배송메모</b></th>
+											<td><p>현관문 앞에 두고 가시면 됩니다</p></td>
+										</tr>
+									</tbody>
+								</table>
+								<a class="mm_btn btn_address-change __btn_xs_dark__" href="_popup_addressList.html" data-href="{ '_type': 'popup' }"><b>변경</b></a>
+							</div>
+							<div class="mm_order-info __info_line__">
+								<table>
+									<tbody>
+										<tr>
+											<th scope="row"><b>보내는 사람</b></th>
+											<td><p>홍길동</p></td>
+										</tr>
+										<tr>
+											<th scope="row"><b>휴대폰 번호</b></th>
+											<td><p>01012341234</p></td>
+										</tr>
+										<tr>
+											<th scope="row"><b>주소</b></th>
+											<td><p>06616<br>서울 서초구 명달로 17길 32, 트라움하우스 2차 아파트 301호</p></td>
+										</tr>
+									</tbody>
+								</table>
+								<a class="mm_btn btn_address-change __btn_xs_dark__" href="_popup_addressList.html" data-href="{ '_type': 'popup' }"><b>변경</b></a>
+							</div>
+						</script>
+					</section>
+					<!--// 주문관련정보 -->
+				</article>
+				<!--// 컨텐츠 -->
+
+				<!-- 페이지네이션 -->
+				<article id="pagination">
+					<h2><b>페이지네이션</b></h2>
+					<section class="m__component-item">
+						<h3><b>페이지네이션</b><small>mm_pagination</small></h3>
+						<script type="text/codehtml">
+							<!-- (D) 현재 페이지의 메뉴에 '__page-on' 클래스와 '선택됨' 타이틀을 추가합니다. -->
+							<div class="mm_pagination">
+								<div class="mm_inline">
+									<ol>
+										<li><a class="__page-on" href="#" title="선택됨"><b>1</b></a></li>
+										<li><a href="#"><b>2</b></a></li>
+										<li><a href="#"><b>3</b></a></li>
+									</ol>
+									<button type="button" class="btn_control-first" onclick="mm.link('')" disabled><i class="mco_page-first"></i><b class="mm_ir-blind">처음</b></button>
+									<button type="button" class="btn_control-prev" onclick="mm.link('')" disabled><i class="mco_page-prev"></i><b class="mm_ir-blind">이전</b></button>
+									<button type="button" class="btn_control-next" onclick="mm.link('')"><i class="mco_page-next"></i><b class="mm_ir-blind">다음</b></button>
+									<button type="button" class="btn_control-last" onclick="mm.link('')"><i class="mco_page-last"></i><b class="mm_ir-blind">마지막</b></button>
+								</div>
+							</div>
+						</script>
+					</section>
+				</article>
+				<!--// 페이지네이션 -->
+
+				<!-- 파츠 -->
+				<article id="part">
+					<h2><b>파츠</b></h2>
+					<!-- 수량 -->
+					<section class="m__component-item">
+						<h3><b>수량</b><small>mm_stepper</small></h3>
+						<script type="text/codehtml">
+							<div class="mm_stepper" data-stepper="{ '_max': 99 }">
+								<div class="mm_form-text">
+									<label>
+										<input type="text" class="textfield text_stepper" data-text><i class="bg_text"></i>
+										<span class="mm_ir-blind text_placeholder">수량</span>
+									</label>
+								</div>
+								<button type="button" class="btn_stepper-subtract"><i class="ico_stepper-subtract"></i><b class="mm_ir-blind">수량 빼기</b></button>
+								<button type="button" class="btn_stepper-add"><i class="ico_stepper-add"></i><b class="mm_ir-blind">수량 더하기</b></button>
+							</div>
+						</script>
+					</section>
+					<!--// 수량 -->
+
+					<!-- 태그 -->
+					<section class="m__component-item">
+						<h3><b>태그</b><small>mm_tag</small></h3>
+						<script type="text/codehtml">
+							<div class="mm_tag-list">
+								<b class="mm_tag __tag_secondary__">기본배송지</b>
+								<b class="mm_tag">최근배송지</b>
+							</div>
+							<b class="mm_tag __tag_primary__">중요</b>
+							<b class="mm_tag __tag_bg__">문의 유형</b>
+						</script>
+						<div class="m__item-note">
+							<p>태그의 색상에 따라 클래스를 추가합니다. ex) __tag_dark__</p>
+							<table>
+								<thead>
+									<tr>
+										<th scope="col">Class</th>
+										<th scope="col">FontSize</th>
+										<th scope="col">FontColor</th>
+										<th scope="col">BorderColor</th>
+										<th scope="col">Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>&#160;</td>
+										<td>12px</td>
+										<td>#6a6a6a</td>
+										<td>#7b7b7b</td>
+										<td>-</td>
+									</tr>
+									<!-- <tr>
+										<td>_square_</td>
+										<td>-</td>
+										<td>-</td>
+										<td>-</td>
+										<td>네모형태일 때 추가합니다.</td>
+									</tr>
+									<tr>
+										<td>_lg_</td>
+										<td>12px</td>
+										<td>-</td>
+										<td>-</td>
+										<td>-</td>
+									</tr> -->
+									<tr>
+										<td>_secondary_</td>
+										<td>-</td>
+										<td>#4457a7</td>
+										<td>#4457a7</td>
+										<td>-</td>
+									</tr>
+									<tr>
+										<td>_primary_</td>
+										<td>-</td>
+										<td>#f93e4e</td>
+										<td>#f93e4e</td>
+										<td>-</td>
+									</tr>
+									<tr>
+										<td>_bg_</td>
+										<td>-</td>
+										<td>#6a6a6a</td>
+										<td>#a3a3a3</td>
+										<td>-</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</section>
+					<!--// 태그 -->
+
+					<!-- 쿠폰 -->
+					<section class="m__component-item">
+						<h3><b>쿠폰</b><small>mm_coupon</small></h3>
+						<script type="text/codehtml">
+							<div class="mm_coupon __coupon_sm__">
+								<a class="mm_coupon-inner" href="#">
+									<p class="text_percent"><strong>12</strong><sub>%</sub></p>
+									<p class="text_coupon">중복 할인쿠폰</p>
+									<i class="image_logo"></i>
+									<p class="text_download">쿠폰받기<i class="mco_coupon-download"></i></p>
+								</a>
+							</div>
+							<div class="mm_coupon __coupon_sm__">
+								<a class="mm_coupon-inner" href="#">
+									<p class="text_percent"><strong>12</strong><sub>%</sub></p>
+									<p class="text_coupon">중복 할인쿠폰</p>
+									<i class="image_logo"></i>
+									<p class="text_download">쿠폰받기<i class="mco_coupon-download"></i></p>
+								</a>
+							</div>
+							<br><br>
+							<div class="mm_coupon">
+								<a class="mm_coupon-inner" href="#">
+									<p class="text_price"><strong>2,500</strong></p>
+									<p class="text_coupon">중복할인</p>
+									<p class="text_limit">3만원 이상 사용가능</p>
+									<i class="image_logo"></i>
+									<p class="text_download">쿠폰받기<i class="mco_coupon-download"></i></p>
+									<b class="text_badge"><span>X<strong>30</strong></span></b>
+								</a>
+							</div>
+							<div class="mm_coupon">
+								<a class="mm_coupon-inner">
+									<p class="text_percent"><strong>5</strong><sub>%</sub></p>
+									<p class="text_coupon">중복 할인쿠폰</p>
+									<p class="text_limit">최대 5만원 할인</p>
+									<i class="image_logo"></i>
+									<p class="text_download">자동발급<i class="mco_coupon-download"></i></p>
+								</a>
+							</div>
+							<br><br>
+							<div class="mm_coupon __coupon_lg__">
+								<div class="mm_coupon-inner">
+									<p class="text_percent"><strong>5</strong><sub>%</sub></p>
+									<p class="text_coupon">네이버모바일 가격비교 7%할인쿠폰_NAVER_MD 네이버</p>
+									<p class="text_limit">~2020-10-09 24:00</p>
+									<i class="image_logo"></i>
+									<b class="text_badge"><span>중복할인</span></b>
+								</div>
+							</div>
+							<div class="mm_coupon __coupon_lg__">
+								<div class="mm_coupon-inner">
+									<p class="text_percent"><strong>5</strong><sub>%</sub></p>
+									<p class="text_coupon">머스트비_인터파크 20%_상품</p>
+									<p class="text_limit">~2020-10-09 24:00</p>
+									<i class="image_logo"></i>
+								</div>
+							</div>
+						</script>
+					</section>
+					<!--// 쿠폰 -->
+
+					<!-- 좋아요 -->
+					<section class="m__component-item">
+						<h3><b>좋아요</b><small>mm_like</small></h3>
+						<script type="text/codehtml">
+							<button type="button" class="mm_switch mm_like __switch-on" data-switch="{ 'onChange': 'changeLikeProduct', 'onChangeParams': ['_modal_likeFolder.html', 'goods.wish.delete', 'idx연결'] }" title="선택됨"><i class="mco_like"></i><b class="mm_ir-blind">좋아요한 상품에 추가하기</b></button>
+						</script>
+					</section>
+					<!--// 좋아요 -->
+
+					<!-- 라인 -->
+					<section class="m__component-item">
+						<h3><b>라인</b><small>mm_line</small></h3>
+						<script type="text/codehtml">
+							<hr class="mm_line">
+						</script>
+						<div class="m__item-note">
+							<table>
+								<thead>
+									<tr>
+										<th scope="col">Class</th>
+										<th scope="col">Height</th>
+										<th scope="col">BorderColor</th>
+										<th scope="col">Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td></td>
+										<td>5px</td>
+										<td>#f5f5f5</td>
+										<td>border-top: 1px solid #eee;<br>border-bottom: 5px solid #f5f5f5;</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</section>
+					<!--// 라인 -->
+
+					<!-- 상품 셀렉트 -->
+					<section class="m__component-item">
+						<h3><b>상품 셀렉트</b><small>mm_select-product</small></h3>
+						<script type="text/codehtml">
+							<div class="mm_select-product">
+								<div class="mm_dropdown" data-dropdown>
+									<button type="button" class="btn_dropdown" title="펼쳐보기"><b>상품을 선택하세요</b><i class="mco_dropdown-bold"></i></button>
+									<div class="mm_dropdown-item">
+										<div class="mm_dropdown-item-inner">
+											<ul class="mm_scroller mm_product-list __list_xs__">
+												<li class="mm_product-item">
+													<a>
+														<figure>
+															<i class="mm_bg-cover image_product" data-preload="{ '_src': '../image/_sample/prod_x1_1.png' }"></i>
+															<figcaption>
+																<p class="text_product">시스루스트라이프셔츠</p>
+																<p class="text_option">화이트 FREE</p>
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+												<li class="mm_product-item">
+													<a>
+														<figure>
+															<i class="mm_bg-cover image_product" data-preload="{ '_src': '../image/_sample/prod_x1_2.png' }"></i>
+															<figcaption>
+																<p class="text_product">[공효진 착용 아이템] 2020 S/S 반다나&플라 워 믹스패턴 스트링 티어드 스타일 롱원피스</p>
+																<p class="text_option">베이지 FREE</p>
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+												<li class="mm_product-item">
+													<a>
+														<figure>
+															<i class="mm_bg-cover image_product" data-preload="{ '_src': '../image/_sample/prod_x1_1.png' }"></i>
+															<figcaption>
+																<p class="text_product">시스루스트라이프셔츠</p>
+																<p class="text_option">화이트 FREE</p>
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+												<li class="mm_product-item">
+													<a>
+														<figure>
+															<i class="mm_bg-cover image_product" data-preload="{ '_src': '../image/_sample/prod_x1_1.png' }"></i>
+															<figcaption>
+																<p class="text_product">시스루스트라이프셔츠</p>
+																<p class="text_option">화이트 FREE</p>
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<!-- (D) 선택된 상품이 노출됩니다. -->
+								<div class="mm_select-product-selected"></div>
+							</div>
+						</script>
+					</section>
+					<!--// 상품 셀렉트 -->
+
+					<!-- 신용/체크카드 결제 -->
+					<section class="m__component-item">
+						<h3><b>신용/체크카드 결제</b><small>mm_payment-card</small></h3>
+						<script type="text/codehtml">
+							<div class="mm_payment-card">
+								<div class="mm_form-select">
+									<label>
+										<select data-select>
+											<option>카드를 선택하세요</option>
+										</select>
+										<i class="mco_form-select"></i>
+									</label>
+								</div>
+								<div class="mm_form-select">
+									<label>
+										<select data-select>
+											<option>할부를 선택하세요</option>
+										</select>
+										<i class="mco_form-select"></i>
+									</label>
+								</div>
+								<a class="btn_card-guide" href="_popup_cardBenefit.html" data-href="{ '_type': 'popup' }"><b>무이자할부 안내</b><i class="mco_link"></i></a>
+							</div>
+						</script>
+					</section>
+					<!--// 신용/체크카드 결제 -->
+
+					<!--// 브랜드 메뉴 -->
+					<section class="m__component-item">
+						<h3><b>브랜드 메뉴</b><small>mm_brand-menu</small></h3>
+						<script type="text/codehtml">
+							<ul class="mm_brand-menu">
+								<li><a href="brandShop.html" data-href="{ '_type': 'link' }"><i class="mm_bg-contain mm_image-brand" data-preload="{ '_src': '../image/_sample/brand_logo_8.jpg', '_isRatio': true, '_isErrorImage': false }" title="Thursday Island"></i></a></li>
+								<li><a href="brandShop.html" data-href="{ '_type': 'link' }"><i class="mm_bg-contain mm_image-brand" data-preload="{ '_src': '../image/_sample/brand_logo_9.jpg', '_isRatio': true, '_isErrorImage': false }" title="LACOSTE"></i></a></li>
+								<li><a href="brandShop.html" data-href="{ '_type': 'link' }"><i class="mm_bg-contain mm_image-brand" data-preload="{ '_src': '../image/_sample/brand_logo_10.jpg', '_isRatio': true, '_isErrorImage': false }" title="TOMMY HILFIGER"></i></a></li>
+								<li><a href="brandShop.html" data-href="{ '_type': 'link' }"><i class="mm_bg-contain mm_image-brand" data-preload="{ '_src': '../image/_sample/brand_logo_5.jpg', '_isRatio': true, '_isErrorImage': false }" title="YSL"></i></a></li>
+								<li><a href="brandShop.html" data-href="{ '_type': 'link' }"><i class="mm_bg-contain mm_image-brand" data-preload="{ '_src': '../image/_sample/brand_logo_11error.jpg', '_isRatio': true, '_isErrorImage': false }" title="POLHAM"></i></a></li>
+								<li><a href="brandShop.html" data-href="{ '_type': 'link' }"><i class="mm_bg-contain mm_image-brand" data-preload="{ '_src': '../image/_sample/brand_logo_12.jpg', '_isRatio': true, '_isErrorImage': false }" title="TOPTEN"></i></a></li>
+								<li><a href="brandShop.html" data-href="{ '_type': 'link' }"><i class="mm_bg-contain mm_image-brand" data-preload="{ '_src': '../image/_sample/brand_logo_13.jpg', '_isRatio': true, '_isErrorImage': false }" title="NERDY"></i></a></li>
+								<li><a href="brandShop.html" data-href="{ '_type': 'link' }"><i class="mm_bg-contain mm_image-brand" data-preload="{ '_src': '../image/_sample/brand_logo_3.jpg', '_isRatio': true, '_isErrorImage': false }" title="ADIDAS"></i></a></li>
+								<li><a href="brandShop.html" data-href="{ '_type': 'link' }"><i class="mm_bg-contain mm_image-brand" data-preload="{ '_src': '../image/_sample/brand_logo_15.jpg', '_isRatio': true, '_isErrorImage': false }" title="Calvin Klein Jeans"></i></a></li>
+							</ul>
+						</script>
+					</section>
+					<!--// 브랜드 메뉴 -->
+				</article>
+				<!--// 파츠 -->
+
+				<!-- 팝오버/툴팁 -->
+				<!-- <article id="popover">
+					<h2><b>팝오버/툴팁</b></h2> -->
+					<!-- 팝오버 -->
+					<!-- <section class="m__component-item">
+						<h3><b>팝오버</b><small>mm_popover</small></h3>
+						<script type="text/codehtml">
+							<div class="mm_popover">
+								<h6><b>아이디/비밀번호를 찾지 못하셨나요?</b></h6>
+								<button type="button" class="mm_switch btn_help __switch-on" data-switch title="선택됨"><i class="mco_popover-help"></i></button>
+								<div class="mm_popover-item">
+									<p>이메일과 휴대폰번호로도 찾지 못하셨다면,<br> 아래 항목을 이메일로 보내주세요</p>
+									<div class="mm_popover-item-box">
+										<p>이름/연락처/생년월일 앞자리<br>예) 홍길동/01012345678/96(년생)</p>
+									</div>
+									<a class="btn_email mm_text-primary-dark" href="mailto:customer@stylecrew.co.kr" title="새 창 열림"><b>customer@stylecrew.co.kr</b></a>
+									<p>고객센터 1234-1234</p>
+									<button type="button" class="btn_close" onclick="mm.switch.off('.btn_help');"><i class="mco_popover-close"></i><b class="mm_ir-blind">닫기</b></button>
+								</div>
+							</div>
+						</script>
+					</section> -->
+					<!--// 팝오버 -->
+
+					<!-- 툴팁 -->
+					<!-- <section class="m__component-item">
+						<h3><b>툴팁</b><small>mm_tooltip</small></h3>
+						<script type="text/codehtml">
+							<div style="margin-left:100px;">
+								<div class="mm_tooltip">
+									<h6><b>2020.06.05 기준</b></h6>
+									<button type="button" class="mm_switch btn_help __switch-on" data-switch="{ 'closers': ['doc', 'btn_close'] }" title="선택됨"><i class="mco_tooltip-help"></i></button>
+									<div class="mm_tooltip-item">
+										<i class="mco_tooltip-edge"></i>
+										<p>전일 기준으로 랭킹이 산정되어 노출됩니다</p>
+									</div>
+								</div>
+							</div>
+						</script>
+					</section> -->
+					<!--// 툴팁 -->
+				<!-- </article> -->
+				<!--// 팝오버/툴팁 -->
+
+				<!-- BOM -->
+				<article id="bom">
+					<h2><b>BOM</b></h2>
+					<section class="m__component-item">
+						<h3><b>얼럿</b><small>mm.bom.alert</small></h3>
+						<script type="text/codehtml">
+							<button type="button" class="mm_btn" onclick="mm.bom.alert('안내안내<br>br 줄바꿈');"><b>얼럿 - 기본</b></button><br>
+							<button type="button" class="mm_btn" onclick="mm.bom.alert('타이틀을 변경할 수 있습니다.', null, { _title: '타이틀' });"><b>얼럿 - 타이틀 변경</b></button>
+						</script>
+						<div class="m__item-note">
+							<p>
+								mm.bom.alert('내용');<br><br>
+								내용의 줄바꿈은 &#60;br&#62; 입니다.<br>
+								옵션을 추가하여 타이틀과 콜백함수를 호출할 수 있습니다. ex) mm.bom.alert('내용', 콜백함수, { _title: '제목', buttoms: ['확인'], params: [콜백 파라미터] });
+							</p>
+							<table>
+								<thead>
+									<tr>
+										<th scope="col">Option</th>
+										<th scope="col">Type</th>
+										<th scope="col">Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>콜백함수</td>
+										<td>function</td>
+										<td>확인(취소)버튼을 클릭할 때 실행할 함수</td>
+									</tr>
+									<tr>
+										<td>_title</td>
+										<td>string</td>
+										<td>제목 변경</td>
+									</tr>
+									<tr>
+										<td>buttons</td>
+										<td>array</td>
+										<td>변경할 버튼 이름으로 [확인, 취소] 순서로 적용</td>
+									</tr>
+									<tr>
+										<td>params</td>
+										<td>array</td>
+										<td>콜백함수의 파라미터로 전달할 값</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</section>
+					<section class="m__component-item">
+						<h3><b>컨펌</b><small>mm.bom.confirm</small></h3>
+						<script type="text/codehtml">
+							<button type="button" class="mm_btn __btn_primary__" onclick="mm.bom.confirm('안내안내<br>줄바꿈', sampleCallback);"><b>컨펌 - 기본</b></button><br>
+							<button type="button" class="mm_btn __btn_primary__" onclick="mm.bom.confirm('타이틀을 변경할 수 있습니까?', sampleCallback, { _title: '타이틀 변경', params: [1, 'test'] });"><b>컨펌 - 옵션적용</b></button>
+						</script>
+						<div class="m__item-note">
+							<p>
+								mm.bom.confirm('내용', 콜백함수);<br><br>
+								사용은 얼럿과 동일합니다.<br>
+								콜백함수의 1번째 파라미터로 확인(true)/취소(false) 값을 전달합니다.
+								옵션을 추가하여 타이틀과 콜백함수를 호출할 수 있습니다. ex) mm.bom.confirm('내용', 콜백함수, { _title: '제목', buttoms: ['확인', '취소'], params: [콜백 파라미터] });
+							</p>
+							<table>
+								<thead>
+									<tr>
+										<th scope="col">Option</th>
+										<th scope="col">Type</th>
+										<th scope="col">Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>콜백함수</td>
+										<td>function</td>
+										<td>확인(취소)버튼을 클릭할 때 실행할 함수</td>
+									</tr>
+									<tr>
+										<td>_title</td>
+										<td>string</td>
+										<td>제목 변경</td>
+									</tr>
+									<tr>
+										<td>buttons</td>
+										<td>array</td>
+										<td>변경할 버튼 이름으로 [확인, 취소] 순서로 적용</td>
+									</tr>
+									<tr>
+										<td>params</td>
+										<td>array</td>
+										<td>콜백함수의 파라미터로 전달할 값</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</section>
+					<section class="m__component-item">
+						<h3><b>프롬프트</b><small>mm.bom.prompt</small></h3>
+						<script type="text/codehtml">
+							<button type="button" class="mm_btn __btn_secondary__" onclick="mm.bom.prompt('내용', sampleCallback);"><b>프롬프트 - 기본</b></button><br>
+							<button type="button" class="mm_btn __btn_secondary__" onclick="samplePrompt();"><b>프롬프트 - 옵션적용</b></button>
+						</script>
+						<div class="m__item-note">
+							<p>
+								mm.bom.prompt('내용', sampleCallback);<br><br>
+								옵션이 없어도 기본으로 input:text 1종 노출됩니다.<br>
+								콜백함수의 1번째 파라미터로 확인(true)/취소(false) 값을 전달합니다.
+								콜백함수의 2번째 파라미터로 폼요소의 value 값을 배열로 전달합니다.
+								type 값은 input 입력요소(text, tel, number, email, search, url, password, date, month, time)와 textarea, select 입니다.<br>
+								옵션을 추가하여 타이틀과 콜백함수를 호출할 수 있습니다. ex) mm.bom.prompt('내용', 콜백함수, { _title: '제목', buttoms: ['확인', '취소'], params: [콜백 파라미터], forms: [{ _type: 'tel', _placeholder: '휴대폰 번호' }, { _type: 'select', _value: 200, attribute: { 'style': 'border-width: 2px;' }, options: [{ _text: '옵션1', _value: 100 }, { _text: '옵션2', _value: 200 }] }] });
+							</p>
+							<table>
+								<thead>
+									<tr>
+										<th scope="col">Option</th>
+										<th scope="col">Type</th>
+										<th scope="col">Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>콜백함수</td>
+										<td>function</td>
+										<td>확인(취소)버튼을 클릭할 때 실행할 함수</td>
+									</tr>
+									<tr>
+										<td>_title</td>
+										<td>string</td>
+										<td>제목 변경</td>
+									</tr>
+									<tr>
+										<td>buttons</td>
+										<td>array</td>
+										<td>변경할 버튼 이름으로 [확인, 취소] 순서로 적용</td>
+									</tr>
+									<tr>
+										<td>params</td>
+										<td>array</td>
+										<td>콜백함수의 파라미터로 전달할 값</td>
+									</tr>
+									<tr>
+										<td>forms</td>
+										<td>array</td>
+										<td>노출할 폼 요소</td>
+									</tr>
+									<tr>
+										<td>[forms]._type</td>
+										<td>string</td>
+										<td>가능한 폼요소 input(text, tel, number, email, search, url, password, date, month, time), textarea, select</td>
+									</tr>
+									<tr>
+										<td>[forms]._value</td>
+										<td>string</td>
+										<td>초기 값</td>
+									</tr>
+									<tr>
+										<td>[forms]._placeholder</td>
+										<td>string</td>
+										<td>안내 문구</td>
+									</tr>
+									<tr>
+										<td>[forms]._format</td>
+										<td>string</td>
+										<td>_type 값이 date, month, time일 때만 사용</td>
+									</tr>
+									<tr>
+										<td>[forms].attribute</td>
+										<td>object</td>
+										<td>요소에 추가로 적용할 속성</td>
+									</tr>
+									<tr>
+										<td>[forms].options</td>
+										<td>array</td>
+										<td>_type 값이 select일 때만 사용</td>
+									</tr>
+									<tr>
+										<td>[options]._text</td>
+										<td>string</td>
+										<td>셀렉트 옵션 문구</td>
+									</tr>
+									<tr>
+										<td>[options]._value</td>
+										<td>string</td>
+										<td>셀렉트 옵션 값</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</section>
+				</article>
+				<!--// BOM -->
+
+				<!-- 로딩 -->
+				<article id="loading">
+					<h2><b>로딩</b></h2>
+					<section class="m__component-item">
+						<h3><b>로딩</b><small>mm.loading</small></h3>
+						<script type="text/codehtml">
+							<div class="loading-preview" style="position:relative; height:100px; border:1px solid #ddd;">로딩 노출 영역</div>
+							<div class="mm_flex __flex_equal__">
+								<button type="button" class="mm_btn __btn_xs_primary__" onclick="mm.loading.show('.loading-preview');"><b>로딩 노출 (영역지정)</b></button>
+								<button type="button" class="mm_btn __btn_xs_secondary__" onclick="mm.loading.show(null, { _size: 50, _text: '로딩텍스트 변경내용<br> br로 줄바꿈 가능' });"><b>로딩 노출 (사이즈변경, 텍스트노출)</b></button>
+								<button type="button" class="mm_btn __btn_xs_line__" onclick="mm.loading.hide();"><b>로딩 숨김</b></button>
+							</div>
+							<button type="button" class="mm_btn __btn_xs__" onclick="mm.loading.show();"><b>로딩 노출 (전체)</b></button>
+						</script>
+					</section>
+				</article>
+				<!--// 로딩 -->
+			</div>
+			<!--// 템플릿 요소 -->
+		</div>
+
+		<!-- 공통 페이지 스크립트 -->
+		<script>
+			// bom 콜백 샘플
+			function sampleCallback() {
+
+				alert('console 확인');
+				console.log(Object.values(arguments));
+
+			}
+
+			// bom prompt 샘플
+			function samplePrompt() {
+
+				var option = {
+					_title: '고객센터 이관처리',
+					forms: [
+						{
+							_type: 'select',
+							_value: 'select 다',
+							options: [
+								{ _text: '가나다', _value: 'select 가' },
+								{ _text: 'abcd', _value: 'select 나' },
+								{ _text: '123', _value: 'select 다' }
+							]
+						},
+						{
+							_type: 'textarea',
+							_placeholder: '고객센터로 이관하는 사유를 작성하세요.',
+							_value: 'value 내용\n줄바꿈'// textarea의 줄바꿈은 \n 입니다.
+						},
+						{
+							_type: 'text',
+							// _placeholder: '입력',
+							_value: '결과 값'
+						},
+						{
+							_type: 'password',
+							_placeholder: '비밀번호를 입력해 주세요'
+						},
+						{
+							_type: 'date',
+							// _placeholder: '날짜를 선택하세요.',
+							_format: 'YYYY년 MM월 DD일'
+						},
+						{
+							// pc에서 지원 안함 (select, text 등으로 적용)
+							_type: 'time',
+							_placeholder: '시간 (pc에서 지원 안함, select로 사용)',
+							_format: 'a hh:mm'
+						}
+					]
+				};
+				mm.bom.prompt('', sampleCallback, option);
+
+			}
+
+			// 앵커 이동
+			mm.event.on('.m_template-header nav a', 'click', function (__e) {
+
+				__e.preventDefault();
+				mm.scroll.to(this.getAttribute('href'), { _margin: 60, _time: 0 });
+
+			});
+
+			mm.event.on(mm.scroll.el, 'scroll', function (__e) {
+
+				var state = mm.history.state || {};
+				mm.history.state = mm.extend(state, { _y: this.scrollTop });
+
+			});
+
+			// 소스 들여쓰기 공백제거
+			function clearIndent(__html){
+
+				if (!__html) return;
+
+				var textLines = __html.split('\n');
+				var _blankCount = 0;
+				var textResults = [];
+
+				_.forEach(textLines, function (__value, __index) {
+
+					if (__value.trim().length > 0) {
+						var _value = __value.trimEnd();
+						if (_blankCount == 0) _blankCount = _value.split(/\t/).findIndex(function (__value) {
+
+							return _blankCount == 0 && __value.length > 0;
+
+						});
+						textResults.push(_value.slice(_blankCount));
+					}
+
+				});
+
+				return textResults.join('\n');
+
+			};
+
+			// preview에 내용 삽입
+			_.forEach(mm.find('[type="text/codehtml"]'), function (__$element) {
+
+				var _getCode = clearIndent(__$element.innerHTML);
+
+				mm.element.before(__$element, (function () {
+
+					var $div = document.createElement('div');
+					$div.classList.add('mm_tab');
+					$div.setAttribute('data-tab', '');
+					$div.innerHTML = mm.string.template([
+						'<div class="mm_tabmenu __tab_line__">',
+						'	<ul>',
+						'		<li><a class="btn_tab __tab-on" href="#" title="선택됨"><span>PREVIEW</span></a></li>',
+						'		<li><a class="btn_tab" href="#"><span>MARKUP</span></a></li>',
+						'	</ul>',
+						'</div>',
+						'<div class="mm_tab-item m__item-preview __tab-on">',
+						'	<div class="m__preview-inner">${CODE}</div>',
+						'</div>',
+						'<div class="mm_tab-item">',
+						'	<pre><code class="html"></code></pre>',
+						'</div>',
+					], { CODE: _getCode });
+
+					mm.find('code', $div)[0].textContent = _getCode;
+
+					return $div;
+
+				})());
+
+				__$element.remove();
+
+			});
+
+			// highlight js 로드
+			hljs.initHighlighting();
+
+			mm.load(function () {
+
+				// mm.ui.update();
+
+				var state = mm.history.state || {};
+				if (Number.isFinite(state._y)) mm.scroll.to(state._y, { _time: 0 });
+
+			});
+		</script>
+	</div>
+</body>
+</html>

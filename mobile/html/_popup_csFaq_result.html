@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ko" class="__layout_popup__">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="format-detection" content="telephone=no, address=no, email=no">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="mobile-web-app-capable" content="yes">
+
+	<!-- 소셜태그 -->
+	<meta property="og:title" content="">
+	<meta property="og:description" content="">
+	<meta property="og:image" content="">
+	<meta property="og:url" content="">
+	<meta property="og:site_name" content="">
+	<!--// 소셜태그 -->
+
+	<title>(팝업) 자주하는질문 &#60; 고객센터 - 패션플러스</title>
+
+	<!-- 공통 css -->
+	<link rel="stylesheet" href="../css/font.css">
+	<link rel="stylesheet" href="../css/app.css">
+
+	<!-- (D) 폴리필/라이브러리는 요청을 줄이기 위해 combind + minify를 적용해주세요. -->
+	<!-- 폴리필/라이브러리 스크립트 -->
+	<script src="../../assets/js/polyfill/babel-polyfill-7.8.7.min.js"></script>
+	<script src="../../assets/js/polyfill/dom4-2.1.5.min.js"></script>
+	<script src="../../assets/js/polyfill/fetch.umd-3.0.0.min.js"></script>
+	<script src="../../assets/js/polyfill/intersection-observer-0.8.0.min.js"></script>
+	<script src="../../assets/js/polyfill/resize-observer-1.5.1.min.js"></script>
+	<script src="../../assets/js/lib/lodash-4.17.15.min.js"></script>
+	<script src="../../assets/js/lib/gsap-3.2.6/gsap.min.js"></script>
+	<script src="../../assets/js/lib/axios-0.19.2.min.js"></script>
+	<script src="../../assets/js/lib/load-image.all-3.0.0.min.js"></script>
+	<script src="../../assets/js/lib/sortable-1.10.2.min.js"></script>
+
+	<!-- 공통 스크립트 -->
+	<script src="../js/app_common.js"></script>
+	<script src="../js/app_page-common.js"></script>
+
+	<!-- (D) 페이지 전용 스크립트는 .mm_page-content 하단에 넣어주세요. -->
+</head>
+<body>
+	<div id="mm_app" class="mm_app">
+		<!-- 스킵 -->
+		<nav class="mm_skip">
+			<ul>
+				<li><a href="#mm_body" data-href="{ '_type': 'anchor' }">본문바로가기</a></li>
+			</ul>
+		</nav>
+		<!-- 스킵 -->
+
+		<!-- 화면 -->
+		<div class="mm_view">
+			<!-- 헤더 -->
+			<header class="mm_header">
+				<h1><b>FAQ</b></h1>
+				<div class="mm_lside">
+					<a class="btn_back" href="#" data-href="{ '_type': 'back' }"><i class="mco_history-back"></i><b class="mm_ir-blind">이전으로</b></a>
+				</div>
+				<div class="mm_rside">
+					<button type="button" class="btn_popup-close" onclick="mm.popup.close();"><i class="mco_popup-close"></i><b class="mm_ir-blind">팝업 닫기</b></button>
+				</div>
+			</header>
+			<!--// 헤더 -->
+
+			<!-- 내용 -->
+			<div id="mm_body" class="mm_page">
+				<!-- (D) 실제 내용을 추가하는 부분입니다. -->
+
+				<!-- (D) 팝업은 html 요소에 '__layout_popup__' 클래스를 추가합니다. -->
+				<div class="mm_scroller">
+					<div class="mm_page-inner">
+						<!-- 본문 -->
+						<div class="mm_page-content">
+							<div class="m_popup-cs-faq">
+								<!-- FAQ 검색 -->
+								<form action=".">
+									<div class="m__faq-search">
+										<div class="mm_search">
+											<div class="mm_form-text">
+												<button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><b class="mm_ir-blind">지우기</b></button>
+												<label>
+													<input type="search" class="textfield" data-text><i class="bg_text"></i>
+													<span class="text_placeholder">검색어를 입력하세요</span>
+												</label>
+											</div>
+											<button type="button" class="btn_search"><i class="mco_search"></i><b class="mm_ir-blind">검색하기</b></button>
+										</div>
+									</div>
+									<input hidden>
+								</form>
+								<hr class="mm_line">
+								<!--// FAQ 검색 -->
+
+								<!-- FAQ 분류 -->
+								<!-- (D) 페이지에 해당하는 a태그에 '__faq-on' 클래스와 '선택됨' 타이틀을 추가합니다. -->
+								<ul class="m__faq-category">
+									<li><a href="#" onclick="return false;"><b>배송</b></a></li>
+									<li><a href="#" onclick="return false;"><b>주문/결제</b></a></li>
+									<li><a href="#" onclick="return false;"><b>취소/교환/반품</b></a></li>
+									<li><a href="#" onclick="return false;"><b>쿠폰</b></a></li>
+									<li><a href="#" onclick="return false;"><b>적립금</b></a></li>
+									<li><a href="#" onclick="return false;"><b>회원/멤버십</b></a></li>
+									<li><a href="#" onclick="return false;"><b>영수증/세금계산서</b></a></li>
+									<li><a href="#" onclick="return false;"><b>기타</b></a></li>
+								</ul>
+								<hr class="mm_line">
+								<!--// FAQ 분류 -->
+
+								<!-- FAQ 검색결과 -->
+								<section class="m__faq-result">
+									<h3><b>‘배송’으로 검색한 결과</b><b>3개</b></h3>
+									<!-- FAQ  목록 -->
+									<ul class="m__faq-list">
+										<li>
+											<dl class="mm_dropdown" data-dropdown="{ '_group': 'dev_faq' }">
+												<dt class="btn_dropdown" tabindex="0" title="펼쳐보기">
+													<p>주문하지 않은 상품이 <strong class="mm_text-primary">배송</strong> 되었다는 문자메시지를 받았어요 <strong class="mm_text-primary">배송</strong>비는 얼마인가요?</p>
+													<i class="mco_dropdown"></i>
+												</dt>
+												<dd class="mm_dropdown-item">
+													<div class="mm_dropdown-item-inner">
+														<p>도서산간 배송비는 기본 배송비에 도서산간 추가금 액이 더해진 배송비가 발생합니다</p><br>
+														<p>상품금액과 배송비를 같이 결제 진행하시면 됩니다</p>
+													</div>
+												</dd>
+											</dl>
+										</li>
+										<li>
+											<dl class="mm_dropdown" data-dropdown="{ '_group': 'dev_faq' }">
+												<dt class="btn_dropdown" tabindex="0" title="펼쳐보기">
+													<p><strong class="mm_text-primary">배송</strong> 기간은 얼마나 걸리나요?</p>
+													<i class="mco_dropdown"></i>
+												</dt>
+												<dd class="mm_dropdown-item">
+													<div class="mm_dropdown-item-inner">
+														<p>도서산간 배송비는 기본 배송비에 도서산간 추가금 액이 더해진 배송비가 발생합니다</p>
+													</div>
+												</dd>
+											</dl>
+										</li>
+										<li>
+											<dl class="mm_dropdown" data-dropdown="{ '_group': 'dev_faq' }">
+												<dt class="btn_dropdown" tabindex="0" title="펼쳐보기">
+													<p><strong class="mm_text-primary">배송</strong> 구분은 어떻게 되나요?</p>
+													<i class="mco_dropdown"></i>
+												</dt>
+												<dd class="mm_dropdown-item">
+													<div class="mm_dropdown-item-inner">
+														<p>도서산간 배송비는 기본 배송비에 도서산간 추가금 액이 더해진 배송비가 발생합니다</p>
+													</div>
+												</dd>
+											</dl>
+										</li>
+										<li>
+											<dl class="mm_dropdown" data-dropdown="{ '_group': 'dev_faq' }">
+												<dt class="btn_dropdown" tabindex="0" title="펼쳐보기">
+													<p>묶음 <strong class="mm_text-primary">배송</strong>이 가능한가요?</p>
+													<i class="mco_dropdown"></i>
+												</dt>
+												<dd class="mm_dropdown-item">
+													<div class="mm_dropdown-item-inner">
+														<p>도서산간 배송비는 기본 배송비에 도서산간 추가금 액이 더해진 배송비가 발생합니다</p>
+													</div>
+												</dd>
+											</dl>
+										</li>
+									</ul>
+									<!--// FAQ  목록 -->
+
+									<!-- 페이지네이션 -->
+									<!-- (D) 현재 페이지의 메뉴에 '__page-on' 클래스와 '선택됨' 타이틀을 추가합니다. -->
+									<div class="mm_pagination">
+										<div class="mm_inline">
+											<ol>
+												<li><a class="__page-on" href="#" title="선택됨"><b>1</b></a></li>
+												<li><a href="#"><b>2</b></a></li>
+												<li><a href="#"><b>3</b></a></li>
+											</ol>
+											<button type="button" class="btn_control-first" onclick="mm.link('')" disabled><i class="mco_page-first"></i><b class="mm_ir-blind">처음</b></button>
+											<button type="button" class="btn_control-prev" onclick="mm.link('')" disabled><i class="mco_page-prev"></i><b class="mm_ir-blind">이전</b></button>
+											<button type="button" class="btn_control-next" onclick="mm.link('')"><i class="mco_page-next"></i><b class="mm_ir-blind">다음</b></button>
+											<button type="button" class="btn_control-last" onclick="mm.link('')"><i class="mco_page-last"></i><b class="mm_ir-blind">마지막</b></button>
+										</div>
+									</div>
+									<!--// 페이지네이션 -->
+								</section>
+								<!--// FAQ 검색결과 -->
+							</div>
+						</div>
+						<!--// 본문 -->
+					</div>
+				</div>
+
+				<a class="btn_topmost" href="#mm_app" data-href="{ '_type': 'anchor' }" title="페이지 처음으로"><i class="mco_topmost"></i><b>TOP</b></a>
+				<!-- 타임어택 윙배너 -->
+				<div class="m_timedeal-wing">
+					<button type="button" class="mm_switch" data-switch="{ '_isParent': true, '_defaultTitle': '펼쳐보기', '_title': '접어놓기' }" title="펼쳐보기"><b>타임어택</b></button>
+					<a class="btn_timedeal" href="timeDeal.html" data-href="{ '_type': 'link' }"><b>딱!12시간만</b><i class="mco_link"></i></a>
+				</div>
+				<!--// 타임어택 윙배너 -->
+
+				<!-- 현재 페이지 스크립트 -->
+				<!-- <script src="../js/.js"></script> -->
+			</div>
+			<!--// 내용 -->
+		</div>
+		<!--// 화면 -->
+	</div>
+</body>
+</html>

@@ -1,0 +1,315 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../helper/var';
+@use '../helper/mixin';
+
+/**
+ * 팝업
+**/
+
+
+//< 팝업 닫기
+.btn_popup-close {
+	position: absolute;
+	top: -1px;
+	right: 9px;
+	padding-top: 15px;
+	width: var.$header_popup_base;
+	height: var.$header_popup_base;
+}
+//> 팝업 닫기
+
+//< 팝업 페이지
+html[class*="_popup_"] {
+	min-width: 0;
+
+	body {
+		min-width: 0;
+	}
+
+	.mm_view {
+		padding-top: var.$header_popup_base;
+	}
+
+	.mm_header {
+		position: fixed;
+		right: 0;
+		left: 0;
+		padding: 0 var.$header_popup_base 0 24px;
+		height: var.$header_popup_base;
+		background-color: #fff;
+
+		&::before {
+			position: absolute;
+			right: 24px;
+			bottom: 0;
+			left: 24px;
+			border-bottom: 1px solid #666;
+			content: '';
+		}
+
+		h1 {
+			@include mixin.text-ellipsis(1);
+			position: static;
+			margin-left: 1px;
+			@include mixin.font(700 '14px/44px');
+			@include mixin.transform(translate(0));
+			cursor: default;
+		}
+	}
+
+	&.__ie10 .mm_header h1 { line-height: 42px; }
+
+	.mm_page {
+		padding: 0;
+		height: 100%;
+	}
+
+	.mm_page-content {
+		padding: 0 24px 40px;
+		width: var.$width_popup_base;
+	}
+
+	.mm_container {
+		padding: 0;
+		min-width: 0;
+
+		> form:first-child,
+		> .mm_form:first-child,
+		> .mm_table:first-child,
+		> .mm_search:first-child {
+			margin-top: -1px;
+		}
+
+		> .mm_note:last-child {
+			margin-bottom: -3px;
+		}
+
+		.mm_tablebox {
+			&:first-child > .mm_tablebox-unit {
+				margin-top: -1px;
+			}
+
+			&-caption {
+				.mm_note:first-child {
+					padding-top: 8px;
+				}
+			}
+		}
+
+		.mm_form {
+			tbody {
+				> tr {
+					> th {
+						width: 156px;
+					}
+				}
+			}
+		}
+
+		.mm_foot {
+			.mm_btn {
+				width: 170px;
+			}
+		}
+	}
+}
+//> 팝업 페이지
+
+//< 헤더영역 팝업
+.m_popup- {
+	// 엑셀다운로드
+	&excel {
+		html[class*="_popup_"] & {
+			width: var.$width_popup_xs;
+		}
+
+		&-list {
+			padding: 20px 0 27px;
+			@include mixin.font('0' center);
+
+			ul {
+				margin: -4px 0 0 -4px;
+			}
+
+			li {
+				display: inline-block;
+				margin: 4px 0 0 4px;
+			}
+		}
+	}
+
+	// 비밀번호변경
+	&password {
+		html[class*="_popup_"] & {
+			width: var.$width_popup_xs;
+		}
+
+		section:first-child {
+			.mm_strapline {
+				padding-top: 20px;
+			}
+		}
+
+		.mm_strapline {
+			margin-left: 0;
+			padding: 15px 0 8px;
+		}
+
+		.mm_btnbox {
+			margin-top: 16px;
+		}
+	}
+
+	// 매뉴얼
+	&scm {
+		html[class*="_popup_"] & {
+			width: var.$width_popup_xs;
+		}
+
+		.mm_container {
+			@include mixin.font('0' center);
+
+			section {
+				display: inline-block;
+				width: 50%;
+			}
+		}
+
+		.mm_btn {
+			width: 130px;
+
+			.ico_download {
+				margin: 8px 3px 0 0;
+			}
+		}
+	}
+}
+//> 헤더영역 팝업
+
+//< 도움말
+.m_popup-help {
+	html[class*="_popup_"] & {
+		width: var.$width_popup_xs;
+	}
+
+	article {
+		h3 {
+			padding: 19px 0 26px;
+			@include mixin.font(700 '13px');
+
+			small {
+				display: block;
+				margin-top: 7px;
+				@include mixin.font(400 '12px');
+			}
+		}
+
+		section:first-of-type {
+			padding-top: 0;
+		}
+	}
+
+	section {
+		padding-top: 23px;
+		@include mixin.font('12px/18px');
+
+		h6 {
+			padding-bottom: 1px;
+			font-weight: 700;
+		}
+
+		p {
+			padding-left: 14px;
+
+			span {
+				font-weight: 700;
+			}
+		}
+	}
+}
+//> 도움말
+
+//< 이미지 미리보기
+.m_popup-image {
+	html[class*="_popup_"] & {
+		width: var.$width_popup_sm;
+	}
+
+	&-preview {
+		padding: 30px 30px 0;
+		text-align: center;
+
+		.image_preview {
+			max-width: 100%;
+		}
+	}
+}
+//> 이미지 미리보기
+
+//< 브랜드 관리자
+.m_popup-search {
+	html[class*="_popup_"] & {
+		width: var.$width_popup_sm;
+	}
+}
+//> 브랜드 관리자
+
+//< 등록상품목록
+.m_popup-prod-register {
+	html[class*="_popup_"] & {
+		width: var.$width_popup_lg;
+	}
+
+	.mm_table-item {
+		&.__switch-on {
+			ul {
+				display: block;
+			}
+
+			.mm_switch {
+				margin-bottom: 5px;
+			}
+		}
+
+		&:not(.__switch-on) {
+			ul {
+				display: none;
+			}
+		}
+
+		.mm_switch {
+			&::before {
+				position: relative;
+				content: attr(title);
+			}
+		}
+	}
+
+}
+//> 등록상품목록
+
+//< 기획전 검색
+.m_popup-event-search {
+	html[class*="_popup_"] & {
+		width: var.$width_popup_lg;
+	}
+}
+//> 기획전 검색
+
+//< 선택거래처 목록
+.m_popup-vendor {
+	html[class*="_popup_"] & {
+		width: var.$width_popup_sm;
+	}
+}
+//> 선택거래처 목록
+
+//< 선택 실적브랜드 목록
+.m_popup-atwork {
+	html[class*="_popup_"] & {
+		width: var.$width_popup_sm;
+	}
+}
+//> 선택 실적브랜드 목록

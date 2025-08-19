@@ -1,0 +1,328 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../helper/var';
+@use '../helper/mixin';
+
+/**
+ * 헬퍼
+ * 상속 확장 클래스
+**/
+
+
+//< 상품평 (상품상세 사용)
+%review {
+	@include mixin.font('12px/18px');
+
+	[class*="mco_stars"] {
+		font-size: 16px;
+	}
+
+	.text_info {
+		position: absolute;
+		color: #999;
+
+		> span:nth-child(n+2) {
+			margin-left: 15px;
+		}
+	}
+
+	.mm_scroller {
+		@include mixin.font('0' center);
+		white-space: nowrap;
+
+		ul {
+			display: inline-block;
+
+			li {
+				display: inline-block;
+
+				&:nth-child(n+2) {
+					margin-left: 4px;
+				}
+			}
+		}
+
+		.image_review {
+			height: 95px;
+			border: 1px solid #f5f5f5;
+
+			img {
+				width: auto;
+				height: 100%;
+			}
+		}
+	}
+
+	.text_review {
+		@include mixin.font(#3d3d3d '14px/21px' left);
+	}
+
+	.mm_switch {
+		&::before {
+			margin-right: 6px;
+			content: attr(title);
+		}
+	}
+}
+//> 상품평
+
+//< 등급혜택
+// 등급정보
+%benefitMember {
+	padding: 35px 10px 0;
+
+	// 등급별 색상
+	$grades: ('welcome', var.$color_grade_welcome), ('friend', var.$color_grade_friend), ('gold', var.$color_grade_gold), ('vip', var.$color_grade_vip), ('vvip', var.$color_grade_vvip);
+	@each $grade, $color in $grades {
+		&[class*="_#{$grade}_"] {
+			.m__member-expectation dl dd {
+				.__condition_over__ {
+					color: $color;
+				}
+			}
+
+			.m__member-expectation-bar i {
+				background-color: $color;
+			}
+		}
+	}
+
+	h2 {
+		@include mixin.font(#000 '16px/23px' center);
+
+		.image_grade {
+			margin-bottom: 7px;
+			height: 25px;
+
+			img {
+				width: auto;
+				height: 100%;
+			}
+		}
+
+		b {
+			display: block;
+
+			strong {
+				display: inline-block;
+				margin: 1px 0 -1px 0;
+				@include mixin.font(700 '20px' [var.$fontFamily_latin]);
+			}
+		}
+	}
+
+	.m__member-expectation {
+		margin-top: 27px;
+		border: 1px solid #7b7b7b;
+		border-radius: 3px;
+
+		.btn_dropdown {
+			height: 40px;
+			@include mixin.font('15px/40px');
+
+			.mco_dropdown {
+				position: static;
+				top: auto;
+				right: auto;
+				margin-left: 15px;
+				@include mixin.font(var.$color_text_base '15px');
+				@include mixin.transform(translateY(0));
+			}
+		}
+
+		.mm_dropdown-item-inner {
+			padding: 23px 31px 30px;
+			border-top: 1px solid #e6e6e6;
+
+			> strong {
+				display: block;
+				@include mixin.font(#5c5c5c '14px/20px' center, nowrap);
+
+				span {
+					position: relative;
+					color: var.$color_text_base;
+
+					&::after {
+						position: absolute;
+						right: 0;
+						bottom: 1px;
+						left: 0;
+						border-bottom: 1px solid #101010;
+						content: '';
+					}
+				}
+			}
+
+			> p:not(.mm_text-none) {
+				position: relative;
+				margin-top: 7px;
+				height: 37px;
+				border-radius: 19px;
+				background-color: #f5f5f5;
+				@include mixin.font('14px/37px' center);
+
+				.image_grade {
+					position: relative;
+					top: 50%;
+					margin-left: 20px;
+					height: 15px;
+					@include mixin.transform(translateY(-50%));
+
+					img {
+						width: auto;
+						height: 100%;
+					}
+				}
+
+				strong {
+					margin-left: 6px;
+					@include mixin.font('17px' [var.$fontFamily_latin]);
+				}
+			}
+
+			dl {
+				margin-top: 29px;
+				padding-left: 2px;
+				white-space: nowrap;
+
+				&:nth-of-type(n+2) {
+					margin-top: 26px;
+				}
+
+				dd {
+					vertical-align: 0;
+					@include mixin.font(#7b7b7b '15px' [var.$fontFamily_latin]);
+
+					strong {
+						vertical-align: 0;
+						@include mixin.font(700 var.$color_text_base);
+					}
+
+					sub {
+						margin: 0 3px;
+
+						&:last-child {
+							margin-right: 0;
+							@include mixin.font('14px' [var.$fontFamily_base]);
+						}
+					}
+				}
+			}
+		}
+
+		&-bar {
+			display: block;
+			position: relative;
+			margin-top: 10px;
+			height: 8px;
+			background-color: #dcdcdc;
+
+			&::before {
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				border: 1px solid #cdcdcd;
+				content: '';
+			}
+
+			i {
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+			}
+		}
+	}
+
+	.mm_note {
+		margin-top: 10px;
+		padding: 0 10px 0 3px;
+	}
+
+	.m__member-coupon {
+		margin-top: 32px;
+		text-align: center;
+
+		ul {
+			display: inline-block;
+
+			li {
+				position: relative;
+
+				&:nth-child(n+2) {
+					margin-top: 35px;
+				}
+			}
+		}
+	}
+}
+
+// 등급별혜택
+%benefitGrade {
+	h3 {
+		padding: 0 21px;
+		@include mixin.font('17px/50px');
+
+		+ ul {
+			border-top: 1px solid #e6e6e6;
+		}
+	}
+
+	ul {
+		li:nth-child(n+2) {
+			border-top: 1px solid #e6e6e6;
+		}
+	}
+
+	dl {
+		@include mixin.prefix(align-items, center, webkit ms);
+		padding: 15px 0;
+		min-height: 103px;
+
+		dt {
+			width: 98px;
+			text-align: center;
+
+			.image_grade {
+				height: 25px;
+
+				img {
+					width: auto;
+					height: 100%;
+				}
+			}
+
+			b {
+				display: block;
+				margin-top: 9px;
+				@include mixin.font(#3d3d3d '15px');
+			}
+		}
+
+		dd {
+			padding: 0 10px 0 2px;
+			@include mixin.font('13px/18px');
+
+			p {
+				@include mixin.font('15px/20px');
+
+				span {
+					color: #8c8c8c;
+				}
+
+				+ span {
+					margin-top: 15px;
+				}
+			}
+
+			> span {
+				display: block;
+				color: #3d3d3d;
+			}
+		}
+	}
+}
+//> 등급혜택

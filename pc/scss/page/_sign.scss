@@ -1,0 +1,600 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../helper/var';
+@use '../helper/mixin';
+
+/**
+** 페이지
+** 로그인, 회원가입
+**/
+
+
+//< 로그인
+.m_login {
+	margin: 0 auto;
+	width: 460px;
+
+	.mm_title {
+		padding-bottom: 47px;
+	}
+
+	> p {
+		margin-top: 50px;
+		padding-bottom: 20px;
+		@include mixin.font('15px' center);
+	}
+
+	.mm_note + .mm_foot {
+		margin-top: 23px;
+	}
+
+	&-security {
+		margin-top: 2px;
+		font-size: 0;
+
+		.mm_text-negative {
+			padding-left: 2px;
+			@include mixin.font('13px/19px');
+		}
+
+		&-info {
+			margin-top: 9px;
+			padding: 19px;
+			border: 1px solid #eee;
+			border-radius: 2px;
+			background-color: #fafafa;
+
+			.image_security {
+				width: 189px;
+				height: 58px;
+			}
+
+			.btn_refresh {
+				margin: 14px 0 0 12px;
+
+				.mco_reload {
+					margin: 1px 5px 0 0;
+					@include mixin.transform(scaleX(-1));
+					font-size: 16px;
+				}
+			}
+
+			.mm_form-text {
+				margin-top: 7px;
+			}
+		}
+
+		+ .mm_form-check {
+			margin-top: 10px;
+		}
+	}
+
+	&-menu {
+		margin-top: 6px;
+
+		> a {
+			position: relative;
+			padding: 0 24px;
+			@include mixin.font(#4a4a4a '15px/50px' center);
+
+			&:nth-child(n+2) {
+				margin: 0;
+
+				&::before {
+					position: absolute;
+					top: 50%;
+					left: 0;
+					margin-top: -4px;
+					height: 10px;
+					border-left: 1px solid #cdcdcd;
+					content: '';
+				}
+			}
+		}
+
+		+ p {
+			margin-top: 33px;
+		}
+	}
+
+	&-sns {
+		margin: 40px auto;
+		@include mixin.font('0' center);
+
+		> li {
+			display: inline-block;
+
+			a {
+				padding: 10px 14px;
+			}
+		}
+
+		// sns 아이콘
+		i[class*="mco_sns-"] {
+			width: 48px;
+			height: 48px;
+			border-radius: 100%;
+			@include mixin.font(#fff '/48px' center);
+
+			$sns: (naver, #31b861, 18px, null), (kakaotalk, #f6ce2e, 22px, 50px), (facebook, #3c6fc3, 24px, 50px);
+			@each $type, $bgColor, $fontSize, $lineHeight in $sns {
+				&.mco_sns-#{$type} {
+					background-color: $bgColor;
+					@include mixin.font('#{$fontSize}/#{$lineHeight}');
+
+					@if $type == 'kakaotalk' {
+						padding-left: 2px;
+					}
+				}
+			}
+		}
+	}
+}
+//> 로그인
+
+//< 회원가입
+.m_join {
+	margin: 0 auto;
+	width: 460px;
+
+	.mm_title + p {
+		margin-top: 12px;
+		@include mixin.font(#4a4a4a '15px' center);
+
+		strong {
+			display: block;
+			padding-bottom: 15px;
+			font-size: 23px;
+		}
+
+		small {
+			display: block;
+			margin-top: 7px;
+			@include mixin.font(#8c8c8c '13px');
+
+			.mco_note {
+				margin: 1px 3px 0 0;
+			}
+		}
+	}
+
+	&-info {
+		margin-top: 75px;
+
+		.mm_text-label {
+			small {
+				display: block;
+				@include mixin.font(#8c8c8c '13px');
+			}
+		}
+
+		.mm_radio-list {
+			margin-bottom: 47px;
+
+			li:nth-of-type(n+2) {
+				margin-top: 6px;
+			}
+		}
+
+		.mm_form-radio {
+			display: block;
+			padding-left: 0;
+
+			:checked + .mm_block {
+				border-color: var.$color_secondary_base;
+			}
+
+			.mm_block {
+				padding: 25px 0 23px 31px;
+				border: 1px solid #cdcdcd;
+				border-radius: 3px;
+
+				.mco_form-radio {
+					top: 50%;
+					left: 13px;
+					@include mixin.transform(translateY(-50%));
+				}
+
+				small {
+					display: inline-block;
+					margin-left: 12px;
+					@include mixin.font(#8c8c8c '13px');
+				}
+			}
+		}
+
+		.mm_note + .mm_text-label {
+			margin-top: 19px;
+		}
+
+		&-phone {
+			+ .mm_text-label {
+				margin-top: 21px;
+
+			}
+		}
+
+		&-terms {
+			margin-top: 44px;
+
+			.mm_check-listbox {
+				padding-top: 16px;
+				border: 1px solid #e6e6e6;
+				border-radius: 3px;
+
+				> .mm_form-check {
+					margin-left: 17px;
+				}
+
+				.mm_check-list.__list_bg__ {
+					margin-top: 16px;
+					padding: 18px 26px;
+					border-top: 1px solid #e6e6e6;
+					border-width: 1px 0 0;
+
+					.btn_terms {
+						margin-left: 11px;
+						@include mixin.font(#4a4a4a '14px/22px');
+
+						.mco_link {
+							margin: 1px 0 0 7px;
+							font-size: 12px;
+						}
+					}
+				}
+			}
+
+			.mm_note {
+				margin-top: 11px;
+			}
+		}
+	}
+
+	&-fin {
+		margin: 0 auto;
+		padding-top: 172px;
+		width: 460px;
+		text-align: center;
+
+		h3 {
+			position: relative;
+			@include mixin.font('23px' center);
+
+			b {
+				margin-top: 12px;
+				display: block;
+			}
+
+			small {
+				display: block;
+				margin-top: 30px;
+				@include mixin.font(#4a4a4a '15px');
+			}
+
+			&::before {
+				position: absolute;
+				top: -90px;
+				left: 50%;
+				margin-left: -160px;
+				width: 320px;
+				height: 65px;
+				@include mixin.background(url('https://img.fashionplus.co.kr/ui/pc/content/join_fin_effect.png') '0 0/contain' no-repeat);
+				content: '';
+			}
+		}
+
+		.mm_foot {
+			margin-top: 98px;
+		}
+	}
+}
+//> 회원가입
+
+.m_sign {
+	margin: 0 auto;
+	width: 460px;
+
+	.mm_title + p {
+		margin-top: 17px;
+		@include mixin.font('20px/28px' center);
+
+		b + small {
+			margin: 6px 0 0;
+			padding: 0;
+		}
+
+		small {
+			display: block;
+			padding-top: 2px;
+			margin: 0 0 5px;
+			@include mixin.font(#4a4a4a '15px/21px');
+		}
+	}
+
+	// 정보입력
+	&-info {
+		margin-top: 31px;
+
+		.mm_note + .mm_foot {
+			margin-top: 28px;
+		}
+
+		+ .mm_note {
+			margin-top: 10px;
+		}
+	}
+
+	// sns 계정 로그인
+	&-sns {
+		margin: 0 auto;
+		width: 460px;
+		text-align: center;
+
+		> .text_title {
+			margin-top: 21px;
+			font-size: 20px;
+
+			small {
+				display: block;
+				margin-top: 13px;
+				@include mixin.font(#4a4a4a '15px');
+			}
+		}
+
+		> ul {
+			margin-top: 40px;
+
+			li {
+				margin: 0;
+
+				&:last-of-type {
+					margin-left: 6px;
+				}
+			}
+
+			~ p {
+				margin-top: 37px;
+				@include mixin.font('15px/21px');
+			}
+		}
+
+		.mm_form-radio {
+			padding: 0;
+			width: 100%;
+			height: 184px;
+
+			:checked + .mm_block {
+				border-color: var.$color_primary_base;
+				background-color: #fff;
+
+				.text_label,
+				.mco_form-pick  {
+					color: var.$color_primary_base;
+				}
+			}
+
+			.mm_block {
+				width: 100%;
+				height: 100%;
+				border: 1px solid #cdcdcd;
+				border-radius: 3px;
+				background-color: #fafafa;
+
+				.text_label {
+					display: block;
+					padding-top: 54px;
+					@include mixin.font(#a3a3a3 '17px/24px');
+				}
+
+				.mco_form-pick {
+					position: absolute;
+					bottom: 48px;
+					left: 50%;
+					@include mixin.font(#a3a3a3 '20px');
+					@include mixin.transform(translateX(-50%));
+				}
+			}
+		}
+
+		+ .mm_foot {
+			margin-top: 26px;
+		}
+	}
+
+	// 아이디&비밀번호 찾기
+	&-find {
+		text-align: center;
+
+		> ul {
+			margin-top: 37px;
+
+			li {
+				&:last-of-type {
+					margin-top: 12px;
+				}
+
+				.btn_find-way {
+					position: relative;
+					padding-left: 56px;
+					width: 100%;
+					height: 86px;
+					border: 1px solid #cdcdcd;
+					border-radius: 3px;
+					@include mixin.font('17px/82px' left);
+
+					.mco_phone {
+						position: absolute;
+						top: 32px;
+						left: 24px;
+						@include mixin.font(#5c5c5c '20px/1');
+					}
+
+					.mco_email {
+						position: absolute;
+						top: 34px;
+						left: 19px;
+						@include mixin.font(#5c5c5c '18px/1');
+					}
+
+					.mco_link {
+						position: absolute;
+						right: 18px;
+						@include mixin.font(#6a6a6a '15px');
+					}
+
+					&:hover {
+						border-color: var.$color_primary_base;
+
+						> * {
+							color: var.$color_primary_base;
+						}
+					}
+				}
+			}
+		}
+
+		.text_find {
+			margin-top: 50px;
+			@include mixin.font('15px');
+		}
+
+		.btn_find-sign {
+			padding: 13px 8px;
+			@include mixin.font(#7b7b7b '14px');
+		}
+
+		> .btn_find-method {
+			margin-top: 37px;
+			padding: 13px 8px;
+			@include mixin.font(#7b7b7b '15px');
+		}
+
+		+ .mm_note.__note_bg__ {
+			margin-top: 51px;
+
+			p {
+				line-height: 21px;
+
+				&:first-of-type {
+					margin-top: 4px;
+				}
+
+				a {
+					text-decoration: underline;
+				}
+			}
+		}
+
+		&-fin {
+			margin-top: 22px;
+			text-align: center;
+
+			dl {
+				padding: 38px 0 42px;
+				background-color: #fafafa;
+				@include mixin.font('15px/28px');
+
+				dd {
+					margin-top: 4px;
+					font-size: 20px;
+				}
+			}
+
+			> p {
+				margin-top: 12px;
+				padding-bottom: 1px;
+				@include mixin.font(#6a6a6a '14px');
+			}
+		}
+	}
+}
+
+
+// *---------- 팝업 ----------*
+
+
+
+// *---------- 모달 ----------*
+//< 휴면회원 해제안내
+.m_modal-login-quiescent {
+	text-align: center;
+
+	h2 {
+		padding: 32px 0 10px;
+		font-size: 23px;
+
+		+ p {
+			@include mixin.font(#4a4a4a '14px/20px');
+		}
+	}
+
+	.mm_coupon {
+		margin: 26px auto 0;
+		width: 210px;
+		height: 114px;
+
+		.text_download {
+			padding: 26px 7px 0;
+			width: 39px;
+			color: #dcdcdc;
+
+			.mco_coupon-download {
+				margin-top: 19px;
+			}
+		}
+
+		.text_coupon {
+			margin-top: -2px;
+			@include mixin.font('13px/20px');
+
+			span {
+				color: #999;
+			}
+		}
+
+		.text_qty {
+			position: absolute;
+			z-index: 1;
+			top: -8px;
+			right: 45px;
+			width: 42px;
+			height: 42px;
+			border-radius: 100%;
+			background-color: var.$color_secondary_light;
+			vertical-align: 0;
+			@include mixin.font(#fff '20px/40px' center [var.$fontFamily_latin]);
+
+			&::before {
+				margin-right: 2px;
+				vertical-align: 0;
+				@include mixin.font('13px' [var.$fontFamily_latin]);
+				content: 'X';
+			}
+		}
+
+		.image_logo {
+			margin-top: 10px;
+		}
+
+		+ p {
+			margin-top: 20px;
+			font-size: 15px;
+		}
+	}
+
+	.mm_btn {
+		.mco_link-sm {
+			margin-left: 7px;
+			font-size: 20px;
+		}
+	}
+
+	.mm_note {
+		margin-top: 45px;
+	}
+}
+//> 휴면회원 해제안내
+
+
+// *---------- 레이어 ----------*

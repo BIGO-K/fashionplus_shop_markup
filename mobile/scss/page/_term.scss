@@ -1,0 +1,118 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../helper/var';
+@use '../helper/mixin';
+
+/**
+** 페이지
+** 약관
+**/
+
+
+// *---------- 팝업 ----------*
+
+//< 약관
+.mm_terms {
+	padding: 20px 10px 0;
+	@include mixin.font('12px/17px');
+
+	// 약관 내용
+	&-inner {
+		> p {
+			margin-bottom: 17px;
+		}
+
+		.text_title {
+			font-weight: 700;
+		}
+
+		article + article,
+		dl,
+		li .text_title {
+			margin-top: 17px;
+		}
+
+		dl:last-child {
+			margin-bottom: 17px;
+		}
+
+		// 개인정보처리방침
+		table {
+			margin: 7px 0 23px 0;
+
+			th,
+			td {
+				padding: 7px 4px;
+				border: 1px solid #d5d5d5;
+				@include mixin.font('10px/13px' left);
+			}
+
+			th {
+				background-color: #eee;
+			}
+
+			thead th {
+				text-align: center;
+			}
+
+			.btn_vendor {
+				margin-top: 4px;
+				width: 47px;
+				height: 17px;
+				border: 1px solid #2b2b2b;
+				border-radius: 4px;
+				@include mixin.font('/14px' center);
+			}
+		}
+	}
+
+	// 약관 정보
+	&-info {
+		margin-top: 12px;
+
+		ul {
+			padding: 12px 14px;
+			background-color: #f5f5f5;
+		}
+
+		.mm_form-select {
+			margin-top: 15px;
+		}
+	}
+
+	// 6255 이슈 - 개인정보처리방침 폰트 사이즈 변경
+	.m__terms-privacy {
+		font-size: 13px;
+
+		table th, td {
+			font-size: 11px;
+		}
+	}
+
+	+ .mm_note {
+		margin: 0 10px;
+	}
+}
+//> 약관
+
+//< 업체리스트
+.m_popup-company {
+	table {
+		margin-top: 22px;
+
+		th,
+		td {
+			padding: 5px 3px;
+			border: 1px solid #d6d6d6;
+			@include mixin.font('10px/17px' left);
+		}
+
+		th {
+			padding: 6px 0;
+			background-color: #eee;
+			text-align: center;
+		}
+	}
+}
+//> 업체리스트

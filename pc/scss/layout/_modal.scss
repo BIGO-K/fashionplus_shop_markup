@@ -1,0 +1,1061 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../helper/var';
+@use '../helper/mixin';
+@use '../helper/extend';
+
+/**
+** 모달
+**/
+
+
+//< 모달 페이지
+html[class*="_modal_"] {
+	min-width: 0;
+
+	// 프린트 화면에서 mm_header 비노출
+	@media print {
+		.mm_header {
+			display: none;
+		}
+	}
+
+	body {
+		overflow: hidden;
+		min-width: 0;
+	}
+
+	.mm_view {
+		padding-top: var.$height_modal_header;
+	}
+
+	.mm_header {
+		padding: 0 52px 0 56px;
+		height: var.$height_modal_header;
+		border: 0;
+
+		h1 {
+			@include mixin.text-ellipsis(1);
+			position: static;
+			margin-top: 16px;
+			@include mixin.font('20px' center);
+		}
+
+		// (모달) 맨즈랭킹 < 맨즈샵 에서 사용
+		.m_mens-heading {
+			@include mixin.font('0' center);
+
+			h1 {
+				display: inline-block;
+			}
+
+			&-help {
+				display: inline-block;
+				position: relative;
+				margin-top: 16px;
+				text-align: left;
+
+				button {
+					position: relative;
+					margin: 4px 0 -4px;
+					padding: 0 15px;
+					@include mixin.font(#a3a3a3 700 '16px/28px' [var.$fontFamily_latin]);
+
+					.__ie11 & { margin: 3px 0 -3px; }
+
+					&:hover {
+						+ p {
+							display: block;
+						}
+					}
+
+					&::before {
+						position: absolute;
+						top: 3px;
+						left: 50%;
+						margin-left: -10px;
+						width: 20px;
+						height: 20px;
+						border: 2px solid #a3a3a3;
+						border-radius: 100%;
+						content: '';
+
+						.__ie11 & { top: 4px; }
+					}
+
+					&::after {
+						position: absolute;
+						top: -8px;
+						right: -8px;
+						bottom: -8px;
+						left: -8px;
+						content: '';
+					}
+				}
+
+				p {
+					display: none;
+					position: absolute;
+					bottom: -82px;
+					left: -36px;
+					padding: 6px 0 0 8px;
+					width: 351px;
+					height: 72px;
+					border: 1px solid #747474;
+					background-color: #fff;
+					@include mixin.font('14px/19px');
+
+					&:hover {
+						display: block;
+					}
+
+					&::before {
+						position: absolute;
+						z-index: -1;
+						top: -10px;
+						left: 54px;
+						@include mixin.triangle(#747474, right, 10px, 10px);
+						content: '';
+					}
+
+					&::after {
+						position: absolute;
+						top: -8px;
+						left: 55px;
+						@include mixin.triangle(#fff, right, 8px, 8px);
+						content: '';
+					}
+				}
+			}
+		}
+	}
+
+	.mm_page {
+		display: block;
+		// @include mixin.prefix(flex-wrap, nowrap, webkit ms);
+		padding-bottom: 0;
+		height: 100%;
+
+		> .mm_scroller {
+			height: 100%;
+			border-top: 1px solid #e6e6e6;
+		}
+
+		&-content {
+			@include mixin.prefix(flex, none, webkit ms);
+			@include mixin.prefix(align-self, auto, webkit ms);
+			padding: 0 20px 40px;
+			width: var.$width_modal_base;
+		}
+	}
+}
+
+// 상품상세 > 리뷰상세 (모달에서 투명 배경영역에 버튼이 들어가는 경우의 처리)
+html[class*="_review_"] {
+	body {
+		background-color: transparent;
+	}
+
+	.mm_app {
+		padding: 0 68px 70px;
+	}
+
+	.mm_view {
+		background-color: #fff;
+		border-radius: 3px;
+
+		.mm_header {
+			border-radius: 3px 3px 0 0;
+		}
+	}
+}
+//> 모달 페이지
+
+//< 모달 영역
+.mm_modal {
+	overflow: hidden;
+	position: fixed;
+	z-index: var.$zIndex_modal;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+
+	// 모달 열림
+	.__modal & {
+		@include mixin.opacity(1, auto);
+
+		.mm_modal-item-dim {
+			@include mixin.opacity(1);
+		}
+	}
+
+	&-items {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+	}
+
+	&-item-dim {
+		width: 100%;
+		height: 100%;
+		background-color: rgba(#000, 0.7);
+		@include mixin.opacity(0);
+		@include mixin.transition(opacity var.$time_fast);
+	}
+}
+//> 모달 영역
+
+//< 모달 요소
+.mm_modal-item {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	@include mixin.opacity(0, none);
+	@include mixin.transform(scale(1.1));
+	@include mixin.transition(opacity var.$time_fast, transform var.$time_fast);
+
+	// 현재창
+	&.__modal-on {
+		z-index: 1;
+		@include mixin.opacity(1, auto);
+		@include mixin.transform(scale(1));
+		// @include mixin.transition(transform var.$time_fast);
+	}
+
+	&-inner {
+		overflow: hidden;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: var.$width_modal_base;
+		max-width: 96%;
+		max-height: 90%;
+		border-radius: 3px;
+		@include mixin.transform(translate(-50%, -50%));
+	}
+
+	iframe {
+		// @include mixin.prefix(flex, 1, webkit ms);
+		position: relative;
+		width: 100%;
+		height: 100%;
+	}
+}
+//> 모달 요소
+
+//< 모달 닫기
+.btn_modal-close {
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	right: 3px;
+	bottom: 0;
+	width: 52px;
+	@include mixin.font(#2b2b2b '17px/62px' center);
+}
+//> 모달 닫기
+
+//< 오늘하루그만보기
+.m_modal-today {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	padding: 11px 27px 0;
+	height: 43px;
+	border-top: 1px solid #e1e1e1;
+	background-color: #fff;
+	text-align: right;
+}
+//> 오늘하루그만보기
+
+//< 카드사별혜택 (상품상세, 주문결제)
+.m_modal-card {
+	// h3 {
+	// 	padding: 26px 0 12px 2px;
+	// 	font-size: 15px;
+	// }
+
+	// ul {
+	// 	border: 1px solid #e6e6e6;
+
+	// 	li {
+	// 		position: relative;
+	// 		padding: 13px 15px 15px 151px;
+
+	// 		&:nth-child(n+2) {
+	// 			border-top: 1px solid #e6e6e6;
+	// 		}
+
+	// 		.image_card {
+	// 			position: absolute;
+	// 			top: 0;
+	// 			bottom: 0;
+	// 			left: 30px;
+	// 			width: 89px;
+	// 		}
+
+	// 		p {
+	// 			@include mixin.font('13px/19px');
+	// 		}
+
+	// 		> span {
+	// 			display: inline-block;
+	// 			padding-left: 1px;
+	// 			margin-top: 12px;
+	// 			@include mixin.font(#8c8c8c '13px');
+	// 		}
+	// 	}
+	// }
+}
+//> 카드사별혜택
+
+//< 신규 배송지 등록, 배송지 변경
+.m_modal-address {
+	.mm_tabmenu {
+		margin: 0 -20px;
+	}
+
+	.mm_address-list {
+		padding-top: 28px;
+	}
+
+	.mm_text-label:first-child {
+		padding-top: 21px;
+	}
+
+	.mm_formmix-address {
+		.mm_text-label {
+			padding-top: 0;
+		}
+	}
+
+	.mm_text-none {
+		padding: 205px 0 202px;
+		border: 0;
+	}
+}
+//> 신규 배송지 등록, 배송지 변경
+
+//< 판매자 문의하기, 상품 문의하기
+.m_modal-inquiry {
+	html[class*="_modal_"] & {
+		padding: 0 0 40px;
+		width: var.$width_modal_xl;
+	}
+
+	&-inner {
+		border-bottom: 1px solid #eee;
+		@include mixin.clearfix();
+	}
+
+	.mm_lside {
+		position: relative;
+		padding: 21px 20px 24px;
+		width: 240px;
+
+		&::after {
+			position: absolute;
+			top: 0;
+			right: -1px;
+			bottom: 0;
+			border-right: 1px solid #eee;
+			content: '';
+		}
+
+		.text_note {
+			margin-top: 31px;
+			@include mixin.font(#5c5c5c '14px');
+
+			.mco_note-question {
+				margin: 1px 3px -1px 0;
+				color: #8c8c8c;
+			}
+		}
+
+		.btn_link {
+			margin-top: 9px;
+
+			.mco_link {
+				margin: 1px 0 -1px 5px;
+				font-size: 12px;
+			}
+		}
+
+		.mm_note {
+			+ .mm_desyncer-product-none {
+				margin-top: 27px;
+			}
+		}
+	}
+
+	.mm_rside {
+		position: relative;
+		padding: 21px 20px 24px;
+		width: 610px;
+
+		&::after {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			border-left: 1px solid #eee;
+			content: '';
+		}
+
+		.mm_check-list {
+			margin-top: 24px;
+
+			ul {
+				li:last-child {
+					.mm_form-text {
+						margin-bottom: 0;
+					}
+				}
+			}
+
+			.mm_form-text {
+				margin: 10px 0 24px;
+			}
+		}
+	}
+}
+//> 판매자 문의하기, 상품 문의하기
+
+//< 판매자 정보
+.m_modal-seller-info {
+	.m_myorder-info {
+		padding-top: 15px;
+
+		table {
+			tr {
+				> * {
+					padding: 6px 0;
+				}
+
+				th {
+					width: 99px;
+				}
+			}
+		}
+	}
+
+	.mm_foot {
+		margin-top: 21px;
+	}
+}
+//> 판매자 정보
+
+//< 송장번호 수정
+.m_modal-invoice-modify {
+	.m_myorder-info {
+		margin: 0 -20px;
+		padding: 14px 0 12px;
+		border-bottom: 1px solid #f5f5f5;
+		background-color: #fafafa;
+
+		table {
+			tr {
+				th {
+					padding-left: 20px;
+					width: 119px;
+				}
+			}
+		}
+	}
+
+	.mm_text-label {
+		margin-top: 21px;
+	}
+}
+//> 송장번호 수정
+
+//< 우편번호 검색
+.m_modal-postcode {
+	padding-top: 24px;
+
+	&-search {
+		position: relative;
+
+		.mm_form-text {
+			.btn_text-clear {
+				right: 39px;
+				width: 30px;
+			}
+
+			label {
+				.textfield:not(:disabled):not([readonly]) {
+					padding-right: 69px;
+				}
+			}
+		}
+
+		.btn_search {
+			position: absolute;
+			z-index: 1;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			width: 39px;
+			@include mixin.font(#6a6a6a '17px/45px' center);
+
+			.mco_search-postcode {
+				margin: 2px 0 -2px -7px;
+			}
+		}
+	}
+
+	// 검색가이드
+	&-guide {
+		> dl {
+			padding: 42px 2px 47px;
+
+			dt {
+				padding-bottom: 5px;
+				@include mixin.font('15px/26px');
+
+				strong {
+					display: block;
+					@include mixin.font(700 '15px');
+				}
+			}
+
+			dd {
+				@include mixin.font( #6a6a6a'13px/22px');
+
+				strong {
+					margin-left: 6px;
+					color: var.$color_primary_base;
+				}
+			}
+		}
+
+		> section {
+			margin: 0 -20px;
+			padding: 0 22px;
+
+			.m_modal-postcode-title {
+				padding: 0;
+				border: 1px solid #d6d6d6;
+				border-bottom: 0;
+				background-color: #fafafa;
+				@include mixin.font('13px/35px');
+			}
+		}
+	}
+
+	&-title {
+		padding: 35px 0 26px;
+		@include mixin.font('15px/21px' center);
+	}
+
+	&-list {
+		> ul {
+			padding: 0 2px;
+
+			li:nth-child(n+2) {
+				margin-top: -1px;
+			}
+
+			a {
+				display: block;
+			}
+		}
+
+		.m_modal-postcode-item:hover {
+			z-index: 1;
+			border-color: var.$color_primary_base;
+		}
+	}
+
+	&-item {
+		position: relative;
+		padding: 11px 0 12px;
+		border: 1px solid #d6d6d6;
+
+		dl {
+			position: relative;
+			padding: 0 130px 0 71px;
+			@include mixin.font('13px/20px');
+
+			dt {
+				position: absolute;
+				top: 0;
+				left: 15px;
+				color: #6a6a6a;
+			}
+
+			&:nth-child(n+2) {
+				margin-top: 4px;
+			}
+		}
+
+		.text_postcode {
+			position: absolute;
+			top: 50%;
+			right: 0;
+			margin-top: 2px;
+			padding-left: 9px;
+			width: 67px;
+			font-size: 13px;
+			@include mixin.transform(translateY(-50%));
+		}
+	}
+
+	.mm_pagination {
+		margin-top: 29px;
+	}
+
+	.mm_text-none {
+		padding: 106px 0 80px;
+
+		span {
+			display: block;
+			margin-top: 18px;
+			@include mixin.font(#4a4a4a '14px/20px');
+		}
+	}
+}
+//> 우편번호 검색
+
+//< 상품평 작성, 수정
+.m_modal-review {
+	html[class*="_modal_"] & {
+		width: var.$width_modal_xl;
+	}
+
+	&-starscore {
+		padding: 45px 0 43px;
+		@include mixin.font('0' center);
+
+		h3 {
+			display: inline-block;
+			@include mixin.font(var.$color_text_base '23px/28px');
+		}
+
+		ul {
+			margin-left: 12px;
+			display: inline-block;
+
+			li {
+				display: inline-block;
+				font-size: 30px;
+
+				&:nth-of-type(n+2) {
+					margin-left: 5px;
+				}
+
+				&.__starscore-on {
+					.mco_star::before {
+						content: '\ecfa';
+					}
+				}
+			}
+		}
+	}
+
+	.mm_select-product {
+		margin: 0 auto;
+		width: 622px;
+	}
+
+	div.mm_product-item {
+		border-bottom: 0;
+
+		figcaption {
+			padding-top: 3px;
+		}
+
+		+ .m_modal-review-write {
+			margin-top: 20px;
+		}
+	}
+
+	&-write {
+		margin-top: 30px;
+		@include mixin.clearfix();
+
+		.mm_lside {
+			width: 398px;
+
+			.mm_form-textarea {
+				.textfield {
+					height: 199px;
+				}
+			}
+
+			.mm_form-multiple {
+				margin-top: 10px;
+			}
+		}
+
+		.mm_note {
+			margin-top: -2px;
+			padding-right: 27px;
+			width: 392px;
+			@include mixin.font('13px/21px');
+		}
+	}
+
+	.mm_foot {
+		margin-top: 40px;
+	}
+
+	section.mm_note {
+		position: relative;
+		margin-top: 45px;
+		padding-right: 465px;
+
+		.mm_table-point {
+			position: absolute;
+			top: 30px;
+			right: 20px;
+			width: 421px;
+		}
+	}
+}
+//> 상품평 작성, 수정
+
+//< 리뷰 이미지 보기
+.m_review-modal {
+	position: fixed;
+	z-index: -1;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: rgba(0,0,0,0.7);
+	@include mixin.opacity(0);
+
+	&.__on {
+		z-index: var.$zIndex_popup;
+		@include mixin.opacity(1);
+	}
+
+	&-item {
+		overflow: hidden;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		padding: 61px 0 60px;
+		width: 710px;
+		height: 100%;
+		max-height: 95%;
+		border-radius: 3px;
+		background-color: #fff;
+		@include mixin.transform(translate(-50%, -50%));
+	}
+
+	h5 {
+		position: absolute;
+		top: 0;
+		right: 0;
+		left: 0;
+		height: 61px;
+		border-bottom: 1px solid #cdcdcd;
+		@include mixin.font('20px/60px' center);
+	}
+
+	.mm_swiper {
+		height: 100%;
+
+		&-inner {
+			height: 100%;
+		}
+
+		.swiper-slide {
+			> .image_review {
+				display: block;
+				height: 100%;
+				@include mixin.background('50% 50%/contain' no-repeat);
+			}
+		}
+
+		.swiper-pagination {
+			bottom: -36px;
+
+			&-bullet {
+				width: 12px;
+				height: 12px;
+				background-color: #e6e6e6;
+				@include mixin.opacity(1);
+
+				&:nth-child(n+2) {
+					margin-left: 10px;
+				}
+			}
+
+			&-bullet-active {
+				background-color: #8c8c8c;
+			}
+		}
+
+		.swiper-controls {
+			margin-top: -50px;
+
+			button {
+				width: 60px;
+				height: 60px;
+				background-color: rgba(#000, 0.62);
+				@include mixin.font(#fff '30px/60px' center);
+			}
+
+			.btn_swiper- {
+				&prev {
+					padding-right: 2px;
+				}
+
+				&next {
+					padding-left: 2px;
+				}
+			}
+		}
+	}
+
+	.btn_close {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 56px;
+		height: 60px;
+		@include mixin.font(#2b2b2b '17px/60px' center);
+	}
+}
+//> 리뷰 이미지 보기
+
+//< 무이자 할부 카드안내
+.m_modal-card {
+	ul {
+		margin: 0 -20px -40px;
+
+		li {
+			position: relative;
+			padding: 19px 0 21px 168px;
+			@include mixin.font(#6a6a6a '15px/21px');
+
+			&:nth-of-type(n+2) {
+				border-top: 1px solid #eee;
+			}
+
+			.image_card {
+				position: absolute;
+				top: 50%;
+				left: 31px;
+				width: 104px;
+				height: 25px;
+				@include mixin.transform(translateY(-50%));
+
+				&.mco_none::before {
+					font-size: 13px;
+					content: attr(title);
+				}
+			}
+		}
+	}
+}
+//> 무이자 할부 카드안내
+
+//< 현금 영수증
+.m_modal-receipt-print {
+	html[class*=_modal_] & {
+		padding-left: 30px;
+		padding-right: 30px;
+		width: var.$width_modal_lg;
+	}
+
+	@media print {
+		.mm_foot {
+			display: none;
+		}
+	}
+
+	article {
+		padding-top: 31px;
+
+		h2 {
+			display: block;
+			position: relative;
+			padding: 0 2px 9px;
+			@include mixin.font('15px/21px');
+
+			.image_logo {
+				position: absolute;
+				top: 3px;
+				right: 9px;
+				width: 100px;
+				height: 20px;
+			}
+		}
+
+		table {
+			border: 1px solid #cdcdcd;
+
+			tr {
+				th {
+					background-color: #eee;
+				}
+
+				> * {
+					padding: 7px 13px 9px;
+					border-top: 1px solid #d6d6d6;
+					@include mixin.font('13px/19px' left);
+
+					&:nth-child(n+2) {
+						border-left: 1px solid #d6d6d6;
+					}
+				}
+			}
+
+			.text_price {
+				text-align: right;
+
+				> * {
+					font-family: var.$fontFamily_base;
+
+					&::after {
+						vertical-align: 0;
+					}
+				}
+			}
+		}
+
+		.mm_note {
+			margin-top: 5px;
+		}
+	}
+
+	.mm_foot {
+		margin-top: 37px;
+	}
+}
+//> 현금 영수증
+
+//< 제공동의, 수집동의
+.m_modal-agree {
+	p {
+		padding-top: 24px;
+		@include mixin.font('15px/25px');
+	}
+}
+//> 제공동의, 수집동의
+
+//< 회원정보 변경 안내
+.m_modal-change {
+	&-head {
+		padding-top: 32px;
+		@include mixin.font('15px/22px' center);
+
+		p > strong {
+			color: #0d38da;
+		}
+
+		b {
+			margin-top: 21px;
+		}
+	}
+
+	section {
+		margin-top: 49px;
+
+		h3 {
+			padding-bottom: 14px;
+			border-bottom: 2px solid #5c5c5c;
+			@include mixin.font(#2b2b2b '17px');
+		}
+
+		dl {
+			border-bottom: 1px solid #eee;
+			@include mixin.font(#2b2b2b '15px/50px');
+
+			dt {
+				padding: 0 16px;
+				width: 148px;
+				color: #7b7b7b;
+			}
+		}
+	}
+
+	.mm_btnbox .mm_btn {
+		> i {
+			margin-left: 7px;
+			font-size: 20px;
+		}
+	}
+}
+//> 회원정보 변경 안내
+
+//< 무이자 할부 혜택 안내
+.m_modal-interest {
+	html[class*=_modal_] & {
+		width: var.$width_modal_lg;
+	}
+
+	&-title {
+		padding: 49px 0 21px;
+		@include mixin.font('20px/28px' center);
+
+		strong {
+			color: var.$color_primary_base;
+		}
+	}
+
+	.text_info {
+		@include mixin.font(#4a4a4a '15px/24px' center);
+
+		strong {
+			position: relative;
+			@include mixin.font(var.$color_text_base 500);
+
+			&::before {
+				position: absolute;
+				bottom: 1px;
+				right: 0;
+				left: 0;
+				height: 1px;
+				background-color: #000;
+				content: '';
+			}
+		}
+	}
+
+	table {
+		margin-top: 40px;
+		@include mixin.font('15px/17px');
+
+		thead {
+			border-top: 2px solid #5c5c5c;
+
+			th {
+				padding: 15px 0 14px;
+			}
+		}
+
+		tbody {
+			border: 1px solid #dcdcdc;
+			border-width: 1px 0;
+
+			.mm_product-item {
+				border: 0;
+				border-right: 1px solid #dcdcdc;
+
+				figcaption {
+					text-align: left;
+				}
+			}
+
+			.text_benefit {
+				strong {
+					color: var.$color_primary_base;
+				}
+			}
+		}
+
+	}
+}
+//> 무이자 할부 혜택 안내

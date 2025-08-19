@@ -1,0 +1,26 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../helper/var';
+@use '../helper/mixin';
+
+/**
+ * 게시판관리
+**/
+
+
+//< 공지사항 상세
+.m_cs-notice-detail {
+	&.mm_form {
+		margin-top: 100px;
+
+		td > a {
+			@include mixin.font(#000 400);
+
+			&::after {
+				border-bottom-color: #666;
+			}
+		}
+	}
+}
+//> 공지사항 상세

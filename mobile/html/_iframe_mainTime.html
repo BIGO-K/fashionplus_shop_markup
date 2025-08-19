@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="ko" class="__layout_main__ __layout_frame__">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="format-detection" content="telephone=no, address=no, email=no">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="mobile-web-app-capable" content="yes">
+
+	<!-- 소셜태그 -->
+	<meta property="og:title" content="">
+	<meta property="og:description" content="">
+	<meta property="og:image" content="">
+	<meta property="og:url" content="">
+	<meta property="og:site_name" content="">
+	<!--// 소셜태그 -->
+
+	<title>타임어택 &#60; 메인 - 패션플러스</title>
+
+	<!-- 공통 css -->
+	<link rel="stylesheet" href="../css/font.css">
+	<link rel="stylesheet" href="../css/app.css">
+
+	<!-- (D) 폴리필/라이브러리는 요청을 줄이기 위해 combind + minify를 적용해주세요. -->
+	<!-- 폴리필/라이브러리 스크립트 -->
+	<script src="../../assets/js/polyfill/babel-polyfill-7.8.7.min.js"></script>
+	<script src="../../assets/js/polyfill/dom4-2.1.5.min.js"></script>
+	<script src="../../assets/js/polyfill/fetch.umd-3.0.0.min.js"></script>
+	<script src="../../assets/js/polyfill/intersection-observer-0.8.0.min.js"></script>
+	<script src="../../assets/js/polyfill/resize-observer-1.5.1.min.js"></script>
+	<script src="../../assets/js/lib/lodash-4.17.15.min.js"></script>
+	<script src="../../assets/js/lib/gsap-3.2.6/gsap.min.js"></script>
+	<script src="../../assets/js/lib/axios-0.19.2.min.js"></script>
+	<script src="../../assets/js/lib/load-image.all-3.0.0.min.js"></script>
+	<script src="../../assets/js/lib/sortable-1.10.2.min.js"></script>
+
+	<!-- 공통 스크립트 -->
+	<script src="../js/app_common.js"></script>
+	<script src="../js/app_page-common.js"></script>
+
+	<!-- (D) 페이지 전용 스크립트는 .mm_page-content 하단에 넣어주세요. -->
+</head>
+<body>
+	<div id="mm_app" class="mm_app">
+		<!-- 스킵 -->
+		<nav class="mm_skip">
+			<ul>
+				<li><a href="#mm_body" data-href="{ '_type': 'anchor' }">본문바로가기</a></li>
+			</ul>
+		</nav>
+		<!-- 스킵 -->
+
+		<!-- 화면 -->
+		<div class="mm_view">
+			<!-- 내용 -->
+			<div id="mm_body" class="mm_page">
+				<!-- (D) 실제 내용을 추가하는 부분입니다. -->
+
+				<!-- (D) iframe 컨텐츠는 html 요소에 '__layout_frame__' 클래스를 추가합니다. -->
+				<div class="mm_scroller">
+					<div class="mm_page-inner">
+						<!-- 본문 -->
+						<div class="mm_page-content">
+							<!-- 타임어택 -->
+							<section class="m_main-timedeal m_timedeal">
+								<h3><i class="image_timedeal"></i><b class="mm_ir-blind">타임어택</b></h3>
+								<!-- 진행중인 타임어택 -->
+								<div class="m_timedeal-ongoing">
+									<p>종료까지 남은시간</p>
+									<!-- 타이머 -->
+									<div class="m_timedeal-timer __timer-flip">
+										<div class="m__flip-hour">
+											<p class="text_hour"><span>0</span><b data-time="0"></b></p>
+											<p class="text_hour"><span>0</span><b data-time="0"></b></p>
+										</div>
+										<sub>시간</sub>
+										<div class="m__flip-min">
+											<p class="text_min"><span>0</span><b data-time="0"></b></p>
+											<p class="text_min"><span>0</span><b data-time="0"></b></p>
+										</div>
+										<sub>분</sub>
+										<div class="m__flip-sec">
+											<p class="text_sec"><span>0</span><b data-time="0"></b></p>
+											<p class="text_sec"><span>0</span><b data-time="0"></b></p>
+										</div>
+										<sub>초</sub>
+									</div>
+									<!-- 타이머 -->
+
+									<!-- 타임어택 상품 -->
+									<div class="mm_carousel" data-carousel="{ 'onReady': 'timeCarouselChange', 'onStart': 'timeCarouselChange' }">
+										<div class="mm_carousel-inner">
+											<!-- (D) li.mm_carousel-item 요소에 data-value로 _time(남은 시간:초)을 적용합니다. -->
+											<ul class="mm_carousel-list">
+												<li class="mm_carousel-item mm_deal-item" data-value="{ '_time': 10 }">
+													<a href="prodDetail_single.html" data-href="{ '_type': 'link', '_isProduct': true }">
+														<figure>
+															<i class="mm_bg-cover image_product" data-preload="{ '_src': '../image/_sample/prod_deal_1.jpg' }"></i>
+															<p class="text_soldout"><b>sold out</b></p>
+															<figcaption>
+																<p class="text_brand">랭앤루</p>
+																<p class="text_product">게스 SS 남여 오리지날 반팔티 1만대 가격인하!</p>
+																<p class="text_timedeal"><b>타임어택가</b></p>
+																<p class="text_price">
+																	<strong>34,400</strong>
+																	<del>109,000원</del>
+																</p>
+																<p class="text_remaining">99,999개 남음</p>
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+												<li class="mm_carousel-item mm_deal-item" data-value="{ '_time': 3615 }">
+													<a href="prodDetail_single.html" data-href="{ '_type': 'link', '_isProduct': true }">
+														<figure>
+															<i class="mm_bg-cover image_product" data-preload="{ '_src': '../image/_sample/prod_deal_2.jpg' }"></i>
+															<figcaption>
+																<p class="text_brand">랭앤루</p>
+																<p class="text_product">게스 SS 남여 오리지날 반팔티 1만대 가격인하!</p>
+																<p class="text_timedeal"><b>타임어택가</b></p>
+																<p class="text_price">
+																	<strong>34,400</strong>
+																	<del>109,000원</del>
+																</p>
+																<p class="text_remaining">99,999개 남음</p>
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+												<li class="mm_carousel-item mm_deal-item" data-value="{ '_time': 72 }">
+													<a href="prodDetail_single.html" data-href="{ '_type': 'link', '_isProduct': true }">
+														<figure>
+															<i class="mm_bg-cover image_product" data-preload="{ '_src': '../image/_sample/prod_deal_3.jpg' }"></i>
+															<figcaption>
+																<p class="text_brand">랭앤루</p>
+																<p class="text_product">게스 SS 남여 오리지날 반팔티 1만대 가격인하!</p>
+																<p class="text_timedeal"><b>타임어택가</b></p>
+																<p class="text_price">
+																	<strong>34,400</strong>
+																	<del>109,000원</del>
+																</p>
+																<p class="text_remaining">99,999개 남음</p>
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+												<li class="mm_carousel-item mm_deal-item" data-value="{ '_time': 37820 }">
+													<a href="prodDetail_single.html" data-href="{ '_type': 'link', '_isProduct': true }">
+														<figure>
+															<i class="mm_bg-cover image_product" data-preload="{ '_src': '../image/_sample/prod_deal_2.jpg' }"></i>
+															<figcaption>
+																<p class="text_brand">랭앤루</p>
+																<p class="text_product">게스 SS 남여 오리지날 반팔티 1만대 가격인하!</p>
+																<p class="text_timedeal"><b>타임어택가</b></p>
+																<p class="text_price">
+																	<strong>34,400</strong>
+																	<del>109,000원</del>
+																</p>
+																<p class="text_remaining">99,999개 남음</p>
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+												<li class="mm_carousel-item mm_deal-item" data-value="{ '_time': 12463 }">
+													<a href="prodDetail_single.html" data-href="{ '_type': 'link', '_isProduct': true }">
+														<figure>
+															<i class="mm_bg-cover image_product" data-preload="{ '_src': '../image/_sample/prod_deal_3.jpg' }"></i>
+															<figcaption>
+																<p class="text_brand">랭앤루</p>
+																<p class="text_product">게스 SS 남여 오리지날 반팔티 1만대 가격인하!</p>
+																<p class="text_timedeal"><b>타임어택가</b></p>
+																<p class="text_price">
+																	<strong>34,400</strong>
+																	<del>109,000원</del>
+																</p>
+																<p class="text_remaining">99,999개 남음</p>
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+											</ul>
+										</div>
+										<button type="button" class="btn_carousel-prev"><i class="mco_control-prev"></i><span class="mm_ir-blind">이전 타임어택 상품 보기</span></button>
+										<button type="button" class="btn_carousel-next"><i class="mco_control-next"></i><span class="mm_ir-blind">다음 타임어택 상품 보기</span></button>
+									</div>
+									<!--// 타임어택 상품 -->
+								</div>
+								<!--// 진행중인 타임어택 -->
+
+								<!-- NEXT 타임어택 -->
+								<section class="m_timedeal-next">
+									<h4 class="mm_heading"><b>NEXT 타임어택</b></h4>
+									<!--
+										(D) p.m_timedeal-timer 요소에 data-value로 _time(남은 시간:초), _id(고유 값)를 적용합니다.
+										_id는 남은 시간 종료 후 하단 스크립트 timedealLink()를 실행하여 링크를 확인할 때 사용합니다.
+									-->
+									<ul>
+										<li>
+											<a onclick="mm.bom.alert('아직 상품을 구매하실 수 없습니다.')">
+												<i class="mm_bg-cover image_product" data-preload="{ '_src': '../image/_sample/prod_x2_1.png' }"></i>
+												<p class="m_timedeal-timer" data-value="{ '_time': 10, '_id': '고유값_1' }">
+													<b>남은시간</b>
+													<span class="text_hour">00</span>:<span class="text_min">00</span>:<span class="text_sec">00</span>
+												</p>
+											</a>
+										</li>
+										<li>
+											<a onclick="mm.bom.alert('아직 상품을 구매하실 수 없습니다.')">
+												<i class="mm_bg-cover image_product" data-preload="{ '_src': '../image/_sample/prod_x2_2.png' }"></i>
+												<p class="m_timedeal-timer" data-value="{ '_time': 3615, '_id': '고유값_2' }">
+													<b>남은시간</b>
+													<span class="text_hour">00</span>:<span class="text_min">00</span>:<span class="text_sec">00</span>
+												</p>
+											</a>
+										</li>
+										<li>
+											<a onclick="mm.bom.alert('아직 상품을 구매하실 수 없습니다.')">
+												<i class="mm_bg-cover image_product" data-preload="{ '_src': '../image/_sample/prod_x2_3.png' }"></i>
+												<p class="m_timedeal-timer" data-value="{ '_time': 73, '_id': '고유값_3' }">
+													<b>남은시간</b>
+													<span class="text_hour">00</span>:<span class="text_min">00</span>:<span class="text_sec">00</span>
+												</p>
+											</a>
+										</li>
+									</ul>
+									<a class="btn_more" href="timeDeal.html" data-href="{ '_type': 'link' }"><b>더보기</b><i class="mco_link"></i></a>
+								</section>
+								<!--// NEXT 타임어택 -->
+							</section>
+							<!--// 타임어택 -->
+
+							<hr class="mm_line">
+
+							<!-- 초비상특가 -->
+							<section class="m_main-specialdeal m_specialdeal">
+								<h3><i class="image_specialdeal"></i><b class="mm_ir-blind">초비상특가</b></h3>
+								<ul class="mm_deal-list">
+									<li class="mm_deal-item">
+										<a href="prodDetail_deal.html" data-href="{ '_type': 'link', '_isProduct': true }">
+											<i class="image_badge-specialdeal" title="초비상특가"></i>
+											<figure>
+												<i class="mm_bg-cover image_product" data-preload="{ '_src': '../image/_sample/prod_deal_2.jpg' }"></i>
+												<figcaption>
+													<p class="text_brand">파르티멘토</p>
+													<p class="text_product">간절기아이템 Line Stripe Shirts Sky</p>
+													<p class="text_sale">60%</p>
+													<p class="text_price">
+														<strong>74,800</strong>
+														<del>109,000원</del>
+													</p>
+													<p class="text_purchase">634개 구매</p>
+												</figcaption>
+											</figure>
+										</a>
+									</li>
+									<li class="mm_deal-item">
+										<a href="prodDetail_deal.html" data-href="{ '_type': 'link', '_isProduct': true }">
+											<i class="image_badge-specialdeal" title="초비상특가"></i>
+											<figure>
+												<i class="mm_bg-cover image_product" data-preload="{ '_src': '../image/_sample/prod_deal_3.jpg' }"></i>
+												<figcaption>
+													<p class="text_brand">파르티멘토</p>
+													<p class="text_product">간절기아이템 Line Stripe Shirts Sky</p>
+													<p class="text_sale">60%</p>
+													<p class="text_price">
+														<strong>74,800</strong>
+														<del>109,000원</del>
+													</p>
+													<p class="text_purchase">634개 구매</p>
+												</figcaption>
+											</figure>
+										</a>
+									</li>
+									<li class="mm_deal-item">
+										<a href="prodDetail_deal.html" data-href="{ '_type': 'link', '_isProduct': true }">
+											<i class="image_badge-specialdeal" title="초비상특가"></i>
+											<figure>
+												<i class="mm_bg-cover image_product" data-preload="{ '_src': '../image/_sample/prod_deal_1.jpg' }"></i>
+												<figcaption>
+													<p class="text_brand">파르티멘토</p>
+													<p class="text_product">간절기아이템 Line Stripe Shirts Sky</p>
+													<p class="text_sale">60%</p>
+													<p class="text_price">
+														<strong>74,800</strong>
+														<del>109,000원</del>
+													</p>
+													<p class="text_purchase">634개 구매</p>
+												</figcaption>
+											</figure>
+										</a>
+									</li>
+									<li class="mm_deal-item">
+										<a href="prodDetail_deal.html" data-href="{ '_type': 'link', '_isProduct': true }">
+											<i class="image_badge-specialdeal" title="초비상특가"></i>
+											<figure>
+												<i class="mm_bg-cover image_product" data-preload="{ '_src': '../image/_sample/prod_deal_2.jpg' }"></i>
+												<figcaption>
+													<p class="text_brand">파르티멘토</p>
+													<p class="text_product">간절기아이템 Line Stripe Shirts Sky</p>
+													<p class="text_sale">60%</p>
+													<p class="text_price">
+														<strong>74,800</strong>
+														<del>109,000원</del>
+													</p>
+													<p class="text_purchase">634개 구매</p>
+												</figcaption>
+											</figure>
+										</a>
+									</li>
+								</ul>
+								<a class="btn_more" href="hotDeal.html" data-href="{ '_type': 'link' }"><b>초비상특가 더보기</b><i class="mco_link"></i></a>
+							</section>
+							<!--// 초비상특가 -->
+
+							<hr class="mm_line">
+
+							<!-- 초특가 딜 -->
+							<section class="m_hotdeal">
+								<h3 class="mm_heading"><i class="image_hotdeal"></i><b class="mm_ir-blind">초특가 딜</b></h3>
+								<div class="m_hotdeal-category-list">
+									<div class="mm_scroller __scroller_x__">
+										<!-- (D) 선택된 카테고리에 '__category-on' 클래스와 '선택됨' 타이틀을 추가합니다. -->
+										<ul>
+											<li><a class="__category-on" href="#" onclick="return false;" title="선택됨"><b>전체</b></a></li>
+											<li><a href="#" onclick="return false;"><b>여성패션</b></a></li>
+											<li><a href="#" onclick="return false;"><b>남성패션</b></a></li>
+											<li><a href="#" onclick="return false;"><b>캐주얼스트릿</b></a></li>
+											<li><a href="#" onclick="return false;"><b>스포츠레저</b></a></li>
+											<li><a href="#" onclick="return false;"><b>유아동</b></a></li>
+											<li><a href="#" onclick="return false;"><b>슈즈잡화</b></a></li>
+											<li><a href="#" onclick="return false;"><b>리빙</b></a></li>
+											<li><a href="#" onclick="return false;"><b>뷰티</b></a></li>
+										</ul>
+									</div>
+								</div>
+
+								<!-- 상품 목록 영역 -->
+								<ul class="mm_product-list __list_card__">
+									<li class="mm_product-item">
+										<a href="prodDetail_deal.html" data-href="{ '_type': 'link', '_isProduct': true }">
+											<figure>
+												<i class="mm_bg-cover image_product" data-preload="{ '_src': '../image/_sample/prod_x2_1.png' }"></i>
+												<figcaption>
+													<p class="text_brand">SJYP에스제이와이피</p>
+													<p class="text_product">폴리 A라인 시어서커 스커트</p>
+													<p class="text_price">
+														<strong>19,000</strong>
+														<del>99,000</del>
+													</p>
+													<p class="text_sale">70%</p>
+													<p class="text_purchase">634개 구매</p>
+													<b class="mm_tag">무료배송</b>
+												</figcaption>
+											</figure>
+										</a>
+										<button type="button" class="mm_switch mm_like __switch-on" data-switch="{ 'onChange': 'changeLikeProduct', 'onChangeParams': ['callback', ['상품 id 등 callback 전달 할 값으로 첫번째는 true/false']] }" title="선택됨"><i class="mco_like"></i><b class="mm_ir-blind">좋아요한 상품에 추가하기</b></button>
+									</li>
+									<li class="mm_product-item">
+										<a href="prodDetail_deal.html" data-href="{ '_type': 'link', '_isProduct': true }">
+											<figure>
+												<i class="mm_bg-cover image_product" data-preload="{ '_src': '../image/_sample/prod_x2_3.png' }"></i>
+												<figcaption>
+													<p class="text_brand">커버낫</p>
+													<p class="text_product">아이커버낫 사퍼맨 티셔츠 아이블랙</p>
+													<p class="text_price">
+														<strong>33,180</strong>
+														<del>99,000</del>
+													</p>
+													<p class="text_sale">10%</p>
+													<b class="mm_tag">10% 쿠폰</b>
+												</figcaption>
+											</figure>
+										</a>
+										<button type="button" class="mm_switch mm_like" data-switch="{ 'onChange': 'changeLikeProduct', 'onChangeParams': ['callback', ['상품 id 등 callback 전달 할 값으로 첫번째는 true/false']] }"><i class="mco_like"></i><b class="mm_ir-blind">좋아요한 상품에 추가하기</b></button>
+									</li>
+									<li class="mm_product-item">
+										<a href="prodDetail_deal.html" data-href="{ '_type': 'link', '_isProduct': true }">
+											<figure>
+												<i class="mm_bg-cover image_product" data-preload="{ '_src': '../error' }"></i>
+												<figcaption>
+													<p class="text_brand">티더블유엔</p>
+													<p class="text_product">아이스버그 반팔 STST3 279 + 스플래쉬 반팔티셔츠</p>
+													<p class="text_price">
+														<strong>25,000</strong>
+													</p>
+													<p class="text_purchase">34개 구매</p>
+													<b class="mm_tag">7% 쿠폰</b>
+												</figcaption>
+											</figure>
+										</a>
+										<button type="button" class="mm_switch mm_like" data-switch="{ 'onChange': 'changeLikeProduct', 'onChangeParams': ['callback', ['상품 id 등 callback 전달 할 값으로 첫번째는 true/false']] }"><i class="mco_like"></i><b class="mm_ir-blind">좋아요한 상품에 추가하기</b></button>
+									</li>
+									<li class="mm_product-item">
+										<a>
+											<figure>
+												<i class="mm_bg-cover image_product" data-preload="{ '_src': '../image/_sample/prod_x2_2.png' }"></i>
+												<p class="text_soldout"><b><strong>SOLD OUT</strong><br><span>품절되었습니다</span></b></p>
+												<figcaption>
+													<p class="text_brand">배럴</p>
+													<p class="text_product">맨 베이직 어반 워터 쇼츠 블랙</p>
+													<p class="text_price">
+														<strong>6,980</strong>
+														<del>99,000</del>
+													</p>
+													<p class="text_sale">15%</p>
+													<p class="text_purchase">2개 구매</p>
+												</figcaption>
+											</figure>
+										</a>
+										<button type="button" class="mm_switch mm_like" data-switch="{ 'onChange': 'changeLikeProduct', 'onChangeParams': ['callback', ['상품 id 등 callback 전달 할 값으로 첫번째는 true/false']] }"><i class="mco_like"></i><b class="mm_ir-blind">좋아요한 상품에 추가하기</b></button>
+									</li>
+								</ul>
+								<!--// 상품 목록 영역 -->
+
+								<div class="mm_btnbox">
+									<a class="mm_btn btn_more __btn_line_lighter__" href="hotDeal.html" data-href="{ '_type': 'link' }"><b>더보기</b><i class="mco_link"></i></a>
+								</div>
+							</section>
+							<!--// 초특가 딜 -->
+						</div>
+						<!--// 본문 -->
+
+						<!-- 푸터 -->
+						<footer id="mm_footer" class="mm_footer">
+							<!-- 푸터-메뉴 -->
+							<div class="mm_footer-menu">
+								<ul class="mm_flex __flex_equal__">
+									<li><a href="_popup_login.html" data-href="{ '_type': 'popup' }"><b>로그인</b></a></li>
+									<li><a href="csMain.html" data-href="{ '_type': 'link' }"><b>고객센터</b></a></li>
+									<li><a href="_popup_csNotice.html" data-href="{ '_type': 'link' }"><b>공지사항</b></a></li>
+									<li><a href="#" target="_blank" title="새 창 열림"><b>PC버전</b></a></li>
+								</ul>
+							</div>
+							<!--// 푸터-메뉴 -->
+
+							<!-- 푸터-정보 -->
+							<div class="mm_footer-info">
+								<div class="mm_dropdown" data-dropdown>
+									<button type="button" class="btn_dropdown" title="펼쳐보기"><b>㈜패션플러스 사업자 정보</b><i class="mco_dropdown-sm"></i></button>
+									<div class="mm_dropdown-item">
+										<div class="mm_dropdown-item-inner">
+											<address>
+												<p>대표이사: 채영희</p>
+												<p>경기 성남시 판교로 242(삼평동 624번지)PDC빌딩 A동 1002호</p>
+												<p>사업자등록번호: 214-86-34194</p>
+												<p>통신판매업신고: 2013-경기성남-1608</p>
+												<p>개인정보 보호책임자: 이상훈</p>
+												<p>호스팅제공자: ㈜패션플러스</p>
+												<p class="text_cs">고객센터: <a href="tel:1588-2610" title="전화하기">1588-2610</a> / 월~금 09:30~17:00 주말, 공휴일 휴무</p>
+												<p>점심시간 12:00~13:00</p>
+												<p class="text_pay">한국정보통신(주) 결제대금예치업_에스크로스</p>
+												<p>등록번호: A6-181212-02호</p>
+											</address>
+										</div>
+									</div>
+								</div>
+								<ul>
+									<li><a href="#" target="_blank" title="새 창 열림"><b>사업자정보확인</b></a></li>
+									<li><a href="#" target="_blank" title="새 창 열림"><b>구매안전(에스크로)서비스</b></a></li>
+								</ul>
+								<ul>
+									<li><a href="_popup_termUse.html" data-href="{ '_type': 'popup' }"><b>이용약관</b></a></li>
+									<li><a href="_popup_termPrivacy.html" data-href="{ '_type': 'popup' }"><strong>개인정보처리방침</strong></a></li>
+									<li><a href="_popup_termAdolescent.html" data-href="{ '_type': 'popup' }"><b>청소년보호정책</b></a></li>
+								</ul>
+								<p class="text_copyright">&#169;FASHIONPLUS.ALL RIGHTS RESERVED.</p>
+							</div>
+							<!--// 푸터-정보 -->
+						</footer>
+						<!--// 푸터 -->
+					</div>
+				</div>
+
+				<a class="btn_topmost" href="#mm_app" data-href="{ '_type': 'anchor' }" title="페이지 처음으로"><i class="mco_topmost"></i><b>TOP</b></a>
+				<!-- 타임어택 윙배너 -->
+				<div class="m_timedeal-wing">
+					<button type="button" class="mm_switch" data-switch="{ '_isParent': true, '_defaultTitle': '펼쳐보기', '_title': '접어놓기' }" title="펼쳐보기"><b>타임어택</b></button>
+					<a class="btn_timedeal" href="timeDeal.html" data-href="{ '_type': 'link' }"><b>딱!12시간만</b><i class="mco_link"></i></a>
+				</div>
+				<!--// 타임어택 윙배너 -->
+
+				<!-- 현재 페이지 스크립트 -->
+				<script src="../js/app_page-timedeal.js"></script>
+				<script>
+					// 넥스트 타임어택 링크 확인
+					function timedealLink(__$el, __id) {
+
+						// 고유값 유효성 검사 경로 지정
+						mm.ajax.load('../json/timedeal.json', {
+							configs: {
+								responseType: 'json',
+								params: {
+									id: __id
+								}
+							},
+							onComplete: function (__data) {
+
+								// ? __data._is:boolean - true(링크 이동), false(불가)
+								// ? __data._url:boolean - 상품 경로
+
+								// 링크 이동 후 새로고침
+								if (__data._is === true && __data._url.trim().length > 0) {
+									mm.link(__data._url, { openEl: __$el, _type: 'link', _isProduct: true });
+									location.replace(location.href.split('#')[0]);
+								}
+								// 오류
+								else mm.bom.alert('잘못된 접근입니다.', function () {
+
+									location.replace(location.href.split('#')[0]);
+
+								});
+
+							},
+						});
+
+					}
+				</script>
+			</div>
+			<!--// 내용 -->
+		</div>
+		<!--// 화면 -->
+
+
+	</div>
+</body>
+</html>

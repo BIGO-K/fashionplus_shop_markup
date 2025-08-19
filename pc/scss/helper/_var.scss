@@ -1,0 +1,129 @@
+@charset 'utf-8';
+
+/**
+ * 헬퍼
+ * 전역변수
+ * color: primary, secondary, tertiary, positive, negative, background, line, text, icon, tag...
+ * font-size: body, button, tag
+**/
+
+
+//< color
+$color_primary_base: #f93e4e;
+$color_secondary_base: #4457a7;
+$color_secondary_light: #435cc8;
+
+$color_tertiary_base: #01ba59;
+
+$color_positive_base: $color_tertiary_base;//$color_primary_base;
+$color_negative_base: #ee4f10;
+// $color_negative_light: #ffe7eb;
+
+$color_grade_vvip: #c958c7;
+$color_grade_vip: #7942f7;
+$color_grade_gold: #fda454;
+$color_grade_friend: #67b5ec;
+$color_grade_welcome: #5cc875;
+
+// $color_naver_base: #22b40c;
+// $color_naver_light: #3ec729;
+
+$color_text_base: #101010;
+//> color
+
+//< font
+$fontFamily_base: 'NotoSansKR', sans-serif;// ie에서 31자 이상 적용 안됨;
+$fontFamily_latin: 'Roboto', 'NotoSansKR', sans-serif;
+$fontFamily_password: $fontFamily_base;
+// $fontFamily_special: 'Jalnan', 'NotoSansKR', sans-serif;
+
+$fontSize_base: 10px;
+
+$fontPath: '../../assets/fonts/';// local
+// $fontPath: 'https://img.fashionplus.co.kr/ui/font/';// CDN
+//> font
+
+//< z-index
+$zIndex_bom: 3300;
+$zIndex_loading: 3200;
+$zIndex_most: 3000;
+$zIndex_skip: 3100;
+$zIndex_modal: 2100;
+$zIndex_popup: 2000;
+$zIndex_toolbar: 1100;
+$zIndex_sidebar: 1200;// 1000
+$zIndex_header: 1000;// 1200
+$zIndex_floating: 100;
+$zIndex_alert: 10;// 텍스트 경고
+//> z-index
+
+//< size
+$minWidth_pc: 1280px;
+// $minWidth_mobile: 320px;
+$minWidth_base: $minWidth_pc;
+$minWidth_extend: $minWidth_base + (120 * 2);// pc 좌/우 날개배너 확장
+//> size
+
+//< transition sec
+$time_base: 0.4s;
+$time_fast: 0.2s;
+$time_faster: 0.1s;
+$time_slow: 0.7s;
+$time_slower: 1s;
+//> transition sec
+
+// 1px transpatent gif
+$image_empty: 'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==';
+
+//< layout
+// header
+$height_header_base: 167px;
+$height_header_sm: 70px;
+
+// footer
+$height_footer_base: 320px;
+
+// grid
+$padding_content-bottom: 140px;
+
+// sidebar
+
+// popup
+
+// modal
+$height_modal_header: 60px;
+$width_modal_base: 500px;
+// $width_modal_sm: 374px;
+$width_modal_lg: 710px;
+$width_modal_xl: 850px;
+// $width_modal_2xl: 1090px;
+
+// bom
+//> layout
+
+//< form
+$borderColor_form_base: #cdcdcd;
+$borderRadius_form_base: 3px;
+
+// height
+$height_form_text_base: 46px;
+// $height_form_text_lg: 50px;
+
+$height_form_select_base: 46px;
+// $height_form_select_sm: 32px;
+
+$height_form_check_base: 22px;
+$height_form_radio_base: 22px;
+
+// font
+$fontSize_form_text_base: 15px;
+// $fontSize_form_text_lg: 15px;
+
+$fontSize_form_select_base: 15px;
+// $fontSize_form_select_sm: 14px;
+
+$fontSize_form_check_base: 15px;
+$fontSize_form_radio_base: 15px;
+
+$color_form_base: #101010;
+//> form

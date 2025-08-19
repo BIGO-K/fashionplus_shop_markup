@@ -1,0 +1,635 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../helper/var';
+@use '../helper/mixin';
+
+/**
+** 페이지
+** 로그인, 회원가입
+**/
+
+
+// *---------- 팝업 ----------*
+
+//< 공통
+.m_popup-sign {
+	padding: 47px 42px 0;
+
+	// 페이지제목
+	.mm_title {
+		margin-top: -2px;
+
+		+ p {
+			margin-top: 5px;
+			@include mixin.font(#4a4a4a '15px/22px' center);
+		}
+	}
+
+	.text_join {
+		margin-top: 42px;
+		padding-bottom: 12px;
+		@include mixin.font('15px' center);
+	}
+
+	&-info {
+		padding: 25px 28px 0;
+
+		.mm_title {
+			margin-top: 21px;
+			line-height: 26px;
+		}
+
+		.mm_foot + .mm_note {
+			margin: 10px 0 0 4px;
+		}
+	}
+
+	&-note {
+		margin: 40px 0 -50px;
+		padding: 18px 24px 29px 27px;
+		border-top: 1px solid #f5f5f5;
+		background-color: #fafafa;
+		@include mixin.font(300 '13px/19px');
+
+		li {
+			position: relative;
+
+			&::before {
+				position: absolute;
+				top: 0;
+				left: -9px;
+				content: '-';
+			}
+
+			p {
+				&.mm_text-secondary-light {
+					padding: 3px 0;
+				}
+
+				strong {
+					font-weight: 400;
+				}
+
+				a {
+					position: relative;
+					&::before {
+						position: absolute;
+						right: -1px;
+						bottom: 1px;
+						left: 1px;
+						border-bottom: 1px solid var.$color_text_base;
+						content: '';
+					}
+				}
+			}
+
+			+ li {
+				margin-top: 5px;
+			}
+		}
+	}
+}
+//> 공통
+
+//< 로그인
+.m_popup-login {
+	.mm_check-list {
+		margin-top: 12px;
+	}
+
+	// sns 아이콘
+	i[class*="mco_sns-"] {
+		width: 44px;
+		height: 44px;
+		border-radius: 100%;
+		@include mixin.font(#fff '/44px' center);
+
+		$sns: (naver, #31b861, 15px, null), (kakaotalk, #f6ce2e, 20px, 46px), (facebook, #3c6fc3, 23px, 46px), (apple, #000, 20px, 42px);
+		@each $type, $bgColor, $fontSize, $lineHeight in $sns {
+			&.mco_sns-#{$type} {
+				background-color: $bgColor;
+				@include mixin.font('#{$fontSize}/#{$lineHeight}');
+			}
+		}
+	}
+
+	// 보안문자 입력
+	&-security {
+		> p {
+			margin: 4px 0 0 1px;
+			@include mixin.font('12px/17px');
+		}
+
+		.m__security-info {
+			margin-top: 9px;
+			padding: 19px 16px;
+			border: 1px solid #eee;
+			border-radius: 3px;
+			background-color: #fafafa;
+			font-size: 0;
+
+			.image_security {
+				margin-right: 10px;
+				width: 127px;
+				height: 38px;
+				text-align: center;
+
+				img {
+					height: 100%;
+				}
+			}
+
+			.btn_refresh {
+				margin-top: 7px;
+
+				> i {
+					margin-right: 5px;
+				}
+			}
+
+			.mm_form-text {
+				margin-top: 7px;
+
+				&.__text-alert .bg_text {
+					border-color: #cdcdcd;
+				}
+			}
+		}
+	}
+
+	// 하단버튼
+	.mm_foot {
+		margin-top: 17px;
+	}
+
+	&-menu {
+		margin: 0 -7px;
+		@include mixin.font(#4a4a4a '13px');
+
+		> a {
+			position: relative;
+			padding: 13px 0;
+
+			&:nth-child(n+2) {
+				margin: 0;
+				padding-left: 1px;
+
+				&::before {
+					position: absolute;
+					top: 50%;
+					left: 0;
+					margin-top: -4px;
+					height: 8px;
+					border-left: 1px solid #cdcdcd;
+					content: '';
+				}
+			}
+		}
+
+		+ .text_join {
+			margin-top: 28px;
+		}
+	}
+
+	// 간편로그인
+	&-sns {
+		margin-top: 42px;
+		@include mixin.font(#fff '0/44px' center);
+
+		li {
+			display: inline-block;
+			position: relative;
+			padding: 0 8px 0 7px;
+
+			&:last-child {
+				display: none;
+			}
+
+			.text_tooltip {
+				position: absolute;
+				bottom: -30px;
+				left: 50%;
+				margin-left: -39px;
+				width: 78px;
+				border-radius: 10px;
+				background-color: #3d3d3d;
+				@include mixin.font(#fff '13px/22px' center);
+
+				&::before {
+					position: absolute;
+					top: -4px;
+					left: 50%;
+					margin-left: -1px;
+					@include mixin.triangle(#3d3d3d, top, 3px, 4px);
+					content: '';
+				}
+			}
+		}
+
+		// 애플로그인
+		.__app & {
+			li:last-child {
+				display: inline-block;
+			}
+		}
+	}
+}
+//> 로그인
+
+//< SNS 계정로그인
+.m_popup-sign-sns {
+	> p {
+		margin-top: 17px;
+		@include mixin.font(#4a4a4a'16px/22px' center);
+	}
+
+	ul {
+		margin-top: 20px;
+
+		li + li {
+			margin-left: 12px;
+		}
+	}
+
+	.mm_form-radio {
+		padding: 0;
+		width: 100%;
+
+		.mm_block {
+			display: block;
+			position: relative;
+			padding: 31px 5px 50px;
+			height: 135px;
+			border: 1px solid #eee;
+			border-radius: 3px;
+			background-color: #fafafa;
+			text-align: center;
+		}
+
+		.text_label {
+			display: block;
+			@include mixin.font(#a3a3a3 '15px/20px');
+		}
+
+		.mco_form-pick {
+			position: absolute;
+			bottom: 26px;
+			left: 50%;
+			margin-left: -10px;
+			@include mixin.font(#a3a3a3 '20px');
+		}
+
+		:checked + .mm_block {
+			border-color: var.$color_primary_base;
+			background-color: #fff;
+
+			> * {
+				color: var.$color_primary_base;
+			}
+		}
+	}
+
+	+ .text_notice {
+		margin: 23px 0 -2px;
+		@include mixin.font('14px/20px' center);
+	}
+}
+//> SNS 계정로그인
+
+//< 아이디/비밀번호찾기
+.m_popup-sign- {
+	&find {
+		margin-top: 23px;
+		text-align: center;
+
+		.btn_find-way {
+			display: block;
+			position: relative;
+			padding: 0 19px 0 56px;
+			border: 1px solid #dcdcdc;
+			border-radius: 3px;
+			@include mixin.font('15px/84px' left);
+
+			i:not(.mco_link) {
+				position: absolute;
+				top: 50%;
+				left: 23px;
+				@include mixin.font(#5c5c5c '22px');
+				@include mixin.transform(translateY(-50%));
+
+				&.mco_email {
+					left: 19px;
+					font-size: 18px;
+				}
+			}
+
+			.mco_link {
+				float: right;
+				@include mixin.font(#6a6a6a '20px');
+			}
+
+			+ .btn_find-way {
+				margin-top: 12px;
+			}
+		}
+
+		.text_find {
+			margin-top: 33px;
+			@include mixin.font(#4a4a4a '17px/22px');
+		}
+
+		.btn_find-sign {
+			padding: 13px 10px;
+			@include mixin.font(#7b7b7b '14px');
+
+			> .mco_link {
+				margin: 3px 0 0 8px;
+				font-size: 10px;
+			}
+		}
+	}
+
+	// 찾기 완료
+	&fin {
+		margin-top: 23px;
+		text-align: center;
+
+		dl {
+			padding: 27px 10px 10px;
+			height: 104px;
+			border: 1px solid #f5f5f5;
+			background-color: #fafafa;
+			@include mixin.font('16px/22px');
+
+			dd {
+				margin-top: 5px;
+			}
+		}
+
+		p {
+			margin-top: 11px;
+			@include mixin.font(#6a6a6a '14px');
+
+			span {
+				margin-left: 7px;
+			}
+		}
+	}
+}
+//> 아이디/비밀번호찾기
+
+//< 비밀번호 변경
+.m_popup-sign-change {
+	margin-top: 35px;
+
+	.mm_btnbox {
+		margin-top: 17px;
+
+		> .mm_btn + .mm_btn {
+			margin-top: 12px;
+		}
+	}
+
+	.mm_form-text + .mm_note {
+		margin-bottom: -3px;
+	}
+}
+//> 비밀번호 변경
+
+//< 회원가입
+.m_popup-join- {
+	&head {
+		padding: 46px 0 34px;
+		background-color: #fafafa;
+		text-align: center;
+
+		.mm_title {
+			line-height: 26px;
+		}
+
+		> p {
+			margin-top: 8px;
+			@include mixin.font(#4a4a4a '15px/22px')
+		}
+
+		.mm_note {
+			margin-top: 2px;
+
+			p {
+				padding-left: 14px;
+				color: #8c8c8c;
+
+				.mco_note {
+					top: 1px;
+					@include mixin.font(#8c8c8c '13px');
+				}
+			}
+		}
+	}
+
+	// 정보입력
+	&info {
+		margin-top: 34px;
+		padding: 0 42px;
+
+		.text_head {
+			@include mixin.font('17px/20px');
+
+			small {
+				display: block;
+				margin-top: 2px;
+				@include mixin.font(#8c8c8c '14px');
+			}
+		}
+
+		.mm_radio-list {
+			margin-top: 11px;
+
+			li:nth-child(n+2) {
+				margin-top: 5px;
+			}
+
+			.mm_form-radio {
+				padding: 0;
+				width: 100%;
+
+				.mm_block {
+					padding: 15px 10px 15px 36px;
+					border: 1px solid #dcdcdc;
+					border-radius: 3px;
+
+					.mco_form-radio {
+						top: 50%;
+						left: 13px;
+						margin-top: -12px;
+					}
+
+					.text_label {
+						margin-right: 7px;
+					}
+
+					small {
+						display: inline-block;
+						margin-left: 7px;
+						@include mixin.font(#8c8c8c '13px/23px');
+					}
+				}
+
+				:checked + .mm_block {
+					border-color: var.$color_secondary_base;
+				}
+			}
+
+			+ .mm_strapline {
+				margin-top: 24px;
+			}
+		}
+
+		.mm_formmix-email {
+			margin-top: 24px;
+		}
+
+		.m__info-phone {
+			.mm_note {
+				margin-bottom: 10px;
+
+				p {
+					padding: 0;
+				}
+			}
+		}
+
+		.m__info-terms {
+			.mm_strapline {
+				margin-top: 12px;
+			}
+
+			.mm_check-listbox {
+				padding: 17px 0 0;
+				border: 1px solid #f5f5f5;
+
+				> .mm_form-check {
+					margin-left: 13px;
+				}
+
+				.mm_check-list.__list_bg__ {
+					margin-top: 20px;
+					padding: 16px 23px 17px;
+					border-width: 1px 0 0 0;
+				}
+			}
+
+			.text_notice {
+				margin-top: 10px;
+				@include mixin.font(#4a4a4a '15px/21px');
+			}
+		}
+	}
+
+	// 가입완료
+	&fin {
+		position: relative;
+		height: 100%;
+		@include mixin.font('0' center);
+
+		&::before {
+			margin-left: -1px;
+			width: 1px;
+			height: 100%;
+			vertical-align: middle;
+			content: '';
+		}
+
+		.m__fin-inner {
+			display: inline-block;
+			padding: 30px 42px 50px;
+			width: 100%;
+			vertical-align: middle;
+		}
+
+		.mm_title {
+			position: relative;
+			padding-top: 80px;
+
+			&::before {
+				position: absolute;
+				top: 0;
+				left: 50%;
+				margin-left: -125px;
+				width: 250px;
+				height: 80px;
+				@include mixin.background(url('https://img.fashionplus.co.kr/ui/mobile/content/join_fin.png') '0 0/contain' no-repeat);
+				content: '';
+			}
+
+			+ p {
+				margin-top: 19px;
+				@include mixin.font(#4a4a4a '15px/21px' center);
+			}
+		}
+
+		.image_logo {
+			display: block;
+			margin-bottom: 5px;
+
+			img {
+				width: 135px;
+			}
+		}
+
+		.mm_foot {
+			margin-top: 34px;
+		}
+	}
+}
+//> 회원가입
+
+//< 휴면회원 해제안내
+.m_popup-login-quiescent {
+	padding: 40px 10px 0;
+
+	.mm_title {
+		line-height: 24px;
+
+		+ p {
+			margin-top: 6px;
+			@include mixin.font(#4a4a4a '14px/22px' center);
+		}
+	}
+
+
+	section {
+		@include mixin.prefix(box-shadow, 0 0 5px 0 rgba(#000, 0.17), webkit);
+		margin: 38px 18px 0;
+		padding: 36px 0 27px;
+		text-align: center;
+
+		h4 {
+			@include mixin.font('15px/22px');
+		}
+
+		.mm_coupon {
+			margin: 28px auto 0;
+		}
+
+		.mm_btn {
+			margin-top: 27px;
+
+			.mco_link {
+				font-size: 12px;
+				margin-left: 8px;
+			}
+		}
+	}
+
+	.mm_note {
+		margin-top: 37px;
+	}
+}
+//> 휴면회원 해제안내
+
+// *---------- 모달 ----------*
+
+
+// *---------- 레이어 ----------*

@@ -1,0 +1,543 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../helper/var';
+@use '../helper/mixin';
+
+/**
+ * 전시관리
+**/
+
+
+//< 공통
+.m_display- {
+	// 페이지 하단 검색+목록 영역
+	&search-area {
+		margin-top: 70px;
+
+		+ form,
+		+ .mm_form {
+			margin-top: 30px;
+		}
+	}
+
+	// mobile,pc 미리보기 버튼
+	&image-btnbox {
+		margin: 0 auto;
+		min-width: 86px;
+		max-width: 125px;
+	}
+
+	// 이미지 링크영역 설정(기획전 관리, 코너 템플릿 A)
+	&link-area {
+		.m__area-preview {
+			position: relative;
+			display: inline-block;
+
+			.image_banner {
+				position: relative;
+				width: 200px;
+				height: 200px;
+				border: 1px solid #d5d5d5;
+
+				&.__image-load {
+					width: auto;
+					height: auto;
+					max-width: 600px;
+
+					span {
+						display: none;
+					}
+				}
+
+				span {
+					position: absolute;
+					top: 50%;
+					right: 0;
+					left: 0;
+					text-align: center;
+					@include mixin.transform(translateY(-50%));
+				}
+			}
+
+			&-pointer {
+				overflow: hidden;
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+
+				.btn_pointer {
+					position: absolute;
+					z-index: 1;
+					top: 50%;
+					left: 50%;
+					width: 10%;
+					height: 10%;
+					border: 1px solid transparent;
+					background-color: rgba(cyan, 0.3);
+
+					&.__pointer-on {
+						border: 1px solid cyan;
+					}
+				}
+			}
+		}
+
+		.m__area-table {
+			margin-top: 10px;
+
+			&.__pointer-on {
+				.mm_table {
+					display: block;
+				}
+			}
+
+			.mm_table {
+				display: none;
+
+				tr.__pointer-on {
+					> * {
+						background-color: #fdf3f5;
+					}
+				}
+			}
+		}
+	}
+}
+//> 공통
+
+//< 할부정보관리
+.m_display-interest {
+	.mm_check-list {
+		+ .mm_form-textarea {
+			margin-top: 9px;
+		}
+	}
+}
+//> 할부정보관리
+
+//< 기획전
+.m_display-event-image {
+	.mm_form-table {
+		+ .btn_add {
+			display: block;
+			margin: 40px auto 30px;
+			width: 150px;
+			line-height: 35px;
+
+			.ico_add {
+				position: absolute;
+				right: 0;
+				bottom: 11px;
+				left: 0;
+			}
+		}
+	}
+
+	.btn_image-load {
+		margin: -6px 0 -6px 5px;
+
+		&.__radio-use {
+			display: inline-block;
+		}
+	}
+}
+//> 기획전
+
+
+// *---------- 팝업 ----------*
+
+//< 전시관리 팝업
+.m_popup- {
+	// 팝업미리보기
+	&preview-popup {
+		position: relative;
+
+		html[class*="_popup_"] & {
+			width: var.$width_popup_xs;
+		}
+
+		.m__popup-content {
+			padding: 16px 0;
+
+			.image_popup {
+				max-width: 100%;
+			}
+		}
+
+		.m__popup-today {
+			position: fixed;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			height: 40px;
+			background-color: #f9f9f9;
+
+			.mm_form-check {
+				margin: 14px 24px;
+			}
+		}
+	}
+
+	// 템플릿 관리
+	&template {
+		html[class*="_popup_"] & {
+			width: var.$width_popup_lg;
+		}
+
+		&-detail {
+			> .mm_form {
+				border-top: 0;
+			}
+
+			.m_display-template-form {
+				margin-top: -1px;
+
+				> .mm_note {
+					margin-top: 6px;
+				}
+			}
+		}
+
+		// 템플릿 안내
+		&-guide {
+			$width_popup_guide: 450px;
+
+			html[class*="_popup_"] & {
+				width: $width_popup_guide;
+			}
+
+			section {
+				position: relative;
+				padding-top: 32px;
+				@include mixin.font(700 '14px/1.4' center);
+				@include mixin.clearfix;
+
+				ul {
+					margin-left: -4px;
+
+					li {
+						float: left;
+						margin: 4px 0 0 4px;
+					}
+				}
+
+				h4 {
+					padding-bottom: 10px;
+					@include mixin.font(#000 '/30px' left);
+
+					> strong {
+						display: inline-block;
+						margin: 0 11px 0 0;
+						padding: 0 10px;
+						min-width: 82px;
+						height: 30px;
+						border: 2px solid #333;
+						line-height: 26px;
+					}
+				}
+
+				// 더보기
+				.text_more {
+					display: inline-block;
+					padding: 3px 10px;
+					background-color: #3caea3;
+					@include mixin.font(#fff '13px' right);
+				}
+
+				[class*="ico_page-"] {
+					position: absolute;
+					top: 50%;
+					left: 10px;
+					@include mixin.transform(translateY(-50%));
+
+					&.ico_page-next {
+						right: 10px;
+						left: auto;
+					}
+				}
+
+				+ .mm_note {
+					margin-top: 10px;
+				}
+			}
+
+			// 텍스트
+			.m__guide-text {
+				&:not([class*="_list_"]) {
+					position: relative;
+					padding: 8px 5px;
+					background-color: #725ba8;
+					color: #fff;
+
+					span:not(.text_more) {
+						display: block;
+						@include mixin.font(#d5d5d5 '13px');
+					}
+
+					.text_more {
+						position: absolute;
+						right: 0;
+						bottom: 0;
+
+						+ strong {
+							display: block;
+							padding-left: 10px;
+							text-align: left;
+						}
+					}
+				}
+
+				&.__text_rside__ {
+					padding-right: 10px;
+					text-align: right;
+				}
+
+				&[class*="_list_"] {
+					li {
+						padding: 10px;
+						width: 32.3333%;
+						background-color: #725ba8;
+						color: #fff;
+						@include mixin.opacity(0.7);
+					}
+				}
+
+				&[class*="_scroll_"] {
+					overflow: hidden;
+
+					ul {
+						width: $width_popup_guide;
+
+						li {
+							padding: 10px 33px;
+							width: auto;
+						}
+					}
+				}
+			}
+
+			// 그룹명
+			.m__guide-menu {
+				overflow: hidden;
+
+				ul {
+					width: $width_popup_guide;
+
+					li {
+						padding: 5px 15px;
+						background-color: #3caea3;
+						@include mixin.font(#fff '14px');
+					}
+				}
+			}
+
+			// 상품
+			.m__guide-prodlist {
+				overflow: hidden;
+				position: relative;
+				line-height: 70px;
+
+				> ul {
+					height: 100%;
+
+					> li {
+						background-color: #d5d5d5;
+					}
+				}
+
+				&:not([class*="_scroll_"]) {
+					ul:not(.mm_flex) {
+						li {
+							width: 49%;
+						}
+					}
+				}
+
+				&[class*="_scroll_"] > ul {
+					width: $width_popup_guide;
+
+					li {
+						padding: 0 28px;
+					}
+				}
+
+				[class*="ico_page-"] {
+					margin-top: 2px;
+				}
+
+				.__prodlist_pagination__ {
+					position: relative;
+					margin-top: 10px;
+					width: 7px;
+					height: 7px;
+					border-radius: 100%;
+					background-color: #555;
+
+					&::before,
+					&::after {
+						position: absolute;
+						width: 7px;
+						height: 7px;
+						left: -11px;
+						border-radius: 100%;
+						background-color: #d5d5d5;
+						content: '';
+					}
+
+					&::after {
+						left: auto;
+						right: -11px;
+					}
+				}
+
+				+ [class*="m__guide-"] {
+					margin-top: 4px;
+				}
+			}
+
+			// 하단 더보기
+			.m__guide-more {
+				text-align: right;
+			}
+
+			// 이미지
+			.m__guide-image {
+				&:not([class*="_list_"]) {
+					@include mixin.clearfix;
+					position: relative;
+					height: 140px;
+					background-color: #ffbe0f;
+
+					> p {
+						line-height: 140px;
+					}
+
+					.mm_lside {
+						margin-top: 21px;
+
+						.m__guide-text {
+							padding: 30px;
+						}
+					}
+				}
+
+				// 브랜드로고
+				&[class*="_list_"] {
+					ul {
+						li {
+							padding: 10px;
+							width: 32.3333%;
+							background-color: #ffbe0f;
+						}
+					}
+
+					.m__guide-more {
+						position: absolute;
+						bottom: 0;
+						right: 0;
+					}
+
+					+ [class*="m__guide-"] {
+						margin-top: 4px;
+					}
+				}
+
+				&[class*="_scroll_"] {
+					overflow: hidden;
+
+					ul {
+						width: $width_popup_guide;
+
+						li {
+							padding: 10px 15px;
+							width: auto;
+						}
+					}
+				}
+			}
+
+			// 아이콘
+			.m__guide-icon {
+				li {
+					width: 24%;
+				}
+
+				.m__guide-image {
+					height: 50px;
+
+					p {
+						line-height: 50px;
+					}
+				}
+			}
+		}
+	}
+
+	// 타임어택 일정
+	&time-schedule {
+		html[class*="_popup_"] & {
+			width: var.$width_popup_sm;
+		}
+
+	}
+
+	&sixbanner-guide {
+		html[class*="_popup_"] & {
+			width: var.$width_popup_xs;
+		}
+
+		section {
+			@include mixin.font(700 '14px/1.4' center);
+
+			h4 {
+				@include mixin.font('/40px' left);
+			}
+		}
+
+		ul {
+			margin-left: -4px 0 0 -4px;
+
+			li {
+				float: left;
+				width: 33.33333%;
+				padding: 4px 0 0 4px;
+				height: 118px;
+
+				&:nth-of-type(even):not(:nth-child(2)) {
+					margin-top: -30px;
+				}
+
+				&:nth-of-type(odd) {
+					.m__guide-image{
+						padding: 15px 0;
+					}
+				}
+
+				.m__guide-image {
+					position: relative;
+					padding: 30px 0;
+					background-color: #ffbe0f;
+				}
+
+				.m__guide-text {
+					position: relative;
+					padding: 8px 5px;
+					background-color: #725ba8;
+					@include mixin.font(#fff center)
+				}
+			}
+		}
+	}
+}
+//> 전시관리 팝업
+
+
+// *---------- 모달 ----------*
+
+
+
+// *---------- 레이어 ----------*
+

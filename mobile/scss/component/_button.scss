@@ -1,0 +1,237 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../helper/var';
+@use '../helper/mixin';
+
+/**
+ * 컴포넌트
+ * 버튼, 버튼그룹 등 버튼의 기본 단위
+**/
+
+
+//< 탭인덱스
+[tabindex],
+a[onclick] {
+	cursor: pointer;
+}
+//> 탭인덱스
+
+//< 기본형
+.mm_btn {
+	position: relative;
+	padding: 0 16px;
+	width: auto;
+	height: 42px;
+	border-radius: 3px;
+	background-color: #eee;
+	@include mixin.font(#4a4a4a '15px/42px' center);
+
+	&::after {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		border: 1px solid transparent;
+		border-radius: 3px;
+		content: '';
+	}
+
+	// 스퀘어
+	// &[class*="_square_"] {
+	// 	border-radius: 2px;
+
+	// 	&::after {
+	// 		border-radius: 2px;
+	// 	}
+	// }
+
+	// 사이즈 - base 제외 / 없음 null (type, height, border-radius, font-size)
+	$sizes: (sm, 32px, 13px, 15px), (xs, 25px, 12px, 10px), (2xs, 18px, 10px, 7px), (lg, 50px, 17px, 17px);
+	@each $type, $height, $fontSize, $padding in $sizes {
+		&[class*="_#{inspect($type)}_"] {
+			height: $height;
+			// @include mixin.font('#{$fontSize}/#{if($type == 2xs, 19px, $height)}');
+			@include mixin.font('#{$fontSize}/#{$height}');
+			padding: 0 $padding;
+		}
+	}
+
+	// 색상 - base 제외 / 없음 null (type, background-color, color, border-color)
+	$colors: (light, null, null, null), (lighter, null, null, null), (lightest, null, null, null),
+			(dark, #5c5c5c, #fff, null), (darker, #3d3d3d, #fff, null), (darkest, null, #fff, null),
+			(primary, var.$color_primary_base, #fff, null), (secondary, var.$color_secondary_base, #fff, null),
+			(tertiary, var.$color_tertiary_base, #fff, null);
+	@each $type, $bgColor, $fontColor, $borderColor in $colors {
+		&[class*="_#{inspect($type)}_"] {
+			@if $bgColor {
+				background-color: $bgColor;
+				color: $fontColor;
+
+				&::after {
+					border-color: $borderColor;
+				}
+			}
+		}
+	}
+
+	// 라인 - base 제외 / 없음 null (type, background-color, color, border-color)
+	&[class*="_line_"] {
+		background-color: #fff;
+		color: #5c5c5c;
+
+		&::after {
+			border-color: #6a6a6a;
+		}
+
+		$lines: (light, null, #6a6a6a, #7b7b7b), (lighter, null, #3d3d3d, #999), (lightest, null, #8c8c8c, #a3a3a3),
+				(dark, null, #2b2b2b, #2b2b2b), (darker, null, null, null), (darkest, null, null, null),
+				(primary, null, var.$color_primary_base, var.$color_primary_base), (secondary, null, var.$color_secondary_base, var.$color_secondary_base),
+				(tertiary, null, var.$color_tertiary_base, var.$color_tertiary_base), (naver, null, null, null), (transparent, transparent, null, null);
+		@each $type, $bgColor, $fontColor, $borderColor in $lines {
+			&[class*="_#{inspect($type)}_"] {
+				@if $borderColor {
+					background-color: $bgColor;
+					color: $fontColor;
+
+					&::after {
+						border-color: $borderColor;
+					}
+				}
+			}
+		}
+	}
+
+	// button 비활성
+	&[class*="_disabled_"],
+	&:disabled {
+		background-color: #e6e6e6 !important;
+		color: #a3a3a3 !important;
+
+		&::after {
+			border: 0 !important;
+		}
+	}
+
+	// a 다운로드 속성
+	// &[download] {
+	// }
+
+	+ .mm_note {
+		// margin-top: 8px;
+		margin: 10px 0 0 1px;
+	}
+
+	+ .mm_strapline {
+		margin-top: 14px;
+	}
+}
+//> 기본형
+
+//< 최하단버튼
+.mm_foot {
+	margin-top: 27px;
+
+	// .mm_btn {
+	// 	width: 100%;
+	// }
+}
+//> 최하단버튼
+
+//< 버튼그룹
+.mm_btnbox {
+	@include mixin.clearfix();
+	text-align: center;
+
+	> .mm_btn {
+		width: 100%;
+
+		&:nth-child(n+2) {
+			margin-top: 7px;
+		}
+	}
+
+	// 가운데 (일렬)
+	.mm_inline {
+		@include mixin.font('0', nowrap);
+
+		> * {
+			&:nth-child(n+2) {
+				margin-left: 5px;
+			}
+		}
+	}
+
+	// 플렉스
+	&.mm_flex {
+		> * {
+			&:nth-child(n+2) {
+				margin: 0 0 0 4px;
+			}
+		}
+	}
+}
+//> 버튼그룹
+
+//< 버튼종류
+// 더보기
+.btn_more {
+	.mco_more {
+		margin-left: 8px;
+		@include mixin.font('12px/42px');
+	}
+}
+
+// 새로고침
+// .btn_refresh {
+// 	padding: 0 13px;
+// 	.mco_reload {
+// 		margin-right: 4px;
+// 	}
+// }
+
+// 업데이트
+// .btn_update {
+// 	padding: 0 9px;
+// }
+
+// 하단 링크 버튼
+.btn_link {
+	.mco_link {
+		margin-left: 6px;
+		font-size: 10px;
+	}
+
+	.mco_link-sm {
+		margin-left: 6px;
+		font-size: 12px;
+	}
+}
+
+// 배송조회
+.btn_ship {
+	.mco_ship {
+		margin-right: 4px;
+	}
+}
+
+// 이전, 다음
+[class*="btn_process-"] {
+	i {
+		margin: 1px 0 -1px 0;
+		font-size: 12px;
+	}
+
+	// 이전
+	.mco_process-prev {
+		margin-right: 10px;
+	}
+
+	// 다음
+	.mco_process-next {
+		margin-left: 10px;
+	}
+}
+
+//> 버튼종류

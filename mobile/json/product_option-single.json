@@ -1,0 +1,19 @@
+[
+	{
+		"_name": "[Thursday Island]_T196MJK133W 벨티드 글렌체크 오버핏 싱글 쟈켓",
+		"options": [
+			{ "_price": 50000, "_name": "화이트 S", "_stock": 0, "_id": "0101" },
+			{ "_price": 50001, "_name": "화이트 M ", "_stock": 10, "_id": "0102" },
+			{ "_price": 50002, "_name": "화이트 L", "_stock": 5, "_id": "0103" },
+			{ "_price": 50003, "_name": "블랙 S", "_stock": 10, "_id": "0104" },
+			{ "_price": 50004, "_name": "블랙 M", "_stock": 0, "_id": "0105" },
+			{ "_price": 50005, "_name": "와인 S", "_stock": 0, "_id": "0106" },
+			{ "_price": 50006, "_name": "와인 M ", "_stock": 30, "_id": "0107" },
+			{ "_price": 50007, "_name": "와인 L", "_stock": 3, "_id": "0108" },
+			{ "_price": 50008, "_name": "그린 S", "_stock": 5, "_id": "0109" },
+			{ "_price": 50009, "_name": "그린 M", "_stock": 1, "_id": "0110" },
+			{ "_price": 50010, "_name": "옐로우 S", "_stock": 10, "_id": "0111" },
+			{ "_price": 50011, "_name": "옐로우 M", "_stock": 0, "_id": "0112" }
+		]
+	}
+]

@@ -1,0 +1,119 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../helper/var';
+@use '../helper/mixin';
+
+/**
+** 페이지
+** 앱전용화면, 기타
+**/
+
+
+//< 앱전용화면
+.m_app {
+	position: fixed;
+	z-index: var.$zIndex_most;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	@include mixin.opacity(0);
+	@include mixin.transition(opacity var.$time_fast);
+
+	&.__on {
+		@include mixin.opacity(1);
+	}
+
+	&-dim {
+		width: 100%;
+		height: 100%;
+		background-color: rgba(#000, 0.82);
+	}
+
+	&-item {
+		position: absolute;
+		z-index: var.$zIndex_most;
+		top: 50%;
+		left: 50%;
+		width: 310px;
+		max-height: 90%;
+		border-radius: 2px;
+		background-color: #fff;
+		@include mixin.transform(translate(-50%, -50%));
+	}
+
+	.mm_scroller {
+		background-color: #fff;
+		font-size: 0;
+
+		&::before {
+			height: 100%;
+			vertical-align: middle;
+			content: '';
+		}
+	}
+
+	.image_app {
+		width: 100%;
+	}
+
+	// 접근권한
+	&-access {
+		.image_app {
+			padding: 39px 0 25px;
+		}
+
+		.mm_btnbox {
+			padding: 0 10px 25px;
+		}
+	}
+
+	// 푸시알림
+	&-push {
+		visibility: hidden;
+
+		.image_app {
+			padding: 39px 0 34px;
+		}
+
+		.mm_btnbox {
+			padding: 0 10px 17px;
+
+			.btn_push-off {
+				margin-top: 15px;
+				padding: 10px;
+
+				b {
+					position: relative;
+					@include mixin.font(#a3a3a3 '12px');
+
+					&::after {
+						position: absolute;
+						right: 0;
+						bottom: -3px;
+						left: 0;
+						border-bottom: 1px solid #a3a3a3;
+						content: '';
+					}
+				}
+			}
+		}
+
+		&.__on {
+			visibility: inherit;
+		}
+	}
+}
+//> 앱전용화면
+
+
+// *---------- 팝업 ----------*
+
+
+
+// *---------- 모달 ----------*
+
+
+
+// *---------- 레이어 ----------*

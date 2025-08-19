@@ -1,0 +1,1177 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../helper/var';
+@use '../helper/mixin';
+@use '../helper/extend';
+
+/**
+** 고객센터
+**/
+
+
+// 고객센터 공통
+[class*="m_cs-"] {
+	.mm_title {
+		padding-bottom: 44px;
+	}
+}
+
+//< 고객센터 메인
+.m_cs-main {
+	@include mixin.font('0');
+	@include mixin.clearfix();
+
+	// FAQ
+	&-faq {
+		display: inline-block;
+		position: relative;
+		width: 915px;
+		height: 306px;
+		border: 1px solid #e6e6e6;
+		border-width: 1px 0 1px 1px;
+		background: #fdfdfd;
+		text-align: center;
+
+		h3 {
+			padding: 53px 0 21px;
+			font-size: 23px;
+
+			strong {
+				@include mixin.font(500 '26px' [var.$fontFamily_latin]);
+			}
+		}
+
+		.mm_formmix-linked {
+			position: relative;
+			margin: 0 auto;
+			width: 643px;
+
+			label {
+				padding-top: 16px;
+				height: 54px;
+
+				.mco_search {
+					position: absolute;
+					z-index: 1;
+					top: 5px;
+					left: 14px;
+					@include mixin.font(#5c5c5c '18px/46px');
+				}
+
+				.textfield {
+					padding-left: 41px;
+
+					&:focus + .bg_text {
+						border-color: var.$color_primary_base;
+					}
+				}
+
+				.bg_text {
+					border-color: var.$color_primary_base;
+				}
+
+				.text_placeholder {
+					padding: 4px 41px;
+				}
+			}
+
+			> .mm_btn {
+				padding: 0 25px;
+				font-size: 15px;
+			}
+		}
+
+		.m__faq-category {
+			margin-top: 28px;
+
+			li {
+				display: inline-block;
+
+				&:nth-of-type(n+2) {
+					margin-left: 4px;
+				}
+
+				a {
+					padding: 0 16px;
+					min-width: 61px;
+					height: 36px;
+					border: 1px solid #dcdcdc;
+					border-radius: 18px;
+					background-color: #fff;
+					@include mixin.font('14px/32px');
+
+					&:hover {
+						border-color: #5c5c5c;
+						background-color: #5c5c5c;
+						color: #fff;
+					}
+				}
+			}
+		}
+
+		.btn_more {
+			position: relative;
+			margin-top: 10px;
+			padding: 11px;
+			@include mixin.font(#5c5c5c '14px/15px');
+
+			&::after {
+				position: absolute;
+				right: 12px;
+				bottom: 10px;
+				left: 12px;
+				border-top: 1px solid #7b7b7b;
+				content: '';
+			}
+
+			.mco_link {
+				margin: 1px 0 0 6px;
+				font-size: 12px;
+			}
+		}
+	}
+
+	// 퀵메뉴
+	&-menu {
+		display: inline-block;
+		margin-left: 0;
+		width: 365px;
+		height: 306px;
+		border: 1px solid #e6e6e6;
+
+		ul {
+			li {
+				float: left;
+				width: 50%;
+
+				&:nth-child(2n) {
+					border-left: 1px solid #f5f5f5;
+				}
+
+				&:nth-child(n+3) {
+					border-top: 1px solid #f5f5f5;
+				}
+
+				a {
+					display: block;
+					padding: 47px 0;
+					height: 152px;
+					@include mixin.font('15px/21px' center);
+
+					b {
+						display: block;
+						padding-top: 16px;
+					}
+				}
+			}
+		}
+	}
+
+	// 패션플러스 이용안내
+	&-guide {
+		float: left;
+		margin-top: 53px;
+
+		> ul {
+			width: 742px;
+			border: 1px solid #f5f5f5;
+			border-width: 1px 1px 0 0;
+
+			li {
+				float: left;
+				border: 1px solid #f5f5f5;
+				border-width: 0 0 1px 1px;
+
+				a {
+					display: block;
+					padding: 24px 0 0 25px;
+					width: 246px;
+					height: 68px;
+					@include mixin.font('15px/20px');
+				}
+
+				i {
+					margin-right: 23px;
+					width: 22px;
+					@include mixin.font(#7b7b7b '14px/21px' center);
+
+					$icons: (cs-reward, 16px), (cs-membership, 16px), (cs-coupon, 15px), (pay-kakao, 15px), (pay-payco, 10px);
+					@each $type, $size in $icons {
+						&.mco_#{$type} {
+							font-size: $size;
+
+							@if $type == pay-payco {
+								margin: 0 18px 0 -9px;
+								width: 36px;
+								@include mixin.transform(scale(0.9));
+							}
+						}
+					}
+
+					&.mco_cs-order {
+						margin-top: 1px;
+					}
+				}
+			}
+		}
+
+		// 고객센터 정보
+		.text_cs-info {
+			margin: 15px -6px 0 0;
+			@include mixin.font(#2b2b2b '14px/21px' right);
+
+			a {
+				padding: 0 5px;
+				vertical-align: 0;
+				@include mixin.font(var.$color_secondary_base 500 '15px' [var.$fontFamily_latin]);
+			}
+
+			span {
+				position: relative;
+				padding: 0 8px;
+				vertical-align: 1px;
+				@include mixin.font(#7b7b7b '13px');
+
+				+ span::before {
+					position: absolute;
+					top: 8px;
+					left: 0;
+					margin-top: -4px;
+					height: 12px;
+					border-left: 1px solid #d5d5d5;
+					content: "";
+				}
+			}
+		}
+	}
+
+	// 공지사항
+	&-notice {
+		float: right;
+		position: relative;
+		margin-top: 53px;
+		width: 484px;
+
+		ul {
+			border-top: 1px solid #5c5c5c;
+			border-bottom: 1px solid #dcdcdc;
+
+			li:nth-of-type(n+2) {
+				border-top: 1px solid #eee;
+			}
+		}
+
+		a {
+			display: block;
+			position: relative;
+			@include mixin.text-ellipsis(1);
+			padding: 13px 90px 13px 10px;
+			font-size: 15px;
+
+			b {
+				display: inline;
+			}
+
+			.text_date {
+				position: absolute;
+				top: 50%;
+				right: 8px;
+				@include mixin.font(#999 '13px');
+				@include mixin.transform(translateY(-50%));
+			}
+		}
+
+		.btn_more {
+			position: absolute;
+			top: -12px;
+			right: 0;
+			padding: 16px 5px;
+			@include mixin.font(#7b7b7b '13px');
+
+			.mco_link {
+				margin-left: 5px;
+			}
+		}
+
+		.mm_text-none {
+			padding-top: 40px;
+			border-top: 1px solid #5c5c5c;
+		}
+	}
+}
+//> 고객센터 메인
+
+//< FAQ
+.m_cs-faq {
+	&-search {
+		position: relative;
+		margin-bottom: 69px;
+		padding: 49px 0 48px;
+		border: 1px solid #e6e6e6;
+		background: #fdfdfd;
+		@include mixin.font('0' center);
+
+		h3 {
+			display: inline-block;
+			margin-right: 18px;
+			padding-top: 1px;
+			@include mixin.font('17px/54px');
+
+			strong {
+				margin-right: 4px;
+				@include mixin.font(500 '23px' [var.$fontFamily_latin]);
+			}
+		}
+
+		.m__faq-search {
+			display: inline-block;
+			position: relative;
+			width: 581px;
+
+			label {
+				padding-top: 16px;
+				height: 54px;
+
+				.mco_search {
+					position: absolute;
+					z-index: 1;
+					top: 5px;
+					left: 14px;
+					@include mixin.font(#5c5c5c '18px/46px');
+				}
+
+				.textfield {
+					padding-left: 42px;
+				}
+
+				.text_placeholder {
+					padding: 4px 42px;
+				}
+			}
+
+			.mm_btn {
+				padding: 0 25px;
+				font-size: 15px;
+			}
+		}
+	}
+
+	&-list {
+		> li {
+			border-bottom: 1px solid #e6e6e6;
+			@include mixin.font('15px/20px');
+		}
+
+		.btn_dropdown {
+			&::before {
+				position: absolute;
+				top: 21px;
+				left: 24px;
+				@include mixin.font(500 '17px/1' [var.$fontFamily_latin]);
+				content: 'Q';
+			}
+
+			> p {
+				display: inline-block;
+				position: relative;
+				margin-right: 45px;
+				padding: 20px 0 22px 49px;
+			}
+
+			.mco_dropdown {
+				right: 25px;
+			}
+		}
+
+		.mm_dropdown-item-inner {
+			padding: 25px 45px 25px 77px;
+			border-top: 1px solid #f5f5f5;
+			background-color: #fafafa;
+			@include mixin.font(#6a6a6a '15px/25px');
+
+			&::before {
+				position: absolute;
+				top: 25px;
+				left: 50px;
+				@include mixin.font(#4457a7 700 '17px' [var.$fontFamily_latin]);
+				content: 'A';
+			}
+		}
+
+		// 아코디언 열림
+		.__dropdown-on {
+			.btn_dropdown {
+				font-weight: 700;
+
+				&::before {
+					font-weight: 700;
+				}
+
+				.mco_dropdown {
+					color: inherit;
+				}
+			}
+		}
+	}
+
+	.mm_text-none {
+		padding: 140px 0 154px;
+	}
+}
+//> FAQ
+
+//< 공지사항
+.m_cs-notice {
+	&-list {
+		margin-top: -1px;
+
+		table {
+			border-top: 1px solid #5c5c5c;
+			border-bottom: 1px solid #dcdcdc;
+			@include mixin.font('15px/46px');
+
+			tbody {
+				tr {
+					border-top: 1px solid #eee;
+
+					&:first-child {
+						border-top-color: #5c5c5c;
+					}
+
+					&.__table_notice__ {
+						position: relative;
+						color: var.$color_primary_base;
+
+						a {
+							@include mixin.text-ellipsis(0);
+
+							> b {
+								display: inline-block;
+							}
+						}
+					}
+
+					&:not(.__table_notice__) {
+						.text_date {
+							color: #8c8c8c;
+						}
+					}
+				}
+			}
+
+			tr {
+				height: 48px;
+			}
+
+			td {
+				a {
+					display: block;
+					padding: 13px 19px;
+					@include mixin.text-ellipsis(1);
+
+					b {
+						display: inline;
+					}
+				}
+
+				p:not(.mm_text-none) {
+					text-align: left;
+				}
+			}
+		}
+
+		.mm_text-none {
+			padding: 140px 0 154px;
+			border: 0;
+		}
+	}
+
+	// 상세
+	.m__notice-detail- {
+		&title {
+			position: relative;
+			padding: 0 150px 0 9px;
+			border: 1px solid #5c5c5c;
+			border-width: 1px 0;
+			@include mixin.font('15px/47px');
+
+			.text_date {
+				position: absolute;
+				top: 0;
+				right: 43px;
+				color: #8c8c8c;
+			}
+		}
+
+		&content {
+			padding: 36px 10px 46px;
+
+			.mm_editor {
+				@include mixin.font('15px/23px');
+
+				img {
+					margin: 4px 0;
+				}
+			}
+		}
+
+		&control {
+			border: 1px solid #dcdcdc;
+			border-width: 1px 0;
+
+			> a {
+				display: block;
+				@include mixin.text-ellipsis(1);
+				position: relative;
+				padding: 0 120px 0 22px;
+				@include mixin.font(#6a6a6a '15px/47px');
+
+				i {
+					margin-right: 42px;
+					font-size: 17px;
+				}
+
+				b {
+					display: inline;
+				}
+
+				.text_date {
+					position: absolute;
+					top: 0;
+					right: 42px;
+					color: #8c8c8c;
+				}
+
+				+ a {
+					border-top: 1px solid #eee;
+				}
+			}
+
+			+ .mm_btnbox {
+				float: right;
+				margin-top: 24px;
+			}
+		}
+	}
+}
+//> 공지사항
+
+// *---------- 모달 ----------*
+
+//공통
+[class*="m_modal-cs-"] {
+	// 탭메뉴 박스형 (고객보상제도, 간편결제)
+	.m__cs-tabmenu-squares {
+		border: 0;
+
+		ul {
+			height: 46px;
+
+			li {
+				&:first-child {
+					.btn_tab {
+						border-radius: 3px 0 0 3px;
+					}
+				}
+
+				&:last-child {
+					.btn_tab {
+						border-radius: 0 3px 3px 0;
+					}
+				}
+
+				.btn_tab {
+					display: block;
+					width: auto;
+					height: 46px;
+					padding: 0 48px;
+					border: 1px solid #e6e6e6;
+					@include mixin.font(#3d3d3d '15px/44px');
+
+					&.__tab-on {
+						border-color: #3d3d3d;
+						background-color: #3d3d3d;
+						color: #fff;
+
+						&::after {
+							border: 0;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.mm_tab {
+		.mm_lside {
+			width: 240px;
+
+			// 탭메뉴 사이드형
+			.mm_tabmenu {
+				padding: 17px 0 0 20px;
+				padding-top: 17px;
+				border: 0;
+
+				h4 {
+					@include mixin.font(var.$color_text_base '17px/50px');
+
+					&:nth-of-type(n+2) {
+						margin-top: 23px;
+					}
+				}
+
+				ul {
+					height: auto;
+
+					li {
+						&:nth-child(n+2) {
+							margin-top: 6px;
+						}
+					}
+				}
+
+				.btn_tab {
+					padding: 0 16px;
+					width: 220px;
+					height: 28px;
+					@include mixin.font(#5c5c5c '15px/28px' left);
+
+					.mco_link {
+						position: absolute;
+						top: 6px;
+						right: 12px;
+						@include mixin.font(#fff '12px/17px');
+					}
+
+					&.__tab-on {
+						background-color: var.$color_primary_base;
+						color: #fff;
+
+						&::after {
+							border: 0;
+						}
+					}
+				}
+			}
+		}
+
+		.mm_rside {
+			width: 610px;
+			min-height: 540px;
+			border-left: 1px solid #eee;
+
+			> .mm_tab-item {
+				padding: 29px 90px 0 30px;
+
+				h5 {
+					padding-bottom: 19px;
+					@include mixin.font(var.$color_text_base 700 '17px/25px');
+				}
+
+				> p {
+					margin-top: -3px;
+					padding-bottom: 9px;
+					@include mixin.font(#5c5c5c '15px/21px');
+
+					strong {
+						color: var.$color_text_base;
+					}
+				}
+			}
+		}
+
+		.btn_link {
+			.mco_link-sm {
+				padding-left: 6px;
+				font-size: 20px;
+			}
+		}
+	}
+
+	// 결제수단
+	.m_modal-cs-step {
+		position: relative;
+		margin-top: 15px;
+		padding-left: 14px;
+		@include mixin.font(#5c5c5c '15px/21px');
+		counter-reset: csInfoStep;
+
+		li {
+			position: relative;
+			padding-left: 46px;
+
+			&::before {
+				position: absolute;
+				z-index: 1;
+				left: 0;
+				width: 33px;
+				height: 33px;
+				border: 1px solid #cdcdcd;
+				border-radius: 100%;
+				background: #fff;
+				@include mixin.font(#4a4a4a '12px/31px' center);
+				counter-increment: csInfoStep;
+				content: counters(csInfoStep, '-');
+			}
+
+			&::after {
+				position: absolute;
+				left: 16px;
+				top: 0;
+				bottom: 0;
+				border-left: 1px solid #cdcdcd;
+				content: '';
+			}
+
+			&:nth-child(n+2) {
+				padding-top: 16px;
+			}
+
+			p {
+				line-height: 33px;
+
+				strong {
+					color: var.$color_text_base;
+				}
+			}
+
+			h5 {
+				color: var.$color_text_base;
+			}
+		}
+
+		.m_modal-cs-step {
+			margin: 16px 0 0 -60px;
+
+			&::before {
+				content: none;
+			}
+		}
+	}
+
+	.m_modal-cs-info {
+		margin-top: -3px;
+		@include mixin.font('15px/21px');
+
+		strong {
+			color: var.$color_text_base;
+		}
+
+		> li {
+			&:nth-of-type(n+2) {
+				margin-top: 6px;
+
+				> dl {
+					padding-top: 18px;
+				}
+			}
+
+			> p,
+			dd {
+				position: relative;
+				padding-left: 8px;
+				color: #5c5c5c;
+
+				&::before {
+					position: absolute;
+					top: -1px;
+					left: 0;
+					content: '-';
+				}
+			}
+
+			dl {
+				dt {
+					color: var.$color_text_base;
+
+					.mco_arrow-right {
+						padding: 0 6px 0 1px;
+						font-size: 15px;
+					}
+				}
+
+				dd {
+					margin-top: 6px;
+				}
+			}
+		}
+	}
+}
+
+//< 고객보상제도
+.m_modal-cs-reward {
+	html[class*="_modal_"] & {
+		padding: 40px 40px 35px 20px;
+		width: var.$width_modal_lg;
+	}
+
+	.mm_tab-item {
+		position: relative;
+		padding-top: 27px;
+
+		> p {
+			padding-left: 3px;
+			width: 348px;
+			@include mixin.font('15px/21px');
+
+			small {
+				display: block;
+				margin-top: 7px;
+				@include mixin.font(#5c5c5c '13px');
+			}
+		}
+
+		.mm_table-point {
+			position: absolute;
+			top: 30px;
+			right: 0;
+			width: 302px;
+		}
+
+		.btn_link {
+			margin: 27px 0 0 4px;
+
+			.mco_link-sm {
+				font-size: 20px;
+				padding-left: 7px;
+			}
+		}
+
+		.mm_note {
+			display: inline-block;
+			margin-top: 102px;
+		}
+
+		&:last-child {
+			.btn_link {
+				margin-top: 26px;
+			}
+
+			.mm_note {
+				margin-top: 75px;
+			}
+		}
+	}
+}
+//> 고객보상제도
+
+//< 주문/반품 배송조회
+.m_modal-cs-order {
+	html[class*="_modal_"] & {
+		padding: 0;
+		width: var.$width_modal_xl;
+		height: 540px;
+	}
+
+	.mm_tab {
+		@include mixin.clearfix();
+
+		&-item {
+			ol {
+				width: 300px;
+
+				.mco_next-down {
+					display: block;
+					@include mixin.font(#aeaeae '14px/20px' center);
+				}
+			}
+		}
+
+		.btn_link {
+			margin-top: 30px;
+		}
+
+		.mm_note {
+			margin-top: 45px;
+		}
+	}
+}
+//> 주문/반품 배송조회
+
+//< 반품/환불 안내
+.m_modal-cs-return {
+	html[class*="_modal_"] & {
+		padding: 0;
+		width: var.$width_modal_xl;
+		height: 540px;
+	}
+
+	// 반품 진행과정
+	.m_modal-cs-step {
+		margin-top: 10px;
+		padding-left: 10px;
+
+		li {
+			padding-left: 40px;
+
+			&::before {
+				width: 30px;
+				height: 30px;
+				@include mixin.font(var.$color_text_base '13px/28px');
+			}
+
+			&::after {
+				left: 15px;
+			}
+
+			&:last-child::after {
+				height: 30px;
+			}
+
+			&:nth-child(n+2) {
+				padding-top: 12px;
+			}
+
+			h6 {
+				padding-top: 5px;
+				color: var.$color_text_base;
+			}
+
+			p {
+				@include mixin.font(#4a4a4a '/21px');
+			}
+		}
+
+		+ .m_modal-cs-info {
+			margin-top: 32px;
+		}
+	}
+
+	.m_modal-cs-info {
+		// 환불안내
+		table {
+			margin: 7px 0 9px 1px;
+			@include mixin.font('13px/19px');
+
+			thead {
+				background-color: #eee;
+			}
+
+			th,
+			td {
+				padding: 7px 12px 9px;
+				border: 1px solid #d6d6d6;
+				color: var.$color_text_base;
+			}
+
+			td {
+				text-align: left;
+			}
+
+			+ .mm_note {
+				margin-top: 11px;
+			}
+		}
+	}
+
+	.m__return-impossible {
+		ul {
+			li:nth-of-type(n+2) {
+				margin-top: 24px;
+
+				dl {
+					padding: 0;
+				}
+			}
+		}
+	}
+
+	.mm_note {
+		margin-top: 24px;
+	}
+}
+//> 반품/환불 안내
+
+//< 회원등급 및 혜택
+.m_modal-cs-benefit {
+	html[class*="_modal_"] & {
+		padding: 0 40px 0 20px;
+		width: 1090px;
+	}
+
+	.m__cs-benefit {
+		@extend %gradeBenefit !optional;
+		margin-top: 28px;
+
+		td {
+			&:first-child {
+				&::before {
+					display: none;
+				}
+
+				> b {
+					padding-left: 24px;
+					@include mixin.font('15px/25px');
+				}
+			}
+		}
+
+		ul {
+			padding-left: 39px;
+		}
+	}
+
+	.mm_note {
+		margin: 15px 5px 40px 0;
+
+		table {
+			margin: 9px 0 0 4px;
+			width: 397px;
+
+			th,
+			td {
+				padding: 6px 13px 8px;
+				border: 1px solid #d6d6d6;
+				@include mixin.font(#2b2b2b '13px/21px' left);
+			}
+
+			th {
+				width: 152px;
+				background-color: #eee;
+			}
+		}
+
+		strong {
+			@include mixin.font(var.$color_secondary_base 700);
+		}
+	}
+}
+//> 회원등급 및 혜택
+
+//< 쿠폰/적립금
+.m_modal-cs-coupon {
+	html[class*="_modal_"] & {
+		padding: 0;
+		width: var.$width_modal_xl;
+		height: 540px;
+	}
+
+	.mm_tab-item {
+		> .btn_link {
+			margin-top: 27px;
+
+			.mco_coupon {
+				margin-right: 8px;
+				@include mixin.font('13px/47px');
+			}
+		}
+
+		.btn_detail {
+			margin: 27px 0 0;
+			padding: 0 11px;
+
+			.mco_link {
+				padding-left: 7px;
+				line-height: 31px;
+			}
+		}
+	}
+
+	.m__coupon-process {
+		margin-top: 11px;
+		@include mixin.font(var.$color_text_base '14px/21px');
+
+		li {
+			> p {
+				padding: 6px 0 7px;
+				border: 1px solid #dcdcdc;
+				text-align: center;
+
+				.mco_next {
+					margin-bottom: -1px;
+					padding: 0 9px;
+					@include mixin.font(var.$color_text_base '10px');
+					@include mixin.transform(scale(0.8));
+				}
+			}
+
+			.mco_next-down {
+				display: block;
+				height: 20px;
+				@include mixin.font(#aeaeae '14px' center);
+			}
+		}
+	}
+
+	.m_modal-cs-info {
+		.m__coupon-table {
+			dd {
+				padding-left: 0;
+
+				&::before {
+					content: '';
+				}
+			}
+
+			.mm_table-point {
+				+ p {
+					margin-top: 2px;
+					padding-left: 3px;
+					@include mixin.font('13px/19px');
+				}
+			}
+		}
+
+		+ .mm_note {
+			margin-top: 42px;
+		}
+	}
+
+	.mm_note {
+		margin-top: 45px;
+		padding-bottom: 37px;
+	}
+}
+//> 쿠폰/적립금
+
+//< 간편결제
+.m_modal-cs-pay {
+	html[class*="_modal_"] & {
+		padding: 0;
+		width: var.$width_modal_lg;
+		height: 665px;
+	}
+
+	// 타이틀
+	.m__pay-title {
+		padding: 30px 0 33px 84px;
+		background-color: #fafafa;
+
+		h2 {
+			@include mixin.font('17px/25px');
+		}
+
+		[class*="ico_pay-"] {
+			position: absolute;
+			left: 20px;
+			width: 51px;
+			height: 51px;
+		}
+
+		p {
+			@include mixin.font(#5c5c5c '15px/23px');
+		}
+	}
+
+	.mm_tab {
+		padding: 28px 20px 0;
+
+		.text_check {
+			margin-top: 25px;
+			padding: 0 10px;
+			@include mixin.font(#5c5c5c '15px/21px');
+
+			.mco_check {
+				padding-right: 6px;
+				font-size: 14px;
+			}
+		}
+	}
+
+	> .m_modal-cs-step {
+		margin-top: 28px;
+		padding-left: 34px;
+	}
+}
+//> 간편결제

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ko" class="__layout_popup__">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="format-detection" content="telephone=no, address=no, email=no">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="mobile-web-app-capable" content="yes">
+
+	<!-- 소셜태그 -->
+	<meta property="og:title" content="">
+	<meta property="og:description" content="">
+	<meta property="og:image" content="">
+	<meta property="og:url" content="">
+	<meta property="og:site_name" content="">
+	<!--// 소셜태그 -->
+
+	<title>(팝업) Men's Ranking &#60; Men's shop - 패션플러스</title>
+
+	<!-- 공통 css -->
+	<link rel="stylesheet" href="../css/font.css">
+	<link rel="stylesheet" href="../css/app.css">
+
+	<!-- (D) 폴리필/라이브러리는 요청을 줄이기 위해 combind + minify를 적용해주세요. -->
+	<!-- 폴리필/라이브러리 스크립트 -->
+	<script src="../../assets/js/polyfill/babel-polyfill-7.8.7.min.js"></script>
+	<script src="../../assets/js/polyfill/dom4-2.1.5.min.js"></script>
+	<script src="../../assets/js/polyfill/fetch.umd-3.0.0.min.js"></script>
+	<script src="../../assets/js/polyfill/intersection-observer-0.8.0.min.js"></script>
+	<script src="../../assets/js/polyfill/resize-observer-1.5.1.min.js"></script>
+	<script src="../../assets/js/lib/lodash-4.17.15.min.js"></script>
+	<script src="../../assets/js/lib/gsap-3.2.6/gsap.min.js"></script>
+	<script src="../../assets/js/lib/axios-0.19.2.min.js"></script>
+	<script src="../../assets/js/lib/load-image.all-3.0.0.min.js"></script>
+	<script src="../../assets/js/lib/sortable-1.10.2.min.js"></script>
+
+	<!-- 공통 스크립트 -->
+	<script src="../js/app_common.js"></script>
+	<script src="../js/app_page-common.js"></script>
+
+	<!-- (D) 페이지 전용 스크립트는 .mm_page-content 하단에 넣어주세요. -->
+</head>
+<body>
+	<div id="mm_app" class="mm_app">
+		<!-- 스킵 -->
+		<nav class="mm_skip">
+			<ul>
+				<li><a href="#mm_body" data-href="{ '_type': 'anchor' }">본문바로가기</a></li>
+			</ul>
+		</nav>
+		<!-- 스킵 -->
+
+		<!-- 화면 -->
+		<div class="mm_view">
+			<!-- 헤더 -->
+			<header class="mm_header">
+				<div class="m_mens-heading">
+					<h1><b>Men's Ranking</b></h1>
+					<div class="m_mens-heading-help">
+						<button type="button" class="mm_switch" data-switch="{ '_title': '알림문구 닫기', '_defaultTitle': '알림문구 보기' }" title="알림문구 보기"><i class="mco_tooltip-help"></i></button>
+						<p>Men's Ranking은 상품 매출, 판매 수량 등을 반영한 공식에 의해 노출됩니다.<br>패션플러스는 광고목적으로 랭킹을 임의 조작하지 않습니다</p>
+					</div>
+				</div>
+				<div class="mm_lside">
+					<a class="btn_back" href="#" data-href="{ '_type': 'back' }"><i class="mco_history-back"></i><b class="mm_ir-blind">이전으로</b></a>
+				</div>
+				<div class="mm_rside">
+					<button type="button" class="btn_popup-close" onclick="mm.popup.close();"><i class="mco_popup-close"></i><b class="mm_ir-blind">팝업 닫기</b></button>
+				</div>
+			</header>
+			<!--// 헤더 -->
+
+			<!-- 내용 -->
+			<div id="mm_body" class="mm_page">
+				<!-- (D) 실제 내용을 추가하는 부분입니다. -->
+
+				<!-- (D) 팝업은 html 요소에 '__layout_popup__' 클래스를 추가합니다. -->
+				<div class="mm_scroller">
+					<div class="mm_page-inner">
+						<!-- 본문 -->
+						<div class="mm_page-content">
+							<div class="m_popup-mens-ranking m_mens-ranking">
+								<!-- 랭킹 탭메뉴 -->
+								<ul class="m__ranking-menu">
+									<!-- (D) 선택된 탭에 '__tab-on' 클래스와 '선택됨' 타이틀을 추가합니다. -->
+									<li>
+										<a class="btn_tab" href="_popup_mensRankingItem.html" data-href="{ '_type': 'link', '_isLinkStage': false }"><b>아이템</b></a>
+										<div class="mm_product-category-list">
+											<div class="mm_scroller __scroller_x__">
+												<!-- (D) 선택된 카테고리에 '__category-on' 클래스와 '선택됨' 타이틀을 추가합니다. -->
+												<ul>
+													<li><button type="button" class="__category-on" title="선택됨"><b>전체</b></button></li>
+													<li><button type="button"><b>니트/가디건</b></button></li>
+													<li><button type="button"><b>드레스셔츠</b></button></li>
+													<li><button type="button"><b>베스트/조끼</b></button></li>
+													<li><button type="button"><b>자켓</b></button></li>
+													<li><button type="button"><b>점퍼</b></button></li>
+													<li><button type="button"><b>가디건</b></button></li>
+													<li><button type="button"><b>니트</b></button></li>
+													<li><button type="button"><b>맨투맨</b></button></li>
+												</ul>
+											</div>
+										</div>
+									</li>
+									<li><a class="btn_tab" href="_popup_mensRankingBrand.html" data-href="{ '_type': 'link', '_isLinkStage': false }"><b>브랜드</b></a></li>
+									<li><a class="btn_tab __tab-on" href="_popup_mensRankingHotdeal.html" data-href="{ '_type': 'link', '_isLinkStage': false }" title="선택됨"><b>초특가딜</b></a></li>
+								</ul>
+								<!--// 랭킹 탭메뉴 -->
+
+								<!-- 초특가딜 타이틀 -->
+								<h3 class="m__ranking-hotdeal"><b>초특가딜 랭킹</b></h3>
+								<!--// 초특가딜 타이틀 -->
+
+								<!-- 랭킹 상품리스트 -->
+								<ol class="mm_product-list __list_card__">
+									<li class="mm_product-item">
+										<a href="prodDetail.html" data-href="{ '_type': 'link', '_isProduct': true }">
+											<p class="text_rank">01</p>
+											<figure>
+												<i class="mm_bg-cover image_product" data-preload="{ '_src': '../image/_sample/prod_x2_1.png' }"></i>
+												<figcaption>
+													<p class="text_brand">SJYP에스제이와이피</p>
+													<p class="text_product">폴리 A라인 시어서커 스커트</p>
+													<p class="text_price">
+														<strong>19,000</strong>
+														<del>99,000</del>
+													</p>
+													<p class="text_sale">70%</p>
+													<p class="text_purchase">634개 구매</p>
+													<b class="mm_tag">무료배송</b>
+												</figcaption>
+											</figure>
+										</a>
+										<button type="button" class="mm_switch mm_like __switch-on" data-switch="{ 'onChange': 'changeLikeProduct', 'onChangeParams': ['callback', ['상품 id 등 callback 전달 할 값으로 첫번째는 true/false']] }" title="선택됨"><i class="mco_like"></i><b class="mm_ir-blind">좋아요한 상품에 추가하기</b></button>
+									</li>
+									<li class="mm_product-item">
+										<a href="prodDetail.html" data-href="{ '_type': 'link', '_isProduct': true }">
+											<p class="text_rank">02</p>
+											<figure>
+												<i class="mm_bg-cover image_product" data-preload="{ '_src': '../image/_sample/prod_x2_3.png' }"></i>
+												<figcaption>
+													<p class="text_brand">커버낫</p>
+													<p class="text_product">아이커버낫 사퍼맨 티셔츠 아이블랙</p>
+													<p class="text_price">
+														<strong>33,180</strong>
+														<del>99,000</del>
+													</p>
+													<p class="text_sale">10%</p>
+													<b class="mm_tag">10% 쿠폰</b>
+												</figcaption>
+											</figure>
+										</a>
+										<button type="button" class="mm_switch mm_like" data-switch="{ 'onChange': 'changeLikeProduct', 'onChangeParams': ['callback', ['상품 id 등 callback 전달 할 값으로 첫번째는 true/false']] }"><i class="mco_like"></i><b class="mm_ir-blind">좋아요한 상품에 추가하기</b></button>
+									</li>
+									<li class="mm_product-item">
+										<a href="prodDetail.html" data-href="{ '_type': 'link', '_isProduct': true }">
+											<p class="text_rank">03</p>
+											<figure>
+												<i class="mm_bg-cover image_product" data-preload="{ '_src': '../error' }"></i>
+												<figcaption>
+													<p class="text_brand">티더블유엔</p>
+													<p class="text_product">아이스버그 반팔 STST3 279 + 스플래쉬 반팔티셔츠</p>
+													<p class="text_price">
+														<strong>25,000</strong>
+													</p>
+													<p class="text_purchase">34개 구매</p>
+													<b class="mm_tag">7% 쿠폰</b>
+												</figcaption>
+											</figure>
+										</a>
+										<button type="button" class="mm_switch mm_like" data-switch="{ 'onChange': 'changeLikeProduct', 'onChangeParams': ['callback', ['상품 id 등 callback 전달 할 값으로 첫번째는 true/false']] }"><i class="mco_like"></i><b class="mm_ir-blind">좋아요한 상품에 추가하기</b></button>
+									</li>
+									<li class="mm_product-item">
+										<a href="prodDetail.html" data-href="{ '_type': 'link', '_isProduct': true }">
+											<p class="text_rank">04</p>
+											<figure>
+												<i class="mm_bg-cover image_product" data-preload="{ '_src': '../image/_sample/prod_x2_2.png' }"></i>
+												<figcaption>
+													<p class="text_brand">배럴</p>
+													<p class="text_product">맨 베이직 어반 워터 쇼츠 블랙</p>
+													<p class="text_price">
+														<strong>6,980</strong>
+														<del>99,000</del>
+													</p>
+													<p class="text_sale">15%</p>
+													<p class="text_purchase">2개 구매</p>
+												</figcaption>
+											</figure>
+										</a>
+										<button type="button" class="mm_switch mm_like" data-switch="{ 'onChange': 'changeLikeProduct', 'onChangeParams': ['callback', ['상품 id 등 callback 전달 할 값으로 첫번째는 true/false']] }"><i class="mco_like"></i><b class="mm_ir-blind">좋아요한 상품에 추가하기</b></button>
+									</li>
+									<li class="mm_product-item">
+										<a href="prodDetail.html" data-href="{ '_type': 'link', '_isProduct': true }">
+											<p class="text_rank">05</p>
+											<figure>
+												<i class="mm_bg-cover image_product" data-preload="{ '_src': '../image/_sample/prod_x2_1.png' }"></i>
+												<figcaption>
+													<p class="text_brand">SJYP에스제이와이피</p>
+													<p class="text_product">폴리 A라인 시어서커 스커트</p>
+													<p class="text_price">
+														<strong>19,000</strong>
+														<del>99,000</del>
+													</p>
+													<p class="text_sale">70%</p>
+													<p class="text_purchase">634개 구매</p>
+													<b class="mm_tag">무료배송</b>
+												</figcaption>
+											</figure>
+										</a>
+										<button type="button" class="mm_switch mm_like __switch-on" data-switch="{ 'onChange': 'changeLikeProduct', 'onChangeParams': ['callback', ['상품 id 등 callback 전달 할 값으로 첫번째는 true/false']] }" title="선택됨"><i class="mco_like"></i><b class="mm_ir-blind">좋아요한 상품에 추가하기</b></button>
+									</li>
+									<li class="mm_product-item">
+										<a href="prodDetail.html" data-href="{ '_type': 'link', '_isProduct': true }">
+											<p class="text_rank">06</p>
+											<figure>
+												<i class="mm_bg-cover image_product" data-preload="{ '_src': '../image/_sample/prod_x2_3.png' }"></i>
+												<figcaption>
+													<p class="text_brand">커버낫</p>
+													<p class="text_product">아이커버낫 사퍼맨 티셔츠 아이블랙</p>
+													<p class="text_price">
+														<strong>33,180</strong>
+														<del>99,000</del>
+													</p>
+													<p class="text_sale">10%</p>
+													<b class="mm_tag">10% 쿠폰</b>
+												</figcaption>
+											</figure>
+										</a>
+										<button type="button" class="mm_switch mm_like" data-switch="{ 'onChange': 'changeLikeProduct', 'onChangeParams': ['callback', ['상품 id 등 callback 전달 할 값으로 첫번째는 true/false']] }"><i class="mco_like"></i><b class="mm_ir-blind">좋아요한 상품에 추가하기</b></button>
+									</li>
+									<li class="mm_product-item">
+										<a href="prodDetail.html" data-href="{ '_type': 'link', '_isProduct': true }">
+											<p class="text_rank">07</p>
+											<figure>
+												<i class="mm_bg-cover image_product" data-preload="{ '_src': '../error' }"></i>
+												<figcaption>
+													<p class="text_brand">티더블유엔</p>
+													<p class="text_product">아이스버그 반팔 STST3 279 + 스플래쉬 반팔티셔츠</p>
+													<p class="text_price">
+														<strong>25,000</strong>
+													</p>
+													<p class="text_purchase">34개 구매</p>
+													<b class="mm_tag">7% 쿠폰</b>
+												</figcaption>
+											</figure>
+										</a>
+										<button type="button" class="mm_switch mm_like" data-switch="{ 'onChange': 'changeLikeProduct', 'onChangeParams': ['callback', ['상품 id 등 callback 전달 할 값으로 첫번째는 true/false']] }"><i class="mco_like"></i><b class="mm_ir-blind">좋아요한 상품에 추가하기</b></button>
+									</li>
+									<li class="mm_product-item">
+										<a>
+											<p class="text_rank">08</p>
+											<figure>
+												<i class="mm_bg-cover image_product" data-preload="{ '_src': '../image/_sample/prod_x2_2.png' }"></i>
+												<p class="text_soldout"><b><strong>SOLD OUT</strong><br><span>품절되었습니다</span></b></p>
+												<figcaption>
+													<p class="text_brand">배럴</p>
+													<p class="text_product">맨 베이직 어반 워터 쇼츠 블랙</p>
+													<p class="text_price">
+														<strong>6,980</strong>
+														<del>99,000</del>
+													</p>
+													<p class="text_sale">15%</p>
+													<p class="text_purchase">2개 구매</p>
+												</figcaption>
+											</figure>
+										</a>
+										<button type="button" class="mm_switch mm_like" data-switch="{ 'onChange': 'changeLikeProduct', 'onChangeParams': ['callback', ['상품 id 등 callback 전달 할 값으로 첫번째는 true/false']] }"><i class="mco_like"></i><b class="mm_ir-blind">좋아요한 상품에 추가하기</b></button>
+									</li>
+									<li class="mm_product-item">
+										<a href="prodDetail.html" data-href="{ '_type': 'link', '_isProduct': true }">
+											<p class="text_rank">09</p>
+											<figure>
+												<i class="mm_bg-cover image_product" data-preload="{ '_src': '../image/_sample/prod_x2_1.png' }"></i>
+												<figcaption>
+													<p class="text_brand">SJYP에스제이와이피</p>
+													<p class="text_product">폴리 A라인 시어서커 스커트</p>
+													<p class="text_price">
+														<strong>19,000</strong>
+														<del>99,000</del>
+													</p>
+													<p class="text_sale">70%</p>
+													<p class="text_purchase">634개 구매</p>
+													<b class="mm_tag">무료배송</b>
+												</figcaption>
+											</figure>
+										</a>
+										<button type="button" class="mm_switch mm_like __switch-on" data-switch="{ 'onChange': 'changeLikeProduct', 'onChangeParams': ['callback', ['상품 id 등 callback 전달 할 값으로 첫번째는 true/false']] }" title="선택됨"><i class="mco_like"></i><b class="mm_ir-blind">좋아요한 상품에 추가하기</b></button>
+									</li>
+									<li class="mm_product-item">
+										<a href="prodDetail.html" data-href="{ '_type': 'link', '_isProduct': true }">
+											<p class="text_rank">10</p>
+											<figure>
+												<i class="mm_bg-cover image_product" data-preload="{ '_src': '../image/_sample/prod_x2_3.png' }"></i>
+												<figcaption>
+													<p class="text_brand">커버낫</p>
+													<p class="text_product">아이커버낫 사퍼맨 티셔츠 아이블랙</p>
+													<p class="text_price">
+														<strong>33,180</strong>
+														<del>99,000</del>
+													</p>
+													<p class="text_sale">10%</p>
+													<b class="mm_tag">10% 쿠폰</b>
+												</figcaption>
+											</figure>
+										</a>
+										<button type="button" class="mm_switch mm_like" data-switch="{ 'onChange': 'changeLikeProduct', 'onChangeParams': ['callback', ['상품 id 등 callback 전달 할 값으로 첫번째는 true/false']] }"><i class="mco_like"></i><b class="mm_ir-blind">좋아요한 상품에 추가하기</b></button>
+									</li>
+								</ol>
+								<!--// 랭킹 상품리스트 -->
+							</div>
+						</div>
+						<!--// 본문 -->
+					</div>
+				</div>
+
+				<a class="btn_topmost" href="#mm_app" data-href="{ '_type': 'anchor' }" title="페이지 처음으로"><i class="mco_topmost"></i><b>TOP</b></a>
+				<!-- 타임어택 윙배너 -->
+				<div class="m_timedeal-wing">
+					<button type="button" class="mm_switch" data-switch="{ '_isParent': true, '_defaultTitle': '펼쳐보기', '_title': '접어놓기' }" title="펼쳐보기"><b>타임어택</b></button>
+					<a class="btn_timedeal" href="timeDeal.html" data-href="{ '_type': 'link' }"><b>딱!12시간만</b><i class="mco_link"></i></a>
+				</div>
+				<!--// 타임어택 윙배너 -->
+
+				<!-- 현재 페이지 스크립트 -->
+				<!-- <script src="../js/.js"></script> -->
+			</div>
+			<!--// 내용 -->
+		</div>
+		<!--// 화면 -->
+	</div>
+</body>
+</html>

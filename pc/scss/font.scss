@@ -1,0 +1,25 @@
+@charset 'utf-8';
+
+@use 'helper/var';
+@use 'helper/mixin';
+
+/**
+ * font-face
+ * 마지막 파라미터 기본 값은 woff2 woff 입니다.
+**/
+
+//- noto sans kr
+@include mixin.font-face('NotoSansKR', var.$fontPath + 'NotoSansCJKkr-Regular', 400);
+// @include mixin.font-face('NotoSansKR', var.$fontPath + 'NotoSansCJKkr-Thin', 100);
+@include mixin.font-face('NotoSansKR', var.$fontPath + 'NotoSansCJKkr-Light', 300);
+@include mixin.font-face('NotoSansKR', var.$fontPath + 'NotoSansCJKkr-Medium', 500);
+@include mixin.font-face('NotoSansKR', var.$fontPath + 'NotoSansCJKkr-Bold', 700);
+// @include mixin.font-face('NotoSansKR', var.$fontPath + 'NotoSansCJKkr-Black', 900);
+
+//- roboto
+@include mixin.font-face('Roboto', var.$fontPath + 'Roboto-Regular', 400);
+// @include mixin.font-face('Roboto', var.$fontPath + 'Roboto-Thin', 100);
+@include mixin.font-face('Roboto', var.$fontPath + 'Roboto-Light', 300);
+@include mixin.font-face('Roboto', var.$fontPath + 'Roboto-Medium', 500);
+@include mixin.font-face('Roboto', var.$fontPath + 'Roboto-Bold', 700);
+// @include mixin.font-face('Roboto', var.$fontPath + 'Roboto-Black', 900);

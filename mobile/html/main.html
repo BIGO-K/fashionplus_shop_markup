@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="ko" class="__layout_main__">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="format-detection" content="telephone=no, address=no, email=no">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="mobile-web-app-capable" content="yes">
+
+	<!-- 소셜태그 -->
+	<meta property="og:title" content="">
+	<meta property="og:description" content="">
+	<meta property="og:image" content="">
+	<meta property="og:url" content="">
+	<meta property="og:site_name" content="">
+	<!--// 소셜태그 -->
+
+	<title>패션플러스</title>
+
+	<!-- 공통 css -->
+	<link rel="stylesheet" href="../css/font.css">
+	<link rel="stylesheet" href="../css/app.css">
+
+	<!-- (D) 폴리필/라이브러리는 요청을 줄이기 위해 combind + minify를 적용해주세요. -->
+	<!-- 폴리필/라이브러리 스크립트 -->
+	<script src="../../assets/js/polyfill/babel-polyfill-7.8.7.min.js"></script>
+	<script src="../../assets/js/polyfill/dom4-2.1.5.min.js"></script>
+	<script src="../../assets/js/polyfill/fetch.umd-3.0.0.min.js"></script>
+	<script src="../../assets/js/polyfill/intersection-observer-0.8.0.min.js"></script>
+	<script src="../../assets/js/polyfill/resize-observer-1.5.1.min.js"></script>
+	<script src="../../assets/js/lib/lodash-4.17.15.min.js"></script>
+	<script src="../../assets/js/lib/gsap-3.2.6/gsap.min.js"></script>
+	<script src="../../assets/js/lib/axios-0.19.2.min.js"></script>
+	<script src="../../assets/js/lib/load-image.all-3.0.0.min.js"></script>
+	<script src="../../assets/js/lib/sortable-1.10.2.min.js"></script>
+
+	<!-- 공통 스크립트 -->
+	<script src="../js/app_common.js"></script>
+	<script src="../js/app_page-common.js"></script>
+
+	<!-- (D) 페이지 전용 스크립트는 .mm_page-content 하단에 넣어주세요. -->
+</head>
+<body>
+	<div id="mm_app" class="mm_app">
+		<!-- 스킵 -->
+		<nav class="mm_skip">
+			<ul>
+				<li><a href="#mm_body" data-href="{ '_type': 'anchor' }">본문바로가기</a></li>
+			</ul>
+		</nav>
+		<!-- 스킵 -->
+
+		<!-- 화면 -->
+		<div class="mm_view">
+			<!-- 앱 설치 상단 배너 -->
+			<div class="m_main-app-install">
+				<a href="#" target="_blank" title="새 창 열림"><span>패션플러스 앱에서 편리하게 쇼핑하기</span><i>앱 설치</i></a>
+			</div>
+			<!--// 앱 설치 상단 배너 -->
+
+			<!-- 헤더 -->
+			<header class="mm_header">
+				<h1><a href="/" data-href="{ '_type': 'home' }"><i class="image_logo"></i><b class="mm_ir-blind">패션플러스</b></a></h1>
+				<div class="mm_rside">
+					<a href="cart.html" data-href="{ '_type': 'link' }"><i class="mco_cart"></i><strong class="text_badge">2</strong><b class="mm_ir-blind">장바구니</b></a>
+				</div>
+				<div class="m_main-search">
+					<a href="#" class="btn_keyword"><span>타임특가 예고! 낫띵니튼 62% 할인</span></a>
+					<a href="_popup_search.html" data-href="{ '_type': 'popup' }"><b class="mm_ir-blind">검색하기</b><i class="mco_search"></i></a>
+				</div>
+			</header>
+			<!--// 헤더 -->
+
+			<!-- 내용 -->
+			<div id="mm_body" class="mm_page">
+				<!-- (D) 실제 내용을 추가하는 부분입니다. -->
+
+				<div class="mm_scroller">
+					<div class="mm_page-inner">
+						<!-- 본문 -->
+						<div class="mm_page-content">
+							<!-- GNB -->
+							<div class="mm_gnb">
+								<!-- (D) 모바일 가로사이즈가 일정크기 이상일 경우 mm_gnb에 '__gnb-flex' 클래스가 추가됩니다. -->
+								<div class="mm_gnb-inner">
+									<div class="mm_scroller __scroller_x__">
+										<!-- (D) 현재페이지의 a 요소에 "__on" 클래스와 "선택됨" 타이틀을 추가합니다. -->
+										<!-- (D) 서브문구 등록 시 a 요소 내에 b.text_sub 요소를 추가하고 admin에서 입력한 배경색을 인라인 스타일로 추가합니다. -->
+										<ul>
+											<li><a href="#home" class="__on" title="선택됨"><b>홈</b></a></li>
+											<li><a href="#best"><b>베스트</b></a></li>
+											<li><a href="#md"><b>MD추천신상</b><b class="text_sub" style="background-color: #4457a7;"><small>FW 전상품 특가</small></b></a></li>
+											<li><a href="#corner"><b>코너</b></a></li>
+											<li><a href="#timedeal"><b>타임어택</b></a></li>
+											<li><a href="#timedeal"><b>타임어택</b></a></li>
+											<li><a href="#timedeal"><b>타임어택</b></a></li>
+											<li><a href="#timedeal"><b>타임어택</b></a></li>
+											<li><a href="#timedeal"><b>타임어택</b></a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<!--// GNB -->
+
+							<!-- 메인스와이퍼 -->
+							<div class="m_main">
+								<div class="mm_carousel" data-carousel>
+									<div class="mm_carousel-inner">
+										<ul class="mm_carousel-list">
+											<li class="mm_carousel-item">
+												<iframe class="m_main-slideframe" data-preload="{ '_src': '_iframe_mainHome.html' }"></iframe>
+											</li>
+											<li class="mm_carousel-item">
+												<iframe class="m_main-slideframe" data-preload="{ '_src': '_iframe_mainBest.html', '_isPass': true }"></iframe>
+											</li>
+											<li class="mm_carousel-item">
+												<iframe class="m_main-slideframe" data-preload="{ '_src': '_iframe_mainMD.html', '_isPass': true }"></iframe>
+											</li>
+											<li class="mm_carousel-item">
+												<iframe class="m_main-slideframe" data-preload="{ '_src': '_iframe_mainCorner.html', '_isPass': true }"></iframe>
+											</li>
+											<li class="mm_carousel-item">
+												<iframe class="m_main-slideframe" data-preload="{ '_src': '_iframe_mainTime.html', '_isPass': true }"></iframe>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<!--// 메인스와이퍼 -->
+						</div>
+						<!--// 본문 -->
+					</div>
+				</div>
+
+				<!-- 앱설치유도 -->
+				<!-- <div class="mm_app-install __on">
+					<div class="mm_app-install-dim"></div>
+					<div class="mm_app-install-item">
+						<h3><i class="image_logo" title="패션플러스"></i><b>앱 설치하세요</b></h3>
+						<p>앱에서 특별한 혜택을 만나보세요!</p>
+						<i class="image_logo-app"></i>
+						<a href="#" target="_blank" class="mm_btn btn_download __btn_darker__" title="새 창 열림"><b>지금 다운받기</b><i class="mco_download"></i></a>
+						<div class="mm_btnbox">
+							<button type="button" class="btn_today"><b>오늘 하루 그만보기</b></button>
+							<button type="button" class="btn_close"><b>닫기</b><i class="mco_close"></i></button>
+						</div>
+					</div>
+				</div> -->
+				<!--// 앱설치유도 -->
+
+				<!-- 앱전용화면 -->
+				<div class="m_app">
+					<div class="m_app-dim"></div>
+					<div class="m_app-item m_app-access">
+						<div class="mm_scroller">
+							<i class="image_app"><img src="https://img.fashionplus.co.kr/ui/mobile/content/app_access.jpg" alt=""></i>
+							<section class="mm_ir-blind">
+								<h3><b>선택적 접근권한 안내</b></h3>
+								<dl>
+									<dt><b>전화</b></dt>
+									<dd>고객센터 전화연결</dd>
+									<dt><b>주소록</b></dt>
+									<dd>쇼핑알림 발송을 위한 구글 계정 사용</dd>
+									<dt><b>카메라/저장공간</b></dt>
+									<dd>포토 상품평 사진 촬영</dd>
+								</dl>
+								<div class="mm_note">
+									<ul>
+										<li>선택 접근 권한은 동의하지 않으셔도 그 외 서비스는 이용 가능합니다</li>
+										<li>
+											<dl>
+												<dt><b>접근권한 변경 방법</b></dt>
+												<dd>안드로이드: 설정 &#62; 애플리케이션 &#62; 패션플러스 &#62; 권한 &#62; 접근권한 관리</dd>
+												<dd>IOS: 설정 &#62; 패션플러스 &#62; 접근권한 관리</dd>
+											</dl>
+										</li>
+									</ul>
+								</div>
+							</section>
+							<div class="mm_btnbox">
+								<button type="button" class="mm_btn __btn_line_primary__"><b>확인했습니다</b></button>
+							</div>
+						</div>
+					</div>
+					<div class="m_app-item m_app-push">
+						<div class="mm_scroller">
+							<i class="image_app"><img src="https://img.fashionplus.co.kr/ui/mobile/content/app_push.jpg" alt=""></i>
+							<section class="mm_ir-blind">
+								<h3><b>고객님께 특가상품 정보를 알려드립니다</b></h3>
+								<p>허용 시 해당 기기에서만 적용되며 ‘마이쇼핑 &#62; 설정’에서 변경 가능합니다</p>
+							</section>
+							<div class="mm_btnbox">
+								<button type="button" class="mm_btn __btn_primary__"><b>쇼핑알림을 허용합니다</b></button>
+								<button type="button" class="btn_push-off"><b>아니요, 괜찮습니다</b></button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--// 앱전용화면 -->
+
+				<!-- 메인팝업 -->
+				<!-- 1차 팝업 -->
+				<div class="m_main-popup">
+					<div class="m_main-popup-dim"></div>
+					<div class="m_main-popup-item">
+						<div class="mm_carousel" data-carousel="{ '_isAutoHeight': true, '_autoDelay': 3 }">
+							<div class="mm_carousel-inner">
+								<ul class="mm_carousel-list">
+									<li class="mm_carousel-item">
+										<a href="#" data-href="{ '_type': 'link' }">
+											<img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-preload="{ '_src': '../image/_sample/main_popup_1.jpg' }" alt="TANDY Best of Best Shoes">
+										</a>
+									</li>
+									<li class="mm_carousel-item">
+										<a href="#" data-href="{ '_type': 'link' }">
+											<img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-preload="{ '_src': '../image/_sample/main_popup_2.jpg' }" alt="2020 Fall & Winter Collection 특별한 날 나를 빛나게 해 줄 아웃핏">
+										</a>
+									</li>
+									<li class="mm_carousel-item">
+										<a href="#" data-href="{ '_type': 'popup' }">
+											<img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-preload="{ '_src': '../image/_sample/main_popup_3.jpg' }" alt="2020 FW Promotion Open 네셔널지오그래픽 X 패션플러스">
+										</a>
+									</li>
+								</ul>
+							</div>
+							<!-- (D) 배너가 1개일 경우 'mm_carousel-pagination' 영역을 노출하지 않습니다. -->
+							<div class="mm_carousel-pagination">
+								<ol>
+									<li><button type="button" class="btn_carousel-page"><b class="mm_ir-blind">1</b></button></li>
+									<li><button type="button" class="btn_carousel-page"><b class="mm_ir-blind">2</b></button></li>
+									<li><button type="button" class="btn_carousel-page"><b class="mm_ir-blind">3</b></button></li>
+								</ol>
+							</div>
+						</div>
+						<div class="mm_btnbox">
+							<button type="button" class="btn_today"><b>오늘 하루 그만보기</b></button>
+							<button type="button" class="btn_close"><b>닫기</b><i class="mco_close"></i></button>
+						</div>
+					</div>
+				</div>
+				<!--// 1차 팝업 -->
+
+				<!-- 2차 팝업 -->
+				<div class="m_main-popup">
+					<div class="m_main-popup-dim"></div>
+					<div class="m_main-popup-item">
+						<a href="#" data-href="{ '_type': 'popup' }">
+							<img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-preload="{ '_src': '../image/_sample/main_popup_3.jpg' }" alt="2020 FW Promotion Open 네셔널지오그래픽 X 패션플러스">
+						</a>
+						<div class="mm_btnbox">
+							<button type="button" class="btn_today"><b>오늘 하루 그만보기</b></button>
+							<button type="button" class="btn_close"><b>닫기</b><i class="mco_close"></i></button>
+						</div>
+					</div>
+				</div>
+				<!--// 2차 팝업 -->
+				<!--// 메인팝업 -->
+
+				<!-- 현재 페이지 스크립트 -->
+				<script src="../js/app_page-main.js"></script>
+				<script>
+					(function () {
+
+						// 앱설치유도
+						// var $appInstall = mm.find('.mm_app-install')[0];
+
+						// if (!mm.is.mobile('app') && mm.cookie.get('IS_APPINSTALL_HIDE') != 'true') {
+						// 	$appInstall.classList.add('__on');
+
+						// 	mm.event.on(mm.find('button', $appInstall), 'click', function () {
+
+						// 		$appInstall.remove();
+						// 		if (this.classList.contains('btn_today')) mm.cookie.set('IS_APPINSTALL_HIDE', true, 1, true);// 1일 자정 리셋
+
+						// 		mainPopupBanner();// 메인 팝업배너 노출
+
+						// 	});
+						// }
+						// else $appInstall.remove();
+
+						// 앱 최초실행
+						var $appPopup = mm.find('.m_app')[0];
+
+						if (mm.is.mobile('app_first') && mm.cookie.get('IS_APP_FIRST_HIDE') !== 'true') {
+							$appPopup.classList.add('__on');// 앱 전용화면 열기
+
+							mm.event.on(mm.find('button', $appPopup), 'click', function (__e) {
+
+								var $item = this.closest('.m_app-item');
+								if ($item.nextElementSibling) {
+									$item.nextElementSibling.classList.add('__on');
+									$item.remove();
+								}
+								else {
+									mm.cookie.set('IS_APP_FIRST_HIDE', true);// 쿠키설정
+									$appPopup.remove();// 앱 전용화면 닫기
+
+									mainPopupBanner();// 메인 팝업배너 노출
+								}
+
+							});
+						}
+						else $appPopup.remove();
+
+						// 메인 팝업배너
+						function mainPopupBanner() {
+
+							if (mm.find('.m_app')[0]) return;// 앱 최초실행이 있을 경우
+
+							var $mainPopup = mm.find('.m_main-popup');
+							_.forEach($mainPopup, function (__$popup, __index) {
+
+								var $checkToday = mm.find('data-check', __$popup);
+								var $btnClose = mm.find('.btn_popup-close', __$popup);
+
+								var _cookieName = 'IS_MAIN_POPUP_HIDE_' + __index;
+								var _classOn = '__on';
+
+								// 팝업 열기
+								if (mm.cookie.get(_cookieName) !== 'true') {
+
+									if (__index === 0) mm.class.add(__$popup, _classOn);
+									else if (mm.cookie.get('IS_MAIN_POPUP_HIDE_0') === 'true') mm.class.add(__$popup, _classOn);
+
+									mm.scroll.off();
+
+									// 팝업 닫기
+									mm.event.on(mm.find('button', __$popup), 'click', function (__e) {
+
+										// 오늘하루 그만보기
+										if (this.classList.contains('btn_today')) mm.cookie.set(_cookieName, true, 1, true);// 1일 자정 리셋
+
+										// 2차 팝업 오픈
+										if (__index === 0 && mm.cookie.get('IS_MAIN_POPUP_HIDE_1') !== 'true') mm.class.add($mainPopup[1], _classOn);
+
+										// 배너영역 제외 팝업닫기
+										if (!__e.target.closest('.mm_swiper')) __$popup.remove();
+
+										mm.scroll.on();
+
+									});
+								}
+
+							});
+
+						}
+						mainPopupBanner();
+
+						// 앱 설치 상단 배너
+						var $appInstallBanner = mm.find('.m_main-app-install')[0];
+						if ($appInstallBanner && mm.is.mobile('app')) $appInstallBanner.remove();
+
+					})();
+				</script>
+			</div>
+			<!--// 내용 -->
+
+			<!-- 툴바 -->
+			<div class="mm_toolbar">
+				<ul class="mm_flex __flex_equal__">
+					<li>
+						<a href="sidebar.html" onclick="mm.side.open(this.href);return false;">
+							<i class="mco_menu"></i>
+							<b class="mm_ir-blind">카테고리</b>
+						</a>
+					</li>
+					<li>
+						<a href="_popup_search.html" data-href="{ '_type': 'popup' }">
+							<i class="mco_search"></i>
+							<b class="mm_ir-blind">검색</b>
+						</a>
+					</li>
+					<li>
+						<a href="/" data-href="{ '_type': 'home' }">
+							<i class="mco_home mm_text-primary"></i>
+							<b class="mm_ir-blind">홈</b>
+						</a>
+					</li>
+					<li>
+						<a href="myMain_vvip.html" data-href="{ '_type': 'link' }">
+							<i class="mco_mypage"></i>
+							<b class="mm_ir-blind">마이페이지</b>
+						</a>
+					</li>
+					<li>
+						<a href="_popup_recent.html" data-href="{ '_type': 'popup' }">
+							<i class="mm_bg-cover image_recent" data-preload="{ '_src': '../image/_sample/prod_x1_1.png', '_isErrorImage': false }"></i>
+							<b class="mm_ir-blind">최근본상품</b>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<!--// 툴바 -->
+		</div>
+		<!--// 화면 -->
+	</div>
+</body>
+</html>

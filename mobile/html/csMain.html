@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="format-detection" content="telephone=no, address=no, email=no">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="mobile-web-app-capable" content="yes">
+
+	<!-- 소셜태그 -->
+	<meta property="og:title" content="">
+	<meta property="og:description" content="">
+	<meta property="og:image" content="">
+	<meta property="og:url" content="">
+	<meta property="og:site_name" content="">
+	<!--// 소셜태그 -->
+
+	<title>메인 &#60; 고객센터 - 패션플러스</title>
+
+	<!-- 공통 css -->
+	<link rel="stylesheet" href="../css/font.css">
+	<link rel="stylesheet" href="../css/app.css">
+
+	<!-- (D) 폴리필/라이브러리는 요청을 줄이기 위해 combind + minify를 적용해주세요. -->
+	<!-- 폴리필/라이브러리 스크립트 -->
+	<script src="../../assets/js/polyfill/babel-polyfill-7.8.7.min.js"></script>
+	<script src="../../assets/js/polyfill/dom4-2.1.5.min.js"></script>
+	<script src="../../assets/js/polyfill/fetch.umd-3.0.0.min.js"></script>
+	<script src="../../assets/js/polyfill/intersection-observer-0.8.0.min.js"></script>
+	<script src="../../assets/js/polyfill/resize-observer-1.5.1.min.js"></script>
+	<script src="../../assets/js/lib/lodash-4.17.15.min.js"></script>
+	<script src="../../assets/js/lib/gsap-3.2.6/gsap.min.js"></script>
+	<script src="../../assets/js/lib/axios-0.19.2.min.js"></script>
+	<script src="../../assets/js/lib/load-image.all-3.0.0.min.js"></script>
+	<script src="../../assets/js/lib/sortable-1.10.2.min.js"></script>
+
+	<!-- 공통 스크립트 -->
+	<script src="../js/app_common.js"></script>
+	<script src="../js/app_page-common.js"></script>
+
+	<!-- (D) 페이지 전용 스크립트는 .mm_page-content 하단에 넣어주세요. -->
+</head>
+<body>
+	<div id="mm_app" class="mm_app">
+		<!-- 스킵 -->
+		<nav class="mm_skip">
+			<ul>
+				<li><a href="#mm_body" data-href="{ '_type': 'anchor' }">본문바로가기</a></li>
+			</ul>
+		</nav>
+		<!-- 스킵 -->
+
+		<!-- 화면 -->
+		<div class="mm_view">
+			<!-- 헤더 -->
+			<header class="mm_header">
+				<h1><b>고객센터</b></h1>
+				<div class="mm_lside">
+					<a class="btn_back" href="#" data-href="{ '_type': 'back' }"><i class="mco_history-back"></i><b class="mm_ir-blind">이전으로</b></a>
+				</div>
+				<div class="mm_rside">
+					<a href="cart.html" data-href="{ '_type': 'link' }"><i class="mco_cart"></i><strong class="text_badge">2</strong><b class="mm_ir-blind">장바구니</b></a>
+				</div>
+			</header>
+			<!--// 헤더 -->
+
+			<!-- 내용 -->
+			<div id="mm_body" class="mm_page">
+				<!-- (D) 실제 내용을 추가하는 부분입니다. -->
+
+				<div class="mm_scroller">
+					<div class="mm_page-inner">
+						<!-- 본문 -->
+						<div class="mm_page-content">
+							<!-- 고객센터 퀵메뉴 -->
+							<ul class="m_cs-menu">
+								<li>
+									<a href="_popup_myInquiry.html" data-href="{ '_type': 'popup' }">
+										<i class="ico_cs-qna"></i>
+										<p>1:1<br>문의하기</p>
+									</a>
+								</li>
+								<li>
+									<a href="myInquiryList.html" data-href="{ '_type': 'link' }">
+										<i class="ico_cs-qnalist"></i>
+										<p>1:1<br>문의내역</p>
+									</a>
+								</li>
+								<li>
+									<a href="myOrder.html" data-href="{ '_type': 'link' }">
+										<i class="ico_cs-order"></i>
+										<p>주문/배송<br>조회</p>
+									</a>
+								</li>
+								<li>
+									<a href="myOrderList.html" data-href="{ '_type': 'link' }">
+										<i class="ico_cs-cancel"></i>
+										<p>취소/반품<br>조회</p>
+									</a>
+								</li>
+							</ul>
+							<hr class="mm_line">
+							<!--// 고객센터 퀵메뉴 -->
+
+							<!-- FAQ-->
+							<section class="m_cs-faq">
+								<h3 class="mm_strapline"><b>FAQ</b></h3>
+								<!-- FAQ 검색 -->
+								<form action=".">
+									<div class="m__faq-search">
+										<div class="mm_search">
+											<div class="mm_form-text">
+												<button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><b class="mm_ir-blind">지우기</b></button>
+												<label>
+													<input type="search" class="textfield" data-text><i class="bg_text"></i>
+													<span class="text_placeholder">검색어를 입력하세요</span>
+												</label>
+											</div>
+											<button type="button" class="btn_search"><i class="mco_search"></i><b class="mm_ir-blind">검색하기</b></button>
+										</div>
+									</div>
+									<input hidden>
+								</form>
+								<!--// FAQ 검색 -->
+
+								<!-- FAQ 분류 -->
+								<ul class="m__faq-category">
+									<li><a href="_popup_csFaq.html" data-href="{ '_type': 'popup' }"><b>배송</b></a></li>
+									<li><a href="_popup_csFaq.html" data-href="{ '_type': 'popup' }"><b>주문/결제</b></a></li>
+									<li><a href="_popup_csFaq.html" data-href="{ '_type': 'popup' }"><b>취소/교환/반품</b></a></li>
+									<li><a href="_popup_csFaq.html" data-href="{ '_type': 'popup' }"><b>쿠폰</b></a></li>
+									<li><a href="_popup_csFaq.html" data-href="{ '_type': 'popup' }"><b>적립금</b></a></li>
+									<li><a href="_popup_csFaq.html" data-href="{ '_type': 'popup' }"><b>회원/멤버십</b></a></li>
+									<li><a href="_popup_csFaq.html" data-href="{ '_type': 'popup' }"><b>영수증/세금계산서</b></a></li>
+									<li><a href="_popup_csFaq.html" data-href="{ '_type': 'popup' }"><b>기타</b></a></li>
+								</ul>
+								<!--// FAQ 분류 -->
+
+								<a class="btn_more" href="_popup_csFaq.html" data-href="{ '_type': 'popup' }"><b>더보기</b><i class="mco_link"></i></a>
+							</section>
+							<hr class="mm_line">
+							<!--// FAQ-->
+
+							<!-- 공지사항 -->
+							<section class="m_cs-notice">
+								<h3 class="mm_strapline"><b>공지사항</b></h3>
+								<ul class="mm_list">
+									<li><a href="_popup_csNoticeDetail.html" data-href="{ '_type': 'popup' }"><b>[공지] 9.29(화) 고객센터 단축 운영 안내</b></a></li>
+									<li><a href="_popup_csNoticeDetail.html" data-href="{ '_type': 'popup' }"><b>개인정보 처리방침 변경 안내(2020.9.05 시행)</b></a></li>
+									<li><a href="_popup_csNoticeDetail.html" data-href="{ '_type': 'popup' }"><b>[공지] 우리은행 작업공지</b></a></li>
+									<li><a href="_popup_csNoticeDetail.html" data-href="{ '_type': 'popup' }"><b>[공지] 로젠택배 마포지역 코로나 19 관련 배송 정상운영 재개합니다 공지내용 확인해주세요.</b></a></li>
+									<li><a href="_popup_csNoticeDetail.html" data-href="{ '_type': 'popup' }"><b>7월 신용카드 무이자할부</b></a></li>
+								</ul>
+								<a class="btn_more" href="_popup_csNotice.html" data-href="{ '_type': 'link' }"><b>더보기</b><i class="mco_link"></i></a>
+							</section>
+							<hr class="mm_line">
+							<!--// 공지사항 -->
+
+							<!-- 패션플러스 이용안내 -->
+							<section class="m_cs-guide">
+								<h3 class="mm_strapline"><b>패션플러스 이용안내</b></h3>
+								<ul>
+									<li><a href="_popup_csReward.html" data-href="{ '_type': 'popup' }"><i class="mco_cs-reward"></i><b>고객 보상제도</b></a></li>
+									<li><a href="_popup_csOrder.html" data-href="{ '_type': 'popup' }"><i class="mco_cs-order"></i><b>주문/반품 배송조회</b></a></li>
+									<li><a href="_popup_csReturn.html" data-href="{ '_type': 'popup' }"><i class="mco_cs-return"></i><b>반품/환불 안내</b></a></li>
+									<li><a href="_popup_csBenefit_vvip.html" data-href="{ '_type': 'popup' }"><i class="mco_cs-membership"></i><b>회원등급 및 혜택</b></a></li>
+									<li><a href="_popup_csCoupon.html" data-href="{ '_type': 'popup' }"><i class="mco_cs-coupon"></i><b>쿠폰/적립금</b></a></li>
+								</ul>
+								<ul>
+									<li><a href="_popup_csPayKakao.html" data-href="{ '_type': 'popup' }"><i class="mco_sns-kakaotalk"></i><b>간편결제 카카오페이</b></a></li>
+									<li><a href="_popup_csPayNaver.html" data-href="{ '_type': 'popup' }"><i class="mco_sns-naver"></i><b>간편결제 네이버페이</b></a></li>
+									<li><a href="_popup_csPayToss.html" data-href="{ '_type': 'popup' }"><i class="mco_pay-toss"></i><b>간편결제 토스</b></a></li>
+									<li><a href="_popup_csPayPayco.html" data-href="{ '_type': 'popup' }"><i class="mco_pay-payco"></i><b>간편결제 페이코</b></a></li>
+								</ul>
+							</section>
+							<hr class="mm_line">
+							<!--// 패션플러스 이용안내 -->
+
+							<!-- 고객센터 정보 -->
+							<section class="m_cs-info">
+								<h3><b class="mm_ir-blind">고객센터 정보</b><i class="mco_cs"></i></h3>
+								<dl>
+									<dt><b>고객센터 대표번호</b><a href="tel:1588-2610" title="전화하기">1588-2610</a></dt>
+									<dd>운영시간 09:30~17:00</dd>
+									<dd>점심시간 12:00~13:00(주말, 공휴일 휴무)</dd>
+								</dl>
+							</section>
+							<!--// 고객센터 정보 -->
+						</div>
+						<!--// 본문 -->
+
+						<!-- 푸터 -->
+						<footer id="mm_footer" class="mm_footer">
+							<!-- 푸터-메뉴 -->
+							<div class="mm_footer-menu">
+								<ul class="mm_flex __flex_equal__">
+									<li><a href="_popup_login.html" data-href="{ '_type': 'popup' }"><b>로그인</b></a></li>
+									<li><a href="csMain.html" data-href="{ '_type': 'link' }"><b>고객센터</b></a></li>
+									<li><a href="_popup_csNotice.html" data-href="{ '_type': 'link' }"><b>공지사항</b></a></li>
+									<li><a href="#" target="_blank" title="새 창 열림"><b>PC버전</b></a></li>
+								</ul>
+							</div>
+							<!--// 푸터-메뉴 -->
+
+							<!-- 푸터-정보 -->
+							<div class="mm_footer-info">
+								<div class="mm_dropdown" data-dropdown>
+									<button type="button" class="btn_dropdown" title="펼쳐보기"><b>㈜패션플러스 사업자 정보</b><i class="mco_dropdown-sm"></i></button>
+									<div class="mm_dropdown-item">
+										<div class="mm_dropdown-item-inner">
+											<address>
+												<p>대표이사: 채영희</p>
+												<p>경기 성남시 판교로 242(삼평동 624번지)PDC빌딩 A동 1002호</p>
+												<p>사업자등록번호: 214-86-34194</p>
+												<p>통신판매업신고: 2013-경기성남-1608</p>
+												<p>개인정보 보호책임자: 이상훈</p>
+												<p>호스팅제공자: ㈜패션플러스</p>
+												<p class="text_cs">고객센터: <a href="tel:1588-2610" title="전화하기">1588-2610</a> / 월~금 09:30~17:00 주말, 공휴일 휴무</p>
+												<p>점심시간 12:00~13:00</p>
+												<p class="text_pay">한국정보통신(주) 결제대금예치업_에스크로스</p>
+												<p>등록번호: A6-181212-02호</p>
+											</address>
+										</div>
+									</div>
+								</div>
+								<ul>
+									<li><a href="#" target="_blank" title="새 창 열림"><b>사업자정보확인</b></a></li>
+									<li><a href="#" target="_blank" title="새 창 열림"><b>구매안전(에스크로)서비스</b></a></li>
+								</ul>
+								<ul>
+									<li><a href="_popup_termUse.html" data-href="{ '_type': 'popup' }"><b>이용약관</b></a></li>
+									<li><a href="_popup_termPrivacy.html" data-href="{ '_type': 'popup' }"><strong>개인정보처리방침</strong></a></li>
+									<li><a href="_popup_termAdolescent.html" data-href="{ '_type': 'popup' }"><b>청소년보호정책</b></a></li>
+								</ul>
+								<p class="text_copyright">&#169;FASHIONPLUS.ALL RIGHTS RESERVED.</p>
+							</div>
+							<!--// 푸터-정보 -->
+						</footer>
+						<!--// 푸터 -->
+					</div>
+				</div>
+
+				<!-- 유선상담중지 안내팝업 -->
+				<div class="m_counsel-popup">
+					<div class="m_counsel-popup-dim"></div>
+					<div class="m_counsel-popup-item">
+						<i class="image_banner"><img src="https://img.fashionplus.co.kr/ui/mobile/content/layer_counsel.jpg" alt=""></i>
+						<div class="mm_ir-blind">
+							<p>
+								안녕하세요. 패션플러스 입니다.
+								당사는 부득이 신종 코로나바이러스 감염증 예방을 위해 집단감염 고위험 사업장 집중관리 지침에 따라<strong>일정기간동안 유선상담을 중지</strong>합니다.
+								다소 불편하시겠지만, 이 점 깊은 양해 부탁드리며 문의사항은 <strong>1:1문의하기</strong>를 통해 접수해주시면 최대한 신속히 답변드릴 수 있도록 하겠습니다.
+								패션플러스를 이용해 주시는 고객님께서도 건강 유의하시길 바랍니다.
+								감사합니다.
+							</p>
+						</div>
+						<div class="mm_btnbox mm_flex __flex_equal__">
+							<button type="button" class="btn_close-today"><b>오늘 하루 그만보기</b></button>
+							<button type="button" class="btn_close"><b>닫기</b></button>
+						</div>
+					</div>
+				</div>
+				<!--// 유선상담중지 안내팝업 -->
+
+				<a class="btn_topmost" href="#mm_app" data-href="{ '_type': 'anchor' }" title="페이지 처음으로"><i class="mco_topmost"></i><b>TOP</b></a>
+				<!-- 타임어택 윙배너 -->
+				<div class="m_timedeal-wing">
+					<button type="button" class="mm_switch" data-switch="{ '_isParent': true, '_defaultTitle': '펼쳐보기', '_title': '접어놓기' }" title="펼쳐보기"><b>타임어택</b></button>
+					<a class="btn_timedeal" href="timeDeal.html" data-href="{ '_type': 'link' }"><b>딱!12시간만</b><i class="mco_link"></i></a>
+				</div>
+				<!--// 타임어택 윙배너 -->
+
+				<!-- 현재 페이지 스크립트 -->
+				<!-- <script src="../js/.js"></script> -->
+				<script>
+					(function () {
+
+						// 유선상담중지 팝업
+						var $counselModal = mm.find('.m_counsel-popup')[0];
+
+						if (!mm.is.mobile('app') && mm.cookie.get('IS_COUNSEL_MODAL_HIDE') !== 'true') {
+							$counselModal.classList.add('__on');
+
+							mm.event.on(mm.find('button', $counselModal), 'click', function () {
+
+								$counselModal.remove();
+								if (this.classList.contains('btn_close-today')) mm.cookie.set('IS_COUNSEL_MODAL_HIDE', true, 1, true);// 1일 자정 리셋
+
+							});
+						}
+						else $counselModal.remove();
+
+					})();
+				</script>
+			</div>
+			<!--// 내용 -->
+
+			<!-- 툴바 -->
+			<div class="mm_toolbar">
+				<ul class="mm_flex __flex_equal__">
+					<li>
+						<a href="sidebar.html" onclick="mm.side.open(this.href);return false;">
+							<i class="mco_menu"></i>
+							<b class="mm_ir-blind">카테고리</b>
+						</a>
+					</li>
+					<li>
+						<a href="_popup_search.html" data-href="{ '_type': 'popup' }">
+							<i class="mco_search"></i>
+							<b class="mm_ir-blind">검색</b>
+						</a>
+					</li>
+					<li>
+						<a href="/" data-href="{ '_type': 'home' }">
+							<i class="mco_home mm_text-primary"></i>
+							<b class="mm_ir-blind">홈</b>
+						</a>
+					</li>
+					<li>
+						<a href="myMain_vvip.html" data-href="{ '_type': 'link' }">
+							<i class="mco_mypage"></i>
+							<b class="mm_ir-blind">마이페이지</b>
+						</a>
+					</li>
+					<li>
+						<a href="_popup_recent.html" data-href="{ '_type': 'popup' }">
+							<i class="mm_bg-cover image_recent" data-preload="{ '_src': '../image/_sample/prod_x1_1.png', '_isErrorImage': false }"></i>
+							<b class="mm_ir-blind">최근본상품</b>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<!--// 툴바 -->
+		</div>
+		<!--// 화면 -->
+	</div>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko" class="__layout_modal__">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="format-detection" content="telephone=no, address=no, email=no">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="mobile-web-app-capable" content="yes">
+
+	<!-- 소셜태그 -->
+	<meta property="og:title" content="">
+	<meta property="og:description" content="">
+	<meta property="og:image" content="">
+	<meta property="og:url" content="">
+	<meta property="og:site_name" content="">
+	<!--// 소셜태그 -->
+
+	<title>(모달) 브랜드 찾기 - 패션플러스</title>
+
+	<!-- 공통 css -->
+	<link rel="stylesheet" href="../css/font.css">
+	<link rel="stylesheet" href="../css/app.css">
+	<link rel="stylesheet" href="../css/lib.css">
+
+	<!-- (D) 폴리필/라이브러리는 요청을 줄이기 위해 combind + minify를 적용해주세요. -->
+	<!-- 폴리필/라이브러리 스크립트 -->
+	<script src="../../assets/js/polyfill/babel-polyfill-7.8.7.min.js"></script>
+	<script src="../../assets/js/polyfill/dom4-2.1.5.min.js"></script>
+	<script src="../../assets/js/polyfill/fetch.umd-3.0.0.min.js"></script>
+	<script src="../../assets/js/polyfill/intersection-observer-0.8.0.min.js"></script>
+	<script src="../../assets/js/polyfill/resize-observer-1.5.1.min.js"></script>
+	<script src="../../assets/js/lib/lodash-4.17.15.min.js"></script>
+	<script src="../../assets/js/lib/gsap-3.2.6/gsap.min.js"></script>
+	<script src="../../assets/js/lib/axios-0.19.2.min.js"></script>
+	<script src="../../assets/js/lib/load-image.all-3.0.0.min.js"></script>
+	<script src="../../assets/js/lib/sortable-1.10.2.min.js"></script>
+	<script src="../../assets/js/lib/jquery-3.5.1.min.js"></script>
+	<script src="../../assets/js/lib/swiper-5.3.7.min.js"></script>
+
+	<!-- 공통 선언 스크립트 -->
+	<script src="../js/app_common.js"></script>
+	<script src="../js/app_page-common.js"></script>
+
+	<!-- (D) 페이지 공통 스크립트는 body 하단, 전용 스크립트는 .mm_page-content 하단에 넣어주세요. -->
+</head>
+<body>
+	<div id="mm_app" class="mm_app">
+		<!-- 스킵 -->
+		<nav class="mm_skip">
+			<ul>
+				<li><a href="#mm_body" data-href="{ '_type': 'anchor' }">본문바로가기</a></li>
+			</ul>
+		</nav>
+		<!-- 스킵 -->
+
+		<!-- 화면 -->
+		<div class="mm_view">
+			<!-- 헤더 -->
+			<div class="mm_header">
+				<h1><b>브랜드 찾기</b></h1>
+				<button type="button" class="btn_modal-close" onclick="mm.modal.close();"><i class="mco_modal-close"></i><b class="mm_ir-blind">모달 닫기</b></button>
+			</div>
+			<!--// 헤더 -->
+
+			<!-- 내용 -->
+			<div id="mm_body" class="mm_page">
+				<!-- (D) 모달은 html 요소에 '__layout_modal__' 클래스를 추가합니다. -->
+				<div class="mm_scroller">
+					<!-- 본문 -->
+					<div class="mm_page-content m_modal-find-brand">
+						<!-- 본문 내용 -->
+						<!-- 브랜드 초성 정렬 버튼 -->
+						<!--
+							(D) 기본으로 노출되는 정렬리스트는 'ㄱㄴㄷ'리스트입니다
+								리스트 내에 '.mm_switch'버튼을 클릭하면 부모인 '.mm_brand-sort'에 '__sort-switch' 클래스가 추가되고,
+								현재 화면에 노출중인 초성 리스트는 숨김처리, 숨김처리 되어있던 초성 리스트가 화면에 노출됩니다.
+						-->
+						<div class="mm_brand-sort">
+							<!-- (D) 현재 정렬에 해당하는 초성에 '__sort-on' 클래스와 '선택됨' 타이틀을 추가합니다. -->
+							<!-- ㄱㄴㄷ 초성 -->
+							<div class="mm_brand-sort-menu">
+								<ul>
+									<li><a class="__sort-on" href="#" title="선택됨" onclick="return false;"><b>ㄱ</b></a></li>
+									<li><a href="#" onclick="return false;"><b>ㄴ</b></a></li>
+									<li><a href="#" onclick="return false;"><b>ㄷ</b></a></li>
+									<li><a href="#" onclick="return false;"><b>ㄹ</b></a></li>
+									<li><a href="#" onclick="return false;"><b>ㅁ</b></a></li>
+									<li><a href="#" onclick="return false;"><b>ㅂ</b></a></li>
+									<li><a href="#" onclick="return false;"><b>ㅅ</b></a></li>
+									<li><a href="#" onclick="return false;"><b>ㅇ</b></a></li>
+									<li><a href="#" onclick="return false;"><b>ㅈ</b></a></li>
+									<li><a href="#" onclick="return false;"><b>ㅊ</b></a></li>
+									<li><a href="#" onclick="return false;"><b>ㅋ</b></a></li>
+									<li><a href="#" onclick="return false;"><b>ㅌ</b></a></li>
+									<li><a href="#" onclick="return false;"><b>ㅍ</b></a></li>
+									<li><a href="#" onclick="return false;"><b>ㅎ</b></a></li>
+									<li><button type="button" class="mm_switch" data-switch="{ '_classOn': '__sort-switch', '_isParent': true, '_classParent': 'mm_brand-sort' }"><b>ABC</b></button></li>
+								</ul>
+							</div>
+							<!--// ㄱㄴㄷ 초성 -->
+
+							<!-- ABC 초성 -->
+							<div class="mm_brand-sort-menu">
+								<ul>
+									<li><a class="__sort-on" href="#" title="선택됨" onclick="return false;"><b>A</b></a></li>
+									<li><a href="#" onclick="return false;"><b>B</b></a></li>
+									<li><a href="#" onclick="return false;"><b>C</b></a></li>
+									<li><a href="#" onclick="return false;"><b>D</b></a></li>
+									<li><a href="#" onclick="return false;"><b>E</b></a></li>
+									<li><a href="#" onclick="return false;"><b>F</b></a></li>
+									<li><a href="#" onclick="return false;"><b>G</b></a></li>
+									<li><a href="#" onclick="return false;"><b>H</b></a></li>
+									<li><a href="#" onclick="return false;"><b>I</b></a></li>
+									<li><a href="#" onclick="return false;"><b>J</b></a></li>
+									<li><a href="#" onclick="return false;"><b>K</b></a></li>
+									<li><a href="#" onclick="return false;"><b>L</b></a></li>
+									<li><a href="#" onclick="return false;"><b>M</b></a></li>
+									<li><a href="#" onclick="return false;"><b>N</b></a></li>
+									<li><a href="#" onclick="return false;"><b>O</b></a></li>
+									<li><a href="#" onclick="return false;"><b>P</b></a></li>
+									<li><a href="#" onclick="return false;"><b>Q</b></a></li>
+									<li><a href="#" onclick="return false;"><b>R</b></a></li>
+									<li><a href="#" onclick="return false;"><b>S</b></a></li>
+									<li><a href="#" onclick="return false;"><b>T</b></a></li>
+									<li><a href="#" onclick="return false;"><b>U</b></a></li>
+									<li><a href="#" onclick="return false;"><b>V</b></a></li>
+									<li><a href="#" onclick="return false;"><b>W</b></a></li>
+									<li><a href="#" onclick="return false;"><b>X</b></a></li>
+									<li><a href="#" onclick="return false;"><b>Y</b></a></li>
+									<li><a href="#" onclick="return false;"><b>X</b></a></li>
+									<li><button type="button" class="mm_switch" data-switch="{ '_classOn': '__sort-switch', '_isParent': true, '_classParent': 'mm_brand-sort' }"><b>가나다</b></button></li>
+								</ul>
+							</div>
+							<!--// ABC 초성 -->
+						</div>
+						<!--// 브랜드 초성 정렬 버튼 -->
+						<p class="mm_text-none"><i class="ico_text-none"></i>브랜드가 없습니다</p>
+						<!--// 본문 내용 -->
+					</div>
+					<!--// 본문 -->
+				</div>
+				<!-- 현재 페이지 스크립트 -->
+				<!-- <script src="../js/.js"></script> -->
+			</div>
+			<!--// 내용 -->
+		</div>
+		<!--// 화면 -->
+	</div>
+</body>
+</html>

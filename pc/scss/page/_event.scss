@@ -1,0 +1,1976 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../helper/var';
+@use '../helper/mixin';
+@use '../helper/extend';
+
+/**
+** 페이지
+** 타임어택, 초비상특가, 초특가딜, 기획전, 이벤트, 세일존
+**/
+
+
+//< 기획전 상세
+.m_promotion- {
+	&head {
+		position: relative;
+		padding: 64px 60px 24px 2px;
+		border-bottom: 2px solid #5c5c5c;
+
+		h3 {
+			@include mixin.font(300 '23px');
+		}
+
+		.btn_share {
+			position: absolute;
+			right: 10px;
+			bottom: 17px;
+			width: 38px;
+			height: 38px;
+			border: 1px solid #dcdcdc;
+			border-radius: 100%;
+			@include mixin.font(#6a6a6a '16px/36px' center);
+
+			&.__switch-on {
+				+ .m_promotion-head-share {
+					display: block;
+					pointer-events: auto;
+				}
+			}
+		}
+
+		// sns 공유하기
+		&-share {
+			display: none;
+			@include mixin.prefix(box-shadow, 0 2px 4px 0 rgba(#000, 0.10), webkit);
+			position: absolute;
+			z-index: 1;
+			right: 0;
+			margin: 13px 10px 0 0;
+			padding-top: 25px;
+			width: 224px;
+			height: 146px;
+			border: 1px solid #a3a3a3;
+			background-color: #fff;
+			text-align: center;
+			pointer-events: none;
+
+			p {
+				@include mixin.font('15px/21px');
+				strong {
+					@include mixin.font('17px' var.$fontFamily_latin);
+				}
+			}
+
+			ul {
+				display: inline-block;
+				margin-top: 10px;
+
+				li {
+					float: left;
+
+					&:nth-child(n+2) {
+						margin-lefT: 10px;
+					}
+				}
+
+				button {
+					width: 64px;
+					height: 64px;
+					border-radius: 100%;
+
+					$sns: (url,#435cc8, #fff 700 '17px/66px'), (kakaotalk, #fee100, #3b260a 400 '30px/68px');
+					@each $type, $bg, $font in $sns {
+						&.btn_#{$type} {
+							background-color: $bg;
+							@include mixin.font($font);
+						}
+
+						.mco_sns-#{$type} {
+							margin-left: 2px;
+						}
+					}
+				}
+			}
+
+			.btn_close {
+				position: absolute;
+				top: 0;
+				right: 0;
+				padding: 13px;
+				@include mixin.font(#6a6a6a '15px');
+			}
+		}
+	}
+
+	// 상단 이미지
+	&visual {
+		text-align: center;
+
+		img {
+			width: auto;
+		}
+
+		.mm_image-banner {
+			//
+		}
+
+		.mm_image-none {
+			width: 100%;
+			min-height: 300px;
+		}
+	}
+
+	// 기획전 메뉴
+	&anchor {
+		margin-top: 30px;
+
+		// 상단 고정시
+		&.__anchor-sticky {
+			.m_promotion-anchor-inner {
+				position: fixed;
+				z-index: var.$zIndex_floating;
+				top: var.$height_header_sm;
+			}
+
+			.m_promotion-anchor-menu {
+				overflow: hidden;
+				position: relative;
+				margin: 0 auto;
+				width: var.$minWidth_pc;
+				height: 50px;
+			}
+
+			// 메뉴 2줄 이상
+			&.__menu-over .m_promotion-anchor-inner {
+				padding-bottom: 7px;
+				border-bottom: 1px solid #cdcdcd;
+
+				.btn_more {
+					display: block;
+				}
+
+				&.__switch-on {
+					.m_promotion-anchor-menu {
+						height: auto;
+
+						ul {
+							position: static;
+						}
+					}
+
+					.btn_more i {
+						margin-top: 2px;
+
+						&::before {
+							@include mixin.transform(rotate(180deg));
+						}
+					}
+				}
+			}
+		}
+
+		&-inner {
+			background-color: #fff;
+		}
+
+		&-menu {
+			ul {
+				position: relative;
+				margin-right: -4px;
+				padding: 1px 0 0 1px;
+
+				li {
+					float: left;
+					margin: -1px 0 0 -1px;
+					width: 25%;
+				}
+			}
+
+			a {
+				display: block;
+				position: relative;
+				height: 50px;
+				border: 1px solid #e6e6e6;
+				@include mixin.font('15px/48px' center);
+
+				&.__anchor-on {
+					@include mixin.font(var.$color_primary_base 500);
+				}
+			}
+		}
+
+		.btn_more {
+			display: none;
+			position: absolute;
+			bottom: -25px;
+			left: 50%;
+			margin-left: -51px;
+			padding-bottom: 8px;
+			width: 102px;
+			height: 25px;
+			border: 1px solid #cdcdcd;
+			border-width: 0 1px 1px;
+			border-radius: 0 0 5px 5px;
+			background-color: #fff;
+			@include mixin.font('14px' center);
+
+			&::before {
+				margin-right: 10px;
+				content: attr(title);
+			}
+
+			i {
+				margin-top: 3px;
+				font-size: 12px;
+			}
+		}
+	}
+
+	// 상품리스트
+	&list {
+		h3 {
+			padding: 96px 0 29px 3px;
+			font-size: 26px;
+		}
+
+		// list - B
+		&.__list_b__ {
+			.mm_deal-item figcaption {
+				// padding-bottom: 49px;
+
+				.text_deal {
+					position: absolute;
+					@include mixin.font(var.$color_primary_base '17px/24px');
+				}
+
+				.text_price {
+					margin-left: 71px;
+				}
+
+				// .text_purchase {
+				// 	bottom: 26px;
+				// }
+			}
+		}
+
+		// list - C
+		&.__list_c__ {
+			.m__c-item {
+				position: relative;
+
+				&:nth-child(n+2) {
+					margin-top: 26px;
+				}
+
+				&:nth-child(even) {
+					.mm_image-effect {
+						left: auto;
+						right: 0;
+					}
+
+					figure {
+						padding-left: 78px;
+
+						.mm_image-effect {
+							border-width: 0 0 0 1px;
+						}
+					}
+
+					.mm_like {
+						right: 0;
+						left: auto;
+					}
+
+					.m__c-item-thumbnail {
+						left: 79px;
+					}
+				}
+
+				> a {
+					display: block;
+				}
+
+				.mm_image-effect {
+					position: absolute;
+					top: 0;
+					left: 0;
+					border: 1px solid #eee;
+					border-width: 0 1px 0 0;
+					background-color: #f8f8f8;
+
+					.image_product {
+						padding-top: 100%;
+						width: 432px;
+					}
+				}
+
+				figure {
+					padding-left: 475px;
+					height: 432px;
+					border: 1px solid #eee;
+				}
+
+				figcaption {
+					display: inline-block;
+					position: relative;
+					padding: 55px 0 30px;
+					width: 440px;
+					font-size: 17px;
+
+					.text_brand {
+						@include mixin.text-ellipsis(1);
+						font-weight: 400;
+					}
+
+					.text_product {
+						margin: 7px 0 15px;
+						height: 48px;
+						@include mixin.text-ellipsis(2);
+						line-height: 24px;
+					}
+
+					.text_price {
+						display: inline-block;
+						margin-left: 9px;
+						font-size: 34px;
+
+						strong::after {
+							font-size: 17px;
+						}
+
+						del {
+							margin-left: 15px;
+							@include mixin.font(#8c8c8c 400 '17px' [var.$fontFamily_base]);
+
+							&::after {
+								vertical-align: 0;
+							}
+						}
+					}
+
+					.text_sale {
+						display: inline-block;
+						@include mixin.font(var.$color_primary_base 300 '34px/40px' [var.$fontFamily_latin], 0);
+					}
+
+					.mm_tag {
+						position: absolute;
+						bottom: 0;
+						left: 0;
+					}
+				}
+
+				.mm_like {
+					position: absolute;
+					left: 400px;
+					bottom: 0;
+				}
+
+				&-thumbnail {
+					position: absolute;
+					bottom: 40px;
+					left: 476px;
+
+					li {
+						float: left;
+						position: relative;
+
+						&:nth-child(n+2) {
+							margin-left: 6px;
+						}
+
+						&.__thumbnail-on::after {
+							position: absolute;
+							top: 0;
+							right: 0;
+							bottom: 0;
+							left: 0;
+							border: 1px solid #4a4a4a;
+							content: '';
+						}
+					}
+
+					i {
+						display: inline-block;
+						position: relative;
+						padding-top: 100%;
+						width: 140px;
+
+						// &:hover::after {
+						//     position: absolute;
+						//     top: 0;
+						//     right: 0;
+						//     bottom: 0;
+						//     left: 0;
+						//     border: 1px solid #4a4a4a;
+						//     content: '';
+						// }
+					}
+				}
+			}
+		}
+	}
+}
+//> 기획전 상세
+
+//< 세일존
+.m_salezone {
+	padding-top: 40px;
+
+	&-head {
+		padding-top: 47px;
+		height: 175px;
+		@include mixin.background(url('https://img.fashionplus.co.kr/ui/pc/content/salezone_bg.png') '50% 50%/contain' no-repeat);
+		text-align: center;
+
+		.image_title {
+			width: 223px;
+			height: 40px;
+			@include mixin.background(url('https://img.fashionplus.co.kr/ui/pc/content/salezone_title.png') '50% 50%/contain' no-repeat);
+		}
+
+		> p {
+			margin-top: 12px;
+			@include mixin.font(#a79869 '17px');
+		}
+	}
+
+	&-menu {
+		margin-top: 35px;
+
+		.mm_tabmenu.__tabmenu_category__ {
+			padding: 28px 0 49px;
+
+			li {
+				width: 142px;
+			}
+		}
+	}
+}
+//> 세일존
+
+//< 쿠폰존
+.m_couponzone {
+	padding-top: 40px;
+
+	&-head {
+		height: 160px;
+		@include mixin.background(url('https://img.fashionplus.co.kr/ui/pc/content/couponzone_bg.jpg') '50% 50%/contain' no-repeat);
+		text-align: center;
+
+		h2 {
+			padding-top: 55px;
+
+			.image_title {
+				width: 300px;
+				height: 28px;
+				@include mixin.background(url('https://img.fashionplus.co.kr/ui/pc/content/couponzone_title.png') '50% 50%/contain' no-repeat);
+			}
+		}
+
+		> p {
+			margin-top: 15px;
+			@include mixin.font(rgba(#fff, 0.4) 300 '17px');
+		}
+	}
+
+	// 등급별 혜택
+	&-benefit {
+		margin-top: 49px;
+		@extend %gradeBenefit !optional;
+
+		$grades: ('welcome', var.$color_grade_welcome, #f2faf4), ('friend', var.$color_grade_friend, #f0f7fc), ('gold', var.$color_grade_gold, #fdf6f0), ('vip', var.$color_grade_vip, #f6f1fd), ('vvip', var.$color_grade_vvip, #fff2fc);
+		$index: 5;
+		@each $grade, $mainColor, $subColor in $grades {
+			&[class*="_#{$grade}_"] {
+				tr:nth-child(#{$index}) {
+					td::before {
+						border-color: $mainColor;
+					}
+
+					th {
+						background-color: $subColor;
+					}
+				}
+			}
+
+			$index: $index - 1;
+		}
+
+		caption {
+			padding: 0 0 22px 8px;
+			font-size: 26px;
+		}
+
+		td {
+			&:first-child {
+				&::before {
+					width: 1280px;
+				}
+
+				> b {
+					padding-left: 33px;
+					@include mixin.font('17px/25px');
+				}
+			}
+
+			ul {
+				padding-left: 61px;
+			}
+		}
+	}
+
+	// 쿠폰 등록
+	&-coupon-register {
+		position: relative;
+		margin-top: 100px;
+		padding: 69px 0 69px 538px;
+		border: 1px solid #e6e6e6;
+		background: #fdfdfd;
+
+		h3 {
+			position: absolute;
+			left: 250px;
+			@include mixin.font('26px/40px');
+
+			.mco_coupon {
+				margin: 3px 16px 0 0;
+				@include mixin.font(#b8b8b9 '20px');
+			}
+		}
+
+		.mm_formmix-linked {
+			width: 492px;
+
+			.btn_register {
+				.mco_link-sm {
+					padding-left: 7px;
+					font-size: 20px;
+				}
+			}
+		}
+	}
+
+	.mm_note {
+		margin-top: 15px;
+
+		table {
+			margin: 9px 0 0 4px;
+			width: 397px;
+
+			th {
+				width: 152px;
+				background-color: #eee;
+			}
+
+			th, td {
+				padding: 7px 13px 9px;
+				border: 1px solid #d5d5d5;
+				@include mixin.font('13px/19px' left);
+			}
+		}
+	}
+}
+//> 쿠폰존
+
+//< 회원혜택
+.m_benefit {
+	&-head {
+		padding: 68px 0 0;
+		height: 241px;
+		border-bottom: 1px solid #eee;
+		@include mixin.background(url('https://img.fashionplus.co.kr/ui/pc/content/benefit_bg.jpg') repeat-x);
+
+
+		h2 {
+			@include mixin.font('30px/40px' center);
+
+			.image_grade {
+				margin: 1px 3px 0 10px;
+				height: 36px;
+
+				img {
+					width: auto;
+					height: 100%;
+				}
+			}
+
+			strong {
+				display: inline-block;
+				margin: 2px 1px 0 0;
+				@include mixin.font(700 '38px/1' [var.$fontFamily_latin]);
+			}
+		}
+
+		> p {
+			margin-top: 29px;
+			vertical-align: 0;
+			@include mixin.font(300 '20px' center);
+
+			> strong {
+				display: inline-block;
+				padding: 1px 3px 2px;
+				vertical-align: 0;
+				background-color: #4a4a4a;
+				color: #fff;
+			}
+
+			+ p {
+				margin-top: 7px;
+			}
+		}
+	}
+
+	$grades: ('welcome', var.$color_grade_welcome, #f2faf4), ('friend', var.$color_grade_friend, #f0f7fc), ('gold', var.$color_grade_gold, #fdf6f0), ('vip', var.$color_grade_vip, #f6f1fd), ('vvip', var.$color_grade_vvip, #fff2fc);
+	$index: 5;
+	@each $grade, $mainColor, $subColor in $grades {
+		&[class*="_#{$grade}_"] {
+			.m_benefit-grade {
+				tr:nth-child(#{$index}) {
+					td::before {
+						border-color: $mainColor;
+					}
+
+					th {
+						background-color: $subColor;
+					}
+				}
+			}
+		}
+
+		$index: $index - 1;
+	}
+
+	&-grade {
+		margin-top: 49px;
+		@extend %gradeBenefit !optional;
+
+		caption {
+			padding: 0 0 22px 8px;
+			font-size: 26px;
+		}
+
+		td {
+			&:first-child {
+				&::before {
+					width: 1280px;
+				}
+
+				> b {
+					padding-left: 33px;
+					@include mixin.font('17px/25px');
+				}
+			}
+
+			ul {
+				padding-left: 61px;
+			}
+		}
+	}
+
+	&-coupon-register {
+		overflow: hidden;
+		position: relative;
+		margin-top: 97px;
+		padding: 69px 0 69px 538px;
+		border: 1px solid #e6e6e6;
+		background: #fdfdfd;
+		text-align: center;
+
+		h3 {
+			position: absolute;
+			left: 250px;
+			@include mixin.font('26px/40px');
+
+			.mco_coupon {
+				margin: 3px 16px 0 0;
+				@include mixin.font(#b8b8b9 '20px');
+			}
+		}
+
+		.mm_formmix-linked {
+			width: 492px;
+
+			.btn_register {
+				.mco_link-sm {
+					padding-left: 7px;
+					font-size: 20px;
+				}
+			}
+		}
+	}
+
+	.mm_note {
+		margin-top: 15px;
+
+		strong {
+			@include mixin.font(var.$color_secondary_base 700);
+		}
+	}
+}
+//> 회원혜택
+
+//< vip존
+.m_vipzone {
+	&-member {
+		@extend %gradeMember !optional;
+
+		&[class*="_member_"] {
+			h3 {
+				padding: 94px 0 0 67px;
+				width: 409px;
+
+				> b {
+					display: block;
+				}
+
+				strong + b {
+					display: inline;
+				}
+			}
+		}
+
+		// 비회원
+		&:not([class*="_member_"]) {
+			height: 220px;
+
+			.btn_link {
+				margin-top: 30px;
+				padding: 1px 51px 0 49px;
+			}
+		}
+
+		.m__member-predict {
+			padding: 66px 0 0 67px;
+		}
+
+		.m__member-purchase {
+			width: 400px;
+		}
+	}
+
+	&-mall {
+		.m_vipzone & {
+			margin-top: 61px;
+			padding-top: 26px;
+			height: 98px;
+			background: url('https://img.fashionplus.co.kr/ui/pc/content/vipzone_only.png') no-repeat 0 0;
+			@include mixin.font('0' center);
+
+			p {
+				display: inline-block;
+				@include mixin.font(#fff '15px/44px');
+
+				strong {
+					margin-left: 10px;
+					@include mixin.font(#f6ff00 '20px');
+				}
+			}
+
+			.btn_mall {
+				margin-left: 28px;
+				border-radius: 3px;
+				@include mixin.font(var.$color_grade_vip '15px' center);
+
+				&[href] {
+					background-color: #fff;
+				}
+
+				.mco_link-sm {
+					padding: 0 1px 0 7px;
+					font-size: 20px;
+				}
+			}
+		}
+
+		$grades: ('vip', var.$color_grade_vip), ('vvip', var.$color_grade_vvip);
+		@each $grade, $mainColor in $grades {
+			&[class*="_#{$grade}_"] {
+				h3 {
+					strong {
+						color: $mainColor;
+					}
+				}
+			}
+		}
+
+		h3 {
+			padding: 49px 0 47px;
+			border: 2px solid #f5f5f5;
+			background-color: #fdfdfd;
+			@include mixin.font(300 '23px/26px' center);
+
+			img {
+				margin: 3px 0 0 16px;
+				width: auto;
+				max-width: 33px;
+				height: 23px;
+			}
+
+			strong {
+				margin-right: 6px;
+				@include mixin.font(700 '28px/28px' [var.$fontFamily_latin]);
+			}
+		}
+
+		&-best {
+			margin-bottom: 64px;
+
+			h4 {
+				margin: 52px 0 29px;
+				font-size: 30px;
+			}
+
+		}
+	}
+
+	&-benefit {
+		@extend %gradeBenefit !optional;
+		margin-top: 62px;
+
+		$grades: ('welcome', var.$color_grade_welcome, #f2faf4), ('friend', var.$color_grade_friend, #f0f7fc), ('gold', var.$color_grade_gold, #fdf6f0), ('vip', var.$color_grade_vip, #f6f1fd), ('vvip', var.$color_grade_vvip, #fff2fc);
+		$index: 5;
+		@each $grade, $mainColor, $subColor in $grades {
+			&[class*="_#{$grade}_"] {
+				tr:nth-child(#{$index}) {
+					td::before {
+						border-color: $mainColor;
+					}
+
+					th {
+						background-color: $subColor;
+					}
+				}
+			}
+			$index: $index - 1;
+		}
+
+		caption {
+			padding: 0 0 22px 8px;
+			font-size: 26px;
+		}
+
+		td {
+			&:first-child {
+				&::before {
+					width: var.$minWidth_pc;
+				}
+
+				> b {
+					padding-left: 33px;
+					@include mixin.font('17px/25px');
+				}
+			}
+
+			ul {
+				padding-left: 61px;
+			}
+		}
+	}
+}
+//> vip존
+
+//< 페이백
+.m_payback {
+	&-head {
+		padding-top: 69px;
+		height: 356px;
+		@include mixin.background(url('https://img.fashionplus.co.kr/ui/pc/content/payback_bg.jpg') '50% 50%' no-repeat);
+		text-align: center;
+
+		h2 {
+			display: inline-block;
+			margin-left: 7px;
+
+			.image_title {
+				width: 360px;
+				height: 62px;
+				@include mixin.background(url('https://img.fashionplus.co.kr/ui/pc/content/payback.png') '50% 50%' no-repeat);
+			}
+		}
+
+		> p {
+			margin-top: 32px;
+			@include mixin.font(#3d3d3d 300 '17px');
+
+			strong {
+				display: block;
+				padding-bottom: 13px;
+				@include mixin.font(#2b2b2b '24px');
+			}
+		}
+	}
+
+	&-info {
+		margin: -99px auto 0;
+		padding-bottom: 15px;
+		width: 1260px;
+		background-color: #fff;
+
+		ol {
+			@include mixin.prefix(box-shadow, 0 -4px 4px 0 rgba(#000, 0.04), webkit);
+
+			li {
+				position: relative;
+				overflow: hidden;
+
+				&:nth-child(-n+2) {
+					@include mixin.prefix(box-shadow, 4px 0 10px -6px rgba(#000, 0.1), webkit);
+				}
+
+				&:first-of-type {
+					figure {
+						padding-left: 33px;
+
+						figcaption {
+							margin-left: 13px;
+						}
+					}
+				}
+
+				.ico_next-step {
+					position: absolute;
+					top: 50%;
+					left: -27px;
+					margin-top: -7px;
+					width: 39px;
+					height: 39px;
+					background-color: #fff;
+					@include mixin.prefix(box-shadow, 0 0 9px 3px rgba(#000, 0.05), webkit);
+					@include mixin.prefix(transform, rotate(45deg));
+				}
+			}
+		}
+
+		figure {
+			padding: 42px 33px 0 46px;
+
+			.image_payback-step {
+				margin-top: 22px;
+
+				img {
+					width: auto;
+					height: 120px;
+				}
+			}
+
+			figcaption {
+				padding-left: 4px;
+				@include mixin.font(300 '23px/32px');
+
+				.text_index {
+					display: inline-block;
+					margin: 3px 11px 0 0;
+					margin-right: 11px;
+					padding: 0 11px;
+					width: 32px;
+					height: 32px;
+					border-radius: 100%;
+					background-color: #4a4a4a;
+					@include mixin.font(#fff '20px/30px' [var.$fontFamily_latin]);
+				}
+
+				strong {
+					font-weight: 700;
+				}
+			}
+		}
+
+		.mm_btnbox {
+			margin-top: 42px;
+
+			.btn_payback {
+				position: relative;
+				padding: 22px 95px;
+				height: 70px;
+				border-radius: 50px;
+				@include mixin.linear-gradient(#fff, 90deg, #7656de, #3277f2);
+				@include mixin.font(#fff '23px' center);
+
+				&:disabled {
+					color: #4a4a4a;
+					@include mixin.linear-gradient( 0, #eee, #eee);
+				}
+
+				.ico_apply {
+					position: absolute;
+					top: 25px;
+					right: 34px;
+				}
+			}
+		}
+	}
+
+	> .mm_inner {
+		padding: 0 40px;
+	}
+
+	section {
+		h3 {
+			padding: 93px 0 23px;
+			@include mixin.font('28px' center);
+
+			b {
+				position: relative;
+				z-index: 0;
+
+				&::before {
+					position: absolute;
+					z-index: -1;
+					right: -5px;
+					left: -4px;
+					bottom: -5px;
+					height: 13px;
+					background-color: #e8edf7;
+					content: '';
+				}
+			}
+		}
+	}
+
+	// 페이백 내역
+	&-list {
+		.mm_tab-item {
+			margin-top: 24px;
+
+			ul {
+				border: 1px solid #e6e6e6;
+				border-radius: 3px;
+
+				li {
+					padding: 22px 68px 22px 40px;
+					@include mixin.font('0/48px');
+
+					&:nth-child(n+2) {
+						border-top: 1px solid #e6e6e6;
+					}
+
+					p:not(.text_price) {
+						display: inline-block;
+						position: relative;
+						font-size: 15px;
+
+						span {
+							padding-left: 15px;
+						}
+					}
+
+					.text-order {
+						width: 300px;
+
+						&::after {
+							position: absolute;
+							top: 0;
+							right: 0;
+							bottom: 0;
+							border-right: 1px solid #e6e6e6;
+							content: '';
+						}
+
+						+ .text-date {
+							padding-left: 50px;
+							color: #6a6a6a;
+						}
+					}
+
+					.text_price {
+						float: right;
+						@include mixin.font('20px/44px');
+
+						strong::after {
+							font-size: 14px;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	// 페이백 이벤트
+	&-event {
+		.mm_tab-item {
+			margin-top: 25px;
+
+			ul {
+				margin: -12px 0 0 -12px;
+
+				li {
+					float: left;
+					margin: 12px 0 0 12px;
+					width: 594px;
+					height: 320px;
+					border: 1px solid #e6e6e6;
+
+					figcaption {
+						padding: 23px 22px 20px;
+
+						> p {
+							@include mixin.font(#6a6a6a '15px/22px');
+						}
+
+						.text_main {
+							@include mixin.font(#2b2b2b '20px/20px');
+						}
+
+						.text_sub {
+							margin-top: 10px;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.mm_note{
+		margin-top: 59px;
+	}
+
+	// 페이백 내용없음
+	.mm_text-none {
+		padding: 60px 0 123px;
+	}
+}
+//> 페이백
+
+//< 타임어택 공통
+[class*="m_timedeal"] {
+	.text_timedeal {
+		width: 104px;
+		height: 38px;
+		border: 1px solid var.$color_primary_base;
+		border-radius: 3px;
+		@include mixin.font(var.$color_primary_base '17px/34px' center);
+	}
+}
+//> 타임어택 공통
+
+//< 타임어택 메인
+.m_timedeal {
+	position: relative;
+
+	&::before {
+		position: absolute;
+		top: 0;
+		right: 0;
+		left: 0;
+		height: 230px;
+		@include mixin.background(url('https://img.fashionplus.co.kr/ui/pc/content/timedeal_bg.jpg') '50%/cover');
+		content: '';
+	}
+
+	h3 {
+		.image_title {
+			margin-left: 100px;
+			width: 336px;
+			height: 138px;
+		}
+	}
+
+	&-inner {
+		@include mixin.prefix(box-shadow, 0 0 7px 0 rgba(#000, 0.13), webkit);
+		background-color: #fff;
+	}
+
+	// 진행중 타임어택
+	&-ongoing {
+		padding: 40px 0;
+
+		// 플립 타이머
+		.m_timedeal-timer {
+			position: absolute;
+			top: 48px;
+			right: 102px;
+			@include mixin.font(#fff 300 '0');
+
+			> p {
+				display: inline-block;
+				margin-right: 22px;
+				padding-bottom: 9px;
+				vertical-align: bottom;
+				@include mixin.font(italic '20px');
+
+				strong {
+					margin-right: 5px;
+					vertical-align: 0;
+					@include mixin.font(500 '28px');
+				}
+			}
+
+			[class*="m__flip-"] {
+				display: inline-block;
+
+				p {
+					display: inline-block;
+					position: relative;
+					padding-top: 11px;
+					width: 36px;
+					height: 53px;
+					border-radius: 6px;
+					@include mixin.linear-gradient(#6d6d6d, 180deg, #6d6d6d 4px, #fff 27px, #6d6d6d 51px);
+					text-shadow: 0 0 2px rgba(#000, 0.4);
+					@include mixin.font(#e6e6e6 500 '34px' [var.$fontFamily_latin] center);
+					@include mixin.prefix(perspective, 100px, webkit);
+
+					&::before {
+						position: absolute;
+						z-index: -1;
+						top: 1px;
+						right: 1px;
+						bottom: 1px;
+						left: 1px;
+						border-radius: 5px;
+						background: #3d3d3d;
+						content: '';
+					}
+
+					&:nth-child(n+2) {
+						margin-left: 4px;
+					}
+
+					span {
+						&::before {
+							position: absolute;
+							z-index: 2;
+							top: 50%;
+							right: 1px;
+							left: 1px;
+							margin-top: -1px;
+							border-top: 1px solid #3d3d3d;
+							border-bottom: 1px solid rgba(#5c5c5c, 0.3);
+							content: '';
+						}
+					}
+
+					b {
+						overflow: hidden;
+						position: absolute;
+						top: 26px;
+						right: 0;
+						left: 0;
+						height: 27px;
+						border-radius: 0 0 6px 6px;
+						@include mixin.linear-gradient(#6d6d6d, 180deg, #fff 4px, #6d6d6d 24px);
+						@include mixin.prefix(transform-origin, 100% 0, webkit ms);
+
+						&::before {
+							display: block;
+							position: relative;
+							z-index: 1;
+							margin-top: -22px;
+							padding-top: 7px;
+							content: attr(data-time);
+						}
+
+						&::after {
+							position: absolute;
+							top: 0;
+							right: 1px;
+							left: 1px;
+							bottom: 1px;
+							border-radius: 0 0 5px 5px;
+							background: #3d3d3d;
+							content: '';
+						}
+					}
+				}
+			}
+
+			> span {
+				display: inline-block;
+				padding: 0 12px 9px 5px;
+				vertical-align: bottom;
+				font-size: 20px;
+
+				&:last-child {
+					padding-right: 0;
+				}
+			}
+		}
+
+		.mm_swiper {
+			&-inner {
+				margin: 0 105px;
+			}
+
+			.swiper-controls > button {
+				margin-top: -46px;
+				width: 105px;
+				@include mixin.font(#7e7e7e '50px/105px');
+
+				&:disabled {
+					color: #ccc;
+				}
+			}
+		}
+
+		&-item {
+			position: relative;
+
+			> a {
+				display: block;
+			}
+
+			figure {
+				height: 356px;
+				padding-left: 610px;
+
+				.mm_image-effect {
+					position: absolute;
+					top: 0;
+					left: 0;
+					border: 1px solid #e6e6e6;
+					background-color: #f8f8f8;
+
+					.image_product {
+						width: 608px;
+						height: 354px;
+					}
+				}
+
+				// 품절
+				.text_soldout {
+					position: absolute;
+					z-index: 1;
+					top: 0;
+					left: 0;
+					bottom: 0;
+					width: 610px;
+					background-color: rgba(#000, 0.2);
+					text-align: center;
+
+					b {
+						margin-top: 102px;
+						padding: 56px 0;
+						width: 294px;
+						border: 2px solid #fff;
+						@include mixin.font(#fff 500 '38px' [var.$fontFamily_latin]);
+					}
+				}
+			}
+
+			figcaption {
+				position: relative;
+				padding: 42px 29px 30px 40px;
+				width: 460px;
+				font-size: 0;
+
+				> * {
+					font-size: 17px;
+				}
+
+				.text_brand {
+					@include mixin.text-ellipsis(1);
+				}
+
+				.text_product {
+					margin-top: 7px;
+					padding-right: 41px;
+					height: 50px;
+					@include mixin.text-ellipsis(2);
+					line-height: 24px;
+				}
+
+				.text_timedeal {
+					margin: 17px 0 8px;
+				}
+
+				.text_sale {
+					display: inline-block;
+					vertical-align: 0;
+					@include mixin.font(var.$color_primary_base 300 '38px' [var.$fontFamily_latin]);
+				}
+
+				.text_price {
+					display: inline-block;
+					margin-left: 12px;
+					vertical-align: 0;
+					font-size: 38px;
+
+					strong::after {
+						font-size: 17px;
+					}
+				}
+
+				.text_purchase {
+					float: right;
+					margin: 18px 4px 0 0;
+					@include mixin.font(#7b7b7b);
+				}
+
+				.text_remaining {
+					float: right;
+					margin-top: 21px;
+					font-size: 15px;
+
+					strong {
+						@include mixin.font(700 underline);
+					}
+				}
+			}
+
+			.m__item-thumbnail {
+				position: absolute;
+				bottom: 0;
+				left: 620px;
+
+				li {
+					float: left;
+
+					&:nth-child(n+2) {
+						margin-left: 6px;
+					}
+
+					&.__thumbnail-on {
+						i {
+							border-color: #4a4a4a;
+
+							&::after {
+								display: none;
+							}
+						}
+					}
+				}
+
+				i {
+					position: relative;
+					width: 112px;
+					height: 66px;
+					border: 1px solid #a1a1a1;
+
+					&::after {
+						position: absolute;
+						top: 0;
+						right: 0;
+						bottom: 0;
+						left: 0;
+						background-color: rgba(#000, 0.3);
+						content: '';
+					}
+				}
+			}
+		}
+	}
+
+	// next 타임어택
+	&-next {
+		position: relative;
+		padding: 30px 0 0 240px;
+		border-top: 1px solid #eee;
+		height: 141px;
+		font-size: 0;
+
+		h4 {
+			position: absolute;
+			top: 29px;
+			left: 39px;
+			font-size: 22px;
+		}
+
+		.btn_more {
+			position: absolute;
+			top: 65px;
+			left: 40px;
+			padding: 0 12px;
+			height: 30px;
+			border-radius: 15px;
+			background-color: #7b7b7b;
+			@include mixin.font(#fff '13px/30px' center);
+
+			.mco_link {
+				margin-left: 7px;
+				@include mixin.font('10px/31px');
+			}
+		}
+
+		ul {
+			li {
+				float: left;
+
+				&:nth-child(n+2) {
+					margin-left: 30px;
+				}
+
+				a {
+					cursor: pointer;
+				}
+			}
+		}
+
+		figure {
+			position: relative;
+			padding: 4px 10px 0 94px;
+			width: 315px;
+			height: 80px;
+
+			.image_product {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 80px;
+				height: 80px;
+				border: 1px solid #eee;
+			}
+
+			figcaption {
+				padding-top: 23px;
+
+				.m_timedeal-timer {
+					position: absolute;
+					top: 4px;
+					vertical-align: 0;
+					font-size: 0;
+
+					dt {
+						display: inline-block;
+						vertical-align: 0;
+						font-size: 14px;
+					}
+
+					dd {
+						display: inline-block;
+						margin-left: 5px;
+						vertical-align: 0;
+						@include mixin.font(var.$color_text_base 500 '15px' [var.$fontFamily_latin]);
+
+						span {
+							padding: 0 2px;
+						}
+					}
+				}
+
+				.text_product {
+					height: 42px;
+					@include mixin.text-ellipsis(2);
+					@include mixin.font(#6a6a6a '14px/22px');
+				}
+			}
+		}
+	}
+
+	&-foot {
+		margin-top: 30px;
+
+		.btn_deal-more {
+			position: relative;
+			width: 270px;
+			height: 54px;
+			border: 1px solid #3c3c3c;
+			border-radius: 3px;
+			background-color: #fff;
+			@include mixin.font(#3c3c3c '17px/52px' left);
+
+			&:hover {
+				b:nth-child(2) {
+					width: 100%;
+				}
+			}
+
+			[class*="ico_motion-"] {
+				margin: 18px 6px 0 58px;
+			}
+
+			b {
+				overflow: hidden;
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				white-space: nowrap;
+				@include mixin.transition(width var.$time_slow);
+
+				&:nth-child(2) {
+					width: 0;
+					background-color: #3c3c3c;
+					color: #fff;
+				}
+			}
+
+			.mco_link-sm {
+				margin-left: 7px;
+				font-size: 20px;
+			}
+		}
+	}
+
+	~ section {
+		margin-top: 33px;
+
+		.m_timedeal-foot {
+			margin-top: 50px;
+
+			.ico_motion-hotdeal {
+				margin-left: 54px;
+			}
+		}
+	}
+}
+//> 타임어택 메인
+
+//< 타임어택 상세
+.m_timedeal-detail {
+	.mm_title {
+		padding-bottom: 68px;
+
+		b {
+			position: relative;
+
+			&::before {
+				position: absolute;
+				z-index: -1;
+				right: -1px;
+				bottom: -4px;
+				left: -1px;
+				height: 13px;
+				background-color: #c7efbf;
+				content: '';
+			}
+		}
+	}
+
+	.btn_time {
+		position: absolute;
+		top: 72px;
+		left: 0;
+
+		strong {
+			margin-left: 4px;
+			font-weight: 700;
+		}
+
+		i {
+			margin-right: 9px;
+			font-size: 20px;
+			@include mixin.transform(scale(-1));
+		}
+	}
+
+	.m_timedeal-item-head {
+		position: relative;
+	}
+
+	.text_state {
+		display: inline-block;
+		padding: 8px 0 0 14px;
+		width: 141px;
+		height: 40px;
+		@include mixin.linear-gradient(#181313, 59deg, #3d3d3d 120px, #fff 121px);
+		@include mixin.font(#fff '15px/24px');
+
+		&::before {
+			margin: 6px 8px 0 0;
+			width: 13px;
+			height: 13px;
+			border-radius: 100%;
+			background-color: var.$color_primary_base;
+			content: '';
+		}
+
+		&.__state-off {
+			&::before {
+				background-color: #888;
+			}
+
+			strong {
+				display: none;
+			}
+		}
+
+		strong {
+			margin-left: 4px;
+			@include mixin.font(var.$color_primary_base 700 '17px/26px' [var.$fontFamily_latin]);
+		}
+	}
+
+	.m_timedeal-timer {
+		position: absolute;
+		right: 7px;
+		bottom: 10px;
+		vertical-align: 0;
+		@include mixin.font(500 '20px' [var.$fontFamily_latin]);
+
+		b {
+			margin-right: 12px;
+			vertical-align: -1px;
+			@include mixin.font(#3d3d3d 400 '15px' [var.$fontFamily_base]);
+		}
+
+		span {
+			padding: 0 2px;
+			vertical-align: -2px;
+			font-size: 24px;
+		}
+	}
+
+	.mm_deal-list {
+		margin: -50px 0 0 -40px;
+
+		.mm_deal-item {
+			margin: 50px 0 0 40px;
+			width: 620px;
+
+			> a {
+				border: 1px solid #e6e6e6;
+			}
+
+			figcaption {
+				padding: 13px 38px 32px 23px;
+				border-top: 1px solid #e6e6e6;
+				border-width: 1px 0 0;
+
+				.text_brand {
+					font-size: 17px;
+				}
+
+				.text_product {
+					margin: 7px 0 23px;
+					padding-bottom: 0;
+					height: 50px;
+					@include mixin.text-ellipsis(2);
+					@include mixin.font('17px/24px');
+					white-space: normal;
+				}
+
+				.text_timedeal {
+					position: absolute;
+					bottom: 30px;
+				}
+
+				.text_price {
+					margin-left: 125px;
+
+					strong {
+						font-size: 30px;
+
+						&::after {
+							font-size: 17px;
+						}
+					}
+				}
+
+				.text_purchase {
+					right: 38px;
+					bottom: 36px;
+					font-size: 17px;
+				}
+
+				.text_remaining {
+					position: absolute;
+					right: 38px;
+					bottom: 36px;
+					font-size: 15px;
+
+					strong {
+						@include mixin.font(700 underline);
+					}
+				}
+			}
+		}
+	}
+
+	.mm_text-none {
+		padding: 146px 0 168px;
+		border-bottom: 0;
+	}
+
+	// NEXT 타임어택
+	&.__detail_next__ {
+		margin-top: 22px;
+
+		.text_state {
+			@include mixin.linear-gradient(#eee, 59deg, #eee 120px, #fff 121px);
+			color: var.$color_text_base;
+
+			&::before {
+				background-color: #ffba00;
+			}
+
+			&.__state-on {
+				&::before {
+					background-color: var.$color_primary_base;;
+				}
+			}
+		}
+	}
+}
+//> 타임어택 상세
+
+//< 초비상특가
+.m_specialdeal {
+	.mm_deal-item {
+		width: 630px;
+	}
+}
+//> 초비상특가
+
+//< 초특가 딜
+.m_hotdeal {
+	.mm_title {
+		padding-top: 72px;
+	}
+
+	&-category {
+		padding-bottom: 50px;
+
+		// 상단 고정시
+		&.__sticky-on {
+			.m_hotdeal-category-inner {
+				position: fixed;
+				z-index: var.$zIndex_floating;
+				top: var.$height_header_sm;
+				right: 0;
+				left: 0;
+				padding: 10px 0;
+				border-bottom: 1px solid #e6e6e6;
+				background-color: #fff;
+
+				.mm_swiper {
+					margin: 0 auto;
+					width: var.$minWidth_pc;
+
+					.swiper-slide {
+						width: auto;
+
+						a {
+							padding: 6px 21px 0 15px;
+							height: 42px;
+							font-size: 0;
+
+							&.__category-on::before {
+								border-width: 1px;
+							}
+
+							[class*="ico_cate"]:not(.ico_cate-all) {
+								margin: -5px 0 0 -4px;
+
+								&::before {
+									@include mixin.transform(scale(0.73));
+								}
+							}
+
+							.ico_cate-all {
+								width: 38px;
+								height: 28px;
+
+								&::after {
+									margin: -11px 0 0 -12px;
+									padding-left: 2px;
+									width: 24px;
+									height: 24px;
+									@include mixin.font('11px/25px');
+								}
+
+								+ b {
+									margin-left: 5px;
+								}
+							}
+
+							b {
+								display: inline-block;
+								margin-left: 2px;
+								line-height: 28px;
+							}
+						}
+					}
+
+					.swiper-controls button {
+						height: 42px;
+						line-height: 42px;
+					}
+				}
+			}
+		}
+
+		// 1depth 카테고리 슬라이드 메뉴
+		.mm_swiper {
+			&-inner {
+				padding: 0 15px;
+				margin: 0 25px;
+
+				&::before,
+				&::after {
+					position: absolute;
+					z-index: 2;
+					top: 0;
+					bottom: 0;
+					width: 15px;
+					content: '';
+				}
+
+				&::before {
+					left: 0;
+					@include mixin.linear-gradient(rgba(#fff, 0), 90deg, #fff, rgba(#fff, 0));
+				}
+
+				&::after {
+					right: 0;
+					@include mixin.linear-gradient(rgba(#fff, 0), -90deg, #fff, rgba(#fff, 0));
+				}
+			}
+
+			.swiper-slide {
+				width: 124px;
+
+				&:nth-of-type(n+2) {
+					margin-left: 6px;
+				}
+
+				a {
+					padding: 14px;
+					width: 100%;
+					height: 94px;
+					@include mixin.font(#4a4a4a center);
+
+					&::before {
+						position: absolute;
+						top: 0;
+						right: 0;
+						bottom: 0;
+						left: 0;
+						border: 1px solid #e6e6e6;
+						border-radius: 3px;
+						content: '';
+					}
+
+					&.__category-on {
+						position: relative;
+						color: var.$color_primary_base;
+
+						&::before {
+							border: 2px solid var.$color_primary_base;
+						}
+					}
+
+					b {
+						display: block;
+						@include mixin.font('15px/21px');
+					}
+				}
+			}
+
+			.swiper-controls button {
+				width: 20px;
+				height: 94px;
+				@include mixin.font('16px/92px' left);
+				@include mixin.transform(translateY(-50%));
+
+				&.btn_swiper-next {
+					text-align: right;
+				}
+			}
+		}
+	}
+}
+//> 초특가 딜
+
+
+// *---------- 팝업 ----------*
+
+
+
+// *---------- 모달 ----------*
+
+
+
+// *---------- 레이어 ----------*

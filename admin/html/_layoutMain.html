@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="format-detection" content="telephone=no, address=no, email=no">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="mobile-web-app-capable" content="yes">
+
+	<!-- 소셜태그 -->
+	<meta property="og:title" content="">
+	<meta property="og:description" content="">
+	<meta property="og:image" content="">
+	<meta property="og:url" content="">
+	<meta property="og:site_name" content="">
+	<!--// 소셜태그 -->
+
+	<title>메인 &#60; 레이아웃 - 패션플러스 Admin</title>
+
+	<!-- 공통 css -->
+	<link rel="stylesheet" href="../css/lib.css">
+	<link rel="stylesheet" href="../css/app.css">
+	<!-- <link rel="stylesheet" data-css="{ '_href': '../css/font.css' }"> -->
+
+	<!-- (D) 폴리필/라이브러리는 요청을 줄이기 위해 combind + minify를 적용해주세요. -->
+	<!-- 폴리필/라이브러리 스크립트 -->
+	<script src="../../assets/js/polyfill/babel-polyfill-7.8.7.min.js"></script>
+	<script src="../../assets/js/polyfill/dom4-2.1.5.min.js"></script>
+	<script src="../../assets/js/polyfill/fetch.umd-3.0.0.min.js"></script>
+	<script src="../../assets/js/polyfill/intersection-observer-0.8.0.min.js"></script>
+	<script src="../../assets/js/polyfill/resize-observer-1.5.1.min.js"></script>
+	<script src="../../assets/js/lib/jquery-3.5.1.min.js"></script>
+	<script src="../../assets/js/lib/lodash-4.17.15.min.js"></script>
+	<script src="../../assets/js/lib/axios-0.19.2.min.js"></script>
+	<script src="../../assets/js/lib/load-image.all-3.0.0.min.js"></script>
+	<script src="../../assets/js/lib/sortable-1.10.2.min.js"></script>
+	<script src="../../assets/js/lib/gsap-3.2.6/gsap.min.js"></script>
+	<script src="../../assets/js/lib/editor-2.21.0/trumbowyg.min.js"></script>
+	<script src="../../assets/js/lib/editor-2.21.0/plugins/colors/trumbowyg.colors.js"></script>
+	<script src="../../assets/js/lib/editor-2.21.0/plugins/fontsize/trumbowyg.fontsize.min.js"></script>
+	<script src="../../assets/js/lib/editor-2.21.0/plugins/table/trumbowyg.table.min.js"></script>
+
+	<!-- 공통 스크립트 -->
+	<script src="../js/app_common.js"></script>
+	<script src="../js/app_page-common.js"></script>
+
+	<!-- (D) 페이지 전용 스크립트는 .mm_page-content 하단에 넣어주세요. -->
+</head>
+<body>
+	<div id="mm_app" class="mm_app">
+		<!-- 스킵 -->
+		<nav class="mm_skip">
+			<ul>
+				<li><a href="#mm_body" data-href="anchor">본문바로가기</a></li>
+			</ul>
+		</nav>
+		<!-- 스킵 -->
+
+		<!-- 브라우저접속 안내배너 -->
+		<!-- (D) ie10 이하에서만 노출됩니다. -->
+		<div class="mm_access">
+			<!--[if lte ie 9]>
+			<div class="mm_access-inner">
+				<strong class="mm_ir-blind">이 브라우저에서는 현재 사이트가 정상 동작하지 않으며, 제조사에 의한 업데이트 종료로 심각한 보안 위험을 초래할 수 있습니다. 인터넷 익스플로러 업데이트 또는 크롬, 파이어폭스 브라우저를 설치해주세요</strong>
+				<a class="btn_ie" href="https://support.microsoft.com/ko-kr/help/17621/internet-explorer-downloads" data-href="{ '_type': 'link' }"><span class="mm_ir-blind">인터넷 익스플로러 업데이트</span></a>
+				<a class="btn_chrome" href="https://www.google.com/chrome/" data-href="{ '_type': 'link' }"><span class="mm_ir-blind">크롬 설치하기</span></a>
+				<a class="btn_firefox" href="https://www.mozilla.org/ko/firefox/new/" data-href="{ '_type': 'link' }"><span class="mm_ir-blind">파이어폭스 설치하기</span></a>
+				<a class="btn_edge" href="https://www.microsoft.com/ko-kr/edge" target="_blank" title="새 창 열림"><span class="mm_ir-blind">엣지 설치하기</span></a>
+			</div>
+			<![endif]-->
+		</div>
+		<script>
+			if (mm.is.ie('ie10')) {
+				var $access = mm.find('.mm_access')[0];
+				$access.innerHTML = $access.innerHTML.replace('<!-\-[if lte ie 9]>', '').replace('<![endif]-\->', '');
+			}
+		</script>
+		<!--// 브라우저접속 안내배너 -->
+
+		<!-- 화면 -->
+		<div class="mm_view">
+			<!-- 헤더 -->
+			<header class="mm_header">
+				<h1><a href="#" data-href="{ '_type': 'link' }"><span class="mm_ir-blind">패션플러스</span></a></h1>
+				<!-- 헤더 바로가기 -->
+				<div class="mm_header-quick">
+					<div class="mm_lside">
+						<ul>
+							<li><a href="_popup_passwordChange.html" data-href="{ '_type': 'popup' }" title="새 창 열림"><span>비밀번호변경</span><i class="ico_link-pw"></i></a></li>
+						</ul>
+					</div>
+					<div class="mm_rside">
+						<ul>
+							<li><p>안녕하세요. <span class="mm_text-secondary">전시관리자</span>님</p></li>
+							<li><a class="mm_btn __btn_line_lighter__" href="#" download><span>매뉴얼</span></a></li>
+							<li><button type="button" class="mm_btn __btn_line_lighter__"><b>로그아웃</b></button></li>
+						</ul>
+					</div>
+				</div>
+				<!--// 헤더 바로가기 -->
+				<!-- gnb -->
+				<div class="mm_header-gnb">
+					<nav class="mm_gnb">
+						<ul class="mm_flex __flex_auto__">
+							<li>
+								<a href="#" data-href="{ '_type': 'link' }"><span>약관관리</span></a>
+								<div class="mm_gnb-depth2">
+									<ul>
+										<li><p><a href="#" data-href="{ '_type': 'link' }"><span>약관관리</span></a></p></li>
+									</ul>
+								</div>
+							</li>
+							<li>
+								<a href="#" data-href="{ '_type': 'link' }"><span>푸시관리</span></a>
+								<div class="mm_gnb-depth2">
+									<ul>
+										<li><p><a href="#" data-href="{ '_type': 'link' }"><span>푸시관리</span></a></p></li>
+									</ul>
+								</div>
+							</li>
+							<li>
+								<a href="#" data-href="{ '_type': 'link' }"><span>딜 관리</span></a>
+								<div class="mm_gnb-depth2">
+									<ul>
+										<li><p><a href="#" data-href="{ '_type': 'link' }"><span>초특가 관리</span></a></p></li>
+										<li><p><a href="#" data-href="{ '_type': 'link' }"><span>초비상특가 관리</span></a></p></li>
+										<li><p><a href="#" data-href="{ '_type': 'link' }"><span>타임어택 관리</span></a></p></li>
+										<li><p><a href="#" data-href="{ '_type': 'link' }"><span>상품구매수 관리</span></a></p></li>
+									</ul>
+								</div>
+							</li>
+							<li>
+								<a href="#" data-href="{ '_type': 'link' }"><span>전시관리</span></a>
+								<div class="mm_gnb-depth2">
+									<ul>
+										<li>
+											<p><a href="#" data-href="{ '_type': 'link' }"><span>메인페이지 관리</span></a></p>
+											<div class="mm_gnb-depth3">
+												<ul>
+													<li><a href="#" data-href="{ '_type': 'link' }"><span>기본 검색어 관리</span></a></li>
+													<li><a href="#" data-href="{ '_type': 'link' }"><span>메인 배너 관리</span></a></li>
+													<li><a href="#" data-href="{ '_type': 'link' }"><span>띠 배너 관리</span></a></li>
+													<li><a href="#" data-href="{ '_type': 'link' }"><span>MD'S PICK 관리</span></a></li>
+													<li><a href="#" data-href="{ '_type': 'link' }"><span>인기 브랜드 관리</span></a></li>
+													<li><a href="#" data-href="{ '_type': 'link' }"><span>띠 배너 관리</span></a></li>
+													<li><a href="#" data-href="{ '_type': 'link' }"><span>추천 기획전 관리</span></a></li>
+												</ul>
+											</div>
+										</li>
+										<li>
+											<p><a href="#" data-href="{ '_type': 'link' }"><span>서브페이지 관리</span></a></p>
+											<div class="mm_gnb-depth3">
+												<ul>
+													<li><a href="#" data-href="{ '_type': 'link' }"><span>그룹몰 관리</span></a></li>
+													<li><a href="#" data-href="{ '_type': 'link' }"><span>몰 관리</span></a></li>
+													<li><a href="#" data-href="{ '_type': 'link' }"><span>신상 페이지 관리</span></a></li>
+													<li><a href="#" data-href="{ '_type': 'link' }"><span>브랜드 관리</span></a></li>
+													<li><a href="#" data-href="{ '_type': 'link' }"><span>백화점/아울렛 관리</span></a></li>
+													<li><a href="#" data-href="{ '_type': 'link' }"><span>전문몰 관리</span></a></li>
+												</ul>
+											</div>
+										</li>
+										<li><p><a href="#" data-href="{ '_type': 'link' }"><span>할부 정보 관리</span></a></p></li>
+										<li><p><a href="#" data-href="{ '_type': 'link' }"><span>코너 관리</span></a></p></li>
+										<li><p><a href="#" data-href="{ '_type': 'link' }"><span>기획전 관리</span></a></p></li>
+										<li><p><a href="#" data-href="{ '_type': 'link' }"><span>팝업 관리</span></a></p></li>
+										<li><p><a href="#" data-href="{ '_type': 'link' }"><span>2차 팝업 관리</span></a></p></li>
+										<li><p><a href="#" data-href="{ '_type': 'link' }"><span>GNB 순서 변경</span></a></p></li>
+										<li><p><a href="#" data-href="{ '_type': 'link' }"><span>앱 인트로 관리</span></a></p></li>
+									</ul>
+								</div>
+							</li>
+							<li>
+								<a href="#" data-href="{ '_type': 'link' }"><span>게시판 관리</span></a>
+								<div class="mm_gnb-depth2">
+									<ul>
+										<li><p><a href="#" data-href="{ '_type': 'link' }"><span>공지사항</span></a></p></li>
+										<li><p><a href="#" data-href="{ '_type': 'link' }"><span>자주하는 질문(FAQ)</span></a></p></li>
+									</ul>
+								</div>
+							</li>
+						</ul>
+					</nav>
+				</div>
+				<!--// gnb -->
+			</header>
+			<!--// 헤더 -->
+
+			<!-- 내용 -->
+			<div id="mm_body" class="mm_page">
+				<!-- 즐겨찾기 -->
+				<section class="mm_bookmark">
+					<div class="mm_inner">
+						<h6><i class="ico_star"></i><span>즐겨찾기</span></h6>
+						<ul>
+							<li>
+								<a href="#" data-href="{ '_type': 'link' }"><span>푸시관리</span></a>
+								<button type="button" class="btn_remove"><b class="mm_ir-blind">삭제</b><i class="ico_remove"></i></button>
+							</li>
+							<li>
+								<a href="#" data-href="{ '_type': 'link' }"><span>메인 배너 관리</span></a>
+								<button type="button" class="btn_remove"><b class="mm_ir-blind">삭제</b><i class="ico_remove"></i></button>
+							</li>
+							<li>
+								<a href="#" data-href="{ '_type': 'link' }"><span>띠 배너 관리</span></a>
+								<button type="button" class="btn_remove"><b class="mm_ir-blind">삭제</b><i class="ico_remove"></i></button>
+							</li>
+							<li>
+								<a href="#" data-href="{ '_type': 'link' }"><span>추천 기획전 관리</span></a>
+								<button type="button" class="btn_remove"><b class="mm_ir-blind">삭제</b><i class="ico_remove"></i></button>
+							</li>
+							<li>
+								<a href="#" data-href="{ '_type': 'link' }"><span>몰 관리</span></a>
+								<button type="button" class="btn_remove"><b class="mm_ir-blind">삭제</b><i class="ico_remove"></i></button>
+							</li>
+							<li>
+								<a href="#" data-href="{ '_type': 'link' }"><span>코너 관리</span></a>
+								<button type="button" class="btn_remove"><b class="mm_ir-blind">삭제</b><i class="ico_remove"></i></button>
+							</li>
+							<li>
+								<a href="#" data-href="{ '_type': 'link' }"><span>공지사항</span></a>
+								<button type="button" class="btn_remove"><b class="mm_ir-blind">삭제</b><i class="ico_remove"></i></button>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<!--// 즐겨찾기 -->
+
+				<!-- 사이드요소 -->
+				<div class="mm_sidebar">
+					<div class="mm_container">
+						<div class="mm_sidebar-rside">
+							<a class="btn_topmost" href="#mm_app" data-href="{ '_type': 'anchor' }" title="페이지 처음으로 이동"><span>TOP</span><i class="ico_topmost"></i></a>
+						</div>
+					</div>
+				</div>
+				<!--// 사이드요소 -->
+
+				<!-- 본문 -->
+				<div class="mm_page-content">
+					<!-- (D) 실제 내용을 추가하는 부분입니다. -->
+
+					<!-- 본문 내용 -->
+					<div class="mm_container">
+						<!-- 페이지제목 -->
+						<div class="mm_head">
+							<h2 class="mm_title"><span>메인 배너 관리</span></h2>
+							<div class="mm_btnbox">
+								<div class="mm_inline">
+									<button type="button" class="mm_btn btn_bookmark __btn_sm_line_round__"><i class="ico_star"></i><b>즐겨찾기 추가</b></button>
+									<a class="mm_btn btn_newtab __btn_sm_line_round__" href="#" target="_blank" title="새 창 열림"><i class="ico_newtab"></i><span>새창보기</span></a>
+								</div>
+							</div>
+						</div>
+						<!--// 페이지제목 -->
+					</div>
+					<!--// 본문 내용 -->
+
+					<!-- 현재 페이지 스크립트 -->
+					<!-- <script src="../js/.js"></script> -->
+				</div>
+				<!--// 본문 -->
+
+				<!-- 푸터 -->
+				<footer id="mm_footer" class="mm_footer">
+					<div class="mm_lside">
+						<h6><span class="mm_ir-blind">패션플러스</span></h6>
+					</div>
+					<div class="mm_rside">
+						<a class="mm_btn __btn_line_lighter__" href="#" target="_blank" title="새 창 열림"><i class="image_logo"></i><span class="mm_ir-blind">패션플러스</span><span>바로가기</span><i class="ico_link __link_sm__"></i></a>
+					</div>
+				</footer>
+				<!--// 푸터 -->
+			</div>
+			<!--// 내용 -->
+		</div>
+		<!--// 화면 -->
+	</div>
+</body>
+</html>

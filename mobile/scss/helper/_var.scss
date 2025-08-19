@@ -1,0 +1,140 @@
+@charset 'utf-8';
+
+/**
+ * 헬퍼
+ * 전역변수
+ * color: primary, secondary, tertiary, positive, negative, background, line, text, icon, tag...
+ * font-size: body, button, tag
+**/
+
+
+//< color
+$color_primary_base: #f93e4e;
+// $color_primary_light: #00caca;
+// $color_primary_lightest: #48eded;
+$color_primary_dark: #ec1b3c;
+
+$color_secondary_base: #4457a7;
+$color_secondary_light: #435cc8;
+
+$color_tertiary_base: #009d3f;
+
+$color_positive_base: $color_secondary_base;//$color_primary_base;
+$color_negative_base: #ee4f10;
+
+$color_grade_vvip: #c958c7;
+$color_grade_vip: #7942f7;
+$color_grade_gold: #fda454;
+$color_grade_friend: #67b5ec;
+$color_grade_welcome: #5cc875;
+
+$color_text_base: #101010;
+//> color
+
+//< font
+$fontFamily_mobile: 'NotoSansKR', sans-serif;
+$fontFamily_pc: 'NotoSansKR', sans-serif;// ie에서 31자 이상 적용 안됨
+$fontFamily_base: $fontFamily_mobile;
+$fontFamily_latin: 'Roboto', 'NotoSansKR', sans-serif;
+$fontFamily_password: $fontFamily_base;
+// $fontFamily_special: 'Jalnan', 'NotoSansKR', sans-serif;
+
+$fontSize_base: 10px;
+
+$fontPath: '../../assets/fonts/';// local
+// $fontPath: 'https://img.fashionplus.co.kr/ui/font/';// CDN
+//> font
+
+//< z-index
+$zIndex_bom: 3300;
+$zIndex_loading: 3200;
+$zIndex_most: 3000;
+$zIndex_skip: 3100;
+$zIndex_modal: 2100;
+$zIndex_popup: 2000;
+$zIndex_toolbar: 1100;
+$zIndex_sidebar: 1200;// 1000
+$zIndex_header: 1000;// 1200
+$zIndex_floating: 100;
+$zIndex_alert: 10;// 텍스트 경고
+//> z-index
+
+//< size
+// $minWidth_pc: 1100px;
+$minWidth_mobile: 320px;
+$minWidth_base: $minWidth_mobile;
+$minWidth_extend: $minWidth_base + 200px;// pc 좌/우 날개배너 확장
+//> size
+
+//< transition sec
+$time_base: 0.4s;
+$time_fast: 0.2s;
+$time_faster: 0.1s;
+$time_slow: 0.7s;
+$time_slower: 1s;
+//> transition sec
+
+// 1px transpatent gif
+$image_empty: 'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==';
+
+//< layout
+// gnb
+$height_gnb: 54px;
+
+// header
+$height_header_base: 51px;
+$height_header_main: 49px;
+// $height_header_extend: 57px;
+
+// footer
+$height_footer_base: 148px;
+
+// toolbar
+$height_toolbar_base: 57px;
+
+// lowbtn
+$height_lowbtn_base: 60px;
+
+// grid
+
+// sidebar
+// $width_sidebar_base: 210px;
+// $width_sidebar_min: 50px;
+
+// popup
+
+// modal
+$height_modal_header: 51px;
+
+// bom
+
+// app download
+// $height_download_base: 40px;
+//> layout
+
+//< form
+$borderColor_form_base: #cdcdcd;
+$borderRadius_form_base: 3px;
+
+// height
+$height_form_text_base: 42px;
+$height_form_text_lg: 50px;
+
+$height_form_select_base: 42px;
+$height_form_select_sm: 32px;
+
+$height_form_check_base: 23px;
+$height_form_radio_base: 23px;
+
+// font
+$fontSize_form_text_base: 15px;
+$fontSize_form_text_lg: 15px;
+
+$fontSize_form_select_base: 15px;
+$fontSize_form_select_sm: 13px;
+
+$fontSize_form_check_base: 15px;
+$fontSize_form_radio_base: 15px;
+
+$color_form_base: #101010;
+//> form

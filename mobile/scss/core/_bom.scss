@@ -1,0 +1,130 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../helper/var';
+@use '../helper/mixin';
+
+/**
+** 브라우저(시스템) 팝업
+**/
+
+
+//< 팝업 영역
+.mm_bom {
+	overflow: hidden;
+	position: fixed;
+	z-index: var.$zIndex_bom;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+
+	&-dim {
+		width: 100%;
+		height: 100%;
+		background-color: rgba(#000, 0.8);
+		@include mixin.opacity(0);
+		@include mixin.transition(opacity var.$time_fast);
+
+		// 팝업 노출
+		.__bom & {
+			@include mixin.opacity(1);
+		}
+	}
+
+	&-items {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+	}
+}
+//> 팝업 영역
+
+//< 팝업 요소
+.mm_bom-item {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	@include mixin.opacity(0, none);
+	@include mixin.transform(scale(1.2));
+	@include mixin.transition(opacity var.$time_fast, transform var.$time_fast);
+
+	// 현재창
+	&.__bom-on {
+		z-index: 1;
+		@include mixin.opacity(1, auto);
+		@include mixin.transform(scale(1));
+	}
+
+	&-inner {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 288px;
+		text-align: center;
+		@include mixin.transform(translate(-50%, -50%));
+
+		> .mm_box {
+			overflow: hidden;
+			border-radius: 3px;
+			background-color: #fff;
+		}
+	}
+
+	.mco_bom-alert {
+		position: absolute;
+		top: 25px;
+		left: 50%;
+		margin-left: -18px;
+		@include mixin.font(#e1e1e1 '32px');
+	}
+
+	&-text {
+		padding: 78px 14px 34px;
+
+		h2 {
+			margin-bottom: -2px;
+			@include mixin.font('20px/25px');
+
+			+ p {
+				margin-top: 10px;
+				padding-bottom: 3px;
+				@include mixin.font(#5c5c5c '15px/20px');
+			}
+		}
+	}
+
+	&-form {
+		margin-top: -19px;
+		padding: 0 14px 30px;
+
+		li:nth-child(n+2) {
+			margin-top: 6px;
+		}
+	}
+
+	&-btnbox {
+		ul {
+			height: 47px;
+		}
+
+		button {
+			@include mixin.font('16px/47px');
+
+			&.btn_no {
+				background-color: #cdcdcd;
+				color: #fff;
+			}
+
+			&.btn_ok {
+				background-color: var.$color_primary_base;
+				color: #fff;
+			}
+		}
+	}
+}
+//> 팝업 요소

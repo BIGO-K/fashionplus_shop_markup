@@ -1,0 +1,122 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../helper/var';
+@use '../helper/mixin';
+
+/**
+** 에러
+**/
+
+
+//< 에러
+html[class*="_error_"] {
+	.mm_view,
+	.mm_page,
+	.mm_page-content {
+		padding: 0;
+	}
+}
+
+.m_error {
+	padding: 50px 0;
+	@include mixin.font(#4a4a4a '15px/21px' center);
+
+	.image_error {
+		width: 140px;
+		height: 140px;
+		border-radius: 140px;
+		background-color: #f8f9fa;
+	}
+
+	h1 {
+		margin-top: 39px;
+		@include mixin.font(var.$color_text_base '23px/1');
+	}
+
+	p {
+		margin-top: 17px;
+	}
+
+	.text_period {
+		margin: 29px auto 0;
+		padding: 29px 0 27px;
+		width: 640px;
+		border: 1px solid #eee;
+		@include mixin.font(var.$color_text_base '15px/21px');
+
+		strong {
+			display: block;
+			color: var.$color_primary_base;
+		}
+	}
+
+	.mm_foot {
+		margin-top: 37px;
+	}
+
+	&-renewal {
+		text-align: center;
+
+		&-inner {
+			margin: 60px auto 0;
+			padding-top: 84px;
+			width: 1000px;
+			height: 500px;
+			background: url('https://img.fashionplus.co.kr/ui/pc/common/error_renewal_bg.png') no-repeat 0 0;
+			text-align: center;
+
+			h1 {
+				display: inline-block;
+				position: relative;
+				margin: 47px 0 111px;
+				width: 280px;
+				height: 44px;
+				background-color: #374688;
+				@include mixin.font(#eef068 '23px/42px');
+
+				&::before {
+					position: absolute;
+					top: -48px;
+					left: 50%;
+					margin-left: -166px;
+					width: 333px;
+					height: 209px;
+					@include mixin.background(url('https://img.fashionplus.co.kr/ui/pc/common/error_renewal_text.png') '50% 50%/contain' no-repeat);
+					content: '';
+				}
+			}
+
+			p {
+				margin-top: 27px;
+				@include mixin.font(#40529f '15px/21px');
+			}
+
+			.text_open {
+				display: inline-block;
+				margin-top: 17px;
+				width: 275px;
+				height: 44px;
+				border-radius: 22px;
+				background-color: #e5e66d;
+				@include mixin.font(#40529f 700 '17px/41px;');
+
+				span {
+					margin-left: 8px;
+				}
+			}
+		}
+	}
+}
+//> 에러
+
+
+// *---------- 팝업 ----------*
+
+
+
+// *---------- 모달 ----------*
+
+
+
+// *---------- 레이어 ----------*

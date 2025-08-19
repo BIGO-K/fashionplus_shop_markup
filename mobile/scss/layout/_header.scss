@@ -1,0 +1,331 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../helper/var';
+@use '../helper/mixin';
+
+/**
+** 헤더
+**/
+
+
+//< 헤더영역
+.mm_header {
+	position: absolute;
+	z-index: var.$zIndex_header;
+	top: 0;
+	right: 0;
+	left: 0;
+	height: var.$height_header_base;
+	background-color: #fff;
+	border-bottom: 1px solid #d5d5d5;
+	text-align: center;
+	@include mixin.transition(transform var.$time_fast);
+	@include mixin.clearfix();
+
+	// 스크롤 숨김
+	.__header-minimal &,
+	.__header-hide & {
+		border-bottom: 0;
+		@include mixin.transform(translateY(-100%));
+	}
+
+	h1 {
+		margin-top: 12px;
+		max-width: 100%;
+
+		b:not(.mm_ir-blind) {
+			display: block;
+			padding: 0 87px;
+			font-size: 17px;
+			@include mixin.text-ellipsis(1);
+		}
+
+		.btn_brand {
+			display: flex;
+			justify-content: center;
+			position: relative;
+			margin: -12px 105px 0;
+			padding-top: 12px;
+			height: var.$height_header_base;
+			font-size: 16px;
+
+			> i {
+				z-index: 1;
+				margin-top: 2px;
+				vertical-align: 0;
+				@include mixin.font(#b8b8b9 '14px/22px');
+			}
+
+			> b {
+				overflow-x: auto;
+				overflow-y: hidden;
+				padding: 0 7px 0 3px;
+				margin-left: 5px;
+				height: auto;
+				line-height: 27px;
+				white-space: nowrap;
+				text-overflow: unset;
+				scrollbar-width: none;
+
+				&::-webkit-scrollbar {
+					display: none;
+				}
+
+				&::before {
+					position: absolute;
+					top: 0;
+					left: 15px;
+					bottom: 3px;
+					width: 12px;
+					@include mixin.linear-gradient(rgba(#fff, 0), 90deg, #fff -2px, rgba(#fff, 0));
+					content: '';
+				}
+
+				&::after {
+					position: absolute;
+					top: 0;
+					right: 0;
+					bottom: 3px;
+					width: 30px;
+					@include mixin.linear-gradient(rgba(#fff, 0), -90deg, #fff -3px, rgba(#fff, 0));
+					content: '';
+				}
+			}
+		}
+
+		b.text_brand {
+			position: relative;
+			margin: 0 98px;
+			padding: 0;
+
+			span {
+				display: block;
+				overflow-x: auto;
+				overflow-y: hidden;
+				padding: 0 10px;
+				height: auto;
+				line-height: 27px;
+				text-overflow: unset;
+				white-space: nowrap;
+				scrollbar-width: none;
+
+				&::-webkit-scrollbar {
+					display: none;
+				}
+
+				&::before {
+					position: absolute;
+					top: 0;
+					left: 0;
+					bottom: 0;
+					width: 15px;
+					@include mixin.linear-gradient(rgba(#fff, 0), 90deg, #fff -3px, rgba(#fff, 0));
+					content: '';
+				}
+
+				&::after {
+					position: absolute;
+					top: 0;
+					right: 0;
+					bottom: 0;
+					width: 30px;
+					@include mixin.linear-gradient(rgba(#fff, 0), -90deg, #fff -3px, rgba(#fff, 0));
+					content: '';
+				}
+			}
+		}
+	}
+
+	.mm_lside {
+		position: absolute;
+		top: 0;
+		left: 0;
+		padding-left: 4px;
+		height: var.$height_header_base;
+		line-height: var.$height_header_base;
+
+		> * {
+			float: left;
+			position: relative;
+			padding: 0 10px;
+			height: 100%;
+		}
+
+		.btn_back {
+			@include mixin.font(var.$color_text_base '22px/50px');
+		}
+
+		.btn_home {
+			padding-top: 9px;
+
+			.image_logo-thumb {
+				width: 32px;
+				height: 32px;
+				border: 1px solid #cdcdcd;
+				border-radius: 3px;
+				@include mixin.background(url('https://img.fashionplus.co.kr/ui/mobile/common/logo_thumb.png') '50% 50%/contain' no-repeat);
+			}
+		}
+
+		// 초기화
+		.btn_filter-reset {
+			padding: 0 12px;
+			@include mixin.font(#6a6a6a '15px');
+
+			.mco_reset {
+				margin-left: 5px;
+				font-size: 14px;
+			}
+		}
+	}
+
+	.mm_rside {
+		position: absolute;
+		top: 0;
+		right: 0;
+		padding-right: 10px;
+		height: var.$height_header_base;
+		line-height: var.$height_header_base;
+
+		> * {
+			float: left;
+			position: relative;
+			margin-left: 3px;
+			padding: 0 10px;
+			height: 100%;
+		}
+
+		.mco_search {
+			@include mixin.font(#2b2b2b '19px/52px');
+		}
+
+		.mco_cart {
+			@include mixin.font(#2b2b2b '20px');
+
+			+ .text_badge {
+				position: absolute;
+				top: 11px;
+				right: 0;
+				width: 18px;
+				border-radius: 100%;
+				background-color: var.$color_primary_base;
+				@include mixin.font(#fff 500 '12px/18px' [var.$fontFamily_latin] center);
+			}
+		}
+	}
+
+	// 메인
+	html[class*="_main_"] & {
+		height: var.$height_header_main;
+		border-bottom: 0;
+
+		h1 {
+			position: absolute;
+			top: 0;
+			left: 9px;
+
+			a {
+				padding: 9px 5px;
+
+				.image_logo {
+					width: 91px;
+					height: 19px;
+					@include mixin.background(url('https://img.fashionplus.co.kr/ui/mobile/common/logo.png') '50% 50%/contain' no-repeat);
+				}
+			}
+		}
+
+		.mm_rside {
+			top: 12px;
+			padding-right: 9px;
+			height: 37px;
+			line-height: 37px;
+
+			.mco_cart+.text_badge {
+				top: 4px;
+			}
+		}
+
+		.m_main-search {
+			position: relative;
+			margin: 12px 53px 0 117px;
+			height: 37px;
+			border-radius: 3px;
+			background-color: #eee;
+			@include mixin.font(#9c9c9c '/37px' left);
+
+			.btn_keyword {
+				@include mixin.text-ellipsis(1);
+				position: absolute;
+				padding: 0 46px 0 11px;
+				width: 100%;
+				@include mixin.font('15px/37px' left);
+
+				+ a {
+					margin-right: 46px;
+
+					i {
+						margin-right: -45px;
+						pointer-events: none;
+						color: #4a4a4a;
+					}
+				}
+			}
+
+			> a:not(.btn_keyword) {
+				display: block;
+				position: relative;
+				z-index: 1;
+				@include mixin.font('19px' right);
+
+				i {
+					width: 46px;
+					text-align: center;
+				}
+			}
+		}
+	}
+
+	// 앱 설치 배너 있을시
+	html[class*="_main_"] .m_main-app-install ~ & {
+		padding-top: 50px;
+		height: var.$height_header_main + 50px;
+
+		h1 {
+			top: 50px;
+		}
+
+		.mm_lside,
+		.mm_rside {
+			top:62px;
+		}
+	}
+
+	// 검색결과
+	> .btn_search {
+		position: absolute;
+		top: 0;
+		right: 55px;
+		bottom: 0;
+		left: 35px;
+
+		b {
+			display: block;
+			@include mixin.text-ellipsis(1);
+			padding: 0 37px 0 3px;
+			height: 100%;
+			@include mixin.font(var.$color_text_base '17px/46px' left);
+		}
+
+		.mco_form-clear {
+			position: absolute;
+			top: 0;
+			right: 4px;
+			bottom: 0;
+			width: 24px;
+			@include mixin.font(#b8b8b9 '17px/50px');
+		}
+	}
+}
+//> 헤더영역

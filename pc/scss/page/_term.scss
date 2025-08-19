@@ -1,0 +1,182 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../helper/var';
+@use '../helper/mixin';
+
+/**
+** 페이지
+** 약관
+**/
+
+
+//< 약관
+.mm_terms {
+	.mm_title {
+		padding-bottom: 44px;
+	}
+
+	// 약관 내용
+	&-inner {
+		overflow-y: scroll;
+		overflow-x: hidden;
+		padding: 27px 35px 41px 20px;
+		border: 1px solid #e6e6e6;
+		height: 100%;
+		max-height: 668px;
+		@include mixin.font('13px/19px');
+
+		> p {
+			margin-bottom: 19px;
+		}
+
+		article {
+			.text_title {
+				padding-bottom: 9px;
+				@include mixin.font(700 '14px/20px');
+			}
+		}
+
+		article + article,
+		dl {
+			margin-top: 19px;
+		}
+
+		// 개인정보처리방침
+		h4 {
+			+ table {
+				margin: 4px 0 3px;
+			}
+		}
+
+		table {
+			margin: 7px 0 8px;
+			max-width: 900px;
+
+			th,
+			td {
+				padding: 6px 10px 7px;
+				border: 1px solid #d5d5d5;
+				@include mixin.font('13px/19px' left);
+			}
+
+			th {
+				background-color: #eee;
+			}
+
+			thead th {
+				text-align: center;
+			}
+
+			.btn_vendor {
+				margin: 3px 0 0 -1px;
+				width: 60px;
+				height: 24px;
+				border: 1px solid #2b2b2b;
+				border-radius: 3px;
+				@include mixin.font('13px/22px' center);
+			}
+		}
+	}
+
+	// 약관 정보
+	&-info {
+		padding-top: 20px;
+		@include mixin.clearfix();
+
+		ul {
+			float: left;
+			padding-left: 4px;
+
+			li {
+				@include mixin.font('14px/20px');
+
+				&::before {
+					margin-right: 4px;
+					content: '-';
+				}
+			}
+		}
+
+		.mm_form-select {
+			float: right;
+			margin-top: 4px;
+			width: 300px;
+		}
+	}
+
+	// 6255 이슈 - 개인정보처리방침 폰트 사이즈 변경
+	.m__terms-privacy {
+		font-size: 14px;
+
+		.text_title {
+			font-size: 15px;
+		}
+
+		table th, td {
+			font-size: 14px;
+		}
+	}
+}
+//> 약관
+
+
+// *---------- 팝업 ----------*
+
+
+// *---------- 모달 ----------*\
+//< 업체리스트
+.m_modal-termlist {
+	html[class*="_modal_"] & {
+		padding-top: 26px;
+		width: var.$width_modal_base;
+	}
+
+	// 업체리스트
+	table {
+		th,
+		td {
+			padding: 7px 14px 8px;
+			border: 1px solid #d6d6d6;
+			@include mixin.font('13px/19px' left);
+		}
+
+		th {
+			padding: 7px 0 8px;
+			background-color: #eee;
+			text-align: center;
+		}
+
+		+ .mm_pagination {
+			margin-top: 30px;
+		}
+	}
+}
+//> 업체리스트
+
+//< 약관/정책
+.m_modal-term {
+	html[class*="_modal_"] & {
+		padding: 26px 37px 40px 20px;
+		width: var.$width_modal_lg;
+	}
+
+	.mm_terms-inner {
+		overflow: inherit;
+		padding: 0;
+		max-height: none;
+		border: 0;
+
+		.btn_vendor {
+			margin: 3px 0 0 -1px;
+			width: 60px;
+			height: 24px;
+			border: 1px solid #2b2b2b;
+			border-radius: 3px;
+			@include mixin.font('13px/22px' center);
+		}
+	}
+}
+//> 약관/정책
+
+// *---------- 레이어 ----------*
